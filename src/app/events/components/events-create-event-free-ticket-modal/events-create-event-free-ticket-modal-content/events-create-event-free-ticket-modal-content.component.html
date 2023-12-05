@@ -1,0 +1,40 @@
+<ion-content [scrollEvents]="true">
+    <ion-row class="">
+        <ion-col size="12">
+
+            <ion-row class="bg-primary pv-4 ph-2">
+                <ion-col size="12" class="d-flex ion-justify-content-between">
+                    <ion-label class="font-weight-bold font-size-24px font-color-white">Create free ticket</ion-label>
+                    <ion-icon name="close-circle-outline" class="font-color-white font-size-24px bg-bmi-primary-light"
+                              (click)="closeModal({data:undefined,status:'CLOSE'})"></ion-icon>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mt-8">
+                <ion-col size="12" class="default-horizontal-padding border-bottom-grey-1 pb-5">
+                    <events-create-event-free-ticket-form
+                            [event]="event"
+                            (eventTicketCreated)="closeModal({status:'SUCCESS',data:$event});"
+
+                            #createEventFreeTicketFormComponent></events-create-event-free-ticket-form>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mt-5 mb-5 d-flex ion-justify-content-center">
+                <ion-col size="10" class="d-flex ion-justify-content-between">
+                    <ion-button
+                            class="font-color-primary bg-white border-primary br-5px"
+                            (click)="closeModal({data:undefined,status:'CLOSE'})">
+                        <ion-label class="py-4 ph-8 font-size-18px">Cancel</ion-label>
+                    </ion-button>
+                    <ion-button
+                            class="bg-primary font-color-white br-5px"
+                            (click)="createEventFreeTicketFormComponent.createEventTicket(createEventFreeTicketFormComponent.createRequestData())"
+                    >
+                        <ion-label class="py-4 ph-8 font-size-18px">Save</ion-label>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>

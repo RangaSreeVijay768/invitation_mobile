@@ -1,0 +1,24 @@
+@import "ionic/flex-utils";
+@import "ionic/css-ios-pwa-viewport";
+@import "mixins/maring-padding";
+@import "mixins/font-faces";
+@import "mixins/font-sizes";
+@import "mixins/font-colors";
+@import "mixins/background-colors";
+@import "mixins/sizes";
+@import "mixins/borders";
+@import "mixins/shadows";
+@import "mixins/border-radius";
+@import "mixins/time-picker";
+@import "mixins/buttons";
+@import "modules/core";
+@import "buttons";
+@import "modals";
+@import "core";
+@import "modules/display";
+@import "alignment";
+@import "modules/loading";
+
+@import "~@loadingio/loading-bar/dist/loading-bar.css";
+@import '@ionic/angular/css/ionic-swiper';
+

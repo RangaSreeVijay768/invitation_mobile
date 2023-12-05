@@ -1,0 +1,11 @@
+<ion-button id="datetime{{id}}" [ngClass]="styleClasses" [color]="color" [promiseBtn]="promiseBtn"
+            [fill]="fill">{{buttonText}}</ion-button>
+
+<ion-modal [keepContentsMounted]="true" trigger="datetime{{id}}">
+    <ng-template>
+        <ion-datetime id="datetime{{id}}" [presentation]="presentation||'time'" [value]="value"
+                      [ngClass]="styleClasses" [hourCycle]="'h12'"
+                      showDefaultButtons="true" size="cover" mode="ios"
+                      (ionChange)="datePickerValueReceived($event)"></ion-datetime>
+    </ng-template>
+</ion-modal>

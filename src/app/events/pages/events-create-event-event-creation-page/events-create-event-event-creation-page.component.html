@@ -1,0 +1,31 @@
+<!--<images-get-image-by-entity-id-and-image-type-no-template-->
+<!--  [entityId]="event.event_id"-->
+
+<!--  [entityType]="'EVENT_PROFILE_PIC'"-->
+<!--  #imageComponent></images-get-image-by-entity-id-and-image-type-no-template>-->
+
+
+<ion-content [scrollEvents]="true" >
+    <events-create-event-form
+            (eventCreated)="navigateToDashboardPage($event)"
+            #createEventFormComponent></events-create-event-form>
+    <ion-row
+            class="bg-white pv-4 ion-align-items-center">
+        <ion-col size="10" class="ml-8 d-flex ion-justify-content-between">
+            <ion-button
+                    class="d-flex font-weight-700 font-size-18px bg-white" fill="outline"
+                    (click)="goBack()"
+            >
+                <ion-label class="pv-3 ph-4">Cancel</ion-label>
+            </ion-button>
+
+            <ion-button class="font-weight-700 font-size-18px"
+                        (click)="createEventFormComponent.createEvent(createEventFormComponent.createRequestData())"
+            >
+                <!--            [disabled]="!createEventFormComponent.formGroup.valid"-->
+                <ion-label class="pv-3 ph-4">Add tickets</ion-label>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

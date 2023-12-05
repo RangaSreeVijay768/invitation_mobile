@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <div class="row mx-0">
+    <label class="font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">BANK NAME
+      <span class="font-poppins font-weight-500 font-size-18 text-transform-none text-red">*</span></label>
+  </div>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['bankname']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <div class="row mt-40px mx-0">
+    <label class="font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">ACCOUNT HOLDER NAME</label>
+  </div>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['name']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <div class="row mt-40px mx-0">
+    <label class="font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">ACCOUNT NUMBER</label>
+  </div>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['acc_num']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <div class="row mt-40px mx-0">
+    <label class="font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">RE-ENTER ACCOUNT NUMBER</label>
+  </div>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['reenteracc_num']"></dynamic-ionic-form-control>
+</form>

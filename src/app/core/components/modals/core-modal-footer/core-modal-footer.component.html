@@ -1,0 +1,10 @@
+<ion-footer>
+    <ion-toolbar>
+        <ion-row class="float-right">
+            <ion-button [expand]="'true'" [color]="buttonColor||'primary'" [promiseBtn]="actionPromise"
+                        [disabled]="buttonDisabled" (click)="onActionClick()">
+                {{buttonText}}
+            </ion-button>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

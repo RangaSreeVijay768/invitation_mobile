@@ -1,0 +1,12 @@
+<ion-header>
+    <ion-toolbar [color]="headerColor" class=" row-align-center ph-4 pv-2" [ngClass]="styleClasses">
+        <ion-title class="font-weight-bold">{{title}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="onCloseClicked()" fill="clear" shape="round">
+                <ion-icon name="close-circle" [ngClass]="iconClasses"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>

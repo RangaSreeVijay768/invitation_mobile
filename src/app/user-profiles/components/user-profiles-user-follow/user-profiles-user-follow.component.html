@@ -1,0 +1,21 @@
+<user-profiles-get-user-follow-by-user-account-and-follower-account-no-template
+        [followerAccount]="followerAccount" [userAccount]="userAccount"
+        (userFollowsReceived)="user_follow=$event"
+        (userFollowNotFound)="user_follow=undefined"
+        #userProfilesGetUserFlowByUserAccountAndFollowerAccountNoTemplateComponent></user-profiles-get-user-follow-by-user-account-and-follower-account-no-template>
+<user-profiles-create-user-follow
+        [followerAccount]="followerAccount"
+        (userFollowCreated)="userProfilesGetUserFlowByUserAccountAndFollowerAccountNoTemplateComponent.getUserFollowByUserAccountAndFollowerAccount(userProfilesGetUserFlowByUserAccountAndFollowerAccountNoTemplateComponent.createRequestData())"
+        #createFollow></user-profiles-create-user-follow>
+<user-profiles-delete-user-follow
+        [userFollow]="followerAccount"
+        (userFollowDeleted)="userProfilesGetUserFlowByUserAccountAndFollowerAccountNoTemplateComponent.getUserFollowByUserAccountAndFollowerAccount(userProfilesGetUserFlowByUserAccountAndFollowerAccountNoTemplateComponent.createRequestData())"
+        #deleteFollow></user-profiles-delete-user-follow>
+<ion-button (click)="createFollow.createUserFollow(createFollow.createRequestData())"
+        *ngIf="!user_follow">Follow
+</ion-button>
+<ion-button fill="clear"
+        (click)="deleteFollow.deleteUserFollow(deleteFollow.createRequestData(userProfilesGetUserFlowByUserAccountAndFollowerAccountNoTemplateComponent.user_follows.user_follow_id))"
+        [ngClass]="cssClasses"
+        *ngIf="user_follow">Following
+</ion-button>

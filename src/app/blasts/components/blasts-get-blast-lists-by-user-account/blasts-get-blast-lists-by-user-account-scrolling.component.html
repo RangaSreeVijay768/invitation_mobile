@@ -1,0 +1,93 @@
+<blasts-blasts-filter-modal
+        [filter_type]="filter_type"
+        (modalClosed)="filter_type = $event.data;blastListsGetByUserAccount.blastListType=filter_type;resetScrolling();onScroll()"
+        #massMessagingFilterModelComponent>
+</blasts-blasts-filter-modal>
+
+<blasts-get-blast-lists-by-user-account-no-template
+        (blastListsReceived)="addItems($event)"
+        [blastListType]="filter_type" [count]="numberOfItems" [blastListCreationType]="'MANUAL'" [filterBlastListName]="filterBlastListName"
+        [userAccount]="loggedAccount" [columnName]="'createdTime'" [columnOrder]="'DESC'"
+        #blastListsGetByUserAccount #component></blasts-get-blast-lists-by-user-account-no-template>
+
+<ion-row class="ph-4 mt-6 mx-0">
+    <ion-col size="12" class="d-flex ion-justify-content-between ion-align-items-center">
+
+        <ion-label class="d-inline-block font-poppins fs-10 font-weight-500 text-grey-2">GROUPS</ion-label>
+        <ion-label class="d-inline-block br-999999 border-grey-1 pa-2" (click)="massMessagingFilterModelComponent.openModal(filter_type)">
+            <ion-icon class="d-inline-block mr-2 font-color-grey-2" name="filter-outline"></ion-icon>
+            <ion-label class="font-weight-500 font-color-grey-2">Contact
+                filter
+            </ion-label>
+        </ion-label>
+    </ion-col>
+</ion-row>
+
+<ion-row class="mb-3">
+    <ion-col size="12">
+
+        <ion-row class="12"
+                 *ngFor="let blastlist of items">
+            <ion-col size="12">
+                <ion-row class="ion-justify-content-between ph-4 pv-3 rounded-2"
+                         routerLink="/signedin/userprofiles/blastdetails/{{blastlist.blast_list_id}}/contacts"
+                         routerLinkActive="bg-white">
+                    <ion-col size="2">
+                        <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                                class="mr-16px"
+                                [alt]="blastlist.blast_list_name"
+                                [entityId]="blastlist.blast_list_id"
+                                [entityType]="'BLAST_PROFILE_PIC'"
+                                [size]="40"
+                                [round]="true"
+                                #imageComponent></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                    </ion-col>
+                    <ion-col size="9">
+                        <ion-row class="fs-10 font-weight-500 font-poppins">
+                            {{blastlist.blast_list_name}}
+                            <ion-col size="12">
+                                <ion-label
+                                        class="font-weight-400 font-small font-color-grey-1">{{blastlist.blast_list_type}}
+                                    contact
+                                    type | {{blastlist.total_blast_list_items}} contacts
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col size="1">
+                        <blasts-copy-blast-list-no-template
+                                (blastListCopied)="notificationsService.success('Blast list copied');
+                                          blastListsGetByUserAccount.getBlastListsByUserAccount(blastListsGetByUserAccount.createRequestData())"
+                                [blastList]="blastlist" [appendCopyTag]="true"
+                                [copyBlastListItems]="true"
+                                #copyBlastList></blasts-copy-blast-list-no-template>
+                        <ion-icon name="copy-outline" color="primary"
+                                  (click)="copyBlastList.copyBlastList(copyBlastList.createRequestData())"
+                        ></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-col>
+
+</ion-row>
+
+<ion-row class="mx-0" *ngIf="!items.length">
+    <ion-col size="12" class="text-align-center px-0">
+        <img src="assets/images/no-promocodes.png" width="120">
+        <ion-label class="fs-11 text-grey font-weight-700 mb-10">
+            No groups
+        </ion-label>
+    </ion-col>
+</ion-row>
+
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>
+

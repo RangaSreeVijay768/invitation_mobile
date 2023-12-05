@@ -1,0 +1,22 @@
+<ion-content [scrollEvents]="true">
+  <ion-row>
+    <ion-col size="12" class="d-flex ion-justify-content-between ion-align-items-center bg-primary ph-6 pv-4">
+      <ion-label class="font-weight-bold font-size-18px font-color-white">Invite contacts to event</ion-label>
+      <ion-label>
+        <ion-icon style="background: rgba(255, 255, 255, 0.30);" (click)="closeModal({data:undefined,status:'SUCCESS'})" class="rounded-5 br-999999 pa-1 font-color-white" size="large"
+                  name="close-outline"></ion-icon>
+      </ion-label>
+    </ion-col>
+
+
+
+
+
+  </ion-row>
+      <user-profiles-blasts-invite-to-event-swiper
+              (closeModalReceived)="closeModal({data:undefined,status:'SUCCESS'})"
+              [blastList]="blastList"
+              (eventBlastStarted)="closeModal({status:'SUCCESS',data:$event})"
+      ></user-profiles-blasts-invite-to-event-swiper>
+</ion-content>
+

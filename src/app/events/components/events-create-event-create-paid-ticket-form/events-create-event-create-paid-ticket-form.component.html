@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <div class="row mx-0">
+    <label class="px-0 font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">TICKET NAME
+      <span class="font-poppins font-weight-500 font-size-18 text-transform-none text-red">*</span></label>
+  </div>
+    <dynamic-ionic-form-control [group]="formGroup"
+                               [model]="formModel"></dynamic-ionic-form-control>
+</form>

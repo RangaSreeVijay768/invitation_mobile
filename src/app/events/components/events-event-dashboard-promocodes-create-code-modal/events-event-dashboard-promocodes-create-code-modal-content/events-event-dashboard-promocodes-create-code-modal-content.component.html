@@ -1,0 +1,82 @@
+<events-create-event-promo-code-no-template
+        [event]="event"
+        #createEventPromoCodeNoTemplateComponent
+></events-create-event-promo-code-no-template>
+
+<!--<div class="row mx-0 justify-content-center overflow-y-scroll">-->
+<!--  <div class="px-0 pb-32px">-->
+<!--    <div class="bg-white px-0 rounded-4">-->
+<!--      <div class="row mx-0 modal-header modal-header&#45;&#45;sticky">-->
+<!--        <div class="d-flex bg-primary justify-content-between align-items-center brtl-20px px-24 py-20px">-->
+<!--          <span class=" font-poppins font-size-18 font-weight-500 text-white">Create paid ticket</span>-->
+<!--&lt;!&ndash;          <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"&ndash;&gt;-->
+<!--&lt;!&ndash;                     (click)="closeModal({status:'CLOSE',data:undefined})"&ndash;&gt;-->
+<!--&lt;!&ndash;                     style="background: rgba(255, 255, 255, 0.3)"></i-feather>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--      <div class="row px-0">-->
+<!--        <div class="border-bottom border-grey-2 pb-32px">-->
+<!--          <events-event-dashboard-promocodes-create-code-form-->
+<!--            (promoCodeCreated)="createEventPromoCodeNoTemplateComponent.createEventPromoCode(createEventPromoCodeNoTemplateComponent.createRequestData($event)); closeModal({status:'SUCCESS', data:$event})"-->
+<!--            #promocodesCreateCodeFormComponent></events-event-dashboard-promocodes-create-code-form>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--      <div class="row mb-120px">-->
+<!--        <div class="mt-32px d-flex justify-content-between ph-48px mb-32px">-->
+<!--          <button class="ph-40px py-16px border border-primary rounded-2 font-poppins font-size-18 font-weight-700 text-primary bg-white">-->
+<!--            Cancel-->
+<!--          </button>-->
+<!--          <button class="ph-72 py-16px border border-primary rounded-2 font-poppins font-size-18 font-weight-700 text-white bg-primary"-->
+<!--                  (click)="promocodesCreateCodeFormComponent.createPromoCode(promocodesCreateCodeFormComponent.createRequestData())">-->
+<!--            Save-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--</div>-->
+
+
+<ion-content [scrollEvents]="true">
+    <ion-row class="">
+        <ion-col size="12">
+
+            <ion-row class="bg-primary pv-4 ph-2">
+                <ion-col size="12" class="d-flex ion-justify-content-between">
+                    <ion-label class="font-weight-bold font-size-24px font-color-white">Create promo code</ion-label>
+                    <ion-icon name="close-circle-outline" class="font-color-white font-size-24px bg-bmi-primary-light"
+                              (click)="closeModal({data:undefined,status:'CLOSE'})"></ion-icon>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mt-8">
+                <ion-col size="12" class="default-horizontal-padding border-bottom-grey-1 pb-5">
+                    <events-event-dashboard-promocodes-create-code-form
+                            (promoCodeCreated)="createEventPromoCodeNoTemplateComponent.createEventPromoCode(createEventPromoCodeNoTemplateComponent.createRequestData($event)); closeModal({status:'SUCCESS', data:$event})"
+                            #promocodesCreateCodeFormComponent></events-event-dashboard-promocodes-create-code-form>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mt-5 mb-5 d-flex ion-justify-content-center">
+                <ion-col size="10" class="d-flex ion-justify-content-between">
+                    <ion-button
+                            class="font-color-primary bg-white border-primary br-5px"
+                            (click)="closeModal({data:undefined,status:'CLOSE'})">
+                        <ion-label class="py-4 ph-8 font-size-18px">Cancel</ion-label>
+                    </ion-button>
+                    <ion-button
+                            class="bg-primary font-color-white br-5px"
+                            (click)="promocodesCreateCodeFormComponent.createPromoCode(promocodesCreateCodeFormComponent.createRequestData())"
+                    >
+                        <ion-label class="py-4 ph-8 font-size-18px">Save</ion-label>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>

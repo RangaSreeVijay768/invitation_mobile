@@ -1,0 +1,62 @@
+<ion-content [scrollEvents]="true">
+    <ion-row class="ion-justify-content-center mt-30">
+        <ion-col size="12">
+            <ion-label class="font-weight-700 fs-12 text-font-color-1 ph-4">
+                Events near Seattle, US
+            </ion-label>
+            <ion-row class="d-flex gap-16px px-0 mt-6">
+                <ion-col size="12">
+
+                    <events-get-all-events-filter-pop-over
+                            (popoverClosed)="$event?.status==='SUCCESS'?event_time=$event?.data:'';print($event);all_event_filters[filter_number]=$event?.data[3];getAllEventsScrollingComponent.refreshData($event?.data[0], $event?.data[1], $event?.data[2])"
+                            #getAllEventsFilterPopOverComponent></events-get-all-events-filter-pop-over>
+
+                    <ion-row class="ph-4">
+                        <ion-col size="12" class="d-flex scrollX">
+                            <ion-button fill="clear" class="h-48px font-weight-bold font-size-14px border-grey-2 br-5px"
+                                        (click)="getAllEventsFilterPopOverComponent.presentPopover(undefined, 'THIS_WEEK'); filter_number =0">
+                                {{all_event_filters[0]}}
+                                <ion-icon name="chevron-down-outline" class="font-color-black ml-5"></ion-icon>
+                            </ion-button>
+                            <ion-button fill="clear"
+                                        class="h-48px font-weight-bold font-size-14px border-grey-2 ml-3 br-5px"
+                                        (click)="getAllEventsFilterPopOverComponent.presentPopover(undefined, 'EVENT_TYPE'); filter_number =1">
+                                {{all_event_filters[1]}}
+                                <ion-icon name="chevron-down-outline" class="ml-5 font-color-black"></ion-icon>
+                            </ion-button>
+                            <ion-button fill="clear"
+                                        class="h-48px font-weight-bold font-size-14px border-grey-2 ml-3 br-5px"
+                                        (click)="getAllEventsFilterPopOverComponent.presentPopover(undefined, 'ANY_DISTANCE'); filter_number =2">
+                                {{all_event_filters[2]}}
+                                <ion-icon name="chevron-down-outline" class="ml-5 font-color-black"></ion-icon>
+                            </ion-button>
+                            <ion-button fill="clear"
+                                        class="h-48px font-weight-bold font-size-14px border-grey-2 ml-3 br-5px"
+                                        (click)="getAllEventsFilterPopOverComponent.presentPopover(undefined, 'ANY_CATEGORY'); filter_number =3">
+                                {{all_event_filters[3]}}
+                                <ion-icon name="chevron-down-outline" class="ml-5 font-color-black"></ion-icon>
+                            </ion-button>
+                            <ion-button fill="clear" class="ml-3">
+                                Reset all filters
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-justify-content-end mt-6 mh-4">
+                        <ion-button class="h-48px"
+                                    (click)="getAllEventsFilterPopOverComponent.presentPopover(undefined, 'RELEVANCE'); filter_number =4">
+                            Sort by: {{all_event_filters[4]}}
+                            <ion-icon name="chevron-down-outline" class="ml-5"></ion-icon>
+                        </ion-button>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+    <ion-row class="mh-4">
+        <ion-col size="12">
+            <events-get-all-events-scrolling [numberOfItems]="3"
+                                             #getAllEventsScrollingComponent
+            ></events-get-all-events-scrolling>
+        </ion-col>
+    </ion-row>
+</ion-content>

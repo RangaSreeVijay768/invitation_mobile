@@ -1,0 +1,401 @@
+<!--<events-get-event-tickets-by-event-no-template-->
+<!--        [event]="eventInfo.event"-->
+<!--        (eventTicketsReceived)="eventTickets = getEventTicketsByEventNoTemplateComponent.eventTickets"-->
+<!--        #getEventTicketsByEventNoTemplateComponent></events-get-event-tickets-by-event-no-template>-->
+
+<events-get-event-promo-codes-by-event-no-template
+        [event]="eventInfo.event"
+        (eventPromoCodesReceived)="event_promo_codes = getEventPromoCodesByEventNoTemplateComponent.eventPromoCodes"
+        #getEventPromoCodesByEventNoTemplateComponent></events-get-event-promo-codes-by-event-no-template>
+
+<ion-content [scrollEvents]="true" class="bg-background-purple">
+
+    <!--<events-event-dashboard-promocodes-create-code-form-->
+    <!--#promocodesCreateCodeFormComponent></events-event-dashboard-promocodes-create-code-form>-->
+
+    <ion-row class="mt-30 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLinkActive]=""
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/creatordashboard'">
+                Dashboard
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/eventdetails'">
+                Event Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/tickettype'">
+                Ticket Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/guestdetails/allguests'">
+                Guest Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/manageguest/allguests'">
+                Manage guest list
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ma-3 pa-3 bg-white box-shadow-purple br-10px">
+        <ion-col size="12">
+
+            <ion-row class="border-bottom-grey-1 pb-4 mb-4">
+                <ion-col size="12" class="d-flex scrollX">
+                    <ion-button fill="clear" class="fs-9 font-color-grey-2 font-weight-500"
+                                [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/tickettype'">
+                        Ticket type
+                    </ion-button>
+                    <ion-button fill="clear" class="btn-event"
+                                [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/promocodes'">
+                        Promo codes
+                    </ion-button>
+                    <ion-button fill="clear" class="fs-9 font-color-grey-2 font-weight-500"
+                                [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/ticketsales'">
+                        Ticket sales
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+            <events-event-dashboard-promocodes-create-code-modal
+                    [event]="eventInfo.event"
+                    #promocodesCreateCodeModalComponent></events-event-dashboard-promocodes-create-code-modal>
+            <ion-row class="ion-justify-content-center">
+                <ion-button
+                        (click)="promocodesCreateCodeModalComponent.openModal()">
+                    <ion-label>
+                        Create a code
+                    </ion-label>
+                </ion-button>
+            </ion-row>
+        </ion-col>
+
+        <ion-col size="12">
+            <ion-row class="mt-8">
+
+                <ion-col size="12">
+                    <ion-row class="overflow-x-scroll">
+                        <ion-col size="12">
+                            <!--            column head -->
+                            <ion-row
+                                    class="flex-no-wrap  ion-align-items-center bg-purple color-grey-2 fs-7 ion-text-center pv-3 border-grey-1 br-5px">
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start bg-purple">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="pencil-outline" class="mr-2"></ion-icon>
+                                            NAME
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start bg-purple">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="code-outline" class="mr-2"></ion-icon>
+                                            CODE TYPE
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start bg-purple">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="cash-outline" class="mr-2"></ion-icon>
+                                            DISCOUNT AMOUNT
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start bg-purple">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="pie-chart-outline"
+                                                      class="mr-2"></ion-icon>
+                                            USAGE
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start bg-purple">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="clipboard-outline" class="mr-2"></ion-icon>
+                                            STATUS
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                            </ion-row>
+
+                            <!--            column data -->
+                            <ion-row
+                                    class=" flex-no-wrap ion-align-items-center font-weight-medium-bold ion-text-center font-size-16px"
+                                    *ngFor="let eventPromoCode of getEventPromoCodesByEventNoTemplateComponent.eventPromoCodes"
+                            >
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start  border-bottom-grey-1 pv-5">
+                                        <ion-label class="font-color-7F56D9">
+                                            {{eventPromoCode.promo_code.promo_code_name}}
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start border-bottom-grey-1 pv-5">
+                                        <ion-label>
+                                            {{eventPromoCode.promo_code.promo_code_type|eventsEventPromoCodeTypeToHumanReadable}}
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start border-bottom-grey-1 pv-5">
+                                        <ion-label
+                                                *ngIf="eventPromoCode.promo_code.discount_percentage">{{eventPromoCode.promo_code.discount_percentage}}
+                                            %
+                                        </ion-label>
+                                        <ion-label
+                                                *ngIf="eventPromoCode.promo_code.flat_discount">
+                                            ${{eventPromoCode.promo_code.flat_discount}}</ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start border-bottom-grey-1 pv-5">
+                                        <ion-label>
+                                            ticket type 1
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start border-bottom-grey-1 pv-5">
+                                        <ion-label>
+                                            $ 56
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                            </ion-row>
+
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+
+    <!--<div class="row">-->
+    <!--    <div class="col-12 bg-white">-->
+    <!--        &lt;!&ndash;    <div class="row ml-24px">&ndash;&gt;-->
+    <!--        &lt;!&ndash;      <div class="col-3 mb-24px py-4px d-flex justify-content-center align-items-center bg-background-purple">&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <img src="assets/images/payout.png" width="24" height="24">&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <label class="ml-8px text-grey-2 font-size-16 font-poppins">Recent purchases</label>&ndash;&gt;-->
+    <!--        &lt;!&ndash;      </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;    </div>&ndash;&gt;-->
+
+    <!--        &lt;!&ndash;                (click)="promocodesCreateCodeFormComponent.createPromoCode(promocodesCreateCodeFormComponent.createRequestData())">&ndash;&gt;-->
+    <!--        <div class="row mr-24px text-align-end pb-32px"-->
+    <!--             *ngIf="event_promo_codes"-->
+    <!--        >-->
+    <!--            <div class="px-0">-->
+    <!--                &lt;!&ndash;                <button class="btn bg-primary text-white py-12px px-24px font-poppins font-size-18 font-weight-700"&ndash;&gt;-->
+    <!--                &lt;!&ndash;                  <i-feather name="tag" class="mr-12px"></i-feather>&ndash;&gt;-->
+    <!--                &lt;!&ndash;                  Create a code&ndash;&gt;-->
+    <!--                &lt;!&ndash;                </button>&ndash;&gt;-->
+    <!--                &lt;!&ndash;                <events-event-dashboard-promocodes-create-code-modal></events-event-dashboard-promocodes-create-code-modal>&ndash;&gt;-->
+    <!--                <events-event-dashboard-promocodes-create-code-modal-->
+    <!--                        [event]="eventInfo.event"-->
+    <!--                        (closeResult)="$event.status==='SUCCESS'?getEventPromoCodesByEventNoTemplateComponent.getEventPromoCodesByEvent(getEventPromoCodesByEventNoTemplateComponent.createRequestData()):''"-->
+    <!--                        #createCode-->
+    <!--                ></events-event-dashboard-promocodes-create-code-modal>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="row row-align-center pb-24px ml-24px mr-24px">-->
+    <!--            <div class="d-flex justify-content-between bg-grey-3 py-20px ph-16px ">-->
+    <!--                <div class="col-5">-->
+    <!--                    <div class="row">-->
+    <!--                        <div class="col-6">-->
+    <!--&lt;!&ndash;                            <i-feather name="edit-2" class="text-primary mr-8px"></i-feather>&ndash;&gt;-->
+    <!--                            <label class="font-size-18 font-weight-500 font-poppins text-grey-2">NAME</label>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-6 px-0">-->
+    <!--&lt;!&ndash;                            <i-feather name="chevron-left" class="text-primary"></i-feather>&ndash;&gt;-->
+    <!--&lt;!&ndash;                            <i-feather name="chevron-right" class="text-primary"></i-feather>&ndash;&gt;-->
+    <!--                            <label class="font-size-18 font-weight-500 font-poppins text-grey-2">CODE TYPE</label>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-6">-->
+    <!--                    <div class="row">-->
+    <!--                        <div class="col-4 px-0">-->
+    <!--&lt;!&ndash;                            <i-feather name="percent" class="text-primary mr-8px"></i-feather>&ndash;&gt;-->
+    <!--                            <label class="font-size-18 font-weight-500 font-poppins text-grey-2">DISCOUNT</label>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-3 px-0">-->
+    <!--&lt;!&ndash;                            <i-feather name="pie-chart" class="text-primary mr-8px"></i-feather>&ndash;&gt;-->
+    <!--                            <label class="font-size-18 font-weight-500 font-poppins text-grey-2">USAGE</label>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-5 px-0">-->
+    <!--&lt;!&ndash;                            <i-feather name="tag" class="text-primary mr-8px"></i-feather>&ndash;&gt;-->
+    <!--                            <label class="font-size-18 font-weight-500 font-poppins text-grey-2">STATUS</label>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+
+    <!--        <div class="row mr-24px row-align-center border-bottom border-grey-1 ml-24px mr-24px "-->
+    <!--             *ngFor="let eventPromoCode of getEventPromoCodesByEventNoTemplateComponent.eventPromoCodes">-->
+    <!--            <div class="d-flex justify-content-between py-20px ph-16px">-->
+    <!--                <div class="col-5">-->
+    <!--                    <div class="row">-->
+    <!--                        <div class="col-6 text-align-start">-->
+    <!--                            <label-->
+    <!--                                    class="font-size-18 font-weight-500 font-poppins ">{{eventPromoCode.promo_code.promo_code_name}}</label>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-6">-->
+    <!--                            <label-->
+    <!--                                    class="font-size-18 font-weight-500 font-poppins">{{eventPromoCode.promo_code.promo_code_type|eventsEventPromoCodeTypeToHumanReadable}}</label>-->
+
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-6">-->
+    <!--                    <div class="row">-->
+    <!--                        <div class="col-4 ">-->
+    <!--                            <label-->
+    <!--                                    class="font-size-18 font-weight-500 font-poppins"-->
+    <!--                                    *ngIf="eventPromoCode.promo_code.discount_percentage">{{eventPromoCode.promo_code.discount_percentage}}-->
+    <!--                                %</label>-->
+    <!--                            <label-->
+    <!--                                    class="font-size-18 font-weight-500 font-poppins"-->
+    <!--                                    *ngIf="eventPromoCode.promo_code.flat_discount">${{eventPromoCode.promo_code.flat_discount}}</label>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-3 ">-->
+    <!--                            <label class="font-size-18 font-weight-500 font-poppins">{{eventPromoCode.promo_code.available_quantity}}-->
+    <!--                                /{{eventPromoCode.promo_code.total_quantity}}</label>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-5 ">-->
+    <!--                            <label-->
+    <!--                                    class="font-size-18 font-weight-500 font-poppins">{{eventPromoCode.promo_code.status|appEnumToHumanReadable}}</label>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        &lt;!&ndash;    <div class="row row-align-center border-bottom border-grey-1 ml-24px mr-24px ">&ndash;&gt;-->
+    <!--        &lt;!&ndash;      <div class="d-flex justify-content-between py-20px ph-16px">&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <div class="col-5">&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <div class="row">&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <div class="col-6">&ndash;&gt;-->
+    <!--        &lt;!&ndash;              <label class="font-size-18 font-weight-500 font-poppins text-primary">45387007652</label>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <div class="col-6">&ndash;&gt;-->
+    <!--        &lt;!&ndash;              <label class="font-size-18 font-weight-500 font-poppins">Scarlet Johnson</label>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <div class="col-6">&ndash;&gt;-->
+    <!--        &lt;!&ndash;          <div class="row">&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <div class="col-4 text-align-center">&ndash;&gt;-->
+    <!--        &lt;!&ndash;              <label class="font-size-18 font-weight-500 font-poppins">03</label>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <div class="col-3 text-align-center">&ndash;&gt;-->
+    <!--        &lt;!&ndash;              <label class="font-size-18 font-weight-500 font-poppins">$56</label>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <div class="col-5 text-align-center">&ndash;&gt;-->
+    <!--        &lt;!&ndash;              <label class="font-size-18 font-weight-500 font-poppins">13.05.2023</label>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;          </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;      </div>&ndash;&gt;-->
+    <!--        &lt;!&ndash;    </div>&ndash;&gt;-->
+    <!--    </div>-->
+    <!--</div>-->
+
+    <!--<div class="row mx-0" *ngIf="!event_promo_codes">-->
+    <!--    <div class="col-12 text-align-center px-0">-->
+    <!--        <img src="assets/images/no-promocodes.png" width="202">-->
+    <!--        <br>-->
+    <!--        <label class="font-size-18 text-font-color-1 font-weight-700 mb-56px mt-16px">-->
+    <!--            No promocodes for this event-->
+    <!--        </label>-->
+    <!--        <br>-->
+    <!--        <events-event-dashboard-promocodes-create-code-modal-->
+    <!--                [event]="eventInfo.event"-->
+
+    <!--                (closeResult)="$event.status==='SUCCESS'?getEventPromoCodesByEventNoTemplateComponent.getEventPromoCodesByEvent(getEventPromoCodesByEventNoTemplateComponent.createRequestData()):''"-->
+    <!--                #createCode-->
+    <!--        ></events-event-dashboard-promocodes-create-code-modal>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+
+</ion-content>
+
+
+<!--<div class="row ph-24px">-->
+<!--  <div class="border border-primary">-->
+<!--    <div class="row py-16px ph-24px">-->
+<!--      <div class="col-9 d-flex justify-content-between">-->
+<!--        <div>-->
+<!--          <i-feather name="edit-3" class="text-primary mr-8px"></i-feather>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">NAME</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <i-feather name="chevron-left" class="text-primary mr-8px"></i-feather>-->
+<!--          <i-feather name="chevron-right" class="text-primary mr-8px"></i-feather>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">CODE TYPE</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <i-feather name="percent" class="text-primary mr-8px"></i-feather>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">DISCOUNT</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <i-feather name="pie-chart" class="text-primary mr-8px"></i-feather>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">USAGE</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <i-feather name="clipboard" class="text-primary mr-8px"></i-feather>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">STATUS</label>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="row ph-24px">-->
+<!--  <div class="border border-primary">-->
+<!--    <div class="row py-16px ph-24px">-->
+<!--      <div class="d-flex justify-content-between">-->
+<!--        <div>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2 mr-20px">First code</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">Activates discount</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">05%</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">10/35</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2">Active</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2 mr-20px">Add ticket</label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <label class="font-size-18 font-weight-500 font-poppins text-grey-2 mr-20px">First code</label>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

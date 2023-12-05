@@ -1,0 +1,232 @@
+<events-get-events-by-created-by-no-template
+        [count]="numberOfItems" [status]="status" [startTime]="startTime" [endTime]="endTime"
+        (eventsReceived)="addItems($event)" [columnOrder]="'DESC'" [columnName]="'createdTime'"
+        #getAllEventsNoTemplateComponent #component>
+</events-get-events-by-created-by-no-template>
+
+
+<!--<div infiniteScroll [infiniteScrollDisabled]="disableScroll" [infiniteScrollDistance]="100"-->
+<!--     [infiniteScrollThrottle]="scrollThrottle" (scrolled)="onScroll()"-->
+<!--     [alwaysCallback]="true">-->
+<!--    <div *ngFor="let event of items">-->
+<!--        <events-share-event-mass-messaging-modal-->
+<!--                [event]="event"-->
+<!--                #shareEventModalComponent>-->
+<!--        </events-share-event-mass-messaging-modal>-->
+<!--        <div-->
+<!--                class="row mt-32px mx-0 d-flex justify-content-between align-items-center border-bottom border-grey-1 pb-32px mb-32px">-->
+<!--            <div class="col-9 px-0">-->
+<!--                <div class="row mx-0 justify-content-between">-->
+<!--                    <div class="col-4 pl-0 pr-24px">-->
+
+<!--                        <div>-->
+<!--                            <images-get-image-by-entity-and-type-unique-image-ngx-avatar-->
+<!--                                    class="cursor-pointer"-->
+<!--                                    [alt]="event.event_title"-->
+<!--                                    [entityId]="event.event_id"-->
+<!--                                    [entityType]="'EVENT_PROFILE_PIC'"-->
+<!--                                    [size]="200"-->
+<!--                                    [round]="true"-->
+<!--                            ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-8 px-0">-->
+<!--                        <label-->
+<!--                                class="mb-0 font-weight-500 font-size-24 text-font-color-1 font-poppins">{{event.event_title}}</label>-->
+<!--                        <br>-->
+<!--                        <label-->
+<!--                                class="d-inline-block mb-0 mt-16px pr-12px mr-12px border-end border-grey-2 font-size-16 text-grey-2 font-poppins">-->
+<!--                            <i-feather name="Calendar"></i-feather> &nbsp;<span> {{event.start_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy'}}-->
+<!--</span>-->
+<!--                        </label>-->
+<!--                        <label class="d-inline-block mb-0 font-size-16 text-grey-2 font-poppins">-->
+<!--              <span><i-feather name="Clock"></i-feather> &nbsp;{{event.start_time|appDateTimeToTimeFormat}}-->
+<!--                  - {{event.end_time|appDateTimeToTimeFormat}}</span>-->
+<!--                        </label>-->
+<!--                        <br>-->
+<!--                        <label class="d-inline-block mb-0 mt-16px font-size-16 text-grey-2 font-poppins"><span><i-feather-->
+<!--                                name="map-pin"></i-feather>&nbsp; 112, bulved street</span></label>-->
+<!--                        <br>-->
+<!--                        <label class="d-inline-block mb-0 overflow-wrap mt-16px mr-32px font-size-16 text-grey-2 font-poppins">-->
+<!--                            {{event.event_description}}-->
+<!--                        </label>-->
+<!--                        <br>-->
+
+<!--                        <events-guest-list-count-visibility [event]="event"></events-guest-list-count-visibility>-->
+<!--                        <label-->
+<!--                                class="btn p-0 d-inline-block mb-0 ml-32px font-poppins font-weight-400 font-size-16 text-grey-2"-->
+<!--                                (click)="shareEventModalComponent.openModal()" coreClickStopPropogation>-->
+<!--                            <i-feather name="Share2" class="d-inline-block text-grey-2" style="width: 20px"></i-feather>-->
+<!--                            Share-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--            &lt;!&ndash;EVENT CALL-TO-ACTION&ndash;&gt;-->
+<!--            <div class="col-3 d-flex flex-column px-0">-->
+<!--                <button-->
+<!--                        class="btn-event-rsvp d-flex justify-content-center font-size-18px font-weight-800  letter-spacing&#45;&#45;0352"-->
+<!--                        routerLink="/signedin/events/eventdashboard/{{event.event_id}}/creatordashboard">-->
+<!--                    Event Dashboard-->
+<!--                </button>-->
+<!--                <button class="btn-event-details mt-20px font-size-18 font-weight-800 letter-spacing&#45;&#45;0352 "-->
+<!--                        routerLink="/signedin/events/{{event.event_id}}/details">-->
+<!--                    See event-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <div class="mt-32px text-align-center" *ngIf="!disableScroll">&ndash;&gt;-->
+<!--&lt;!&ndash;        <button&ndash;&gt;-->
+<!--&lt;!&ndash;                class="font-poppins font-weight-800 font-size-18 rounded-1 py-12px ph-24px border-none text-white bg-background-purple font-color-9747FF"&ndash;&gt;-->
+<!--&lt;!&ndash;                (click)="onScroll()">&ndash;&gt;-->
+<!--&lt;!&ndash;            Load more events&ndash;&gt;-->
+<!--&lt;!&ndash;            <i-feather name="chevron-down" class="mr-12px font-color-9747FF vertical-align-middle"></i-feather>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--</div>-->
+
+<ion-row class="d-flex ion-justify-content-center" *ngIf="!items?.length">
+    <ion-col size="10" class="default-horizontal-padding ">
+        <img src="assets/images/no-promocodes.png" width="202">
+        <br>
+        <ion-label class="font-size-18px font-weight-700 mb-8 mt-4">
+            You don't have events here!
+        </ion-label>
+    </ion-col>
+</ion-row>
+
+<ion-row class="bb-2px-grey">
+    <ion-col size="12" class="mt-4 ph-2" *ngFor="let event_invite_and_user_event_info of items">
+
+        <events-share-event-modal
+                [event]="event_invite_and_user_event_info"
+                #shareEventModalComponent>
+        </events-share-event-modal>
+
+        <events-rsvp-free-modal
+            #rsvpFreeModalComponent></events-rsvp-free-modal>
+
+        <ion-row class="">
+
+            <ion-col size="4" class="mr-1 d-flex ion-justify-content-center ion-align-items-start">
+                <ion-row class="border-radius-4px overflow-hidden">
+                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                            [imageClasses]="'cursor-pointer br-5px'"
+                            [alt]="event_invite_and_user_event_info.event_title"
+                            [entityId]="event_invite_and_user_event_info.event_id"
+                            [entityType]="'EVENT_PROFILE_PIC'"
+                            [size]="100"
+                            [round]="false"
+                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+
+                </ion-row>
+            </ion-col>
+
+            <ion-col size="7">
+                <ion-label
+                        class="font-weight-bold fs-11">{{event_invite_and_user_event_info.event_category}}</ion-label>
+                <br>
+                <ion-label
+                        class="d-inline-block mt-2 font-weight-medium-bold fs-10 font-color-primary">
+                    Invited
+                    by {{event_invite_and_user_event_info.created_by.display_name}}</ion-label>
+                <br>
+                <ion-icon name="calendar-clear-outline" class="font-weight-bold font-color-grey-2"></ion-icon>
+                <ion-label
+                        class="d-inline-block mb-2 mt-4 fs-10 font-color-step-300 ml-2">
+                    {{event_invite_and_user_event_info.start_time|appDateFormat}}
+                </ion-label>
+                <br>
+                <ion-icon name="time-outline" class="font-weight-bold font-color-grey-2"></ion-icon>
+                <ion-label
+                        class="d-inline-block mb-2 fs-10 font-color-step-300 font-color-medium ml-2">{{event_invite_and_user_event_info.start_time|appDateTimeToTimeFormat}}
+                    -
+                    {{event_invite_and_user_event_info.end_time|appDateTimeToTimeFormat}}</ion-label>
+                <br>
+                <ion-icon name="location-outline" class="font-weight-bold font-color-grey-2"></ion-icon>
+                <ion-label class="ml-2 mt-2 d-inline-block fs-10 font-color-step-300 font-color-medium">
+                    112, bulved street
+                </ion-label>
+                <br>
+                <ion-label class="d-inline-block mt-2 mb-2 fs-10 font-color-medium font-poppins">
+                    {{event_invite_and_user_event_info.event_description}}
+                </ion-label>
+                <br>
+                <br>
+
+                <ion-row *ngIf="isPastEvent===false">
+                    <ion-col size="12" class="d-flex ion-justify-content-between">
+                        <ion-label
+                                class="d-inline-block mb-2 fs-10 font-color-medium">
+                            <ion-icon name="people-outline" class="font-weight-bold mr-1"></ion-icon>
+                            {{event_invite_and_user_event_info.event_attendees_count}}
+                            attendees
+                        </ion-label>
+
+                        <ion-label
+                                class="d-inline-block mb-2 fs-10 font-color-medium"
+                                (click)="shareEventModalComponent.openModal()">
+                            <ion-icon name="share-social-outline"></ion-icon>
+                            Share
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="mb-2 bb-2px-grey">
+            <ion-col size="12" class="mt-4">
+                <events-event-details-ticket-type-modal
+                        [event]="event_invite_and_user_event_info"
+                        #ticketTypeModalComponent></events-event-details-ticket-type-modal>
+                <!--                    <ion-button-->
+                <!--                            class="d-flex ion-justify-content-center font-size-18px font-weight-700"-->
+                <!--                            (click)="ticketTypeModalComponent.openModal()"-->
+                <!--                            *ngIf="!event_invite_and_user_event_info.user_event_info?.event_attendees?.length ">-->
+                <!--                        {{event_invite_and_user_event_info.user_event_info.event_info.event_tickets|eventsEventTicketsToButtonText}}-->
+                <!--                    </ion-button>-->
+
+                <ion-row class="ion-align-items-center ion-justify-content-center mb-5 ">
+                    <ion-col size="12" class="d-flex ion-justify-content-around">
+                        <ion-button class="mt-4 bg-white" fill="outline" size="small"
+                                    [routerLink]="'/signedin/events/'+event_invite_and_user_event_info.event_id+'/details'"
+                        >
+                            <ion-label class="pv-2">See event</ion-label>
+                        </ion-button>
+                        <ion-button
+                                size="small"
+                                class="mt-4"
+                                routerLink="/signedin/events/eventdashboard/{{event_invite_and_user_event_info.event_id}}/creatordashboard">
+                            <ion-label class="pv-2">Event dashboard</ion-label>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+
+
+    </ion-col>
+</ion-row>
+
+<ion-row class="">
+    <ion-col size="12">
+        <ion-button
+                class="font-size-18px br-2"
+                (click)="onScroll()">
+            Load more events
+            <ion-icon name="chevron-down" class="vertical-align-middle"></ion-icon>
+        </ion-button>
+    </ion-col>
+</ion-row>
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>

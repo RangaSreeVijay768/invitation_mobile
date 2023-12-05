@@ -1,0 +1,7 @@
+{
+  "name": "radianceionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

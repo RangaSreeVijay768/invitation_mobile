@@ -1,0 +1,20 @@
+<ion-row [ngClass]="rowClasses">
+    <ion-col size="12">
+        <ion-input [ngClass]="labelClasses"
+                   [class.no-time-selected]="!value"
+                   [value]=" (value | date: (displayFormat||'hh:mm a'))||defaultText||'00:00'"
+                   id="datetime{{id}}"
+                   class="font-heading font-weight-700"
+                   #dateTimeInput></ion-input>
+        <ion-modal [ngClass]="modalClasses" trigger="datetime{{id}}" [isOpen]="is_open">
+            <ng-template>
+                <ion-datetime id="datetime{{id}}" [presentation]="presentation||'time'" [value]="value"
+                              [ngClass]="styleClasses" [min]="minDate" [max]="maxDate"
+                              [hourCycle]="'h12'"
+                              showDefaultButtons="true" size="cover" mode="ios"
+                              (ionCancel)="closeModal()"
+                              (ionChange)="datePickerValueReceived($event)"></ion-datetime>
+            </ng-template>
+        </ion-modal>
+    </ion-col>
+</ion-row>

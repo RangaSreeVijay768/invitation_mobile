@@ -1,0 +1,49 @@
+
+<form [formGroup]="formGroup" #loginForm="ngForm" class="profile-form-placeholder"
+      (ngSubmit)="signUp(createRequestData())">
+    <ion-row>
+        <ion-col size="12" class="d-flex ion-justify-content-start ion-align-items-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <path d="M4 4.5H20C21.1 4.5 22 5.4 22 6.5V18.5C22 19.6 21.1 20.5 20 20.5H4C2.9 20.5 2 19.6 2 18.5V6.5C2 5.4 2.9 4.5 4 4.5Z" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 6.5L12 13.5L2 6.5" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <label class="ml-3 font-weight-500 font-normal font-color-1">
+                Email address or phone number
+            </label>
+        </ion-col>
+        <ion-col [size]="12" class="mb-8 pa-0">
+            <dynamic-ionic-form-control [group]="formGroup" [model]="formModelMap['email']"
+                                        [layout]="formLayout"
+                                        class="border-less-form pa-0"></dynamic-ionic-form-control>
+        </ion-col>
+        <ion-col size="12" class="d-flex ion-justify-content-start ion-align-items-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <path d="M20 21.5V19.5C20 18.4391 19.5786 17.4217 18.8284 16.6716C18.0783 15.9214 17.0609 15.5 16 15.5H8C6.93913 15.5 5.92172 15.9214 5.17157 16.6716C4.42143 17.4217 4 18.4391 4 19.5V21.5" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 11.5C14.2091 11.5 16 9.70914 16 7.5C16 5.29086 14.2091 3.5 12 3.5C9.79086 3.5 8 5.29086 8 7.5C8 9.70914 9.79086 11.5 12 11.5Z" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <label class="ml-3 font-weight-500 font-normal font-color-1">
+                First and last name
+            </label>
+        </ion-col>
+        <ion-col [size]="12" class="mb-8 pa-0">
+            <dynamic-ionic-form-control [group]="formGroup" [model]="formModelMap['display_name']"
+                                        [layout]="formLayout"
+                                        class="border-less-form p-0"></dynamic-ionic-form-control>
+        </ion-col>
+        <ion-col size="12" class="d-flex ion-justify-content-start ion-align-items-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <path d="M19 11.5H5C3.89543 11.5 3 12.3954 3 13.5V20.5C3 21.6046 3.89543 22.5 5 22.5H19C20.1046 22.5 21 21.6046 21 20.5V13.5C21 12.3954 20.1046 11.5 19 11.5Z" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 11.5V7.5C7 6.17392 7.52678 4.90215 8.46447 3.96447C9.40215 3.02678 10.6739 2.5 12 2.5C13.3261 2.5 14.5979 3.02678 15.5355 3.96447C16.4732 4.90215 17 6.17392 17 7.5V11.5" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <label class="ml-3 font-weight-500 font-normal font-color-1">
+                Password
+            </label>
+        </ion-col>
+        <ion-col [size]="12" class="mb-4">
+            <dynamic-ionic-form-control class="" [group]="formGroup" [model]="formModelMap['password']"
+                                        [layout]="formLayout"
+                                        class="mt-2 border-less-form"></dynamic-ionic-form-control>
+        </ion-col>
+    </ion-row>
+</form>
+

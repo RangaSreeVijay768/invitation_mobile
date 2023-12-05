@@ -1,0 +1,29 @@
+<ion-content>
+    <ion-row class="pa-8">
+            <user-profiles-blasts-add-upload-contact-modal
+                    [blastList]="blast_list"
+                    (closeResult)="$event.status==='SUCCESS'"
+            #massMessagingAddUploadContactModalComponent></user-profiles-blasts-add-upload-contact-modal>
+        <ion-col size="12" (click)="closePopover({data:$event,status:''});massMessagingAddUploadContactModalComponent.openModal()" class="d-flex ion-align-items-center">
+            <ion-icon size="large" class="d-inline-block mr-4 font-color-1" name="person-add-outline"></ion-icon>
+            <ion-label class="d-inline-block font-weight-bold font-color-1 font-size-18px">Add contacts</ion-label>
+        </ion-col>
+        <ion-col size="12" class="pv-10 d-flex ion-align-items-center">
+            <ion-icon size="large" class="d-inline-block mr-4 font-color-1" name="download-outline"></ion-icon>
+            <ion-label class="d-inline-block font-weight-bold font-color-1 font-size-18px">Download as CSV</ion-label>
+        </ion-col>
+        <blasts-get-blast-lists-by-user-account-no-template
+                [userAccount]="loggedAccount" [columnName]="'createdTime'" [columnOrder]="'DESC'"
+                #component></blasts-get-blast-lists-by-user-account-no-template>
+        <blasts-copy-blast-list-no-template
+                (blastListCopied)="notificationsService.success('Success',5);
+        component.getBlastListsByUserAccount(component.createRequestData())"
+                [blastList]="blast_list" [appendCopyTag]="true" [copyBlastListItems]="true"
+                #copyBlastList></blasts-copy-blast-list-no-template>
+        <ion-col size="12" class="d-flex ion-align-items-center" (click)="copyBlastList.copyBlastList(copyBlastList.createRequestData())"
+                 [promiseBtn]="copyBlastList.copy_blast_list_subscription$">
+            <ion-icon size="large" class="d-inline-block mr-4 font-color-1" name="copy-outline"></ion-icon>
+            <ion-label class="d-inline-block font-weight-bold font-color-1 font-size-18px">Duplicate group</ion-label>
+        </ion-col>
+    </ion-row>
+</ion-content>

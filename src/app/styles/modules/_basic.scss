@@ -1,0 +1,17 @@
+#home-intro-slider-pagination > .swiper-pagination-bullet {
+  //@extend .h-1vh;
+  //@extend .bg-medium-grey;
+  background: var(--ion-color-outline-grey) !important;
+  //@extend .w
+  width: 45px;
+  height: 5px;
+  border-radius: 5px !important;
+}
+
+#home-intro-slider-pagination > .swiper-pagination-bullet-active {
+  @extend .bg-primary;
+  background: var(--ion-color-primary) !important;
+}
+
+
+

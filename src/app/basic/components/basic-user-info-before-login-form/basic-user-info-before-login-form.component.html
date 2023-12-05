@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-label class="d-inline-block pl-4 mb-4 font-color-black font-weight-bold font-size-16px">NAME
+      <span class="font-weight-bold font-size-16px font-color-red">*</span></ion-label>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['name']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <ion-label class="d-inline-block pl-4 mv-4 font-color-black font-weight-bold font-size-16px">Email address or phone number
+    <span class="font-weight-bold font-size-16px font-color-red">*</span></ion-label>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['email']"></dynamic-ionic-form-control>
+</form>

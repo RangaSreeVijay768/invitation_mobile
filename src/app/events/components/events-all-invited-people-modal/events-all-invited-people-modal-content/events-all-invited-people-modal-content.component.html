@@ -1,0 +1,117 @@
+<events-get-event-attendees-by-event-no-template
+  [event]="event"
+  (eventAttendeesReceived)="event_attendees = getEventAttendeesByEventNoTemplateComponent.event_attendees"
+  #getEventAttendeesByEventNoTemplateComponent></events-get-event-attendees-by-event-no-template>
+<ion-content [scrollEvents]="true">
+    <ion-row class=" row-align-center">
+        <ion-col size="12" class="default-horizontal-padding mt-8 pb-6 ion-text-center ion-align-items-center d-flex ion-justify-content-between">
+            <ion-label class="font-size-24px font-weight-bold font-color-black">
+                All invited people({{event_attendees?.length}})
+            </ion-label>
+                <ion-icon (click)="closeModal({data:undefined,status:'CLOSE'})" class="rounded-5 br-999999 pa-1 bg-purple" size="large" name="close-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="12" class="border-bottom-grey-1"></ion-col>
+
+        <ion-col size="12" class="default-horizontal-padding pt-6">
+            <ion-segment [scrollable]="true"  [(ngModel)]="segment" value="">
+                <ion-segment-button   [value]="'Invited people'">
+                    <ion-label>Invited people</ion-label>
+                </ion-segment-button>
+                <ion-segment-button   [value]="'Going'">
+                    <ion-label>Going</ion-label>
+                </ion-segment-button>
+
+            </ion-segment>
+        </ion-col>
+
+        <ion-col size="12" class="default-horizontal-padding mb-5" *ngIf="segment==='Invited people'">
+            <ion-row class="pv-8 bg-white box-shadow br-5px ">
+                <ion-col size="12" class="mb-4"
+                         *ngFor="let eventInvite of eventInvites">
+                    <ion-row class="d-flex ion-align-items-center">
+                        <ion-col size="2">
+                            <events-view-event-invitee-details-modal
+                                    [event]="event" [eventInvite]="eventInvite"
+                            ></events-view-event-invitee-details-modal>
+                        </ion-col>
+                        <ion-col size="8" class="d-flex align-items-center d-inline-block">
+                            <ion-row class="pl-3 row-align-center">
+                                <ion-col size="12">
+                                    <ion-label class="font-size-14px font-color-1">{{eventInvite.display_name || eventInvite.whatsapp_number}}</ion-label>
+                                </ion-col>
+                                <ion-col size="12" class="mt-1 d-flex ion-align-items-center">
+                                    <ion-img src="assets/images/indian%20flag.png"  class="d-inline-block mr-2 flag-image-inline-small-label"></ion-img>
+                                    <ion-label class="vertical-align-top font-extra-small font-color-grey-1"> &#x2022; Invited
+                                        by {{event.created_by.display_name}} </ion-label>
+                                </ion-col>
+                            </ion-row>
+
+                        </ion-col>
+                        <ion-col size="2" class="ion-text-end">
+                            <ion-label class="vertical-align-center"
+                                       *ngIf="eventInvite.user_account?.instagram_profile_url">
+                                <a href="{{eventInvite.user_account.instagram_profile_url}}" target="_blank">
+                                    <ion-icon size="large" name="logo-instagram" class="font-color-primary"></ion-icon>
+                                </a>
+
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+
+
+                </ion-col>
+                <ion-col size="12" class="ion-text-center" *ngIf="!eventInvites">
+                    <label class="font-size-18 text-font-color-1 font-weight-700 mv-4">
+                        No invitees for this event
+                    </label>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+        <ion-col size="12" class="default-horizontal-padding mb-5" *ngIf="segment==='Going'">
+            <ion-row class="pv-8 bg-white box-shadow br-5px ">
+                <ion-col size="12" class="mb-4"
+                         *ngFor="let event_attendee of event_attendees">
+                    <ion-row class="d-flex ion-align-items-center">
+                        <ion-col size="2">
+                            <events-view-event-attendee-details-modal
+                                    [event]="event" [eventAttendee]="event_attendee"
+                            >
+                            </events-view-event-attendee-details-modal>
+                        </ion-col>
+                        <ion-col size="8" class="d-flex align-items-center d-inline-block">
+                            <ion-row class="pl-3 row-align-center d-flex ion-align-items-center">
+                                <ion-col size="12">
+                                    <ion-label class="font-size-14px font-color-1">{{event_attendee.user_account.display_name || event_attendee.user_account.whatsapp_number}}</ion-label>
+                                </ion-col>
+                                <ion-col size="12" class="mt-1 d-flex ion-align-items-center">
+                                    <ion-img src="assets/images/indian%20flag.png" class=" d-inline-block mr-2 flag-image-inline-small-label"></ion-img>
+                                    <ion-label class="vertical-align-top font-extra-small font-color-grey-1"> &#x2022; Invited
+                                        by  {{event.created_by.display_name}} </ion-label>
+                                </ion-col>
+                            </ion-row>
+
+                        </ion-col>
+                        <ion-col size="2" class="ion-text-end">
+                            <ion-label class="vertical-align-center"
+                                       *ngIf="event_attendee.user_account?.instagram_profile_url">
+                                <a href="{{event_attendee.user_account.instagram_profile_url}}" target="_blank">
+                                    <ion-icon size="large" name="logo-instagram" class="font-color-primary"></ion-icon>
+                                </a>
+
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+
+
+                </ion-col>
+                <ion-col size="12" class="ion-text-center" *ngIf="!event_attendees">
+                    <label class="font-size-18 text-font-color-1 font-weight-700 mv-4">
+                        No invitees for this event
+                    </label>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+    </ion-row>
+</ion-content>

@@ -1,0 +1,525 @@
+<events-get-order-items-count-by-event-ticket-no-template
+        (orderItemsCountByEventTicketReceived)="orderItemCount = getOrderItemsCountByEventTicketNoTemplateComponent.orderItems"
+        #getOrderItemsCountByEventTicketNoTemplateComponent>
+</events-get-order-items-count-by-event-ticket-no-template>
+
+<events-get-user-event-tickets-count-by-event-no-template
+        (userEventTicketsCountByEventReceived)="userEventTicketCount = getUserEventTicketsCountByEventComponent.userEventTickets"
+        #getUserEventTicketsCountByEventComponent></events-get-user-event-tickets-count-by-event-no-template>
+
+<events-get-user-event-tickets-by-event-no-template
+        [event]="eventInfo.event"
+        (userEventTicketsReceived)="user_event_tickets = getUserEventTicketsByEventNoTemplateComponent.user_event_tickets"
+        #getUserEventTicketsByEventNoTemplateComponent></events-get-user-event-tickets-by-event-no-template>
+
+<events-get-event-tickets-sale-sum-by-event
+        [event]="eventInfo.event"
+        (saleSumReceived)="sale_sum = getEventTicketsSaleSumByEventComponent.sale_sum"
+        #getEventTicketsSaleSumByEventComponent></events-get-event-tickets-sale-sum-by-event>
+
+<ion-content scrollEvents="true">
+
+    <ion-row class="mt-30 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+                <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLinkActive]=""
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/creatordashboard'">
+                    Dashboard
+                </ion-button>
+                <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/eventdetails'">
+                    Event Details
+                </ion-button>
+                <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/tickettype'">
+                    Ticket Details
+                </ion-button>
+                <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/guestdetails/allguests'">
+                    Guest Details
+                </ion-button>
+                <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/manageguest/allguests'">
+                    Manage guest list
+                </ion-button>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ma-3 mt-3 pa-3 bg-white box-shadow-purple">
+        <ion-col size="12">
+            <ion-row class="ion-justify-content-center">
+                <ion-label class="font-color-grey-2 pa-1 bg-purple">
+                    <ion-icon name="dollar-sign" class="mr-2"></ion-icon>
+                    Net sales
+                </ion-label>
+            </ion-row>
+            <ion-row class="mt-4 ion-justify-content-center">
+                <ion-label class="fs-15 font-weight-500">
+                    ${{orderItemCount}}
+                </ion-label>
+            </ion-row>
+            <ion-row class="mt-2 ion-justify-content-center">
+                <ion-label class="fs-8 font-weight-400 font-color-grey-2">
+                    $13,607.00 gross sales
+                </ion-label>
+            </ion-row>
+            <ion-row class="mt-5 ion-justify-content-center">
+                <ion-button
+                        fill="outline" color="primary">
+                    <ion-label class="ml-4">See detailed breakdown</ion-label>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+            </ion-row>
+        </ion-col>
+
+        <ion-row class="border-grey-1 mv-5 ion-justify-content-center">
+            <ion-col size="11"></ion-col>
+        </ion-row>
+
+        <ion-col size="12">
+            <ion-row>
+                <ion-col size="6">
+                    <ion-row class="ion-justify-content-center">
+                        <ion-label class="font-color-grey-2 pa-1 bg-purple">
+                            <ion-icon name="people-outline" class="mr-2"></ion-icon>
+                            Total ticket sold
+                        </ion-label>
+                    </ion-row>
+                    <ion-row class="mt-4 ion-justify-content-center">
+                        <ion-label class="fs-15 font-weight-500">
+                            <ion-label class="fs-18">{{userEventTicketCount}}</ion-label>
+
+                            /{{sale_sum}}
+                        </ion-label>
+                    </ion-row>
+                    <ion-row class="mt-2 ion-justify-content-center">
+                        <ion-label class="fs-8 font-weight-400 font-color-grey-2">
+                            100 paid . 02 free
+                        </ion-label>
+                    </ion-row>
+                </ion-col>
+
+                <ion-col size="6">
+                    <ion-row class="ion-justify-content-center">
+                        <ion-label class="font-color-grey-2 pa-1 bg-purple">
+                            <ion-icon name="people-outline" class="mr-2"></ion-icon>
+                            Page views
+                        </ion-label>
+                    </ion-row>
+                    <ion-row class="mt-4 ion-justify-content-center">
+                        <ion-label class="fs-15 font-weight-500">
+                            353
+                        </ion-label>
+                    </ion-row>
+                    <ion-row class="mt-2 ion-justify-content-center">
+                        <ion-label class="fs-8 font-weight-400 font-color-grey-2">
+                            20 from the website
+                        </ion-label>
+                    </ion-row>
+                </ion-col>
+
+            </ion-row>
+        </ion-col>
+
+    </ion-row>
+
+    <ion-row class="ma-3 bg-white box-shadow-purple pv-4">
+        <ion-col size="12">
+
+            <ion-row class="ion-justify-content-start">
+                <ion-label class="font-color-grey-2 pa-1 bg-purple">
+                    <ion-icon name="dollar-sign" class="mr-2"></ion-icon>
+                    Invite on
+                </ion-label>
+            </ion-row>
+
+            <ion-row
+                    class="pa-6 text-grey-2 font-poppins font-weight-500 fs-10 ">
+                <!--                    <div class="d-flex gap-16px flex-column align-items-center">-->
+                <!--                        <a href="whatsapp://send">-->
+                <!--                            <img src="/assets/images/whatsapp.png" height="70" width="70"><br>-->
+                <!--                            <label>Whatsapp</label>-->
+                <!--                        </a>-->
+                <!--                    </div>-->
+
+                <ion-col size="4">
+                    <ion-row class="gap-16px ion-align-items-center ion-text-center">
+                        <a href="mailto:test@eventreply.com" class="text-align-center">
+                            <ion-row>
+                                <img src="/assets/images/mail.png" height="70" width="70">
+                            </ion-row>
+                            <ion-row class="ion-text-center">
+                                <ion-label class="mt-2 font-weight-500 fs-9 font-color-grey-2 ">Email</ion-label>
+                            </ion-row>
+                        </a>
+
+                    </ion-row>
+                </ion-col>
+
+                <ion-col size="4">
+                    <ion-row class="gap-16px ion-align-items-center ion-text-center">
+                        <a href="tel:+23424426734" class="text-align-center">
+                            <ion-row>
+                                <img src="/assets/images/messages.png" height="70" width="70">
+                            </ion-row>
+                            <ion-row class="ion-text-center">
+                                <ion-label class="mt-2 font-weight-500 fs-9 font-color-grey-2 ">Message</ion-label>
+                            </ion-row>
+                        </a>
+
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mh-6 mt-6 ">
+
+                <ion-col size="12">
+
+                    <ion-row class="ion-justify-content-between pl-3 pv-3 pr-3 border-radius-10 border-grey-1 grey-1 ">
+                        <ion-col size="9">
+                            <ion-icon name="link" size="small"
+                                      class="font-weight-500 mr-3"></ion-icon>
+                            <ion-label class="font-weight-700 fs-11 mb-5">Event link</ion-label>
+                            <br>
+
+                            <ion-row class="content mt-4">
+                                <ion-label #inputTarget
+                                           class="font-weight-500 fs-11 font-poppins font-color-grey-1 overflow-wrap">
+                                    http://dev.eventreply.com/signedin/events/{{eventInfo.event.event_id}}/details
+                                </ion-label>
+                            </ion-row>
+                        </ion-col>
+                        <ion-col size="3"
+                                 class="pa-1 bg-background-purple h-56px mt-10 border-radius-5px d-flex ion-justify-content-center ion-align-items-center">
+                            <ion-icon name="copy" color="primary"></ion-icon>
+                            <ion-label class="font-weight-700 fs-11 font-color-7F56D9 ml-2"
+                                       ngxClipboard
+                                       [cbContent]="'https://dev.eventreply.com/signedin/events/'+eventInfo.event.event_id+'details'"
+                                       (click)="notificationsService.success('Copied')">Copy
+                            </ion-label>
+
+                        </ion-col>
+
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+    </ion-row>
+
+    <ion-row class="pa-4 ma-3 box-shadow-purple">
+        <ion-col size="12">
+            <ion-row class="ion-justify-content-start ">
+                <ion-label class="font-color-grey-2 pa-1 bg-purple">
+                    <ion-icon name="dollar-sign" class="mr-2"></ion-icon>
+                    Payout
+                </ion-label>
+            </ion-row>
+
+            <ion-row class="mv-8">
+                <ion-col size="8">
+                    <ion-row>
+                        <ion-label class="fs-15 font-weight-700">
+                            $28,360.05
+                        </ion-label>
+                    </ion-row>
+                    <ion-row>
+                        <ion-label class="fs-8 font-weight-400 font-color-grey-2">
+                            Paid
+                        </ion-label>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="4">
+                    <ion-row>
+                        <ion-label class="fs-15 font-weight-700 font-color-grey-2">
+                            $0.00
+                        </ion-label>
+                    </ion-row>
+                    <ion-row>
+                        <ion-label class="fs-8 font-weight-400 font-color-grey-2">
+                            Remaining
+                        </ion-label>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-justify-content-around">
+                <ion-button
+                        fill="outline" color="primary">
+                    <ion-label class="mr-4">Go to payout</ion-label>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="pa-4 ma-3 box-shadow-purple">
+        <ion-col size="12">
+            <ion-row class="ion-justify-content-start ">
+                <ion-label class="font-color-grey-2 pa-1 bg-purple">
+                    <ion-icon name="dollar-sign" class="mr-2"></ion-icon>
+                    Payout
+                </ion-label>
+            </ion-row>
+
+            <!--            column head -->
+            <ion-row class="mt-8 pv-5 bg-col-grey-3 color-grey-2 fs-7 ion-text-center">
+                <ion-col size="4">
+                    <ion-row class="ion-justify-content-start ">
+                        <ion-label class="font-color-grey-2 pa-1 ">
+                            <ion-icon color="primary" name="ticket-outline" class="mr-2"></ion-icon>
+                            TICKET TYPE
+                        </ion-label>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="4">
+                    <ion-row class="ion-justify-content-start ">
+                        <ion-label class="font-color-grey-2 pa-1 ">
+                            <ion-icon color="primary" name="cash-outline" class="mr-2"></ion-icon>
+                            TICKET PRICE
+                        </ion-label>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="4">
+                    <ion-row class="ion-justify-content-start ">
+                        <ion-label class="font-color-grey-2 pa-1 ">
+                            <ion-icon color="primary" name="pie-chart-outline" class="mr-2"></ion-icon>
+                            TOTAL SOLD
+                        </ion-label>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+            <!--            column data -->
+            <ion-row class="ion-text-center">
+                <ion-col size="12">
+
+                    <!--                    apply for loop on this row-->
+                    <ion-row class="border-bottom-grey-1 fs-8 font-weight-medium-bold pv-5">
+                        <ion-col size="4">
+                            Ticket type 1
+                        </ion-col>
+                        <ion-col size="4">
+                            $ 64
+                        </ion-col>
+                        <ion-col size="4">
+                            21/45
+                        </ion-col>
+
+
+                    </ion-row>
+
+
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-justify-content-around">
+                <ion-button
+                        fill="outline" color="primary">
+                    <ion-label class="mr-4">Go to payout</ion-label>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="pa-4 ma-3 box-shadow-purple" *ngIf="user_event_tickets">
+        <ion-col size="12">
+            <ion-row class="ion-justify-content-start ">
+                <ion-label class="font-color-grey-2 pa-1 bg-purple">
+                    <ion-icon name="dollar-sign" class="mr-2"></ion-icon>
+                    Recent purchases
+                </ion-label>
+            </ion-row>
+
+            <ion-row class="mt-8" *ngIf="user_event_tickets">
+
+                <ion-col size="12">
+                    <ion-row class="overflow-x-scroll">
+                        <ion-col size="12">
+                            <!--            column head -->
+                            <ion-row
+                                    class="flex-no-wrap  ion-align-items-center bg-col-grey-3 color-grey-2 fs-7 ion-text-center">
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start bg-col-grey-3">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="grid-outline" class="mr-2"></ion-icon>
+                                            PURCHASE ID
+                                        </ion-label>
+                                    </ion-row>
+
+
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+
+
+                                    <ion-row class=" ion-justify-content-start bg-col-grey-3">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="person-outline" class="mr-2"></ion-icon>
+                                            BUYER NAME
+                                        </ion-label>
+                                    </ion-row>
+
+
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+
+
+                                    <ion-row class=" ion-justify-content-start bg-col-grey-3">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="pie-chart-outline" class="mr-2"></ion-icon>
+                                            QUANTITY
+                                        </ion-label>
+                                    </ion-row>
+
+
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+
+
+                                    <ion-row class=" ion-justify-content-start bg-col-grey-3">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="calendar-clear-outline"
+                                                      class="mr-2"></ion-icon>
+                                            PURCHASE DATE
+                                        </ion-label>
+                                    </ion-row>
+
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+
+
+                                    <ion-row class=" ion-justify-content-start bg-col-grey-3">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="cash-outline" class="mr-2"></ion-icon>
+                                            PRICE
+                                        </ion-label>
+                                    </ion-row>
+
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+
+
+                                    <ion-row class=" ion-justify-content-start bg-col-grey-3">
+                                        <ion-label class="font-color-grey-2 pa-1 ">
+                                            <ion-icon color="primary" name="pie-chart-outline" class="mr-2"></ion-icon>
+                                            QUANTITY
+                                        </ion-label>
+                                    </ion-row>
+
+                                </ion-col>
+
+
+                            </ion-row>
+
+                            <!--            column data -->
+                            <ion-row
+                                    class="mb-8 flex-no-wrap  ion-align-items-center font-weight-medium-bold fs-8 ion-text-center border-bottom-grey-1 pv-5"
+                                    *ngFor="let user_event_ticket of user_event_tickets"
+                            >
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start ">
+                                        <ion-label class="font-color-7F56D9">
+                                            {{user_event_ticket.user_event_ticket_id}}
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start">
+                                        <ion-label>
+                                            {{user_event_ticket.user_account.display_name}}
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start">
+                                        <ion-label>
+                                            {{user_event_ticket.ticket_quantity}}
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start">
+                                        <ion-label>
+                                            {{user_event_ticket.event_ticket.ticket_type}}
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start">
+                                        <ion-label>
+                                            $ 53
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                                <ion-col size="5" size-lg="4">
+                                    <ion-row class=" ion-justify-content-start">
+                                        <ion-label>
+                                            {{user_event_ticket.event_ticket.created_time}}
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+                            </ion-row>
+
+
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-justify-content-around" *ngIf="user_event_tickets?.length>5">
+                <ion-button
+                        fill="outline" color="primary">
+                    <ion-label class="mr-4">See all</ion-label>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ma-3 pa-3 bg-white br-5px box-shadow-purple" *ngIf="!user_event_tickets">
+        <ion-col size="12" class="text-align-center px-0">
+            <img src="assets/images/no-promocodes.png" width="202">
+            <br>
+            <ion-label class="font-size-18 text-font-color-1 font-weight-700 mb-56px mt-16px">
+                No recent purchases for this event
+            </ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="d-flex ion-justify-content-center ion-align-items-center">
+        <ion-col size="11" class="d-flex ion-justify-content-between">
+            <button class="pv-2 ph-4 br-5px bg-primary font-color-white font-weight-700 font-size-18px" (click)="navigateToEditEvent()">
+                <ion-icon name="pencil-outline" class="pr-2"
+                ></ion-icon>
+                Edit event
+            </button>
+            <events-publish-event [event]="eventInfo.event" [eventInfo]="eventInfo"
+                                  (eventPublished)="notificationsService.success('Success',2);
+                 navigateToShareEvent(eventInfo.event.event_id)"></events-publish-event>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="12" class="ion-align-items-center ion-justify-content-center">
+            <ion-button class="" (click)="navigateToShareEvent()">
+                <ion-icon name="share"></ion-icon>
+                Share event
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

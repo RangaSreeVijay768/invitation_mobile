@@ -1,0 +1,109 @@
+<!--<ion-content [scrollEvents]="true">-->
+<!--    <ion-row class="font-poppins ion-justify-content-center mt-4">-->
+<!--        <ion-col size="12">-->
+<!--            <ion-label class="font-weight-700 fs-15 text-black ml-2">-->
+<!--                My Events-->
+<!--            </ion-label>-->
+
+<!--            &lt;!&ndash; Event-Tab-Selector&ndash;&gt;-->
+<!--            <ion-row class="mt-4 d-flex ion-justify-content-center">-->
+<!--                <ion-col size="12">-->
+<!--                    <ion-segment>-->
+<!--                        <ion-segment-button *ngFor="let option of options"-->
+<!--                                            [routerLinkActive]="'btn-event-tab-active '"-->
+<!--                                            [routerLink]="option.link">-->
+<!--                            {{option.value}}-->
+<!--                        </ion-segment-button>-->
+<!--                    </ion-segment>-->
+<!--                </ion-col>-->
+<!--            </ion-row>-->
+
+
+<!--            &lt;!&ndash;Event-Tab-Contents&ndash;&gt;-->
+<!--            <ion-row class="bg-white-transparent rounded ph-6 pt-8 mt-4">-->
+<!--                <ion-col class="bg-white-transparent rounded ph-6 pt-8 mt-4" size="12">-->
+
+<!--                    <ion-row class="d-flex ion-justify-content-between container mx-auto">-->
+<!--                        <ion-row class="d-flex ion-align-items-center ion-justify-content-evenly">-->
+<!--                            <ion-col size="12">-->
+<!--                                <ion-label class="btn-event pa-2 ml-2"-->
+<!--                                           *ngFor="let sub_option of sub_options"-->
+<!--                                           (click)="selected_sub_option=sub_option.value"-->
+<!--                                           routerLinkActive="btn-event-active bg-col-purple "-->
+<!--                                           [routerLink]="sub_option.link">{{sub_option.value}}-->
+<!--                                </ion-label>-->
+
+<!--                            </ion-col>-->
+<!--                        </ion-row>-->
+<!--                        &lt;!&ndash;    <ngb-pagination&ndash;&gt;-->
+<!--                        &lt;!&ndash;      [(page)]="page"&ndash;&gt;-->
+<!--                        &lt;!&ndash;      [pageSize]="pageSize"&ndash;&gt;-->
+<!--                        &lt;!&ndash;      [collectionSize]="collectionSize"></ngb-pagination>&ndash;&gt;-->
+<!--                    </ion-row>-->
+
+<!--                </ion-col>-->
+<!--                <ion-col size="12" class="mt-8 h-100vh" >-->
+<!--                    <ion-label>-->
+<!--                        created draft-->
+<!--                    </ion-label>-->
+<!--                    <events-get-events-by-created-by-draft-events-scrolling [status]="'CREATED'"-->
+<!--                        [numberOfItems]="10"></events-get-events-by-created-by-draft-events-scrolling>-->
+<!--                </ion-col>-->
+<!--            </ion-row>-->
+<!--        </ion-col>-->
+
+<!--    </ion-row>-->
+
+
+<!--    &lt;!&ndash;Title&ndash;&gt;-->
+
+<!--</ion-content>-->
+
+
+<ion-content [scrollEvents]="true">
+    <ion-row class="mt-30 font-poppins ion-justify-content-center mt-4 bg-background-purple">
+        <ion-col size="12">
+            <ion-label class="font-weight-700 fs-15 text-black ml-2">
+                My Events
+            </ion-label>
+
+            <!-- Event-Tab-Selector-->
+            <ion-row class="mv-4 d-flex ion-justify-content-center overflow-x-scroll">
+                <ion-col size="12">
+                    <ion-segment>
+                        <ion-segment-button *ngFor="let option of options"
+                                            [routerLinkActive]="'btn-event-tab-active '"
+                                            [routerLink]="option.link">
+                            {{option.value}}
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-col>
+            </ion-row>
+
+
+            <!--Event-Tab-Contents-->
+            <ion-row class="bg-white pt-2 ion-justify-content-center overflow-x-scroll">
+                <ion-col class="" size="11">
+
+                    <ion-segment scrollable="true">
+                        <ion-segment-button class="pa-2"
+                                            *ngFor="let sub_option of sub_options"
+                                            [routerLinkActive]="'bg-grey-3 border-radius-5px font-color-black'"
+                                            [routerLink]="sub_option.link">{{sub_option.value}}
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-col>
+
+                <ion-col size="12" class="mt-8 h-100vh">
+                    <events-get-events-by-created-by-draft-events-scrolling [status]="'CREATED'"
+                                                                            [numberOfItems]="10"></events-get-events-by-created-by-draft-events-scrolling>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+    </ion-row>
+
+
+    <!--Title-->
+
+</ion-content>

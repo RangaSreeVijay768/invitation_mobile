@@ -1,0 +1,104 @@
+
+
+<!--<div class="row mx-0 justify-content-center overflow-y-scroll">-->
+<!--  <div class="px-0 border-bottom border-grey-2 pb-32px">-->
+<!--    <div class="bg-white px-0 rounded-4">-->
+<!--      <div class="row mx-0 modal-header modal-header&#45;&#45;sticky">-->
+<!--        <div class="d-flex bg-primary justify-content-between align-items-center brtl-20px px-24 py-20px">-->
+<!--          <span class=" font-poppins font-size-18 font-weight-500 text-white">Create paid ticket</span>-->
+<!--&lt;!&ndash;          <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"&ndash;&gt;-->
+<!--&lt;!&ndash;                     (click)="closeModal()"&ndash;&gt;-->
+<!--&lt;!&ndash;                     style="background: rgba(255, 255, 255, 0.3)"></i-feather>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row mx-0">-->
+
+<!--        <div class="row mx-0 ph-24px">-->
+
+<!--          <div class="px-0 mt-32px">-->
+<!--&lt;!&ndash;            <events-create-event-ticket-and-event-ticket-sale-item-form&ndash;&gt;-->
+<!--&lt;!&ndash;              [event]="event"&ndash;&gt;-->
+<!--&lt;!&ndash;              (eventTicketCreated)="closeModal({status:'SUCCESS', data:$event});"&ndash;&gt;-->
+<!--&lt;!&ndash;              #createEventTicketAndEventTicketSaleItemFormComponent></events-create-event-ticket-and-event-ticket-sale-item-form>&ndash;&gt;-->
+<!--          </div>-->
+<!--&lt;!&ndash;          <div class="d-flex align-items-center justify-content-between px-0 mt-32px">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;              <input type="radio" name="x" class="specifyColor wh-33px font-poppins mr-12px">&ndash;&gt;-->
+<!--&lt;!&ndash;              <label class="font-weight-500 font-poppins font-size-18">Absorb fees</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;              <input type="radio" name="x" class="specifyColor wh-33px font-poppins mr-12px">&ndash;&gt;-->
+<!--&lt;!&ndash;              <label class="font-weight-500 font-poppins font-size-18">Pass along fees to buyer</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="px-0 d-flex align-items-center mt-12px">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="bg-background-purple py-4px ph-10px rounded-4">&ndash;&gt;-->
+<!--&lt;!&ndash;              <i-feather name="help-circle" class="font-poppins text-primary mr-8px"></i-feather>&ndash;&gt;-->
+<!--&lt;!&ndash;              <label class="text-primary font-size-16">what are fees?</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div&ndash;&gt;-->
+<!--&lt;!&ndash;            class="px-0 d-flex align-items-center justify-content-between border-bottom border-grey-1 py-20px bg-white mt-12px"&ndash;&gt;-->
+<!--&lt;!&ndash;          (click)="openAdvancedOptions()">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label class="font-poppins font-weight-500 font-size-18">Advanced options</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <i-feather name="chevron-down" class="font-poppins"></i-feather>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="row mx-0 mt-32px mb-32px justify-content-between ph-24px">-->
+
+<!--      <button class="col-4 border border-primary rounded-2 py-16px bg-white font-weight-700 font-poppins font-size-18 text-primary"-->
+<!--      (click)="closeModal({data:undefined,status:'CLOSE'})">-->
+<!--        Cancel-->
+<!--      </button>-->
+<!--&lt;!&ndash;      <button class="col-6 btn-color-primary rounded-2 py-16px font-weight-700 font-poppins font-size-18"&ndash;&gt;-->
+<!--&lt;!&ndash;              (click)="createEventTicketAndEventTicketSaleItemFormComponent.createEventTicketAndEventTicketSaleItem(createEventTicketAndEventTicketSaleItemFormComponent.createRequestData())"&ndash;&gt;-->
+<!--&lt;!&ndash;      >&ndash;&gt;-->
+<!--&lt;!&ndash;        Save&ndash;&gt;-->
+<!--&lt;!&ndash;      </button>&ndash;&gt;-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<ion-content [scrollEvents]="true">
+    <ion-row class="">
+        <ion-col size="12">
+
+            <ion-row class="bg-primary pv-4 ph-2">
+                <ion-col size="12" class="d-flex ion-justify-content-between">
+                    <ion-label class="font-weight-bold font-size-24px font-color-white">Create paid ticket</ion-label>
+                    <ion-icon name="close-circle-outline" class="font-color-white font-size-24px bg-bmi-primary-light"
+                              (click)="closeModal({data:undefined,status:'CLOSE'})"></ion-icon>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mt-8">
+                <ion-col size="12" class="default-horizontal-padding border-bottom-grey-1 pb-5">
+                    <events-create-event-ticket-and-event-ticket-sale-item-form
+                            [event]="event"
+                            (eventTicketCreated)="closeModal({status:'SUCCESS', data:$event});"
+                            #createEventTicketAndEventTicketSaleItemFormComponent></events-create-event-ticket-and-event-ticket-sale-item-form>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mt-5 mb-5 d-flex ion-justify-content-center">
+                <ion-col size="10" class="d-flex ion-justify-content-between">
+                    <ion-button
+                            class="font-color-primary bg-white border-primary br-5px"
+                            (click)="closeModal({data:undefined,status:'CLOSE'})">
+                        <ion-label class="py-4 ph-8 font-size-18px">Cancel</ion-label>
+                    </ion-button>
+                    <ion-button
+                            class="bg-primary font-color-white br-5px"
+                            (click)="createEventTicketAndEventTicketSaleItemFormComponent.createEventTicketAndEventTicketSaleItem(createEventTicketAndEventTicketSaleItemFormComponent.createRequestData())"
+                    >
+                        <ion-label class="py-4 ph-8 font-size-18px">Save</ion-label>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>

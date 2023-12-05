@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-row class="mt-8 mb-3">
+        <ion-col size="12" class="d-flex align-items-center">
+            <ion-label class="font-weight-bold font-size-18px text-transform-none ">Contact type</ion-label>
+            <span class="font-size-16px font-weight-bold text-transform-none font-color-red">*</span>
+        </ion-col>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                [model]="formModelMap['contact_type']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-row class="mt-8 mb-3">
+        <ion-col size="12" class="d-flex align-items-center px-0">
+            <ion-label class="font-weight-bold font-size-18px text-transform-none ">Display name</ion-label>
+            <span class="font-size-16px font-weight-bold text-transform-none font-color-red">*</span>
+        </ion-col>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                [model]="formModelMap['display_name']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-row class="mt-8 mb-3">
+        <ion-col size="12" class="d-flex align-items-center px-0">
+            <ion-label class="font-weight-bold font-size-18px text-transform-none ">Enter Phone number</ion-label>
+        </ion-col>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                [model]="formModelMap['phone_number']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-row class="mt-8 mb-3">
+        <ion-col size="12" class="d-flex align-items-center px-0">
+            <ion-label class="font-weight-bold font-size-18px text-transform-none ">Enter Email id</ion-label>
+        </ion-col>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                [model]="formModelMap['email_id']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-row class="mt-8 mb-3">
+        <ion-col size="12" class="d-flex align-items-center px-0">
+            <ion-label class="font-weight-bold font-size-18px text-transform-none ">Enter Whatsapp number</ion-label>
+        </ion-col>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                [model]="formModelMap['whatsapp_number']"></dynamic-ionic-form-control>
+</form>
+

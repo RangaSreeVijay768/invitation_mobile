@@ -1,0 +1,51 @@
+@import "colors";
+
+@mixin generateBackgroundColors($colors-array) {
+
+
+  @each $value in $colors-array {
+    .bg-#{""+$value} {
+      background: var(--ion-color-+$value);
+      --background: var(--ion-color-#{$value});
+    }
+  }
+}
+
+@mixin backgroundColor($color) {
+  background: $color;
+  --background: $color;
+}
+
+@include generateBackgroundColors($MAIN-COLORS);
+@include generateBackgroundColors($WATER-COLORS);
+@include generateBackgroundColors($STEP-COLORS);
+@include generateBackgroundColors($STEPS-COLORS);
+@include generateBackgroundColors($FITNESS-COLORS);
+@include generateBackgroundColors($HOBBY-COLORS);
+@include generateBackgroundColors($BMI-COLORS);
+@include generateBackgroundColors($BADGES-COLORS);
+@include generateBackgroundColors($CONTESTS-COLORS);
+@include generateBackgroundColors($COMMUNITY-COLORS);
+@include generateBackgroundColors($FUN-ZONE-COLORS);
+@include generateBackgroundColors($SKIN-CARE-COLORS);
+@include generateBackgroundColors($CIRCLES-COLORS);
+.bg-transparent {
+  background: transparent;
+  --background: transparent;
+}
+
+.bg-grey {
+  background-color: #C0C0C0;
+}
+
+.bg-font-color-1 {
+  background-color: #373737;
+}
+
+.bg-col-purple {
+  background-color: #FAF4FF;
+}
+
+.bg-col-grey-3 {
+  background-color: #F2F2F2;
+}

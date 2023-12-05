@@ -1,0 +1,115 @@
+<!--<events-get-event-invites-by-event-no-template-->
+<!--  [event]="eventDetails"-->
+<!--  (eventInvitesReceived)="eventInvites = getEventInvitesByEventNoTemplateComponent.eventInvites"-->
+<!--  #getEventInvitesByEventNoTemplateComponent></events-get-event-invites-by-event-no-template>-->
+<ion-content [scrollEvents]="true">
+
+  <ion-row class="mv-8 border-bottom-grey-1 pb-6">
+    <ion-col size="2.625"></ion-col>
+    <ion-col size="6.75" class="ion-text-center">
+      <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+              class="cursor-pointer d-flex justify-content-center"
+              [alt]="eventInvite.display_name"
+              [entityId]="'test'"
+              [entityType]="'USER_PROFILE_PIC'"
+              [size]="200"
+              [round]="true"
+      ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+    </ion-col>
+    <ion-col size="2.625"></ion-col>
+    <ion-col size="12" class="mt-4 default-horizontal-padding ion-justify-content-center ion-text-center d-flex ion-align-items-center">
+      <ion-label class="font-size-24px font-weight-700 font-color-black d-inline-block mr-4">{{eventInvite.display_name}}</ion-label>
+      <ion-img src="/assets/images/remove/US-flag.png" class="mr-4 d-inline-block flag-image-inline-medium-label"></ion-img>
+      <a href="{{ eventInvite.user_account?.instagram_profile_url }}" target="_blank">
+      <ion-icon size="large" name="logo-instagram" class="font-color-primary d-inline-block"
+                *ngIf="eventInvite.user_account?.instagram_profile_url"></ion-icon>
+      </a>
+    </ion-col>
+    <ion-col size="12" class="mt-4 default-horizontal-padding ion-justify-content-center ion-text-center d-flex ion-align-items-center">
+      <ion-label class="d-inline-block font-color-black">Bio:</ion-label>
+      <ion-label class="d-inline-block font-color-grey-2">{{eventInvite.user_account.user_bio}}</ion-label>
+    </ion-col>
+    <ion-col size="13" class="mt-4 default-horizontal-padding ion-justify-content-center ion-text-center d-flex ion-align-items-center">
+      <ion-img src="/assets/images/birthday-cake.png" class="d-inline-block mr-2 flag-image-inline-small-label"></ion-img>
+      <ion-label class="d-inline-block font-color-grey-2 mr-1">Birthday:</ion-label>
+      <ion-label class="d-inline-block font-color-black ">{{eventInvite.user_account.date_of_birth|appDateFormat}}</ion-label>
+    </ion-col>
+
+    <ion-col size="12" class="mt-4 default-horizontal-padding ion-justify-content-center ion-text-center d-flex ion-align-items-center">
+      <ion-icon size="large" class="d-inline-block mr-2 font-color-grey-2" name="location-outline"></ion-icon>
+      <ion-label class="d-inline-block font-color-grey-2 ">Location: </ion-label>
+      <ion-label class="d-inline-block font-color-primary ">{{eventInvite.user_account.country}}</ion-label>
+    </ion-col>
+
+  </ion-row>
+  <ion-row class="default-horizontal-padding mv-6">
+    <ion-col size="12" class="">
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label>Events attended</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">First Content</div>
+        </ion-accordion>
+        <ion-accordion value="second">
+          <ion-item slot="header" color="light">
+            <ion-label>Upcoming events</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">Second Content</div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-col>
+  </ion-row>
+
+<!--<div class="row mx-0 justify-content-center">-->
+<!--  <div class="col-12 bg-white pv-32px ph-24px border border-grey-1 rounded-3">-->
+<!--    <images-get-image-by-entity-and-type-unique-image-ngx-avatar-->
+<!--      class="cursor-pointer d-flex justify-content-center"-->
+<!--      [alt]="eventInvite.display_name"-->
+<!--      [entityId]="'test'"-->
+<!--      [entityType]="'USER_PROFILE_PIC'"-->
+<!--      [size]="200"-->
+<!--      [round]="true"-->
+<!--    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>-->
+<!--    <div class="row mx-0 mt-20px">-->
+<!--      <div class="col-12 px-0">-->
+<!--        <label class="d-inline-block vertical-align-middle mr-16px font-weight-700 font-poppins font-size-24 text-font-color-1">-->
+<!--          {{eventInvite.display_name}} Hello-->
+<!--        </label>-->
+<!--        <img src="/assets/images/remove/US-flag.png" height="30" class="d-inline-block mr-16px">-->
+<!--&lt;!&ndash;        <i-feather name="instagram" class="stroke-primary-2px"></i-feather>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="col-12 px-0 mt-20px">-->
+<!--        <img src="/assets/images/birthday-cake.png" height="24">-->
+<!--        <label class="ml-8px font-poppins font-weight-500 font-size-16 text-font-color-1">-->
+<!--          <span class="text-grey-2">Birthday: </span>October 16th-->
+<!--        </label>-->
+<!--      </div>-->
+<!--      <div class="col-12 px-0 mt-12px">-->
+<!--&lt;!&ndash;        <i-feather name="map-pin" class="stroke-grey-2-2px"></i-feather>&ndash;&gt;-->
+<!--        <label class="d-inline-block ml-10px font-poppins font-weight-500 font-size-16 text-primary">-->
+<!--          <span class="text-grey-2">Location: </span>Seattle, US-->
+<!--        </label>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row mx-0 pt-32px mt-32px border-top border-grey-1">-->
+<!--      <div class="col-6 pl-0 pr-10px">-->
+<!--        <div class="p-12px border border-2 border-primary rounded-2 cursor-pointer" >-->
+<!--          <user-profiles-user-attended-events-modal>-->
+
+<!--          </user-profiles-user-attended-events-modal>-->
+<!--&lt;!&ndash;          <i-feather name="chevron-down" class="ml-20px stroke-black-2px"></i-feather>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-6 px-0">-->
+<!--        <div class="p-12px border border-2 border-primary rounded-2 cursor-pointer">-->
+<!--          <user-profiles-user-upcoming-events-modal>-->
+
+<!--          </user-profiles-user-upcoming-events-modal>-->
+<!--&lt;!&ndash;          <i-feather name="chevron-down" class="ml-20px stroke-black-2px"></i-feather>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+</ion-content>

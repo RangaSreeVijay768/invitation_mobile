@@ -1,0 +1,56 @@
+<!--&lt;!&ndash;<ion-content [scrollEvents]="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <ion-row class="font-poppins ion-justify-content-center mt-4">&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-col size="11">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-label class="font-weight-700 fs-15 text-black">&ndash;&gt;-->
+<!--&lt;!&ndash;                My Events&ndash;&gt;-->
+<!--&lt;!&ndash;            </ion-label>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            &lt;!&ndash; Event-Tab-Selector&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-row class="mt-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                <ion-row class="d-flex ion-justify-content-center w-100-percent">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <ion-button class="btn-event-tab fs-10"&ndash;&gt;-->
+<!--&lt;!&ndash;                                size="small"&ndash;&gt;-->
+<!--&lt;!&ndash;                            *ngFor="let option of options"&ndash;&gt;-->
+<!--&lt;!&ndash;                            [routerLinkActive]="'btn-event-tab-active'"&ndash;&gt;-->
+<!--&lt;!&ndash;                            [routerLink]="option.link">{{option.value}}&ndash;&gt;-->
+<!--&lt;!&ndash;                    </ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;                </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ion-row>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            &lt;!&ndash;Event-Tab-Contents&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-row class="bg-white-transparent rounded ph-6 pt-8 mt-10">&ndash;&gt;-->
+<!--&lt;!&ndash;                <ion-router-outlet></ion-router-outlet>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;Title&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;</ion-content>&ndash;&gt;-->
+
+<!--<ion-row class="font-poppins justify-content-center mt-56px">-->
+<!--    <ion-col size="9" >-->
+<!--        <ion-label class="font-weight-700 font-size-32 text-black">-->
+<!--            My Events-->
+<!--        </ion-label>-->
+
+<!--        &lt;!&ndash; Event-Tab-Selector&ndash;&gt;-->
+<!--        <ion-row class="mt-10">-->
+<!--            <ion-col class="d-flex gap-32">-->
+<!--                <button class="btn-event-tab"-->
+<!--                        *ngFor="let option of options"-->
+<!--                        [routerLinkActive]="'btn-event-tab-active'"-->
+<!--                        [routerLink]="option.link">{{option.value}}-->
+<!--                </button>-->
+<!--            </ion-col>-->
+<!--        </ion-row>-->
+
+<!--        &lt;!&ndash;Event-Tab-Contents&ndash;&gt;-->
+<!--        <ion-col class="mt-10">-->
+<!--            <ion-router-outlet></ion-router-outlet>-->
+<!--        </ion-col>-->
+<!--    </ion-col>-->
+<!--    &lt;!&ndash;Title&ndash;&gt;-->
+
+<!--</ion-row>-->
+<ion-router-outlet></ion-router-outlet>

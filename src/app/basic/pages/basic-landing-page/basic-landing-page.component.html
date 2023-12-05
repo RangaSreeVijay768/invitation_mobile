@@ -1,0 +1,633 @@
+<!--&lt;!&ndash;<events-get-all-event-categories></events-get-all-event-categories>&ndash;&gt;-->
+<!--<nav class="bg-white box-shadow position-sticky fixed-top">-->
+<!--    <div class="row mx-5 justify-content-center row-align-center p-5">-->
+<!--        <div class="col-2 px-0 mr-auto ">-->
+<!--            <img src="./assets/images/event-reply%20logo.png" alt="Event reply logo">-->
+<!--        </div>-->
+
+<!--        <div-->
+<!--                class="align-middle border-1 border border-grey-2 rounded-2 pr-24px pl-28px py-12px d-flex col-4 d-flex align-items-center">-->
+<!--            <i-feather name="map-pin" class="mr-12px text-primary vertical-align-middle"></i-feather>-->
+<!--            <label class=" text-grey-2 font-poppins font font-weight-500 align-items-center">Search city</label>-->
+<!--            <i-feather name="chevron-down" class="mr-24px text-font-color-1"></i-feather>-->
+<!--            <label class="border-start border-grey-1 d-inline-block h-37"></label>-->
+<!--            <i-feather name="search" class="ml-24px mr-12px text-grey-2"></i-feather>-->
+<!--            &lt;!&ndash;                <label class="d-inline-block mb-0 text-grey-2 font-poppins font-weight-500">Search events</label>&ndash;&gt;-->
+<!--            <div class="d-inline-block mb-0 text-grey-2 font-poppins font-weight-500 col-3">-->
+<!--                <events-search-event-infos-auto-complete-form-control></events-search-event-infos-auto-complete-form-control>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--        <div class="col-5 px-0 text-align-end ">-->
+<!--            <button class="btn btn-outline-primary font-size-18 font-poppins font-weight-700 py-12px ph-24px mr-32px"-->
+<!--                    routerLink="/basic/login"-->
+<!--            >-->
+<!--                Log In-->
+<!--            </button>-->
+<!--            <button class="btn btn-primary font-poppins font-weight-700 font-size-18 py-12px ph-24px"-->
+<!--                    routerLink="/basic/signup"-->
+<!--            >-->
+<!--                Sign up-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<!--&lt;!&ndash;Hero Section&ndash;&gt;-->
+<!--<div class="bg-background-purple row mx-0 justify-content-center">-->
+<!--    <div class="col-5 pl-0 pr-32px mt-80px mb-38px">-->
+<!--        <label class="  font-playfair-display font-weight-700 font-size-46 text-font-color-1">-->
+<!--            Your ultimate platform for creating and managing amazing events.-->
+<!--        </label>-->
+<!--        <br>-->
+<!--        <label class="font-poppins font-weight-500 font-size-18 text-grey-2 mt-20px">-->
+<!--            Manage and grow your community with ease. Every aspect of eventreply is designed to make spreading the word a-->
+<!--            breeze. Sign up today to host an intimate or large-scale gathering and bring your event to life.-->
+<!--        </label>-->
+<!--        <br>-->
+<!--        <button class=" mt-20px event  ">Create an event for free</button>-->
+<!--    </div>-->
+<!--    <div class="col-5 pr-0 pl-32px text-align-end">-->
+<!--        <div class='wrapper'>-->
+<!--            <div class='carousel'>-->
+<!--                <div class='carousel__item'>-->
+<!--                    &lt;!&ndash;          <div class='carousel__item-head'>&ndash;&gt;-->
+<!--                    &lt;!&ndash;            🐳&ndash;&gt;-->
+<!--                    &lt;!&ndash;          </div>&ndash;&gt;-->
+<!--                    &lt;!&ndash;          <div class='carousel__item-body'>&ndash;&gt;-->
+<!--                    &lt;!&ndash;            <p class='title'>spouting whale</p>&ndash;&gt;-->
+<!--                    &lt;!&ndash;            <p>Unicode: U+1F433</p>&ndash;&gt;-->
+<!--                    &lt;!&ndash;          </div>&ndash;&gt;-->
+<!--                    <div class="carousel__item-body">-->
+<!--                        <img src="/assets/images/landing-page-carousel-1.png" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🐋-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>whale</p>-->
+<!--                        <p>Unicode: U+1F40B</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🐬-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>dolphin</p>-->
+<!--                        <p>Unicode: U+1F42C</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🐟-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>fish</p>-->
+<!--                        <p>Unicode: U+1F41F</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🐠-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>tropical fish</p>-->
+<!--                        <p>Unicode: U+1F420</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🐡-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>blowfish</p>-->
+<!--                        <p>Unicode: U+1F421</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🦈-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>shark</p>-->
+<!--                        <p>Unicode: U+1F988</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🐙-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>octopus</p>-->
+<!--                        <p>Unicode: U+1F419</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class='carousel__item'>-->
+<!--                    <div class='carousel__item-head'>-->
+<!--                        🐚-->
+<!--                    </div>-->
+<!--                    <div class='carousel__item-body'>-->
+<!--                        <p class='title'>spiral shell</p>-->
+<!--                        <p>Unicode: U+1F41A</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Why Eventreply&ndash;&gt;-->
+<!--<div-->
+<!--        class="font-poppins font-color-1 bg-white text-center d-flex flex-column justify-content-center align-items-center">-->
+<!--    <h3 class="mt-56px mb-56px font-weight-700 font-size-32">Why to choose <span class="text-primary">Eventreply</span> to-->
+<!--        build an event?</h3>-->
+<!--    <div class="d-flex w-75 mt-56px mb-56px gap-50 font-size-18 font-weight-500 text-font-color-1">-->
+<!--        <div class="d-flex flex-column justify-content-between align-items-center gap-20">-->
+<!--            <img src="./assets/images/consultation.gif" alt="Connect" width="80px" height="80px">-->
+<!--            <p class="font-weight-500 font-size-18">Use our customer relationship management tools to market your events and-->
+<!--                continue to grow your network.</p>-->
+<!--            <span class="font-weight-700 font-size-18 text-primary"> Start now <i-feather-->
+<!--                    name="chevron-right"></i-feather></span>-->
+<!--        </div>-->
+<!--        <div class="d-flex flex-column justify-content-between align-items-center gap-20">-->
+<!--            <img src="./assets/images/note-pen.gif" alt="Connect" width="80px" height="80px">-->
+<!--            <p class="font-weight-500 font-size-18">Create paid or free events where you can track sales or RSVPs and event-->
+<!--                page views in real time.</p>-->
+<!--            <span class="font-weight-700 font-size-18 text-primary"> Start now <i-feather-->
+<!--                    name="chevron-right"></i-feather></span>-->
+<!--        </div>-->
+<!--        <div class="d-flex flex-column justify-content-between align-items-center gap-20">-->
+<!--            <img src="./assets/images/location-pin.gif" alt="Connect" width="80px" height="80px">-->
+<!--            <p class="font-weight-500 font-size-18">Show the event guestlist so people can see what their friends are-->
+<!--                doing.</p>-->
+<!--            <span class="font-weight-700 font-size-18 text-primary"> Start now <i-feather-->
+<!--                    name="chevron-right"></i-feather></span>-->
+<!--        </div>-->
+<!--        <div class="d-flex flex-column justify-content-between align-items-center gap-20">-->
+<!--            <img src="./assets/images/bar-chart-growth.gif" alt="Connect" width="80px" height="80px">-->
+<!--            <p class="font-weight-500 font-size-18">Make your event public and it will show up in city search introducing your-->
+<!--                event to new customers.</p>-->
+<!--            <span class="font-weight-700 font-size-18 text-primary"> Start now <i-feather-->
+<!--                    name="chevron-right"></i-feather></span>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Categories&ndash;&gt;-->
+<!--<div class="bg-background-purple d-flex flex-column align-items-center w-100 h-100 py-56px ">-->
+<!--    <h2 class="mt-56px mb-56px text-align-center font-size-32 font-weight-700">Choose your Events based on Categories</h2>-->
+<!--    &lt;!&ndash;  <div class="container scrollbar-hide overflow-x ">&ndash;&gt;-->
+
+<!--    <swiper-container class="mySwiper max-w-1120px" pagination-el="#div-campaigns-pagination" pagination-enabled="true"-->
+<!--                      slides-per-view="3"-->
+<!--                      pagination-clickable="true" space-between="32" navigation="true" #swiper>-->
+<!--        <swiper-slide>-->
+<!--            <div class="category-card">-->
+<!--                <img src="./assets/images/image%20403.png" alt="">-->
+<!--                <div class="overlay"></div>-->
+<!--                <div class="text">-->
+<!--                    <h3>Music</h3>-->
+<!--                    <button class="btn-outline-white">Learn More</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </swiper-slide>-->
+
+<!--        <swiper-slide>-->
+
+<!--            <div class="category-card ">-->
+<!--                <img src="./assets/images/image%20404.png" alt="">-->
+<!--                <div class="overlay"></div>-->
+<!--                <div class="text">-->
+<!--                    <h3>Dance</h3>-->
+<!--                    <button class="btn-outline-white">Learn More</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </swiper-slide>-->
+
+<!--        <swiper-slide>-->
+
+<!--            <div class="category-card ">-->
+<!--                <img src="./assets/images/image%20405.png" alt="">2-->
+<!--                <div class="overlay"></div>-->
+<!--                <div class="text">-->
+<!--                    <h3>Comedy</h3>-->
+<!--                    <button class="btn-outline-white text-">Learn More</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </swiper-slide>-->
+
+<!--        <swiper-slide>-->
+
+<!--            <div class="category-card">-->
+<!--                <img src="./assets/images/image%20408.png" alt="">2-->
+<!--                <div class="overlay"></div>-->
+<!--                <div class="text">-->
+<!--                    <h3>Party</h3>-->
+<!--                    <button class="btn-outline-white">Learn More</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </swiper-slide>-->
+
+<!--        <swiper-slide>-->
+
+<!--            <div class="category-card">-->
+<!--                <img src="./assets/images/ima.png" alt="">2-->
+<!--                <div class="overlay"></div>-->
+<!--                <div class="text">-->
+<!--                    <h3>Cricket</h3>-->
+<!--                    <button class="btn-outline-white">Learn More</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </swiper-slide>-->
+<!--    </swiper-container-->
+<!--    >-->
+<!--    <div id="div-campaigns-pagination" class="d-flex"></div>-->
+
+<!--    <button class="event">Create an event for free</button>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Testimonials&ndash;&gt;-->
+<!--<div class="d-flex flex-column bg-white align-items-center w-100 h-100 py-56px">-->
+<!--    <h3 class="mb-56px font-weight-700 font-size-32">Testimonials</h3>-->
+
+<!--    <div class="container d-flex flex-column align-items-center">-->
+<!--        &lt;!&ndash;  <div class="testimonial">&ndash;&gt;-->
+<!--        &lt;!&ndash;    <p>The app’s signature style allowed us to engage each other throughout the meeting, kept our meeting paperless,&ndash;&gt;-->
+<!--        &lt;!&ndash;      and provided us with great memories </p>&ndash;&gt;-->
+<!--        &lt;!&ndash;    <img src="./assets/images/image%20406.png" alt="">&ndash;&gt;-->
+<!--        &lt;!&ndash;    <h4>Rohit</h4>&ndash;&gt;-->
+<!--        &lt;!&ndash;    <img class="profile" src="./assets/images/Ellipse%20557.png" alt="">&ndash;&gt;-->
+<!--        &lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--        <swiper-container class="mySwiper max-w-1120px" pagination-el="#div-testimonials-pagination" pagination="true" slides-per-view="2"-->
+<!--                          pagination-clickable="true" space-between="32" navigation="true">-->
+
+<!--            <swiper-slide>-->
+<!--                <div class="testimonial">-->
+<!--                    <p>The app’s signature style allowed us to engage each other throughout the meeting, kept our meeting-->
+<!--                        paperless,-->
+<!--                        and provided us with great memories </p>-->
+<!--                    <img src="./assets/images/image%20406.png" alt="">-->
+<!--                    <h4>Rohit</h4>-->
+<!--                    <img class="profile mt-20px mb-20px" src="./assets/images/Ellipse%20557.png" alt="">-->
+<!--                </div>-->
+<!--            </swiper-slide>-->
+
+<!--            <swiper-slide>-->
+<!--                <div class="testimonial">-->
+<!--                    <p>The app’s signature style allowed us to engage each other throughout the meeting, kept our meeting-->
+<!--                        paperless,-->
+<!--                        and provided us with great memories </p>-->
+<!--                    <img src="./assets/images/image%20406.png" alt="">-->
+<!--                    <h4>Rohit</h4>-->
+<!--                    <img class="profile mt-20px mb-20px" src="./assets/images/Ellipse%20557.png" alt="">-->
+<!--                </div>-->
+<!--            </swiper-slide>-->
+
+<!--            <swiper-slide>-->
+<!--                <div class="testimonial">-->
+<!--                    <p>The app’s signature style allowed us to engage each other throughout the meeting, kept our meeting-->
+<!--                        paperless,-->
+<!--                        and provided us with great memories </p>-->
+<!--                    <img src="./assets/images/image%20406.png" alt="">-->
+<!--                    <h4>Rohit</h4>-->
+<!--                    <img class="profile mt-20px mb-20px" src="./assets/images/Ellipse%20557.png" alt="">-->
+<!--                </div>-->
+<!--            </swiper-slide>-->
+
+<!--            <swiper-slide>-->
+<!--                <div class="testimonial">-->
+<!--                    <p>The app’s signature style allowed us to engage each other throughout the meeting, kept our meeting-->
+<!--                        paperless,-->
+<!--                        and provided us with great memories </p>-->
+<!--                    <img src="./assets/images/image%20406.png" alt="">-->
+<!--                    <h4>Rohit</h4>-->
+<!--                    <img class="profile mt-20px mb-20px" src="./assets/images/Ellipse%20557.png" alt="">-->
+<!--                </div>-->
+<!--            </swiper-slide>-->
+
+<!--        </swiper-container>-->
+<!--        <div id="div-testimonials-pagination" class="d-flex"></div>-->
+
+
+<!--    </div>-->
+<!--    <button class="event">Create an event for free</button>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Live Users&ndash;&gt;-->
+<!--<div id="live users" class="d-flex bg-white flex-column align-items-center w-100 h-100 py-56px">-->
+<!--    <div class="users radial-gradient-9747FF">-->
+<!--        <div class="d-flex align-items-center z-index&#45;&#45;1 border-radius-50 px-40px ">-->
+<!--            <div class="live-count">-->
+<!--                <div class="">-->
+<!--                    <p class="text-black">3</p>-->
+<!--                </div>-->
+<!--                <span>-->
+<!--        Live Users-->
+<!--      </span>-->
+<!--            </div>-->
+<!--            <span>😀</span>-->
+<!--        </div>-->
+
+
+<!--        &lt;!&ndash;  <img src="https://lottiefiles.com/9879-smiley-emoji" alt="">&ndash;&gt;-->
+<!--    </div>-->
+<!--    <div class="container joining-card-container scrollbar-hide">-->
+<!--        <div class="joining-card">-->
+<!--            <img src="./assets/images/image%20404.png" alt="">-->
+<!--            <div class="details">-->
+<!--                <p><span>Mukesh</span> joined music concert</p>-->
+<!--                <div>9:32 AM</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="joining-card">-->
+<!--            <img src="./assets/images/image%20404.png" alt="">-->
+<!--            <div class="details">-->
+<!--                <p><span>Mukesh</span> joined music concert</p>-->
+<!--                <div>9:32 AM</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="joining-card">-->
+<!--            <img src="./assets/images/image%20404.png" alt="">-->
+<!--            <div class="details">-->
+<!--                <p><span>Mukesh</span> joined music concert</p>-->
+<!--                <div>9:32 AM</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="joining-card">-->
+<!--            <img src="./assets/images/image%20404.png" alt="">-->
+<!--            <div class="details">-->
+<!--                <div></div>-->
+<!--                <p><span>Mukesh</span> joined music concert</p>-->
+<!--                <div>9:32 AM</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="joining-card">-->
+<!--            <img src="./assets/images/image%20404.png" alt="">-->
+<!--            <div class="details">-->
+<!--                <p><span>Mukesh</span> joined music concert</p>-->
+<!--                <div>9:32 AM</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <button class="event">Create an event for free</button>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Pricing&ndash;&gt;-->
+<!--<div class="bg-background-purple d-flex flex-column align-items-center w-100 h-100 py-56px ">-->
+<!--    <h2 class=" m text-align-center font-size-32 font-weight-700">Pricing</h2>-->
+<!--    <p class="mt-24px mb-56px text-align-center font-size-24 font-weight-400">Start with our business plan and switch to-->
+<!--        star plan as you grow.</p>-->
+
+<!--    <div class="d-grid grid-cols-3 gap-20 text-center font-poppins ">-->
+<!--        &lt;!&ndash;pricing 1&ndash;&gt;-->
+<!--        <div-->
+<!--                class="text-bg-dark mb-3 bg-white br-10px border-0.5px-white p-24px shadow-purple-light hover-button-gradient gradient-border">-->
+
+<!--            <div class=" font-size-18 font-weight-700 text-align-center text-premium-stroke mb-12px">Basic plan</div>-->
+<!--            <div class="font-size-48 font-weight-400 text-align-center mb-32px">$10/<span class="font-size-32">month</span>-->
+<!--            </div>-->
+
+<!--            <div class="w-100">-->
+<!--                <div class="d-flex flex-column gap-16px">-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+
+<!--                    <button class="btn-main btn-color-primary mt-35px mb-12px w-100 v-btn">Get this</button>-->
+
+<!--                    <p class="text-grey-1">14 days money back guarantee</p>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div-->
+<!--                class="text-bg-dark mb-3 bg-white br-10px border-0.5px-white p-24px shadow-purple-light hover-button-gradient gradient-border">-->
+
+<!--            <div class=" font-size-18 font-weight-700 text-align-center text-premium-stroke mb-12px">Business plan</div>-->
+<!--            <div class="font-size-48 font-weight-400 text-align-center mb-32px">$10/<span class="font-size-32">month</span>-->
+<!--            </div>-->
+
+<!--            <div class="w-100">-->
+<!--                <div class="d-flex flex-column gap-16px">-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+
+<!--                    <button class="btn-main btn-color-primary mt-35px mb-12px w-100 v-btn">Get this</button>-->
+
+<!--                    <p class="text-grey-1">14 days money back guarantee</p>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div-->
+<!--                class="text-bg-dark mb-3 bg-white br-10px border-0.5px-white p-24px shadow-purple-light hover-button-gradient gradient-border">-->
+
+<!--            <div class=" font-size-18 font-weight-700 text-align-center text-premium-stroke mb-12px">Star plan</div>-->
+<!--            <div class="font-size-48 font-weight-400 text-align-center mb-32px">$10/<span class="font-size-32">month</span>-->
+<!--            </div>-->
+
+<!--            <div class="w-100">-->
+<!--                <div class="d-flex flex-column gap-16px">-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex align-items-center  gap-12px">-->
+<!--                        <div class="bg-green-accent br-full h-30px w-30px d-flex justify-content-center align-items-center">-->
+<!--                            <img src="./assets/images/check.svg" class="m-auto" alt="Check">-->
+<!--                        </div>-->
+<!--                        <span>Feature 1</span>-->
+<!--                    </div>-->
+
+<!--                    <button class="btn-main btn-color-primary mt-35px mb-12px w-100 v-btn">Get this</button>-->
+
+<!--                    <p class="text-grey-1">14 days money back guarantee</p>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;FAQ&ndash;&gt;-->
+<!--<div-->
+<!--        class="font-poppins font-color-1 bg-white text-center d-flex flex-column justify-content-center align-items-center py-56px">-->
+<!--    <h3 class="mb-56px font-weight-700 font-size-32">Frequently Asked Questions</h3>-->
+
+<!--    &lt;!&ndash;  <div class="accordion max-w-924px mx-auto" id="accordionPanelsStayOpenExample">&ndash;&gt;-->
+<!--    &lt;!&ndash;    <div class="accordion-item">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <h2 class="accordion-header">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">&ndash;&gt;-->
+<!--    &lt;!&ndash;          Accordion Item #1&ndash;&gt;-->
+<!--    &lt;!&ndash;        </button>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </h2>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse ">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <div class="accordion-body">&ndash;&gt;-->
+<!--    &lt;!&ndash;          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.&ndash;&gt;-->
+<!--    &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <div class="accordion-item">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <h2 class="accordion-header">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">&ndash;&gt;-->
+<!--    &lt;!&ndash;          Accordion Item #2&ndash;&gt;-->
+<!--    &lt;!&ndash;        </button>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </h2>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <div class="accordion-body">&ndash;&gt;-->
+<!--    &lt;!&ndash;          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.&ndash;&gt;-->
+<!--    &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <div class="accordion-item">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <h2 class="accordion-header">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">&ndash;&gt;-->
+<!--    &lt;!&ndash;          Accordion Item #3&ndash;&gt;-->
+<!--    &lt;!&ndash;        </button>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </h2>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <div class="accordion-body">&ndash;&gt;-->
+<!--    &lt;!&ndash;          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.&ndash;&gt;-->
+<!--    &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;  </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;  fkfk&ndash;&gt;-->
+<!--    <app-accordion-static [ngClass]="'max-w-924px w-100 accordion-custom'"></app-accordion-static>-->
+
+<!--    <button class="event">Create an event for free</button>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Get Started&ndash;&gt;-->
+<!--<div-->
+<!--        class="py-80px pb-70px max-w-1120px mx-auto br-30 font-poppins text-align-center text-white my-56px background-image-lines overflow-hidden position-relative">-->
+<!--    <p class="z-index-2 position-relative font-size-48  font-weight-700   max-w-70p mx-auto">Your complete event <br>-->
+<!--        management platform</p>-->
+<!--    <p class="z-index-2 position-relative font-size-18 opacity-80p max-w-70p mx-auto">See how Eventreply can reduce costs,-->
+<!--        increase efficiences, and-->
+<!--        make managing events fun.</p>-->
+<!--    <button class="z-index-2 position-relative btn-main bg-white text-primary mt-35px mb-12px px-60px ">Get Started Now-->
+<!--    </button>-->
+
+<!--    <div class="mesh-outer-box position-absolute">-->
+<!--        <div class="mesh-box position-absolute d-flex flex-wrap">-->
+<!--            <div class="mesh-1 border-radius-50"></div>-->
+<!--            <div class="mesh-2 border-radius-50"></div>-->
+<!--            <div class="mesh-3 border-radius-50"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Footer&ndash;&gt;-->
+<!--<div class="py-100px px-180px bg-dark-373737 text-white d-flex gap-80px">-->
+
+<!--    <div class="mr-115px">-->
+<!--        <img src="./assets/images/logo%202%201.png" class="mb-24px" alt="">-->
+<!--        <p class="text-white">Copyright &copy; 2023 <br>-->
+<!--            All rights are reserved.</p>-->
+<!--    </div>-->
+<!--    <div class="d-flex flex-column gap-44px flex-basis-150px">-->
+<!--        <div>Home</div>-->
+<!--        <div>Sign in</div>-->
+<!--        <div>Categories</div>-->
+<!--    </div>-->
+<!--    <div class="d-flex flex-column gap-44px flex-basis-150px">-->
+<!--        <div>Services</div>-->
+<!--        <div>Events</div>-->
+<!--        <div>Affialates</div>-->
+<!--    </div>-->
+<!--    <div class="d-flex flex-column gap-44px flex-basis-150px">-->
+<!--        <div>Terms of use</div>-->
+<!--        <div>Privacy policy</div>-->
+<!--        <div>Contact Us</div>-->
+<!--    </div>-->
+
+<!--</div>-->

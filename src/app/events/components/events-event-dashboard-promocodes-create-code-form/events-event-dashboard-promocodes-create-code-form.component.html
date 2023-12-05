@@ -1,0 +1,104 @@
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-row class="row mb-4">
+        <ion-col size="12">
+            <label class="font-weight-bold font-size-18px">CODE NAME
+                <span class="font-weight-bold font-size-18px font-color-red">*</span></label>
+        </ion-col>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                [model]="formModelMap['promo_code']"></dynamic-ionic-form-control>
+</form>
+
+<ion-row class="row mb-4 mt-8">
+    <ion-col size="12">
+        <label class="font-weight-bold font-size-18px">CODE TYPE
+            <span class="font-weight-bold font-size-18px font-color-red">*</span></label>
+    </ion-col>
+</ion-row>
+
+<div class="row mx-0 ph-24px">
+    <div ngbDropdown class="mt-20px">
+        <div class="row row-align-center justify-content-between border border-2 border-grey-1 br-5px">
+
+
+            <div class="font-color-grey-2 d-flex align-items-center" id="dropdownBasic1"
+                 ngbDropdownToggle>
+                <div class="col-11 cursor-pointer py-21px ph-16px">
+                    <label class="font-weight-500 font-size-18 mb-0 cursor-pointer">{{display_code_type}}</label>
+                </div>
+                <div class="col-1 px-0">
+                </div>
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownBas" class="w-100">
+                <div *ngFor="let code_type of code_types" class="px-26px">
+                    <div ngbDropdownItem class="font-weight-500 border-radius-5px border-left-3px-9747FF w-100"
+                         (click)="change_display_code_type(code_type)">
+                        <label class="font-color-grey-2 font-weight-500 font-poppins ">{{code_type}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+    <ion-row class="row mb-4 mt-8">
+        <ion-col size="12">
+            <label class="font-weight-bold font-size-18px">QUANTITY
+                <span class="font-weight-bold font-size-18px font-color-red">*</span></label>
+        </ion-col>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                [model]="formModelMap['total_quantity']"></dynamic-ionic-form-control>
+</form>
+
+<ion-row class="row mb-4 mt-8">
+    <ion-col size="12">
+        <label class="font-weight-bold font-size-18px">DISCOUNT AMOUNT
+            <span class="font-weight-bold font-size-18px font-color-red">*</span></label>
+    </ion-col>
+</ion-row>
+
+<ion-row class="mt-8 ion-align-items-center">
+    <ion-col size="12" class="d-flex ion-justify-content-between">
+        <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder resize-none">
+            <div class="pr-4">
+                <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                            [model]="formModelMap['discount_amount_flat']"></dynamic-ionic-form-control>
+            </div>
+        </form>
+        <span class="text-grey-2">Or</span>
+        <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder resize-none">
+            <div class="pl-4">
+                <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                            [model]="formModelMap['discount_amount_percentage']"></dynamic-ionic-form-control>
+            </div>
+        </form>
+    </ion-col>
+</ion-row>
+
+<!--<ion-row class="mt-8">-->
+<!--    <ion-col size="12" class="d-flex ion-justify-content-between">-->
+<!--        <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder resize-none">-->
+<!--            <ion-row class="row mb-4">-->
+<!--                <ion-col size="12">-->
+<!--                    <label class="font-weight-bold font-size-18px">CODE STARTS-->
+<!--                        <span class="font-weight-bold font-size-18px font-color-red">*</span></label>-->
+<!--                </ion-col>-->
+<!--            </ion-row>-->
+<!--            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"-->
+<!--                                        [model]="formModelMap['start_time']"></dynamic-ionic-form-control>-->
+<!--        </form>-->
+
+<!--        <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder resize-none">-->
+<!--            <ion-row class="row mb-4">-->
+<!--                <ion-col size="12">-->
+<!--                    <label class="font-weight-bold font-size-18px">CODE ENDS-->
+<!--                        <span class="font-weight-bold font-size-18px font-color-red">*</span></label>-->
+<!--                </ion-col>-->
+<!--            </ion-row>-->
+<!--            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"-->
+<!--                                        [model]="formModelMap['end_time']"></dynamic-ionic-form-control>-->
+<!--        </form>-->
+<!--    </ion-col>-->
+<!--</ion-row>-->

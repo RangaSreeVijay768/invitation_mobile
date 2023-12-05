@@ -1,0 +1,93 @@
+<!--<events-get-all-events-no-template-->
+<!--        [count]="numberOfItems" [columnOrder]="'DESC'" [columnName]="'createdTime'"-->
+<!--        (eventsReceived)="addItems($event); "-->
+<!--        #getAllEventsNoTemplateComponent #component>-->
+<!--</events-get-all-events-no-template>-->
+
+<!--<div class="row mx-0" *ngIf="!items">-->
+<!--    <div class="col-12 text-align-center px-0">-->
+<!--        <img src="assets/images/no-promocodes.png" width="202">-->
+<!--        <br>-->
+<!--        <label class="font-size-18 text-font-color-1 font-weight-700 mb-56px mt-16px">-->
+<!--            No events present in this category!-->
+<!--        </label>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div infiniteScroll [infiniteScrollDisabled]="disableScroll" [infiniteScrollDistance]="100"-->
+<!--     [infiniteScrollThrottle]="scrollThrottle" (scrolled)="print($event);onScroll()"-->
+<!--     [alwaysCallback]="true">-->
+<!--    <div class="row  justify-content-center mx-0" *ngFor="let event of items">-->
+<!--        <events-share-event-modal-->
+<!--                [event]="event"-->
+<!--                #shareEventModalComponent>-->
+<!--        </events-share-event-modal>-->
+<!--        <div-->
+<!--                class="row mt-32px d-flex justify-content-between align-items-center border-bottom border-grey-1 pb-32px mb-32px">-->
+<!--            <div class="col-8">-->
+<!--                <div class="row mx-0">-->
+<!--                    <div class="col-4 pl-0 pr-24px">-->
+
+
+<!--                        <div>-->
+<!--                            <images-get-image-by-entity-and-type-unique-image-ngx-avatar-->
+<!--                                    class="cursor-pointer"-->
+<!--                                    [alt]="event.event_title"-->
+<!--                                    [entityId]="event.event_id"-->
+<!--                                    [entityType]="'EVENT_PROFILE_PIC'"-->
+<!--                                    [size]="150"-->
+<!--                                    [round]="false"-->
+<!--                            ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-7 px-0">-->
+<!--                        <label-->
+<!--                                class="mb-0 font-weight-500 font-size-24 text-font-color-1 font-poppins">{{event.event_title}}</label>-->
+<!--                        <br>-->
+<!--                        <label-->
+<!--                                class="d-inline-block mb-0 mt-16px pr-12px mr-12px border-end border-grey-2 font-size-16 text-grey-2 font-poppins">-->
+<!--                            <i-feather name="Calendar"></i-feather>-->
+<!--                            &nbsp;<span> {{event.start_time|appDateFormat}}</span>-->
+<!--                        </label>-->
+<!--                        <label class="d-inline-block mb-0 font-size-16 text-grey-2 font-poppins">-->
+<!--                        <span><i-feather name="Clock"></i-feather> &nbsp;{{event.start_time|appDateTimeToTimeFormat}}-->
+<!--                            - {{event.end_time|appDateTimeToTimeFormat}}</span>-->
+<!--                        </label>-->
+<!--                        <br>-->
+<!--                        <label class="d-inline-block mb-0 mt-16px font-size-16 text-grey-2 font-poppins"><span><i-feather-->
+<!--                                name="map-pin"></i-feather>&nbsp; 112, bulved street</span></label>-->
+<!--                        <br>-->
+
+
+<!--                        <br>-->
+<!--                        <i-feather name="users" class="font-poppins text-grey-2 mr-8px"></i-feather>-->
+<!--                        <label class="d-inline-block mb-0 mt-16px font-weight-400 font-size-16 text-grey-2 font-poppins">{{event.event_attendees_count}}-->
+<!--                            attendees</label>-->
+<!--                        <label-->
+<!--                                class="btn p-0 d-inline-block mb-0 ml-32px font-poppins font-weight-400 font-size-16 text-grey-2"-->
+<!--                                (click)="shareEventModalComponent.openModal()" coreClickStopPropogation>-->
+<!--                            <i-feather name="Share2" class="d-inline-block text-grey-2" style="width: 20px"></i-feather>-->
+<!--                            Share-->
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--            &lt;!&ndash;EVENT CALL-TO-ACTION&ndash;&gt;-->
+<!--            <div class="col-3 d-flex flex-column">-->
+<!--                <button class="btn-event-rsvp d-flex justify-content-center font-size-18px font-weight-800 letter-spacing&#45;&#45;0352"-->
+<!--                        routerLink="/signedin/events/eventdashboard/{{event.event_id}}/creatordashboard">-->
+<!--                    Event Dashboard-->
+<!--                </button>-->
+<!--                <button class="btn-event-details mt-20px font-size-18 font-weight-800 letter-spacing&#45;&#45;0352"-->
+<!--                        routerLink="/signedin/events/{{event.event_id}}/details">-->
+<!--                    See event-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
+
+<!--</div>-->

@@ -1,0 +1,22 @@
+<ion-content [scrollEvents]="true">
+    <events-edit-event-form
+            [event]="userEventInfo.event_info.event"
+            (eventUpdated)="notificationsService.success('Event updated');navigateToEventDashboardPage(userEventInfo.event_info.event.event_id)"
+            #editEventFormComponent></events-edit-event-form>
+
+    <ion-row
+            class="ion-justify-content-center box-shadow-purple mh-0 bg-white mv-4">
+        <ion-col size="10" class="d-flex ion-justify-content-between ion-align-items-center">
+            <ion-button
+                    class="bg-white border-primary font-color-primary br-5px d-flex ion-align-items-center font-size-18px font-weight-700"
+                    (click)="goBack()"
+            >
+                Cancel
+            </ion-button>
+            <ion-button class="font-weight-700 font-size-18px br-5px pv-4 ph-8"
+                                (click)="editEventFormComponent.updateEvent(editEventFormComponent.createRequestData())">
+                Update and Next
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

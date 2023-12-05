@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "DefaultModuleSchema",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "format": "path",
+      "visible": false,
+      "$default": {
+        "$source": "workingDirectory"
+      }
+    },
+    "name": {
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,28 @@
+<blasts-get-blast-list-items-by-blast-list-no-template
+        [blastList]="blastList"
+        (blastListsItemsReceived)="blastListItems = items.blastListItems"
+        #items></blasts-get-blast-list-items-by-blast-list-no-template>
+    <ion-row class="d-flex border-grey-1 br-2 pa-2 mt-6 ion-align-items-center" *ngFor="let blastListItem of items.blastListItems; let i = index">
+        <ion-col size="10">
+            <ion-label class="d-inline-block mb-2 font-weight-bold font-color-1">
+                {{blastListItem.display_name}}
+            </ion-label><br>
+            <ion-icon class="d-inline-block mr-2" name="phone-portrait-outline"></ion-icon>
+            <ion-label class="d-inline-block font-small font-color-grey-1">
+                {{blastListItem.phone_number}}
+            </ion-label>
+        </ion-col>
+        <ion-col size="2" class="ion-text-end">
+            <ion-icon size="large" class="font-color-grey-1" name="trash-outline"></ion-icon>
+        </ion-col>
+    </ion-row>
+<ion-row *ngIf="!items.blastListItems">
+    <ion-col size="12" class="ion-text-center">
+        <ion-img src="assets/images/no-promocodes.png"></ion-img>
+        <br>
+        <ion-label class="font-size-18 text-font-color-1 font-weight-700 mb-56px mt-16px">
+            No members in this list
+        </ion-label>
+    </ion-col>
+</ion-row>
+

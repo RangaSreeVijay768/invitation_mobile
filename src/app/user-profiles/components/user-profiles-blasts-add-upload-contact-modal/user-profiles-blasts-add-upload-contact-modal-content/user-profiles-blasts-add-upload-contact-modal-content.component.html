@@ -1,0 +1,56 @@
+<ion-content [scrollEvents]="true">
+    <ion-row>
+        <ion-col size="12"
+                 class="d-flex ion-justify-content-between ion-align-items-center bg-primary ph-6 pv-4">
+            <ion-label class="font-weight-bold font-size-18px font-color-white">Add/upload contact
+            </ion-label>
+            <ion-label>
+                <ion-icon style="background: rgba(255, 255, 255, 0.30);"
+                          (click)="closeModal({data:undefined,status:'SUCCESS'})"
+                          class="rounded-5 br-999999 pa-1 font-color-white" size="large"
+                          name="close-outline"></ion-icon>
+            </ion-label>
+        </ion-col>
+        <ion-col size="12" class="mv-6 default-horizontal-padding">
+            <ion-label class="font-weight-bold font-color-black">Add manually</ion-label>
+        </ion-col>
+        <ion-col size="12" class="default-horizontal-padding">
+            <user-profiles-create-blast-item-form
+                    [blastListId]="blast_list.blast_list_id"
+                    [blastListItemType]="blast_list.blast_list_type"
+                    (blastListItemCreated)="closeModal({status:'SUCCESS', data:$event})"
+                    #createBlastItemFormComponent
+            ></user-profiles-create-blast-item-form>
+        </ion-col>
+        <ion-col size="12" class="d-flex ion-justify-content-center default-horizontal-padding mv-6">
+            <ion-label class="font-color-black font-size-18px font-weight-bold">OR</ion-label>
+        </ion-col>
+        <ion-col size="12" class="default-horizontal-padding">
+
+        <ion-button expand="block" fill="outline">
+            <ion-icon size="large" class="d-inline-block mr-4" name="cloud-upload-outline"></ion-icon>
+            <ion-label class="font-small font-weight-bold">Upload CSV file</ion-label>
+        </ion-button>
+        </ion-col>
+
+        <ion-col size="12" class="default-horizontal-padding border-top pv-8 bg-white position-fixed-bottom-0">
+            <ion-row class="d-flex">
+                <ion-col size="5">
+                    <ion-button expand="block" size="large" fill="outline" (click)="closeModal({data:undefined,status:'SUCCESS'})">
+                        <ion-label class="font-small font-weight-700" >Cancel</ion-label>
+                    </ion-button>
+                </ion-col>
+                <ion-col size="2">
+                </ion-col>
+                <ion-col size="5" class="ion-text-end">
+                    <ion-button size="large" expand="block"
+                                [promiseBtn]="createBlastItemFormComponent.create_blast_list_item_subscription$"
+                                (click)="createBlastItemFormComponent.createBlastListItem(createBlastItemFormComponent.createRequestData())">
+                        <ion-label class="font-small font-weight-700">Add</ion-label>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+        </ion-col>
+    </ion-row>
+</ion-content>

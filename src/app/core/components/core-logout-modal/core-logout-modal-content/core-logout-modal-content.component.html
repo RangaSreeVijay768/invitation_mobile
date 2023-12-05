@@ -1,0 +1,18 @@
+<ion-content [scrollEvents]="true">
+    <ion-row class="pa-8">
+        <ion-col size="12" class="mb-10">
+            <ion-label class="font-size-18px font-weight-bold font-color-1">Are you sure you want to logout?</ion-label>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+        <ion-col size="8">
+            <ion-button (click)="logOut()" expand="block">
+                Logout
+            </ion-button>
+            <br>
+            <ion-button (click)="closeModal({data: undefined, status: 'CLOSE'})" expand="full" fill="clear"
+            >Cancel
+            </ion-button>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,108 @@
+<events-get-events-by-created-by-no-template
+        [count]="numberOfItems" [status]="status"
+        (eventsReceived)="addItems($event)" [columnOrder]="'DESC'" [columnName]="'createdTime'"
+        #getAllEventsNoTemplateComponent #component>
+</events-get-events-by-created-by-no-template>
+
+<ion-row class="d-flex ion-justify-content-center" *ngIf="!items?.length">
+    <ion-col size="10" class="default-horizontal-padding ">
+        <img src="assets/images/no-promocodes.png" width="202">
+        <br>
+        <ion-label class="font-size-18px font-weight-700 mb-8 mt-4">
+            You don't have events here!
+        </ion-label>
+    </ion-col>
+</ion-row>
+
+<ion-row class="bg-white bb-2px-grey br-5px">
+    <ion-col size="12" class="mt-6" *ngFor="let event of items">
+
+        <events-share-event-modal
+                [event]="event"
+                #shareEventModalComponent>
+        </events-share-event-modal>
+
+        <events-rsvp-free-modal
+            #rsvpFreeModalComponent></events-rsvp-free-modal>
+
+        <ion-row
+                class="default-horizontal-padding ion-justify-content-between">
+            <ion-col size="4 d-flex ion-justify-content-center ion-align-items-start">
+                <ion-row class="border-radius-4px overflow-hidden">
+                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                            [imageClasses]="'cursor-pointer br-5px'"
+                            [alt]="event.event_title"
+                            [entityId]="event.event_id"
+                            [entityType]="'EVENT_PROFILE_PIC'"
+                            [size]="100"
+                            [round]="false"
+                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                </ion-row>
+            </ion-col>
+
+            <ion-col size="8">
+                <ion-label
+                        class="font-weight-medium-bold font-size-18px d-inline-block mb-3 mt-1">{{event.event_title}}</ion-label>
+                <br>
+                <ion-icon name="calendar-clear-outline" class="font-weight-bold font-color-grey-2"></ion-icon>
+                <ion-label
+                        class="d-inline-block mb-2 pr-12px border-end border-grey-2 font-size-16px text-grey-2 font-poppins font-color-step-300 ml-2">
+                    {{event.start_time|appDateFormat}}
+                </ion-label>
+                <br>
+                <ion-icon name="time-outline" class="font-weight-bold font-color-grey-2"></ion-icon>
+                <ion-label
+                        class="d-inline-block mb-2 font-size-16px text-grey-2 font-color-step-300 font-color-medium ml-2">{{event.start_time|appDateTimeToTimeFormat}}
+                    -
+                    {{event.end_time|appDateTimeToTimeFormat}}</ion-label>
+                <br>
+                <ion-icon name="location-outline" class="font-weight-bold font-color-grey-2"></ion-icon>
+                <ion-label class="ml-2 mt-4 font-size-16px font-color-step-300 font-color-medium">
+                    112, bulved street
+                </ion-label>
+                <br>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="default-horizontal-padding ion-align-items-center">
+            <ion-col size="12" class="ion-text-center pb-4 bb-2px-grey">
+                <ion-button class="mt-4" size="small">
+                    <ion-label class="pv-4"
+                               routerLink="/signedin/events/eventdashboard/{{event.event_id}}/eventdetails">Review and
+                        Publish
+                    </ion-label>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+        <!--        <ion-row class="default-horizontal-padding ion-align-items-center">-->
+        <!--            <ion-col size="12" class="ion-text-center pb-4 bb-2px-grey">-->
+        <!--                <ion-button class="mt-4">-->
+        <!--                    <ion-label class="pv-4"-->
+        <!--                               routerLink="/signedin/events/eventdashboard/{{event.event_id}}/creatordashboard">Event dashboard-->
+        <!--                    </ion-label>-->
+        <!--                </ion-button>-->
+        <!--            </ion-col>-->
+        <!--        </ion-row>-->
+    </ion-col>
+
+</ion-row>
+<ion-row class="">
+    <ion-col size="12">
+        <ion-button
+                class="font-poppins font-weight-400 fs-11 rounded-1 py-3 ph-3 border-none text-white "
+                (click)="onScroll()">
+            Load more events
+            <ion-icon name="chevron-down" class="ml-3 vertical-align-middle"></ion-icon>
+        </ion-button>
+    </ion-col>
+</ion-row>
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>

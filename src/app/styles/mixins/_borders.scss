@@ -1,0 +1,117 @@
+@mixin border($direction, $size: 1px, $style: solid, $color: #222) {
+  @if ($direction == 'all')
+      or ($direction == 'no-top')
+      or ($direction == 'no-bottom')
+      or ($direction == 'no-left')
+      or ($direction == 'no-right') {
+    border: $size $style $color;
+
+    @if $direction == 'no-top' {
+      border-top: 0;
+    }
+    @if $direction == 'no-bottom' {
+      border-bottom: 0;
+    }
+    @if $direction == 'no-left' {
+      border-left: 0;
+    }
+    @if $direction == 'no-right' {
+      border-right: 0;
+    }
+  } @else if ($direction == 'top')
+      or ($direction == 'vertical')
+      or ($direction == 'top-left')
+      or ($direction == 'top-right') {
+    border-top: $size $style $color;
+
+    @if $direction == 'vertical' {
+      border-bottom: $size $style $color;
+    }
+    @if $direction == 'top-left' {
+      border-left: $size $style $color;
+    }
+    @if $direction == 'top-right' {
+      border-right: $size $style $color;
+    }
+  } @else if ($direction == 'bottom')
+      or ($direction == 'bottom-left')
+      or ($direction == 'bottom-right') {
+    border-bottom: $size $style $color;
+
+    @if $direction == 'bottom-left' {
+      border-left: $size $style $color;
+    }
+    @if $direction == 'bottom-right' {
+      border-right: $size $style $color;
+    }
+  } @else if ($direction == 'left')
+      or ($direction == 'horizontal') {
+    border-left: $size $style $color;
+
+    @if $direction == 'horizontal' {
+      border-right: $size $style $color;
+    }
+  } @else if ($direction == 'right') {
+    border-right: $size $style $color;
+  } @else {
+    @warn 'This property does not exist in this property map.';
+  }
+}
+
+@mixin generateBorders($style: solid, $color: #222) {
+
+  $default-unit: 0.1;
+  $spacing: 0px, 1px, 2px, 3px;
+  $unit: px;
+
+  $directions: (
+          all: all,
+          no-top: no-top,
+          no-bottom: no-bottom,
+          no-left: no-left,
+          no-right: no-right,
+          top: top,
+          left:left,
+          right:right,
+          bottom-left:bottom-left,
+          bottom-right:bottom-right,
+          bottom:bottom,
+          horizontal:horizontal,
+          vertical:vertical
+  );
+
+  @each $space in $spacing {
+    @each $key, $val in $directions {
+      .#{b}-#{$key}-#{$space} {
+        @include border($val, $space, $style, $color);
+      }
+    }
+  }
+}
+.b-bottom-2px-primary {
+  border-bottom: 2px solid var(--ion-color-primary);
+}
+
+.b-top-2px-footer {
+  border-top: 2px solid #8D8080;
+}
+
+
+.b-bottom-2px-footer {
+  border-bottom: 2px solid #8D8080;
+}
+
+.b-bottom-1px-grey {
+  border-bottom: 1px solid #C0C0C0;
+}
+
+@include generateBorders();
+
+//use https://kovart.github.io/dashed-border-generator/ to generate more styles
+.dashed-border-4-10 {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='3' stroke-dasharray='4%2c8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.b-1px-grey-3{
+  @include border(all, 1px, solid, var(--ion-color-grey-3));
+}

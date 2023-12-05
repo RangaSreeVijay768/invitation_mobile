@@ -1,0 +1,12 @@
+<ion-label [ngClass]="labelClasses" class="ma-1 d-inline-block"
+           id="datetime{{id}}"
+> {{ (value | date: displayFormat || 'hh:mm a') || defaultText || '--:--'}}</ion-label>
+<ion-modal [ngClass]="modalClasses" trigger="datetime{{id}}">
+    <ng-template>
+        <ion-datetime id="datetime{{id}}" [presentation]="presentation||'time'" [value]="value"
+                      [ngClass]="styleClasses"
+                      [hourCycle]="'h12'"
+                      showDefaultButtons="true" size="cover" mode="ios"
+                      (ionChange)="datePickerValueReceived($event)"></ion-datetime>
+    </ng-template>
+</ion-modal>

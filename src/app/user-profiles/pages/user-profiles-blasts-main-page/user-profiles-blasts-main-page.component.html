@@ -1,0 +1,92 @@
+<user-profiles-blasts-create-new-group-modal
+        (modalClosed)="$event.status==='SUCCESS'?blastsComponent.refreshScrolling():''"
+        #massMessagingCreateNewModalComponent>
+</user-profiles-blasts-create-new-group-modal>
+
+<ion-content [scrollEvents]="true" class="bg-purple">
+
+    <ion-row class="mt-30 mh-4 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/edit'">
+                Edit profile
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/userprofiles/blasts'">
+                Mass Messaging
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/payoutinfo'">
+                Payout Information
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/history'">
+                Purchase history
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/pastguests'">
+                Past guests
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/allcontacts'">
+                All contacts
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="mh-4 mv-8 box-shadow br-10px">
+        <ion-col size="12" class="">
+            <ion-row>
+                <ion-col size="12" class="pv-6 ph-4 bg-primary br-tl-4 br-tr-4">
+                    <blasts-search-blast-lists-form
+                            (searchTermCreated)="filter_blast_list_name=$event;blastsComponent.updateFilterBlastListName($event)"></blasts-search-blast-lists-form>
+                </ion-col>
+            </ion-row>
+            <ion-row class="b-1px-linear-gradient mt-6 default-horizontal-padding pv-3 bg-white br-5p border-grey-1">
+                <ion-col size="12">
+                    <ion-row class="ion-justify-content-between ion-align-items-center mb-2">
+                        <ion-col size="6">
+                            <ion-label class="font-poppins fs-8 text-grey-1">Blast left</ion-label>
+                            <br>
+                            <ion-label class="font-weight-500 fs-11 font-poppins">453/1000</ion-label>
+                        </ion-col>
+                        <ion-button class="btn-premium font-color-white btn-background" routerLink="/signedin/events/plans">
+                            Get
+                            more
+                            credits
+                        </ion-button>
+                    </ion-row>
+
+                </ion-col>
+                <ion-col size="12" class="default-horizontal-padding">
+                    <ion-progress-bar class="h-1vh" [value]="30/100"></ion-progress-bar>
+
+                </ion-col>
+            </ion-row>
+            <ion-row class="bb-1px-grey pv-6 default-horizontal-padding">
+                <ion-col class="d-flex ion-align-items-center" size="12"
+                         (click)="massMessagingCreateNewModalComponent.openModal()">
+                    <ion-icon size="large" class="d-inline-block font-color-primary mr-3"
+                              name="add-circle-outline"></ion-icon>
+                    <ion-label class="font-color-primary font-size-16px font-weight-bold">Create
+                        new
+                        group
+                    </ion-label>
+                </ion-col>
+
+            </ion-row>
+            <ion-content class="overflow-y-scroll h-40vh bg-purple">
+                <blasts-get-blast-lists-by-user-account-scrolling
+                        [filterBlastListName]="filter_blast_list_name"
+                        [numberOfItems]="10"
+
+                        #blastsComponent></blasts-get-blast-lists-by-user-account-scrolling>
+            </ion-content>
+            <ion-content class="h-24px bg-purple br-b-8"></ion-content>
+        </ion-col>
+
+
+
+    </ion-row>
+</ion-content>
+

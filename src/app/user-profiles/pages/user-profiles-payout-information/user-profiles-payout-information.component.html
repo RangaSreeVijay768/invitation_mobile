@@ -1,0 +1,150 @@
+<ion-content [scrollEvents]="true">
+
+    <ion-row class="mt-30 mh-4 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/edit'">
+                Edit profile
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/blasts'">
+                Mass Messaging
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/userprofiles/payoutinfo'">
+                Payout Information
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/history'">
+                Purchase history
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/pastguests'">
+                Past guests
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/allcontacts'">
+                All contacts
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center mt-4 mh-4">
+        <ion-col size="12">
+            <div class="row justify-content-center mb-40px">
+                <div class="col-9 br-5px box-shadow bg-white pt-56px pb-12px">
+                    <div class="row justify-content-center">
+                        <div class="col-7 br-5px bg-background-purple py-24px ph-24px">
+                            <user-profiles-payout-information-form></user-profiles-payout-information-form>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center py-56px ph-33px mx-0">
+                        <div class="col-7 px-0">
+                            <div class="row justify-content-between mx-0">
+                                <div class="col-5 pr-65px">
+                                    <div
+                                            class="row text-align-center border border-primary br-5px py-21px ph-16px cursor-pointer">
+                                        <label class="text-primary font-weight-700 font-size-18 mb-0 cursor-pointer">Cancel</label>
+                                    </div>
+                                </div>
+                                <div class="col-7 pl-65px">
+                                    <div class="row text-align-center bg-primary br-5px py-21px ph-16px cursor-pointer">
+                                        <label class="font-weight-700 font-size-18 text-white mb-0 cursor-pointer">Add
+                                            account</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mt-40px mb-40px">
+                <div class="col-9 br-5px box-shadow bg-white pt-56px pb-12px">
+                    <div class="row justify-content-center mx-0">
+                        <div class="col-7 br-5px mb-56px px-0">
+                            <button class="btn font-poppins font-color-white font-weight-700 font-size-18 btn-long btn-color-primary py-17px br-10px">
+                                <!--          <i-feather name="plus" class="mr-20px"></i-feather>-->
+                                Add account
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mx-0">
+                        <div class="col-7 br-5px box-shadow-purple bg-background-purple border border-primary px-0">
+                            <div class="border-bottom-grey-1 border-grey-2 ml-24px mr-24px">
+                                <label class="font-poppins font-weight-700 font-size-24 mt-24px">J.P MORGAN</label><br>
+                                <label class="mt-24px font-weight-500 font-size-18 text-grey-1">ACCOUNT HOLDER NAME :
+                                    <span class="font-weight-500 font-size-18 text-font-color-1">RONALD WILLIAM</span></label>
+                                <label class="mt-24px font-weight-500 font-size-18 text-grey-1 mb-24px">ACCOUNT NUMBER :
+                                    <span class="font-weight-500 font-size-18 text-font-color-1">256478654623</span></label>
+                            </div>
+                            <div class="row mt-24px ml-24px">
+                                <div class="d-flex align-items-center px-0">
+                                    <input type="checkbox" class="w-27 h-27">
+                                    <label class="ml-12px">make this as default</label>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-24px mb-24px">
+                                <div class="col-4 py-12px border border-2 border-primary rounded-2">
+                                    <div class="row justify-content-center">
+                                        <div class="col-8">
+                                            <label class="text-primary font-weight-700">Edit details</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mx-0 mt-32px">
+                        <div class="col-7 br-5px bg-grey-3 b-primary px-0">
+                            <div class="ml-24px">
+                                <label class="font-poppins font-weight-700 font-size-24 mt-24px">SWISS BANK</label><br>
+                                <label class="mt-24px font-weight-500 font-size-18 text-grey-1">ACCOUNT HOLDER NAME :
+                                    <span class="font-weight-500 font-size-18 text-font-color-1">RONALD WILLIAM</span></label>
+                                <label class="mt-24px font-weight-500 font-size-18 text-grey-1 mb-24px">ACCOUNT NUMBER :
+                                    <span class="font-weight-500 font-size-18 text-font-color-1">256478654623</span></label>
+                            </div>
+                            <div class="row mx-0">
+                                <div class="col-3 ml-24px mb-20px border border-2 border-red br-30 py-12px text-align-center">
+                                    <!--            <i-feather name="trash2" class="text-red font-weight-700"></i-feather>-->
+                                    <label class="ml-13px text-red font-weight-700 font-size-18">Remove</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mx-0 mt-32px">
+                        <div class="col-7 br-5px bg-grey-3 b-primary px-0">
+                            <div class="ml-24px">
+                                <label class="font-poppins font-weight-700 font-size-24 mt-24px">SWISS BANK</label><br>
+                                <label class="mt-24px font-weight-500 font-size-18 text-grey-1">ACCOUNT HOLDER NAME :
+                                    <span class="font-weight-500 font-size-18 text-font-color-1">RONALD WILLIAM</span></label>
+                                <label class="mt-24px font-weight-500 font-size-18 text-grey-1 mb-24px">ACCOUNT NUMBER :
+                                    <span class="font-weight-500 font-size-18 text-font-color-1">256478654623</span></label>
+                            </div>
+                            <div class="row mx-0">
+                                <div class="col-3 ml-24px mb-20px border border-2 border-red br-30 py-12px text-align-center">
+                                    <!--            <i-feather name="trash2" class="text-red font-weight-700"></i-feather>-->
+                                    <label class="ml-13px text-red font-weight-700 font-size-18">Remove</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row justify-content-center mt-40px mb-40px">
+                <div class="col-9 br-5px box-shadow bg-white pt-56px pb-12px">
+                    <div class="row justify-content-center">
+                        <div class="col-7 br-5px bg-background-purple py-24px ph-24px">
+                            This page is under construction
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-col>
+    </ion-row>
+</ion-content>

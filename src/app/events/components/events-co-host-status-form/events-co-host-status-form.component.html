@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup" #createForm="ngForm">
+    <div class="justify-content-between px-0 ">
+        <div class="d-inline-block align-items-center">
+            <dynamic-ionic-form-control [group]="formGroup"
+                                               [model]="formModelMap['co_host_status']"></dynamic-ionic-form-control>
+
+        </div>
+        <label class="font-poppins font-size-18 font-weight-500 align-items-center">Co Host</label>
+    </div>
+</form>
+<!--<events-add-co-host-status-no-template [eventAttendee]="eventAttendee"></events-add-co-host-status-no-template>-->
+<!--<events-remove-co-host-status-no-template [eventAttendee]="eventAttendee"></events-remove-co-host-status-no-template>-->

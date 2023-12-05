@@ -1,0 +1,41 @@
+<!--<app-user-profiles-get-event-attendess-of-user-account-->
+<!--        [userAccount]="loggedAccount" #eventAttendess-->
+
+<!--&gt;</app-user-profiles-get-event-attendess-of-user-account>-->
+
+<ion-content scrollEvents="true" class="bg-purple">
+    <ion-row class="mt-30 mh-4 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/edit'">
+                Edit profile
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/blasts'">
+                Mass Messaging
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/payoutinfo'">
+                Payout Information
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/history'">
+                Purchase history
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/userprofiles/pastguests'">
+                Past guests
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/allcontacts'">
+                All contacts
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="bg-white mh-4 br-4">
+        <user-profiles-get-event-attendess-of-user-account-scrolling
+                [userAccount]="loggedAccount"
+        ></user-profiles-get-event-attendess-of-user-account-scrolling>
+    </ion-row>
+</ion-content>

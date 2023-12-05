@@ -1,0 +1,6 @@
+<core-date-time-picker-no-style [presentation]="'date'" isModal="true" displayFormat="DD-MM-YYY"
+                                [modalClasses]="['date-of-birth-input-modal']"
+                                [labelClasses]="['font-color-primary', 'font-heading-no-color']"
+                                [styleClasses]="[ 'date-of-birth-input']"
+                                [value]="selected_date_of_birth?.toISOString(true) || '2003-02-12'"
+                                (datePickerClosed)="selected_date_of_birth=$event.data;slecteddob()"></core-date-time-picker-no-style>

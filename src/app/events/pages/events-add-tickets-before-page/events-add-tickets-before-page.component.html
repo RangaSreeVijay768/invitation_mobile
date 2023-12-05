@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-row class="ph-4 pv-6">
+        <ion-col size="6" class="d-flex ion-justify-content-start" routerLink="/signedin/events/homepage">
+            <img src="../../../../assets/images/logo/eventreply-logo.png">
+        </ion-col>
+        <ion-col size="6" class=" d-flex ion-justify-content-end">
+            <ion-icon icon="search" class="w-26px h-26px"></ion-icon>
+            <ion-icon icon="menu-outline" class="w-32px h-26px ml-6">
+
+            </ion-icon>
+        </ion-col>
+    </ion-row>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+    <ion-row class="pv-8 ph-4 bg-col-purple h-832px">
+        <ion-col size="12">
+            <ion-row>
+                <ion-col size="12" class="d-flex ion-align-items-center">
+                    <ion-icon class="font-color-primary w-36px h-36px mr-3" icon="arrow-back-outline"></ion-icon>
+                    <span class="font-color-black font-size-24px font-weight-700">Create Tickets</span>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col size="12">
+            <ion-row>
+                <ion-col size="12" class="mb-6">
+                    <ion-button size="large" expand="block">
+                        <ion-icon class="mr-2 w-21px h-21px" icon="ticket-outline"></ion-icon>
+                        <span class="font-color-white ion-text-center font-small font-weight-700">Free tickets</span>
+                    </ion-button>
+                </ion-col>
+                <ion-col size="12" class="">
+                    <ion-button size="large" expand="block">
+                        <ion-icon class="mr-2 w-21px h-21px" icon="logo-usd"></ion-icon>
+                        <span class="font-color-white ion-text-center font-small font-weight-700">Paid tickets</span>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+    </ion-row>
+</ion-content>

@@ -1,0 +1,177 @@
+<events-get-event-invite-and-user-event-infos-by-user-account-no-template
+        [userAccount]="loggedAccount" (eventInviteAndUserEventInfosReceived)="addItems($event)"
+        [count]="numberOfItems" [columnName]="'createdTime'" [columnOrder]="'DESC'" [startTime]="startTime"
+        [endTime]="endTime"
+        #getEventInviteAndEventInfosByUserAccountNoTemplateComponent #component>
+</events-get-event-invite-and-user-event-infos-by-user-account-no-template>
+
+<ion-row class="d-flex ion-justify-content-center" *ngIf="!items?.length">
+    <ion-col size="10" class="default-horizontal-padding ">
+        <img src="assets/images/no-promocodes.png" width="202">
+        <br>
+        <ion-label class="font-size-18px font-weight-700 mb-8 mt-4">
+            You don't have events here!
+        </ion-label>
+    </ion-col>
+</ion-row>
+
+<ion-row class="bb-2px-grey ">
+    <ion-col size="12" class="mt-4 ph-2" *ngFor="let event_invite_and_user_event_info of items">
+
+        <events-share-event-modal
+                [event]="event_invite_and_user_event_info.user_event_info.event_info.event"
+                #shareEventModalComponent>
+        </events-share-event-modal>
+
+        <events-rsvp-free-modal
+            #rsvpFreeModalComponent></events-rsvp-free-modal>
+
+        <ion-row class="bg-col-purple border-radius-5px mb-8 border-grey-1">
+            <ion-col size="12" class=" pt-4 pb-4">
+                <ion-label class="fs-10 font-color-grey-1 pl-6">Created
+                    on {{event_invite_and_user_event_info.user_event_info.event_info.start_time|appDateTimeToTimeFormat}}</ion-label>
+                <ion-row class="">
+                    <ion-col size="12" class="d-flex pt-2 ion-justify-content-between ion-align-items-center">
+                        <ion-label class="fs-11 pl-6 font-weight-medium-bold">
+                            By
+                            <span
+                                    class="font-weight-700"> {{event_invite_and_user_event_info.user_event_info.event_info.event.created_by?.display_name}}</span>
+                        </ion-label>
+                        <!--                            <ion-button class="pr-6">Follow</ion-button>-->
+                        <ion-col size="4" class="pr-2">
+                            <ion-row class="ion-justify-content-end">
+                                <user-profiles-user-follow
+                                        [followerAccount]="loggedAccount"
+                                        [userAccount]="event_invite_and_user_event_info.user_event_info.event_info.event.created_by"
+                                        [cssClasses]="'btn-event-follow'"
+                                >
+                                </user-profiles-user-follow>
+                            </ion-row>
+                        </ion-col>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <ion-row class="">
+            <ion-col size="4" class="mr-1">
+                <ion-row class="border-radius-4px overflow-hidden ion-justify-content-center ion-align-items-center">
+                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                            [imageClasses]="'cursor-pointer br-5px'"
+                            [alt]="event_invite_and_user_event_info.user_event_info.event_info.event.event_title"
+                            [entityId]="event_invite_and_user_event_info.user_event_info.event_info.event.event_id"
+                            [entityType]="'EVENT_PROFILE_PIC'"
+                            [size]="110"
+                            [round]="false"
+                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+
+                </ion-row>
+            </ion-col>
+
+            <ion-col size="7">
+                <ion-label
+                        class="font-weight-bold fs-11">{{event_invite_and_user_event_info.user_event_info.event_info.event.event_title}}</ion-label>
+                <br>
+                <ion-label
+                        class="d-inline-block mt-2 font-weight-medium-bold fs-10 font-color-primary">
+                    Invited
+                    by {{event_invite_and_user_event_info.event_invite.invited_by.display_name}}</ion-label>
+                <br>
+                <ion-icon name="calendar-clear-outline" class="font-weight-bold"></ion-icon>
+                <ion-label
+                        class="d-inline-block mb-2 mt-4 fs-10 font-color-step-300 ml-2">
+                    {{event_invite_and_user_event_info.user_event_info.event_info.event.start_time|appDateFormat}}
+                </ion-label>
+                <br>
+                <ion-icon name="time-outline" class="font-weight-bold "></ion-icon>
+                <ion-label
+                        class="d-inline-block mb-2 fs-10 font-color-step-300 font-color-medium ml-2">{{event_invite_and_user_event_info.user_event_info.event_info.event.start_time|appDateTimeToTimeFormat}}
+                    -
+                    {{event_invite_and_user_event_info.user_event_info.event_info.event.end_time|appDateTimeToTimeFormat}}</ion-label>
+                <br>
+                <ion-icon name="location-outline" class="font-weight-bold"></ion-icon>
+                <ion-label class="ml-2 mt-2 d-inline-block fs-10 font-color-step-300 font-color-medium">
+                    112, bulved street
+                </ion-label>
+                <br>
+                <ion-label class="d-inline-block mt-2 mb-2 fs-10 font-color-medium font-poppins">
+                    {{event_invite_and_user_event_info.user_event_info.event_info.event.event_description}}
+                </ion-label>
+                <br>
+                <br>
+
+                <ion-row>
+                    <ion-col size="12" class="d-flex ion-justify-content-between">
+                        <ion-label
+                                class="d-inline-block mb-2 fs-10 font-color-medium">
+                            <ion-icon name="people-outline" class="font-weight-bold mr-1"></ion-icon>
+                            {{event_invite_and_user_event_info.user_event_info.event_info.event.event_attendees_count}}
+                            attendees
+                        </ion-label>
+
+                        <ion-label
+                                class="d-inline-block mb-2 fs-10 font-color-medium"
+                                (click)="shareEventModalComponent.openModal()">
+                            <ion-icon name="share-social-outline"></ion-icon>
+                            Share
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="mb-2 bb-2px-grey">
+            <ion-col size="12" class="mt-4">
+                <events-event-details-ticket-type-modal
+                        [event]="event_invite_and_user_event_info.event_invite.event"
+                        #ticketTypeModalComponent></events-event-details-ticket-type-modal>
+                <!--                    <ion-button-->
+                <!--                            class="d-flex ion-justify-content-center font-size-18px font-weight-700"-->
+                <!--                            (click)="ticketTypeModalComponent.openModal()"-->
+                <!--                            *ngIf="!event_invite_and_user_event_info.user_event_info?.event_attendees?.length ">-->
+                <!--                        {{event_invite_and_user_event_info.user_event_info.event_info.event_tickets|eventsEventTicketsToButtonText}}-->
+                <!--                    </ion-button>-->
+
+                <ion-row class="ion-align-items-center ion-justify-content-center mb-5 ">
+                    <ion-col size="12" class="d-flex ion-justify-content-center">
+                        <ion-button class="mt-4 bg-white" fill="outline" size="small"
+                                    [routerLink]="'/signedin/events/'+event_invite_and_user_event_info.user_event_info.event_info.event.event_id+'/details'"
+                        >
+                            <ion-label class="pv-2">See details</ion-label>
+                        </ion-button>
+                        <!--                            <ion-button class="mt-4">-->
+                        <!--                                <ion-label class="pv-4">RSVP to see who's invited</ion-label>-->
+                        <!--                            </ion-button>-->
+                        <!--                            <ion-button-->
+                        <!--                                    class="d-flex ion-justify-content-center font-size-18px font-weight-700 mt-4"-->
+                        <!--                                    (click)="ticketTypeModalComponent.openModal()"-->
+                        <!--                                    *ngIf="!event_invite_and_user_event_info.user_event_info?.event_attendees?.length ">-->
+                        <!--                                {{event_invite_and_user_event_info.user_event_info.event_info.event_tickets|eventsEventTicketsToButtonText}}-->
+                        <!--                            </ion-button>-->
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+
+
+    </ion-col>
+</ion-row>
+
+<ion-row class="">
+    <ion-col size="12">
+        <ion-button
+                class="font-size-18px br-2"
+                (click)="onScroll()">
+            Load more events
+            <ion-icon name="chevron-down" class="vertical-align-middle"></ion-icon>
+        </ion-button>
+    </ion-col>
+</ion-row>
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>

@@ -1,0 +1,112 @@
+<user-profiles-get-all-user-contacts-no-template
+        (userContactsRecieved)="addItems($event)" [count]="numberOfItems"
+        #getAllUserContactsComponent></user-profiles-get-all-user-contacts-no-template>
+
+<ion-row class="ion-justify-content-evenly">
+    <ion-col size="12" class="mb-6 ph-4 border-radius-10 " *ngFor="let users of  items">
+        <ion-row class="text-align-center ion-justify-content-center pv-4 bg-white border border-grey-1 rounded-3 border-radius-10">
+            <ion-col size="12" class="">
+                <ion-row class="ion-justify-content-center ion-align-items-center border-radius-50-percent">
+                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar [size]="150"
+                                                                                 [entityId]="users.user_account.user_account_id"
+                                                                                 [alt]="users.user_account.display_name"
+                                                                                 [entityType]="'USER_PROFILE_PIC'"
+                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                </ion-row>
+            </ion-col>
+            <ion-col size="12" class="px-0">
+                <ion-row class="ion-align-items-center ion-justify-content-center">
+                    <ion-label
+                            class="d-inline-block vertical-align-middle mr-4 font-weight-700 font-poppins fs-11 text-font-color-1">
+                        {{users.user_account.display_name}}
+                    </ion-label>
+                    <ion-img src="/assets/images/remove/US-flag.png" class="d-inline-block mr-4 w-auto h-30px"/>
+                    <a href="{{ users.user_account?.instagram_profile_url }}" target="_blank">
+                        <ion-icon size="large" name="logo-instagram"
+                                  class=" font-color-primary stroke-primary-2px"
+                                  *ngIf="users.user_account?.instagram_profile_url"></ion-icon>
+                    </a>
+
+                </ion-row>
+
+                <ion-row class="ion-align-items-center ion-justify-content-center">
+                    <ion-label
+                            class="d-inline-block ml-2 font-poppins font-weight-500 fs-10 font-color-grey-2">
+                        <span class=" font-color-black">Bio: </span>
+                    </ion-label>
+
+                </ion-row>
+            </ion-col>
+            <ion-col size="10">
+                <ion-row class="border-bottom-1px-dashed-grey-1 mv-2"></ion-row>
+            </ion-col>
+            <ion-col size="12">
+                <ion-row class="">
+                    <ion-col size="12" class="px-0 mt-4" *ngIf="users.user_account?.date_of_birth">
+                        <ion-row
+                                class="mv-2 ion-justify-content-center ion-align-items-center font-color-grey-2">
+                            <img src="/assets/images/birthday-cake.png" height="20">
+                            <ion-label class="ml-2 font-poppins font-weight-700 fs-10 font-color-black">
+                                <span class="font-color-grey-2 font-weight-400">Birthday: </span>{{users.user_account?.date_of_birth|appDateFormat:'MMMM DD'}}
+                            </ion-label>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col size="12" class="px-0 mt-3"
+                             *ngIf="users.user_account.city||users.user_account.country">
+                        <ion-row class="mv-2 ion-justify-content-center">
+                            <ion-icon name="location-outline"
+                                      class="stroke-grey-2-2px font-color-grey-2"></ion-icon>
+                            <ion-label
+                                    class="d-inline-block ml-2 font-poppins font-weight-500 fs-10 font-color-primary">
+                                <span class="font-color-grey-2">Location: </span>{{users.user_account.city|appEnumToHumanReadable}}
+                                , {{users.user_account.country}}
+                            </ion-label>
+                        </ion-row>
+                    </ion-col>
+
+                </ion-row>
+            </ion-col>
+            <ion-col size="10">
+                <ion-row class="border-bottom-1px-dashed-grey-1 mv-2"></ion-row>
+            </ion-col>
+            <ion-row class="mx-0">
+                <ion-col size="12" class="px-0 mt-3">
+                    <ion-icon name="mail-outline" class="stroke-grey-2-2px font-color-grey-2"></ion-icon>
+                    <ion-label
+                            class="d-inline-block ml-3 font-poppins font-weight-500 fs-10 font-color-black">
+                        <span class="font-color-grey-2">Events attended: </span>02
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col size="12" class="px-0 mv-3">
+                    <ion-icon name="calendar-clear-outline"
+                              class="stroke-grey-2-2px font-color-grey-2"></ion-icon>
+                    <ion-label class="d-inline-block ml-3 font-poppins font-weight-500 fs-10 font-color-black">
+                        <span class="font-color-grey-2">Last events attended: </span>June 3rd
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-row>
+    </ion-col>
+</ion-row>
+
+<ion-row class="">
+    <ion-col size="12">
+        <ion-button
+                class="font-size-18px br-2"
+                (click)="onScroll()">
+            Load more events
+            <ion-icon name="chevron-down" class="vertical-align-middle"></ion-icon>
+        </ion-button>
+    </ion-col>
+</ion-row>
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>

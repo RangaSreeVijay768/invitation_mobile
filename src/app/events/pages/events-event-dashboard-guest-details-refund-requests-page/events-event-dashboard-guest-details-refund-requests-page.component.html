@@ -1,0 +1,227 @@
+<events-get-event-attendees-by-event-no-template
+        [event]="eventInfo.event"
+        (eventAttendeesReceived)="event_attendees = getEventAttendeesByEventNoTemplateComponent.event_attendees"
+        #getEventAttendeesByEventNoTemplateComponent></events-get-event-attendees-by-event-no-template>
+
+<!--<ion-row class="mt-4 d-flex ion-justify-content-center">-->
+<!--    <ion-col size="12">-->
+<!--        <ion-segment [scrollable]="true">-->
+<!--            <ion-segment-button-->
+<!--                    [routerLinkActive]="'btn-event-tab-active '"-->
+<!--                    [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/creatordashboard'">-->
+<!--                Dashboard-->
+<!--            </ion-segment-button>-->
+<!--            <ion-segment-button-->
+<!--                    [routerLinkActive]="'btn-event-tab-active '"-->
+<!--                    [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/eventdetails'">-->
+<!--                Event Details-->
+<!--            </ion-segment-button>-->
+<!--            <ion-segment-button-->
+<!--                    [routerLinkActive]="'btn-event-tab-active '"-->
+<!--                    [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/tickettype'">-->
+<!--                Ticket Details-->
+<!--            </ion-segment-button>-->
+<!--            <ion-segment-button-->
+<!--                    [routerLinkActive]="'btn-event-tab-active '"-->
+<!--                    [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/guestdetails/allguests'">-->
+<!--                Guest Details-->
+<!--            </ion-segment-button>-->
+<!--            <ion-segment-button-->
+<!--                    [routerLinkActive]="'btn-event-tab-active '"-->
+<!--                    [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/manageguest/allguests'">-->
+<!--                Manage guest list-->
+<!--            </ion-segment-button>-->
+<!--        </ion-segment>-->
+<!--    </ion-col>-->
+<!--</ion-row>-->
+
+<!--<ion-row class="">-->
+<!--    <ion-col size="3" class="row ph-24px justify-content-between row-align-center">-->
+<!--        <button class="btn btn-color-primary py-8px ph-16px">-->
+<!--            <label class="font-poppins font-weight-500 mr-12px cursor-pointer">Download as CSV</label>-->
+<!--        </button>-->
+<!--    </ion-col>-->
+<!--</ion-row>-->
+
+<!--<ion-row>-->
+<!--    <ion-col class="row row-align-center mt-32px px-24px pt-16px border-top border-grey-1">-->
+<!--        <label class="font-weight-500 font-poppins font-size-18">Sort by:</label>-->
+<!--    </ion-col>-->
+<!--</ion-row>-->
+
+
+<!--<ion-row class="" *ngFor="let event_attendee of getEventAttendeesByEventNoTemplateComponent.event_attendees">-->
+
+<!--    <ion-col class="">-->
+<!--        <ion-row class="row justify-content-between align-items-center mb-15px ph-16px py-16px bg-grey-3 rounded-2">-->
+<!--            <ion-col class="d-flex justify-content-between">-->
+<!--                &lt;!&ndash;          <img src="assets/party.png" height="115" width="115" class="rounded-circle">&ndash;&gt;-->
+<!--                <images-get-image-by-entity-and-type-unique-image-ngx-avatar-->
+<!--                        [size]="60"-->
+<!--                        [imageClasses]="['br-30']" [alt]="event_attendee.user_account.display_name"-->
+<!--                        [entityId]="event_attendee.user_account.user_account_id" [entityType]="'USER_PROFILE_PIC'"-->
+<!--                        [round]="false"-->
+<!--                ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>-->
+<!--                <ion-row class="font-size-18 font-weight-500 ml-13px">-->
+<!--                    {{event_attendee.user_account.display_name}}-->
+<!--                    <ion-col>-->
+<!--                        <img src="assets/images/indian%20flag.png" height="20" class="mr-12px">-->
+<!--                        <img src="assets/images/img.png" height="5" width="5" class="mr-12px">-->
+<!--                        <label class="font-size-14 text-grey-1 mb-0" *ngIf="event_attendee.invited_by">Invited-->
+<!--                            by {{event_attendee.invited_by.display_name}}</label>-->
+<!--                        <label class="font-size-14 text-grey-1 mb-0" *ngIf="!event_attendee.invited_by">No-->
+<!--                            invites </label>-->
+<!--                        <div class="d-flex align-items-center mt-24px">-->
+<!--                            <events-co-host-status-form-->
+<!--                                    [eventAttendee]="event_attendee"></events-co-host-status-form>-->
+<!--                        </div>-->
+<!--                    </ion-col>-->
+<!--                </ion-row>-->
+
+<!--                <ion-row class="">-->
+<!--                    <ion-col-->
+<!--                            class="d-flex align-items-center justify-content-center py-12px border border-2 border-primary rounded-2"-->
+<!--                            *ngIf="event_attendee.user_account.instagram_profile_url">-->
+<!--                        <a href="{{event_attendee.user_account.instagram_profile_url}}" target="_blank">-->
+<!--                            &lt;!&ndash;                            <i-feather name="instagram"&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                       class="font-weight-500 text-primary h-27 w-27 mr-8px"></i-feather>&ndash;&gt;-->
+<!--                            <label class="font-weight-500 font-size-18 font-poppins text-primary">Instagram-->
+<!--                                profile</label>-->
+<!--                        </a>-->
+<!--                    </ion-col>-->
+<!--                    &lt;!&ndash;                    <div class="font-size-18 font-weight-500 font-poppins text-red text-align-end mt-32px">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <i-feather name="Trash-2" class="mr-16px"></i-feather>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <label>Remove</label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                </ion-row>-->
+<!--            </ion-col>-->
+
+<!--            <ion-row class="row mt-24px border-top pt-24px border-grey-1 border-top-dashed">-->
+<!--                <ion-col class="font-weight-700 font-poppins font-size-18">-->
+<!--                    <ion-label class="mr-24px">Ticket Purchase details</ion-label>-->
+<!--                </ion-col>-->
+<!--            </ion-row>-->
+<!--        </ion-row>-->
+
+
+<!--    </ion-col>-->
+
+<!--</ion-row>-->
+
+
+<ion-content scrollEvents="true" class="bg-background-purple">
+
+    <ion-row class="mt-30 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLinkActive]=""
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/creatordashboard'">
+                Dashboard
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/eventdetails'">
+                Event Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/tickettype'">
+                Ticket Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/guestdetails/allguests'">
+                Guest Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/manageguest/allguests'">
+                Manage guest list
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ma-3 pa-3 bg-white box-shadow-purple h-100-percent">
+        <ion-col size="12">
+            <ion-row class="border-bottom-grey-1 pb-6">
+                <ion-col size="12" class="d-flex">
+                    <ion-button fill="clear" class="font-color-grey-2 font-weight-500 fs-10"
+                                routerLink="/signedin/events/eventdashboard/{{eventInfo.event.event_id}}/guestdetails/allguests">
+                        {{options[0].value}}
+                    </ion-button>
+                    <ion-button fill="clear" class="btn-event"
+                                routerLink="/signedin/events/eventdashboard/{{eventInfo.event.event_id}}/guestdetails/refundrequests">
+                        {{options[1].value}}
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="mt-4 d-flex ion-justify-content-center border-bottom-grey-1 pb-5">
+                <ion-col size="6" class="">
+                    <ion-button class="">
+                        <label class="font-weight-bold font-size-16px ph-6 pv-3">Download as CSV</label>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="bg-grey-3 mt-6 br-10px">
+                <ion-col size="12" class="">
+
+                    <ion-row class="ion-justify-content-between row-align-center border-bottom-1px-dashed-grey-1 mb-6 mh-4 pv-4">
+                        <ion-col size="2" class="">
+                            <img src="assets/images/img.png" height="40" width="40" class="mr-12px border-radius-50-percent">
+<!--                            <images-get-image-by-entity-and-type-unique-image-ngx-avatar-->
+<!--                                    [size]="60"-->
+<!--                                    [imageClasses]="['br-30']" [alt]="event_attendee.user_account.display_name"-->
+<!--                                    [entityId]="event_attendee.user_account.user_account_id" [entityType]="'USER_PROFILE_PIC'"-->
+<!--                                    [round]="true"-->
+<!--                            ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>-->
+                        </ion-col>
+                        <ion-col size="">
+                            <ion-label class="font-weight-500 fs-11">qwertyuio
+                            </ion-label>
+                        </ion-col>
+
+                    </ion-row>
+                    <ion-row class="border-grey-1 br-5px ma-3">
+                        <ion-col size="12">
+                            <ion-row>
+                                <ion-col size="12" class="pa-4">
+                                    <ion-row>
+                                        <ion-label class="font-weight-700 fs-10">Paid</ion-label>
+                                    </ion-row>
+                                    <ion-row class="mt-4">
+                                        <ion-label class="fs-9 font-color-grey-2 ">Purchased on: <ion-label class="font-color-black">November</ion-label></ion-label>
+                                    </ion-row>
+                                    <ion-row class="mt-3">
+                                        <ion-label class="fs-9 font-color-grey-2 ">Quantity: <ion-label class="font-color-black">02</ion-label></ion-label>
+                                    </ion-row>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row class="border-primary-1 bg-purple ma-3 br-5px">
+                                <ion-col size="12">
+                                    <ion-row class="mh-3 pv-3 border-bottom-grey-1">
+                                        <ion-col size="12" class="d-flex ion-justify-content-between ion-align-items-center">
+                                            <ion-label class="fs-9">Refund amount: <ion-label class="font-weight-700">$15</ion-label></ion-label>
+                                            <ion-button>Issue refund</ion-button>
+                                        </ion-col>
+                                    </ion-row>
+
+                                </ion-col>
+                                <ion-col size="12">
+                                    <ion-row class="ma-3">
+                                        <ion-col size="1.5" class="d-flex ion-align-items-center">
+                                            <ion-icon name="information-circle-outline" class="font-color-grey-2 font-weight-700 w-21px h-21px"></ion-icon>
+                                        </ion-col>
+                                        <ion-col size="10.5">
+                                            <ion-label class="overflow-wrap font-color-grey-2 fs-9">Refund requested on November 5th 2022</ion-label>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>
+
+

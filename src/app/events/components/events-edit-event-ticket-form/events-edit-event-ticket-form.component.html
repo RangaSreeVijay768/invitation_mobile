@@ -1,0 +1,114 @@
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <div class="row mx-0">
+    <label class="px-0 font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">TICKET NAME
+      <span class="font-poppins font-weight-500 font-size-18 text-transform-none text-red">*</span></label>
+  </div>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['ticket_name']"></dynamic-ionic-form-control>
+</form>
+<div class="row mt-32px">
+  <div class="d-flex justify-content-between">
+    <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pr-16px">
+      <div class="row mx-0">
+        <label class="px-0 font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">TICKET PRICE
+          <span class="font-poppins font-weight-500 font-size-18 text-transform-none text-red">*</span></label>
+      </div>
+      <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                         [model]="formModelMap['ticket_price']"></dynamic-ionic-form-control>
+    </form>
+    <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pl-16px">
+      <div class="row mx-0">
+        <label class="px-0 font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">TICKET QUANTITY
+          <span class="font-poppins font-weight-500 font-size-18 text-transform-none text-red">*</span></label>
+      </div>
+      <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                         [model]="formModelMap['total_quantity']"></dynamic-ionic-form-control>
+    </form>
+  </div>
+</div>
+
+
+<div class="d-flex align-items-center mt-32px">
+  <input type="checkbox" class="specifyColor w-27 h-27 font-poppins mr-16px">
+  <label class="font-poppins font-size-18 font-weight-500">Show available ticket quantity</label>
+</div>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder mt-32px">
+  <div class="row mx-0">
+    <label class="px-0 font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">ADD DESCRIPTION
+      <span class="font-poppins font-weight-500 font-size-18 text-transform-none text-red">*</span></label>
+  </div>
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['ticket_description']"></dynamic-ionic-form-control>
+</form>
+
+<div class="d-flex align-items-center justify-content-between px-0 mt-32px">
+  <div class="d-flex align-items-center">
+    <input type="radio" name="x" class="specifyColor wh-33px font-poppins mr-12px">
+    <label class="font-weight-500 font-poppins font-size-18">Absorb fees</label>
+  </div>
+  <div class="d-flex align-items-center">
+    <input type="radio" name="x" class="specifyColor wh-33px font-poppins mr-12px">
+    <label class="font-weight-500 font-poppins font-size-18">Pass along fees to buyer</label>
+  </div>
+</div>
+<div class="px-0 d-flex align-items-center mt-12px">
+  <div class="bg-background-purple py-4px ph-10px rounded-4">
+<!--    <i-feather name="help-circle" class="font-poppins text-primary mr-8px"></i-feather>-->
+    <label class="text-primary font-size-16">what are fees?</label>
+  </div>
+</div>
+<div
+  class="px-0 d-flex align-items-center justify-content-between border-bottom-grey-1 border-grey-1 py-20px bg-white mt-12px"
+  (click)="openAdvancedOptions()">
+  <label class="font-poppins font-weight-500 font-size-18">Advanced options</label>
+<!--  <i-feather name="chevron-down" class="font-poppins" *ngIf="!open_advanced_options"></i-feather>-->
+<!--  <i-feather name="chevron-up" class="font-poppins" *ngIf="open_advanced_options"></i-feather>-->
+</div>
+
+<div *ngIf="open_advanced_options">
+  <div class="row mx-0 mt-32px">
+    <label class="px-0 font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">SET PURCHASE QUANTITY</label>
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-between">
+      <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pr-16px">
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                           [model]="formModelMap['set_purchase_quantity_start']"></dynamic-ionic-form-control>
+      </form>
+      <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pl-16px">
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                           [model]="formModelMap['set_purchase_quantity_end']"></dynamic-ionic-form-control>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mx-0 mt-32px">
+    <label class="px-0 font-poppins font-weight-500 font-size-18 text-transform-none text-font-color-1 mb-0">SALE DATE AND TIME</label>
+  </div>
+  <div class="row">
+    <div class="d-flex">
+      <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pr-16px pt-24px">
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                           [model]="formModelMap['sale_start_date']"></dynamic-ionic-form-control>
+      </form>
+      <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pl-16px">
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                           [model]="formModelMap['sale_start_time']"></dynamic-ionic-form-control>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="d-flex justify-content-between">
+      <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pr-16px pt-24px">
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                           [model]="formModelMap['sale_end_date']"></dynamic-ionic-form-control>
+      </form>
+      <form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder pl-16px">
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                           [model]="formModelMap['sale_end_time']"></dynamic-ionic-form-control>
+      </form>
+    </div>
+  </div>
+</div>

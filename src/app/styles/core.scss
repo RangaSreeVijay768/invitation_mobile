@@ -1,0 +1,400 @@
+.bg-purple {
+  background-color: #F4F4FF;
+}
+
+.border-bottom-grey-1 {
+  border-bottom: 1px solid #C0C0C0;
+}
+
+.border-bottom-grey-2 {
+  border-bottom: 1px solid #8D8D8D;
+}
+
+
+.border-top {
+  border-top: 1px solid #C0C0C0;
+
+}
+
+.border-top-grey-2 {
+  border-top: 1px solid #8D8D8D;
+
+}
+
+.b-1px-dashed-grey-1 {
+  border: 1px dashed #C0C0C0;
+}
+
+.border-bottom-1px-dashed-grey-1 {
+  border-bottom: 1px dashed #C0C0C0;
+}
+
+.border-top-1px-dashed-grey-1 {
+  border-top: 1px dashed #C0C0C0;
+}
+
+.border-grey-1 {
+  border: 1px solid #C0C0C0;
+}
+
+.border-grey-1-dotted {
+  border: 1px dashed #C0C0C0;
+}
+
+//.border-bottom-grey-1-dotted {
+//  border-style: dashed;
+//  border-color: #C0C0C0;
+//  border-radius: 10px;
+//  //border: 1px solid #C0C0C0;
+//}
+
+
+.border-grey-2 {
+  border: 2px solid #C0C0C0;
+}
+
+.border-color-gray-1 {
+  border-color: #C0C0C0;
+
+}
+
+.font-color-7F56D9 {
+  color: #7F56D9;
+}
+
+.font-color-9747FF {
+  color: #9747FF;
+}
+
+.border-left-3px-9747FF {
+  border-left: 3px solid #9747FF;
+}
+
+.border-primary {
+  border: 3px solid #9747FF;
+}
+
+.border-primary-1 {
+  border: 1px solid #9747FF;
+}
+
+.border-bottom-primary {
+  border-bottom: 3px solid #9747FF;
+}
+
+.border-radius-10 {
+  border-radius: 10px;
+}
+
+.drop-shadow-gray {
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.10));
+}
+
+.font-color-red {
+  color: red;
+}
+
+.background-white {
+  background-color: white;
+}
+
+.z-index-10 {
+  z-index: 10;
+}
+
+.border-grey {
+  border: 1px solid #C0C0C0;
+}
+
+.border-right-grey-1px {
+  border-right: 1px solid #C0C0C0;
+}
+
+.border-radius-5px {
+  border-radius: 5px;
+}
+
+.bg-grey-3 {
+  background-color: #F2F2F2 !important;
+}
+
+.border-top-radius-10 {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.border-bottom-radius-10 {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.border-radius-50-percent {
+  border-radius: 50%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.h-30px {
+  height: 30px;
+}
+
+.input-active:not(:placeholder-shown){
+  border: 2px solid purple;
+}
+
+.input-active-border-bottom {
+  padding: 20px 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 100%
+}
+
+.input-active-border-bottom:focus {
+  outline: none;
+  border-bottom: 1px solid #C4C4C4;
+}
+
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.font-color-grey-1 {
+  color: #C0C0C0;
+}
+
+.font-color-grey-2 {
+  color: #8D8D8D;
+}
+
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-start {
+  text-align: start;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gap-16px {
+  gap: 16px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.w-123px {
+  width: 123px;
+}
+
+.h-99px {
+  height: 99px;
+}
+
+.border-top-bottom {
+  border-top: 1px solid #C0C0C0;
+  border-bottom: 1px solid #C0C0C0;
+}
+
+.gap-12px {
+  gap: 12px;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.mr-12px {
+  margin-right: 12px;
+}
+
+.flag-image-inline-small-label{
+  width:20px;
+  height:20px;
+}
+
+.flag-image-inline-medium-label{
+  width:30px;
+  height:30px;
+}
+
+.profile-form-placeholder input::placeholder {
+  font-weight: 400 !important;
+  color: rgba(141, 141, 141, 1) !important;
+  font-size: 16px !important;
+}
+
+.font-weight-400{
+  font-weight: 400 !important;
+}
+
+.font-weight-500{
+  font-weight: 500 !important;
+}
+
+.btn-event-tab {
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+
+.btn-event-tab-active {
+  height: 50px;
+  background: linear-gradient(180deg, rgba(127, 86, 217, 0) 0%, rgba(127, 86, 217, 0.2) 100%, rgba(127, 86, 217, 0.1) 100%);
+  border-bottom: 3px solid rgba(127, 86, 217, 1);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-event{
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  color: black;
+  background-color: #F2F2F2;
+  //@extend .font-poppins;
+}
+.btn-event-active{
+  padding: 8px;
+  color: black;
+  background-color: #F2F2F2;
+}
+
+.tab-button {
+  margin-right: 32px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.tab-button.active {
+  padding: 12px 24px;
+  background: linear-gradient(180deg, rgba(127, 86, 217, 0) 0%, rgba(127, 86, 217, 0.2) 100%, rgba(127, 86, 217, 0.1) 100%);
+  border-bottom: 3px solid rgba(127, 86, 217, 1);
+  color: rgba(127, 86, 217, 1);
+}
+  .border-radius-4px {
+  border-radius: 4px;
+}
+
+.bg-grey-3 {
+  background-color: #f2f2f2;
+}
+
+.overflow-wrap {
+  word-break: break-word;
+}
+
+.scrollY{
+  height: 30vh;
+  overflow-y: scroll;
+}
+
+.h-30vh{
+  height: 30vh;
+}
+
+.overflow-y-scroll{
+  overflow-y: scroll;
+}
+.overflow-y-scroll::-webkit-scrollbar{
+  visibility: hidden !important;
+}
+
+.bg-linear-gradient-grey {
+  background: linear-gradient(to right, rgba(192, 192, 192, 1), rgba(255, 255, 255, 0));
+}
+
+
+.scrollX{
+  //height: 40vh;
+  //width: 50px;
+  overflow-x: scroll;
+  position: (0, 30);
+}
+.scrollX::-webkit-scrollbar {
+  visibility: hidden;
+}
+.position-scroll{
+  position: fixed;
+  top: 100px;
+}
+
+.mt-40px{
+  margin-top: 90px !important;
+}
+.img-upload-text {
+  height: 382px;
+  width: 398px;
+  display: grid;
+  place-items: center;
+}
+
+.box-shadow {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form-placeholder input::placeholder {
+  font-weight: 500 !important;
+  color: #C0C0C0 !important;
+  font-size: 18px !important;
+}
+
+.profile-form-placeholder textarea::placeholder {
+  font-weight: 500 !important;
+  color: #C0C0C0 !important;
+  font-size: 18px !important;
+}
+
+.profile-form-placeholder-primary input::placeholder {
+  font-weight: 500 !important;
+  color: red !important;
+  font-size: 18px !important;
+}
+
+.bio-edit-state {
+  border: none;
+  border-radius: 0;
+  transition: none;
+  resize: none;
+  max-height: fit-content;
+  padding: 0;
+}
+
+.bio-edit-state:focus {
+  border: none;
+  box-shadow: none !important;
+}
+
+.bio-edit-state:not(:placeholder-shown) {
+  //background: red;
+}
+
+.bio-box {
+  border-bottom: 1px solid #C0C0C0 !important;
+
+}
+
+
+.pac-container {
+  z-index: 10000 !important
+}
+
+.event-publish-bg {
+  background: linear-gradient(90deg, rgba(41, 167, 26, 0.3) 0%, rgba(41, 167, 26, 0) 100%);
+}

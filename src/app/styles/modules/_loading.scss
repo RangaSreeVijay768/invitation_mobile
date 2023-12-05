@@ -1,0 +1,22 @@
+.is-loading > .cssload-contain {
+  display: inline;
+  //@extend .ml-8;
+}
+
+.is-loading.button-disabled {
+  --opacity: 0.8;
+}
+
+.cssload-contain {
+  margin: auto;
+  display: none;
+}
+
+.btn-spinner{
+  display:none;
+}
+
+.is-loading > .btn-spinner {
+  display: inline;
+  //@extend .ml-8;
+}

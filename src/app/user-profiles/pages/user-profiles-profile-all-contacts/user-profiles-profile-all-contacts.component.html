@@ -1,0 +1,83 @@
+<user-profiles-user-contacts-from-csv-swiper-modal
+    #userProfilesUserContactsFromCsvSwiperModalComponent></user-profiles-user-contacts-from-csv-swiper-modal>
+
+<user-profiles-create-user-contact-modal
+    #createUserContactModalComponent></user-profiles-create-user-contact-modal>
+
+
+<ion-content scrollEvents="true" class="bg-purple">
+
+    <!--    <ion-row class="ion-justify-content-center mt-30">-->
+
+    <!--        <ion-col size="12">-->
+
+    <ion-row class="mt-20 mh-4 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/edit'">
+                Edit profile
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/blasts'">
+                Mass Messaging
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/payoutinfo'">
+                Payout Information
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/history'">
+                Purchase history
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/pastguests'">
+                Past guests
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/userprofiles/allcontacts'">
+                All contacts
+            </ion-button>
+        </ion-col>
+
+        <!--        <ion-col size="12" class="bg-white rounded-4 box-shadow">-->
+        <!--            <ion-row class="ph-2 border-bottom border-grey-1 mx-0 pb-8">-->
+    </ion-row>
+
+    <ion-col size="12">
+
+        <ion-row class="mt-6 mb-6">
+            <ion-col size="12" class="d-flex ion-justify-content-around">
+                <ion-button class="py-2 ph-4"
+                            fill="outline"
+                            color="purple"
+                            (click)="createUserContactModalComponent.openModal()"
+                >
+                    <ion-icon name="person-add-outline"
+
+                              class="font-weight-500 cursor-pointer"></ion-icon>
+                    <ion-label class="font-poppins font-weight-500 ml-3 cursor-pointer fs-8">Create Contact
+                    </ion-label>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+    </ion-col>
+
+    <ion-col size="12">
+
+        <ion-row class="mv-8">
+            <ion-col size="12" class="">
+
+                <!--                            <user-profiles-get-event-attendess-of-user-account-scrolling-->
+                <!--                                    [userAccount]="loggedAccount"-->
+                <!--                            ></user-profiles-get-event-attendess-of-user-account-scrolling>-->
+
+                <user-profiles-profile-all-contacts-scrolling
+                        [numberOfItems]="20"
+                ></user-profiles-profile-all-contacts-scrolling>
+
+            </ion-col>
+        </ion-row>
+    </ion-col>
+           
+</ion-content>

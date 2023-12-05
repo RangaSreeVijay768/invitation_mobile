@@ -1,0 +1,5 @@
+<button class="btn btn-color-primary"
+        (click)="checkInEventAttendee(createRequestData())"
+        *ngIf="eventAttendee.check_in_status!=='ACTIVE'">Check in guest
+</button>
+<button class="btn btn-outline-primary" *ngIf="eventAttendee.check_in_status==='ACTIVE'">Checked In</button>

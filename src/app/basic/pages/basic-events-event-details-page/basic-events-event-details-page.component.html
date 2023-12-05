@@ -1,0 +1,297 @@
+<!--<ion-header>-->
+<!--    <ion-row class="ph-4 pv-6">-->
+<!--        <ion-col size="6" class="d-flex ion-justify-content-start" routerLink="/signedin/events/homepage">-->
+<!--            <img src="../../../../assets/images/logo/eventreply-logo.png">-->
+<!--        </ion-col>-->
+<!--        <ion-col size="6" class="d-flex ion-justify-content-end">-->
+<!--            <ion-icon icon="search" class="w-26px h-26px"></ion-icon>-->
+<!--            <ion-icon icon="menu-outline" class="w-32px h-26px ml-6">-->
+
+<!--            </ion-icon>-->
+<!--        </ion-col>-->
+<!--    </ion-row>-->
+<!--</ion-header>-->
+
+<events-get-event-invites-by-event-no-template
+        [event]="event" [count]="5"
+        (eventInvitesReceived)="event_invites = getEventInvitesByEventNoTemplateComponent.eventInvites"
+        #getEventInvitesByEventNoTemplateComponent></events-get-event-invites-by-event-no-template>
+<events-share-event-modal
+        [event]="event_info.event"
+        #shareEventModalComponent>
+
+</events-share-event-modal>
+
+
+<!--<events-event-details-ticket-type-modal-->
+<!--        [event]="event_info.event"-->
+<!--        #eventsEventDetailsTicketTypeModalComponent></events-event-details-ticket-type-modal>-->
+<basic-verify-user-when-user-comes-from-link-modal
+        [event]="event_info.event" (modalClosed)="$event.status==='SUCCESS'?hardReloadPage():''"
+        #eventsEventDetailsTicketTypeModalComponent></basic-verify-user-when-user-comes-from-link-modal>
+
+<ion-header class="bg-white">
+    <ion-row class="ph-4 pv-6">
+        <ion-col size="6" class="d-flex ion-justify-content-start" routerLink="/basic/homepage">
+            <img src="../../../../assets/images/logo/eventreply-logo.png">
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+            <ion-icon size="large" icon="search"></ion-icon>
+            <core-menu-pop-over-component></core-menu-pop-over-component>
+        </ion-col>
+    </ion-row>
+</ion-header>
+<ion-content [scrollEvents]="true">
+    <ion-row class=" mb-30">
+        <!--    event details    -->
+        <ion-col size="12" class="ph-4 pv-8 bg-col-purple">
+            <ion-row>
+                <ion-col size="12" class="mb-6 d-flex ion-justify-content-center">
+                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                            [entityId]="event_info.event.event_id" [entityType]="'EVENT_PROFILE_PIC'"
+                            [alt]="event_info.event.event_title" [size]="350" [round]="false"
+
+                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                </ion-col>
+                <ion-col size="12" class="ph-4 pv-6 bg-white br-1 mb-6">
+                    <ion-row>
+                        <ion-col size="12" class="mb-2">
+                            <p class="font-size-24px font-weight-700">{{event_info.event.event_title}}</p>
+                        </ion-col>
+                        <!--                        <ion-col size="12" class="font-color-primary d-flex ion-align-items-center mb-6">-->
+                        <!--                            <ion-icon class="w-21px h-21px mr-2" icon="help-circle-outline"></ion-icon>-->
+                        <!--                            <span class="font-small font-weight-500 mr-5">{{event_info.event.invitation_policy}}</span>-->
+                        <!--                            <div class="w-8px h-8px bg-grey br-999999 mr-5"></div>-->
+                        <!--                            <span class="font-color-green font-small font-weight-500">{{event_info.event_tickets|eventsEventTicketsToHumanReadable}}</span>-->
+                        <!--                        </ion-col>-->
+                        <!--                        <ion-col size="12">-->
+                        <!--                            <ion-row class="d-flex ion-align-items-center pv-6 b-bottom-2px-footer">-->
+                        <!--                                <ion-col size="3" class="pl-2 pr-4">-->
+                        <!--                                    <img src="../../../../assets/images/home/profile-ronald.png" alt="ronald profile"/>-->
+                        <!--                                </ion-col>-->
+                        <!--                                <ion-col size="6">-->
+                        <!--                                    <span class="color-grey-2 font-size-18px font-weight-400">Created/hosted by </span>-->
+                        <!--                                    <span class="font-color-1 font-size-18px font-weight-400">{{event_info.event.created_by.display_name}}</span>-->
+                        <!--                                </ion-col>-->
+                        <!--                                <ion-col size="3">-->
+                        <!--                                    <ion-button>Follow</ion-button>-->
+                        <!--                                </ion-col>-->
+                        <!--                            </ion-row>-->
+                        <!--                        </ion-col>-->
+
+                        <ion-col size="12">
+                            <ion-row class="d-flex ion-align-items-center pt-6">
+                                <ion-col size="3" class="pl-2 pr-4">
+                                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                                            class="cursor-pointer"
+                                            [alt]="event.created_by.display_name"
+                                            [entityId]="event.created_by.user_account_id"
+                                            [entityType]="'USER_PROFILE_PIC'"
+                                            [size]="60"
+                                            [round]="true"
+                                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <span class="color-grey-2 font-size-18px font-weight-400">Invited by </span><br>
+                                    <span class="font-color-1 font-size-18px font-weight-400">{{event_info.event.created_by.display_name}}</span>
+                                </ion-col>
+                                <!--                                <ion-col size="3">-->
+                                <!--                                    <ion-button>Follow</ion-button>-->
+                                <!--                                </ion-col>-->
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-row class="pt-3 pb-3 pl-3 bg-white">
+
+                        <ion-col size="12" *ngIf="event_info.event_locations?.length">
+                            <ion-row>
+                                <ion-col size="12" class="mb-4 d-flex ion-align-items-center">
+                                    <ion-icon class="w-24px h-24px mr-3 font-color-primary"
+                                              name="location-outline"></ion-icon>
+                                    <span class="font-normal font-weight-700 font-color-black">Location</span>
+                                </ion-col>
+                                <ion-col size="12" class="mb-6">
+                                    <span class="font-color-1 font-normal font-weight-400">{{event_info.event_locations[0]?.location.address}}</span>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+
+                        <ion-col size="12" class="mb-4 d-flex ion-align-items-center">
+                            <ion-icon class="w-24px h-24px mr-3 font-color-primary"
+                                      icon="calendar-clear-outline"></ion-icon>
+                            <span class="font-normal font-weight-700 font-color-black">Date and Time</span>
+                        </ion-col>
+                        <ion-col size="12" class="mb-8">
+                            <span class="font-color-1 font-normal font-weight-400">{{event_info.event.start_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy HH:mm a'}}
+                                <span class="color-grey-2"> To </span>{{event_info.event.end_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy HH:mm a'}}</span>
+                        </ion-col>
+                        <ion-col size="12" class="mb-4">
+                            <span class="font-normal font-weight-700 font-color-black">Description/details about event</span>
+                        </ion-col>
+                        <ion-col size="12" class="mb-6">
+                            <span class="font-normal font-weight-400 font-color-1">
+                                {{event_info.event.event_description}}
+                            </span>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="12" class="mb-5 mt-4 d-flex ion-align-items-center">
+                            <ion-icon class="w-24px h-24px mr-3 font-color-primary" icon="people-outline"></ion-icon>
+                            <span class="font-normal font-weight-700 font-color-black">Invited</span>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+
+                <ion-col size="12" class="mb-5">
+                    <ion-row class="default-horizontal-padding pv-8 bg-white box-shadow br-5px w-100-percent">
+                        <ion-col size="12" class="mb-4"
+                                 *ngFor="let eventInvite of event_invites">
+                            <ion-row class="d-flex ion-align-items-center">
+                                <ion-col size="2">
+                                    <events-view-event-invitee-details-modal
+                                            [event]="event" [eventInvite]="eventInvite"
+                                    ></events-view-event-invitee-details-modal>
+                                </ion-col>
+                                <ion-col size="8" class="d-flex align-items-center d-inline-block">
+                                    <ion-row class="pl-3 row-align-center">
+                                        <ion-col size="12">
+                                            <ion-label
+                                                    class="font-size-14px font-color-1">{{eventInvite.display_name || eventInvite.whatsapp_number}}</ion-label>
+                                        </ion-col>
+                                        <ion-col size="12" class="mt-1 d-flex ion-align-items-center">
+                                            <ion-img src="assets/images/indian%20flag.png"
+                                                     class="d-inline-block mr-2 flag-image-inline-small-label"></ion-img>
+                                            <ion-label class="vertical-align-top font-extra-small font-color-grey-1">
+                                                &#x2022; Invited
+                                                by {{event.created_by.display_name}} </ion-label>
+                                        </ion-col>
+                                    </ion-row>
+
+                                </ion-col>
+                                <ion-col size="2" class="ion-text-end">
+                                    <ion-label class="vertical-align-center"
+                                               *ngIf="eventInvite.user_account?.instagram_profile_url">
+                                        <a href="{{eventInvite.user_account.instagram_profile_url}}" target="_blank">
+                                            <ion-icon size="large" name="logo-instagram"
+                                                      class="font-color-primary"></ion-icon>
+                                        </a>
+
+                                    </ion-label>
+                                </ion-col>
+                            </ion-row>
+
+
+                        </ion-col>
+                        <ion-col size="12" class="ion-text-center" *ngIf="!event_invites">
+                            <label class="font-size-18 text-font-color-1 font-weight-700 mv-4">
+                                No invitees for this event
+                            </label>
+                        </ion-col>
+                        <ion-col size="2">
+                        </ion-col>
+                        <ion-col size="8">
+                            <events-all-invited-people-modal
+                                    *ngIf="event_invites"
+                                    [eventInvites]="event_invites"
+                                    [event]="event"
+                            ></events-all-invited-people-modal>
+                        </ion-col>
+                        <ion-col size="2">
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+
+
+            </ion-row>
+        </ion-col>
+
+        <ion-row>
+
+            <ion-row class="">
+l                <!--                    Both free and paid tickets-->
+                <ion-col size="12"
+                         class=" justify-content-between align-items-center bg-white pa-4 position-fixed-bottom-0"
+                         *ngIf="(event_info.event_tickets|eventsFilterEventTicketsByTicketType:'FREE')?.length && (event_info.event_tickets|eventsFilterEventTicketsByTicketType:'PAID')?.length"
+                >
+
+
+                    <ion-row class="d-flex ion-justify-content-between">
+                        <ion-col size="12" class="d-flex ion-justify-content-center">
+
+                            <ion-button
+                                    (click)="shareEventModalComponent.openModal()"
+                                    size="small" fill="outline" color="purple" shape=""
+                                    class="mr-8  btn-outline-primary d-flex align-items-center py-20px px-40px font-weight-700 font-size-18"
+                            >
+                                <ion-icon name="share-social-outline" color="purple"></ion-icon> &nbsp; Share Event
+                            </ion-button>
+                            <ion-button
+                                    (click)="eventsEventDetailsTicketTypeModalComponent.openModal()"
+                            >See all tickets
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+
+                <!--                free tickets-->
+                <ion-col size="12" class="bg-white pa-4 position-fixed-bottom-0"
+                         *ngIf="(event_info.event_tickets|eventsFilterEventTicketsByTicketType:'FREE')?.length && !(event_info.event_tickets|eventsFilterEventTicketsByTicketType:'PAID')?.length"
+                >
+                    <ion-row class="d-flex ion-justify-content-between">
+
+                        <ion-col size="12" class="d-flex ion-justify-content-center">
+                            <ion-button
+                                    (click)="shareEventModalComponent.openModal()"
+                                    size="small" fill="outline" color="purple" shape=""
+                                    class="mr-8 btn-outline-primary d-flex align-items-center py-20px px-40px font-weight-700 font-size-18"
+                            >
+                                <ion-icon name="share-social-outline" color="purple"></ion-icon> &nbsp; Share Event
+                            </ion-button>
+                            <ion-button
+                                    (click)="eventsEventDetailsTicketTypeModalComponent.openModal()"
+                            >RSVP to see who's going
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+
+                <!--                paid tickets-->
+                <ion-col size="12"
+                         class="ion-justify-content-between bg-white pa-4 ion-align-items-center "
+                         *ngIf="!(event_info.event_tickets|eventsFilterEventTicketsByTicketType:'FREE')?.length && (event_info.event_tickets|eventsFilterEventTicketsByTicketType:'PAID')?.length"
+                >
+
+
+                    <ion-row class="d-flex ion-justify-content-between">
+                        <ion-col size="12" class="d-flex ion-justify-content-center">
+
+                            <ion-button
+                                    (click)="shareEventModalComponent.openModal()"
+                                    size="small" fill="outline" color="purple" shape=""
+                                    class="mr-8 btn-outline-primary d-flex align-items-center py-20px px-40px font-weight-700 font-size-18"
+                            >
+                                <ion-icon name="share-social-outline" color="purple"></ion-icon> &nbsp; Share Event
+                            </ion-button>
+                            <ion-button
+                                    (click)="eventsEventDetailsTicketTypeModalComponent.openModal()"
+                            >Purchase Ticket
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-row>
+    </ion-row>
+</ion-content>
+
+
+
+
+
+
+
+
+

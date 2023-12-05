@@ -1,0 +1,171 @@
+<events-set-event-meta-data-no-template
+        [eventInfo]="eventInfo"
+></events-set-event-meta-data-no-template>
+
+<ion-content [scrollEvents]="true" class="bg-purple">
+
+    <ion-row class="mt-30 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLinkActive]=""
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/creatordashboard'">
+                Dashboard
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/eventdetails'">
+                Event Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/tickettype'">
+                Ticket Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/guestdetails/allguests'">
+                Guest Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/manageguest/allguests'">
+                Manage guest list
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="pa-4 ma-4 mv-2 box-shadow-purple bg-white br-10px font-color-black">
+        <ion-col size="12">
+            <ion-row class="ion-justify-content-center">
+                <!--                <img src="./assets/images/eventdetails_admin.png">-->
+
+                <images-get-image-by-entity-id-and-image-type
+                        [entityId]="eventInfo.event.event_id"
+                        [entityType]="'EVENT_PROFILE_PIC'"
+                        #imageComponent
+                >
+                </images-get-image-by-entity-id-and-image-type>
+                <ion-row *ngIf="imageComponent.image">
+                    <img class="border-radius-10px" height="346px" width="436px"
+                         src="{{imageComponent.image.uploaded_file.file_link}}">
+                </ion-row>
+                <ion-row *ngIf="!imageComponent.image">
+                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                            class="cursor-pointer"
+                            [alt]="eventInfo.event.event_title"
+                            [entityId]="eventInfo.event.event_id"
+                            [entityType]="'EVENT_PROFILE_PIC'"
+                            [size]="150"
+                            [round]="false"
+                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                </ion-row>
+            </ion-row>
+            <ion-row class="mv-5">
+                <ion-label class="fs-1 font-weight-700">
+                    Event title
+                </ion-label>
+            </ion-row>
+            <ion-row class="mv-5">
+                <ion-label class="fs-15 font-weight-700">
+                    {{eventInfo.event.event_title}}
+                </ion-label>
+            </ion-row>
+            <ion-row class="mv-5" *ngIf="eventInfo?.event_locations">
+                <ion-label class="fs-1 font-weight-700">
+                    <ion-icon name="location-outline" color="primary" class="mr-2"></ion-icon>
+                    Location
+                </ion-label>
+            </ion-row>
+            <ion-row class="mv-5" *ngIf="eventInfo?.event_locations">
+                <ion-label class="fs-1">
+                    {{eventInfo.event_locations[0]?.location.address}}
+                </ion-label>
+            </ion-row>
+
+            <ion-row class="mv-5">
+                <ion-label class="fs-1 font-weight-700">
+                    <ion-icon name="calendar-clear-outline" color="primary" class="mr-2"></ion-icon>
+                    Date and Time
+                </ion-label>
+            </ion-row>
+            <ion-row class="mv-5">
+                <ion-label class="fs-1">
+                    {{eventInfo.event.start_time|appDateTimeToDefaultDateTimeFormat: 'dd MMMM HH:mm a'}}
+                </ion-label>
+                <ion-label class="fs-1">
+                    to
+                </ion-label>
+                <ion-label class="fs-1">
+                    {{eventInfo.event.end_time|appDateTimeToDefaultDateTimeFormat: 'dd MMMM HH:mm a'}}
+                </ion-label>
+            </ion-row>
+
+            <ion-row class="mv-5">
+                <ion-label class="fs-1 font-weight-700">
+                    Description/details about event
+                </ion-label>
+            </ion-row>
+            <ion-row class="mv-5">
+                <ion-label class="fs-1">
+                    {{eventInfo.event.event_description}}
+                </ion-label>
+            </ion-row>
+
+            <ion-row class="mv-5">
+                <ion-label class="fs-1 font-weight-700">
+                    Visibility
+                </ion-label>
+            </ion-row>
+            <ion-row class="mt-5">
+                <ion-label class="fs-1">
+                    {{eventInfo.event.invitation_policy}}
+                </ion-label>
+            </ion-row>
+            <ion-row class="mt-2 mb-5"
+                     *ngIf="eventInfo.event.invitation_policy==='EVERYONE'"
+            >
+                <ion-label class="fs-1 font-color-grey-2">
+                    Invitees can invite guests
+                </ion-label>
+
+            </ion-row>
+
+            <ion-row class="mv-5">
+                <ion-label class="bg-purple pa-2 font-color-7F56D9">
+                    <ion-icon name="information-circle-outline" color="primary" class="mr-2" size="small"></ion-icon>
+                    Includes free ticket
+                </ion-label>
+            </ion-row>
+        </ion-col>
+
+    </ion-row>
+
+<!--    <ion-row class="bg-white pv-4 ion-justify-content-center">-->
+<!--        <ion-col size="9" class="ph-0 d-flex ion-justify-content-end">-->
+<!--            <ion-button class="bg-white border-primary font-color-primary ml-6 pv-3 ph-6 font-weight-700 font-size-18px"-->
+<!--                        (click)="navigateToEditEvent()">-->
+<!--                Edit event-->
+<!--            </ion-button>-->
+<!--            <ion-row class="ml-6">-->
+<!--                <events-publish-event [event]="eventInfo.event" [eventInfo]="eventInfo"-->
+<!--                                      (eventPublished)="notificationsService.success('Success',2);-->
+<!--                 navigateToEventDetailsPage(eventInfo.event.event_id)"></events-publish-event>-->
+<!--            </ion-row>-->
+<!--        </ion-col>-->
+<!--    </ion-row>-->
+
+
+    <ion-row class="w-100-percent pa-2 bg-white d-flex ion-justify-content-center ion-align-items-center">
+        <ion-col size="10" class="d-flex ion-justify-content-between">
+            <button class="pv-2 ph-4 br-5px bg-primary font-color-white font-weight-700 font-size-18px" (click)="navigateToEditEvent()">
+                <ion-icon name="pencil-outline" class="pr-2"
+                ></ion-icon>
+                Edit event
+            </button>
+                <events-publish-event [event]="eventInfo.event" [eventInfo]="eventInfo"
+                                      (eventPublished)="notificationsService.success('Success',2);
+                 navigateToEventDetailsPage(eventInfo.event.event_id)"></events-publish-event>
+        </ion-col>
+    </ion-row>
+
+</ion-content>
+
+
+

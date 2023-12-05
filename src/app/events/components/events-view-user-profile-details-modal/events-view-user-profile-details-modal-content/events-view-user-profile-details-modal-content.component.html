@@ -1,0 +1,68 @@
+<events-get-event-invites-by-event-no-template
+  [event]="eventDetails"
+  (eventInvitesReceived)="eventInvites = getEventInvitesByEventNoTemplateComponent.eventInvites"
+  #getEventInvitesByEventNoTemplateComponent></events-get-event-invites-by-event-no-template>
+
+
+<div class="row mx-0 justify-content-center">
+  <div class="col-12 bg-white pv-32px ph-24px border border-grey-1 rounded-3 d-flex flex-column align-items-center">
+    <div class="width-fit-content border-radius-50 overflow-hidden">
+      <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+        class="cursor-pointer d-flex justify-content-center"
+        [alt]="userAccount.display_name"
+        [entityId]="'test'"
+        [entityType]="'USER_PROFILE_PIC'"
+        [size]="200"
+        [round]="false"
+      ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+    </div>
+    <div class="row mx-0 mt-20px">
+      <div class="col-12 px-0">
+        <label class="d-inline-block vertical-align-middle mr-16px font-weight-700 font-poppins font-size-24 text-font-color-1">
+          {{userAccount.display_name}}
+        </label>
+        <img src="/assets/images/indian%20flag.png" height="30" class="d-inline-block mr-16px">
+<!--        <i-feather name="instagram" class="stroke-primary-2px"></i-feather>-->
+      </div>
+      <div class="col-12 mx-0 mt-20px font-size-16px font-weight-400 px-44px">
+        Bio: <span class="text-grey-2">
+        Lorem ipsum dolor emet Lorem ipsum dolor emet Lorem ipsum dolor emet Lorem ipsum dolor emet
+      </span>
+      </div>
+      <div class="col-12 px-0 mt-20px">
+        <img src="/assets/images/birthday-cake.png" height="24">
+        <label class="ml-8px font-poppins font-weight-500 font-size-16 text-font-color-1">
+          <span class="text-grey-2">Birthday: </span>October 16th
+        </label>
+      </div>
+      <div class="col-12 px-0 mt-12px">
+<!--        <i-feather name="map-pin" class="stroke-grey-2-2px"></i-feather>-->
+        <label class="text-grey-2 ml-10px font-poppins font-weight-500 font-size-16 d-inline-block">Location: </label>
+        <label class="d-inline-block ml-10px font-poppins font-weight-500 font-size-16 text-primary">
+          Seattle
+        </label>
+      </div>
+    </div>
+
+
+
+    <div class="row mx-0 pt-32px mt-32px border-top border-grey-1">
+      <div class="col-6 pl-0 pr-10px">
+        <div class="p-12px border border-2 border-primary rounded-2 cursor-pointer" >
+          <user-profiles-user-attended-events-modal>
+
+          </user-profiles-user-attended-events-modal>
+<!--          <i-feather name="chevron-down" class="ml-20px stroke-black-2px"></i-feather>-->
+        </div>
+      </div>
+      <div class="col-6 px-0">
+        <div class="p-12px border border-2 border-primary rounded-2 cursor-pointer">
+          <user-profiles-user-upcoming-events-modal>
+
+          </user-profiles-user-upcoming-events-modal>
+<!--          <i-feather name="chevron-down" class="ml-20px stroke-black-2px"></i-feather>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+@mixin generateTimePickerStyles($class-name,$color) {
+
+
+  #{$class-name} > .picker-wrapper > .picker-columns > .picker-above-highlight {
+    border-bottom: solid 1px var(--ion-color-#{$color});
+  }
+
+  #{$class-name} > .picker-wrapper > .picker-columns > .picker-below-highlight {
+    border-bottom: solid 1px var(--ion-color-#{$color});
+  }
+
+  #{$class-name} > .picker-wrapper > .picker-columns > ion-picker-column > .picker-opts > .picker-opt.picker-opt-selected {
+    @extend .font-color-#{$color};
+  }
+
+}

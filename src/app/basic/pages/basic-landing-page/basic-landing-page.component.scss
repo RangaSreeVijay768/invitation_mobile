@@ -1,0 +1,412 @@
+//$animation-timing: 27s;
+//$carousel-items: 9;
+//$animation-delay-fraction: $animation-timing / $carousel-items;
+//$animation-steps-fraction: 100 / $carousel-items;
+//$slide-change-timing: 3; // percentage of total animation cycle
+//
+//.wrapper {
+//  height: 100%;
+//  width: 100%;
+//  display: flex;
+//  justify-content: center;
+//}
+//
+//.carousel {
+//  position: relative;
+//  width: 100%;
+//  max-width: 500px;
+//  display: flex;
+//  justify-content: center;
+//  flex-direction: column;
+//}
+//
+//.carousel__item {
+//  display: flex;
+//  align-items: center;
+//  position: absolute;
+//  width: 100%;
+//  padding: 0 12px;
+//  opacity: 0;
+//  filter: drop-shadow(0 2px 2px #555);
+//  will-change: transform, opacity;
+//  animation: carousel-animate-vertical $animation-timing linear infinite;
+//}
+//
+//@for $i from 1 through ($carousel-items - 1) {
+//  .carousel__item:nth-child(#{$i}) {
+//    animation-delay: calc(#{$animation-delay-fraction} * #{$i - 2});
+//  }
+//}
+//
+//.carousel__item:last-child {
+//  animation-delay: calc(-#{$animation-delay-fraction} * 2);
+//}
+//
+//// example without negative delays
+//// @for $i from 1 through ($carousel-items) {
+////   .carousel__item:nth-child(#{$i}) {
+////     animation-delay: calc(#{$animation-delay-fraction} * #{$i});
+////   }
+//// }
+//
+//.carousel__item-head {
+//  border-radius: 50%;
+//  background-color: #d7f7fc;
+//  width: 90px;
+//  height: 90px;
+//  padding: 14px;
+//  position: relative;
+//  margin-right: -45px;
+//  flex-shrink: 0;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//  font-size: 50px;
+//}
+//
+//.carousel__item-body {
+//  width: 100%;
+//  background-color: #fff;
+//  border-radius: 8px;
+//  padding: 16px 20px 16px 70px;
+//}
+//
+//.title {
+//  text-transform: uppercase;
+//  font-size: 20px;
+//  margin-top: 10px;
+//}
+//
+//@keyframes carousel-animate-vertical {
+//  0% {
+//    transform: translateY(100%) scale(0.5);
+//    opacity: 0;
+//    visibility: hidden;
+//  }
+//#{$slide-change-timing}%,
+//#{$animation-steps-fraction}% {
+//  transform: translateY(100%) scale(0.7);
+//  opacity: .4;
+//  visibility: visible;
+//}
+//#{$animation-steps-fraction + $slide-change-timing}%,
+//#{$animation-steps-fraction * 2}% {
+//  transform: translateY(0) scale(1);
+//  opacity: 1;
+//  visibility: visible;
+//}
+//#{($animation-steps-fraction * 2) + $slide-change-timing}%,
+//#{$animation-steps-fraction * 3}% {
+//  transform: translateY(-100%) scale(0.7);
+//  opacity: .4;
+//  visibility: visible;
+//}
+//#{($animation-steps-fraction * 3) + $slide-change-timing}% {
+//  transform: translateY(-100%) scale(0.5);
+//  opacity: 0;
+//  visibility: visible;
+//}
+//100% {
+//     transform: translateY(-100%) scale(0.5);
+//     opacity: 0;
+//     visibility: hidden;
+//   }
+//
+//
+//
+//.overflow-x{
+//  overflow-x: auto;
+//}
+//.container{
+//  display: flex;
+//  justify-content: start;
+//  gap:32px;
+//  max-width: 1120px;
+//  margin: 0 auto;
+//}
+//.category-card{
+//  flex-shrink: 0;
+//  width: 352px;
+//  height: 352px;
+//  border-radius: 16px;
+//  position: relative;
+//  display: flex;
+//  align-items: end;
+//  justify-content: center;
+//
+//
+//  img{
+//    border-radius: inherit;
+//    width: 100%;
+//    height: 100%;
+//    position: absolute;
+//    inset:0;
+//  }
+//  .overlay{
+//    position: absolute;
+//    inset: 0;
+//    border-radius: inherit;
+//    background-color: black;
+//    opacity: 50%;
+//  }
+//  .text{
+//    position: relative;
+//    color: white;
+//    z-index: 10;
+//    text-align:center;
+//    margin-bottom: 24px;
+//
+//    h3{
+//      font-size: 36px;
+//      font-weight: 600;
+//      line-height: 54px;
+//    }
+//  }
+//}
+//
+//:where(.event){
+//  padding: 16px 29.5px;
+//  border-radius: 5px;
+//  background-color: #7F56D9;
+//  font-size: 18px;
+//  font-weight: bold;
+//  color: white;
+//  border: none;
+//  margin-top: 56px;
+//  margin-bottom: 0;
+//}
+//.mt-20px{
+//  margin-top: 20px;
+//}
+//
+//.testimonial{
+//  position: relative;
+//  max-width: 544px;
+//  //height: 312px;
+//  padding: 56px 32px 80px 32px;
+//  border-radius: 16px;
+//  border: 1px solid rgba(0, 0, 0, 0.1);
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//  overflow-y: visible;
+//  gap: 24px;
+//  margin-bottom: 56px;
+//  //filter: drop-shadow(0 20px 40px #7f56d9);
+//  box-shadow: 0 20px 40px rgba(127, 86, 217 ,0.1);
+//  p{
+//    color: #8D8D8D;
+//    text-align: center;
+//  }
+//  h4{
+//    font-size: 18px;
+//    font-weight: 500;
+//  }
+//  .profile{
+//    width: 120px;
+//    height: 120px;
+//    border-radius: 50%;
+//    position: absolute;
+//    bottom: 0;
+//    z-index: 10;
+//    transform: translateY(50%);
+//  }
+//}
+//
+////LIVE USERS
+//
+//.users{
+//  position: relative;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  font-size: 26px;
+//  text-align: center;
+//  padding: 50px 50px;
+//
+//  .live-count{
+//    position: relative;
+//    p{
+//      position: relative;
+//      font-size: 128px;
+//      font-weight: 700;
+//      //backdrop-filter: blur(100px);
+//
+//      //&::before{
+//      //content: "";
+//      //position: absolute;
+//      //width:100%;
+//      //height:100%;
+//      //border-radius: 999999px;filter: blur(10px);
+//      //  background-image: radial-gradient(rgba(127, 86, 217, 1),white);
+//      //}
+//    ;
+//    }
+//  }
+//}
+//
+//.bg-blur1{
+//  background-color: #9747FF;
+//  backdrop-filter: blur(100px);
+//}
+//.joining-card-container{
+//  padding: 24px;
+//  margin-top: 24px;
+//  border-top: 1px solid #D9D9D9;
+//  justify-content: start;
+//  overflow-x: auto;
+//}
+//.joining-card{
+//  padding: 24px 32px 24px 32px;
+//  border-radius: 16px;
+//  border: 1px solid #D9D9D9;
+//  display: flex;
+//  flex-shrink: 0;
+//  gap: 1rem;
+//  box-shadow: 0px 10px 20px 0px rgba(151, 71, 255, 0.15);
+//
+//
+//  img{
+//    width: 50px;
+//    height: 50px;
+//    border-radius: 50%;
+//  }
+//  .details{
+//    display: flex;
+//    flex-direction: column;
+//    justify-content: space-between;
+//
+//    p{
+//      margin-bottom: 0;
+//
+//      span{
+//        font-weight: bold;
+//      }
+//
+//    }
+//
+//  }
+//}
+//
+////.height-223px {
+////  height: 223px;
+////}
+////
+////.width-225px {
+////  width: 225px;
+////}
+////
+////.height-171px {
+////  height: 171px;
+////}
+////
+////.width-165px {
+////  width: 165px;
+////}
+////
+////.height-158px {
+////  height: 158px;
+////}
+////
+////.width-238px {
+////  width: 238px;
+////}
+//
+//.mesh-outer-box {
+//  top: -50px;
+//  left: -100px;
+//
+//  ////top: -50px;
+//  ////right: -100px;
+//  //
+//  ////bottom: -50px;
+//  ////right: -100px;
+//  //
+//  //bottom: -50px;
+//  //left: -100px;
+//
+//  //background-color: #0dcaf0;
+//  height: 300px;
+//  width: 300px;
+//  animation: mesh-go-around 30s infinite linear;
+//  z-index: 1;
+//}
+//
+//@keyframes mesh-go-around {
+//  0% {
+//    //top: -50px;
+//    //left: -100px;
+//    transform: translate(0, 0);
+//  }
+//  25% {
+//    //top: -50px;
+//    //right: -100px;
+//    transform: translate(340%, 0);
+//  }
+//  50% {
+//    //bottom: -50px;
+//    //right: -100px;
+//    transform: translate(340%, 100%);
+//
+//  }
+//  75% {
+//    //bottom: -50px;
+//    //left: -100px;
+//    transform: translate(0, 100%);
+//  }
+//  100% {
+//    transform: translate(0, 0);
+//  }
+//  //100% {
+//  //  //top: -50px;
+//  //  //left: -100px;
+//  //  transform: translate(900px, 0);
+//  //}
+//}
+//
+//.mesh-box {
+//  height: 300px;
+//  width: 300px;
+//  animation: mesh-rotate 20s infinite ease-in-out;
+//}
+//
+//@keyframes mesh-rotate {
+//  0% {
+//    transform: rotateZ(0);
+//  }
+//  100% {
+//    transform: rotateZ(360deg);
+//  }
+//}
+//
+//.mesh-1 {
+//  position: absolute;
+//  left: 0;
+//  top: 0;
+//  background: radial-gradient(#2FB9C399 0%, transparent 50%);
+//  //background-color: red;
+//  height: 400px;
+//  width: 400px;
+//}
+//
+//.mesh-2 {
+//  position: absolute;
+//  left: 50%;
+//  top: 0;
+//  background: radial-gradient(#3D689A 0%, transparent 50%);
+//  //background-color: green;
+//  height: 400px;
+//  width: 400px;
+//}
+//
+//.mesh-3 {
+//  position: absolute;
+//  left: 25%;
+//  bottom: 0;
+//  background: radial-gradient(#DD9797 0%, transparent 50%);
+//  //background-color: blue;
+//  height: 400px;
+//  width: 450px;
+//  opacity: 0.6;
+//}
+//

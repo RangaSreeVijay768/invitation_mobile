@@ -1,0 +1,144 @@
+<div class="row rounded-4 px-0 mx-0 justify-content-center">
+    <div class="bg-white px-0 rounded-4">
+        <div class="d-flex bg-primary justify-content-between align-items-center brt-16px px-24 py-12px">
+            <span class=" font-poppins font-size-24 font-weight-500 text-white">Filter</span>
+<!--            <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"-->
+<!--                       (click)="closeModal()" style="background: rgba(255, 255, 255, 0.3)"></i-feather>-->
+        </div>
+        <div class="w-100 mt-32px font-weight-500 font-size-18 px-24">
+            <label>Contact type(select one)</label>
+        </div>
+
+        <div class="row mt-24px d-flex align-items-center mx-24px">
+            <div class="d-flex border-bottom-grey-1 border-grey-1 pb-32px px-0">
+
+                <div class="pr-10px" *ngFor="let filter of filters">
+                    <div class="text-align-center border border-2 rounded-2 ph-24px py-16px contact-filter-all"
+                         (click)="filter_type=filter.value" [class.border-primary]="filter_type===filter.value"
+                         [class.border-grey-1]="filter_type!==filter.value">
+                        <div class="">
+<!--                            <i-feather name="{{filter.icon}}" class="font-color-7F56D9 font-poppins"-->
+<!--                                       *ngIf="filter.icon"></i-feather>-->
+                            <img src="{{filter.image}}" width="26" height="26" *ngIf="filter.image">
+                            <br>
+                        </div>
+                        <div class="contact-filter-all">
+                            <label class="mt-16px font-poppins font-size-18 font-color-7F56D9">{{filter.label}}</label>
+                        </div>
+                    </div>
+                </div>
+                <!--                <div class="pr-10px" *ngIf="filter_type === 'all'">-->
+                <!--                    <div class="text-align-center border border-primary border-2 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='all'">-->
+                <!--                        <div class="">-->
+                <!--                            <i-feather name="globe" class="font-color-7F56D9 font-poppins"></i-feather>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                        <div class="contact-filter-all">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 font-color-7F56D9">All</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="pr-10px" *ngIf="filter_type !== 'all'">-->
+                <!--                    <div class="text-align-center border border-grey-1 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='all'">-->
+                <!--                        <div class="">-->
+                <!--                            <i-feather name="globe" class="text-grey-2 font-poppins"></i-feather>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                        <div class="contact-filter-all">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 text-grey-1">All</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!--                <div class="pr-10px pl-10px" *ngIf="filter_type === 'email'">-->
+                <!--                    <div class="text-align-center border border-primary border-2 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='email'">-->
+                <!--                        <div class="">-->
+                <!--                            <i-feather name="mail" class="font-color-7F56D9 font-poppins"></i-feather>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                        <div class="">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 font-color-7F56D9">Email</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="pr-10px pl-10px" *ngIf="filter_type !== 'email'">-->
+                <!--                    <div class="text-align-center border border-grey-1 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='email'">-->
+                <!--                        <div class="">-->
+                <!--                            <i-feather name="mail" class="text-grey-2 font-poppins"></i-feather>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                        <div class="">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 text-grey-1">Email</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!--                <div class="pr-10px pl-10px" *ngIf="filter_type === 'whatsapp'">-->
+                <!--                    <div class="text-align-center border border-primary border-2 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='whatsapp'">-->
+                <!--                        <div class="">-->
+                <!--                            <img src="assets/images/whatsapp-logo-purple.png" width="26" height="26">-->
+                <!--                        </div>-->
+                <!--                        <div class="">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 font-color-7F56D9">Whatsapp</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="pr-10px pl-10px" *ngIf="filter_type !== 'whatsapp'">-->
+                <!--                    <div class="text-align-center border border-grey-1 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='whatsapp'">-->
+                <!--                        <div class="">-->
+                <!--                            <img src="assets/images/whatsapp-logo.png" width="23" height="23">-->
+                <!--                        </div>-->
+                <!--                        <div class="">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 text-grey-1">Whatsapp</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!--                <div class="pr-10px pl-10px" *ngIf="filter_type === 'text'">-->
+                <!--                    <div class="text-align-center border border-primary border-2 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='text'">-->
+                <!--                        <div class="">-->
+                <!--                            <i-feather name="file-text" class="font-color-7F56D9 font-poppins"></i-feather>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                        <div class="">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 font-color-7F56D9">Text</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="pr-10px pl-10px" *ngIf="filter_type !== 'text'">-->
+                <!--                    <div class="text-align-center border border-grey-1 rounded-2 ph-24px py-16px contact-filter-all"-->
+                <!--                         (click)="filter_type='text'">-->
+                <!--                        <div class="">-->
+                <!--                            <i-feather name="file-text" class="text-grey-2 font-poppins"></i-feather>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                        <div class="">-->
+                <!--                            <label class="mt-16px font-poppins font-size-18 text-grey-1">Text</label>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+            </div>
+        </div>
+        <div class="text-align-end py-32px ph-24px">
+<!--            <button class="btn border border-grey-1 mr-32px text-grey-1 font-size-18 font-poppins font-weight-500 px-20px py-12px"-->
+<!--                    (click)="closeModal()">-->
+<!--                Cancel Filter-->
+<!--            </button>-->
+<!--            <button class="btn btn-color-primary text-grey-1 font-size-18 font-poppins font-weight-500 px-20px py-12px"-->
+<!--                    (click)="closeModal({data:filter_type,status:'SUCCESS'})"-->
+<!--            >Apply Filter-->
+<!--            </button>-->
+        </div>
+
+    </div>
+
+
+</div>

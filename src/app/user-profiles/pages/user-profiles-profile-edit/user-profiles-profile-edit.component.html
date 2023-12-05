@@ -1,0 +1,115 @@
+<ion-content [scrollEvents]="true" class="bg-purple">
+
+    <images-get-image-by-entity-id-and-image-type
+            [entityId]="loggedAccount.user_account_id"
+            [entityType]="'EVENT_PROFILE_PIC'"
+            #imageComponent></images-get-image-by-entity-id-and-image-type>
+    <!--<ion-content [scrollEvents]="true">-->
+
+    <ion-row class="mt-30 mh-4 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/userprofiles/edit'">
+                Edit profile
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/blasts'">
+                Mass Messaging
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/payoutinfo'">
+                Payout Information
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/history'">
+                Purchase history
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/pastguests'">
+                Past guests
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/allcontacts'">
+                All contacts
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ion-justify-content-center mv-8 mh-4">
+        <ion-col size="12" class="br-tr-2 br-tl-2 border-bottom-grey-2 bg-white mt-56px py-56px ph-4">
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="12" class="d-flex ion-align-items-center ion-justify-content-center">
+                    <ion-row class="ion-justify-content-center mt-8 mb-4">
+                        <images-get-image-by-entity-and-type-unique-image-ngx-avatar-with-upload
+                                [entityId]="loggedAccount.user_account_id"
+                                [entityType]="'USER_PROFILE_PIC'"
+                                [alt]="loggedAccount.display_name" [size]="150"
+                                (imagesReceived)="emitEvent('profileImageUpdated');stopLoading()"
+                                #imagesGetImage></images-get-image-by-entity-and-type-unique-image-ngx-avatar-with-upload>
+
+                    </ion-row>
+                </ion-col>
+
+                <images-upload-file-no-template
+                        (imageUploadStarted)="startLoading()"
+                        [entityType]="'USER_PROFILE_PIC'" [entityId]="loggedAccount.user_account_id"
+                        (imageAttached)="stopLoading();imagesGetImage.getImagesByEntityIdAndImageType(imagesGetImage.createRequestData())"
+                        #imagesUploadFileComponent></images-upload-file-no-template>
+                <images-attach-image-no-template [entityId]="imagesUploadFileComponent.entityId"
+                                                 [entityType]="imagesUploadFileComponent.entityType"
+                                                 (imageAttached)="stopLoading()"
+                ></images-attach-image-no-template>
+
+                <core-select-photo-no-template
+                        (onFileSelected)="imagesUploadFileComponent.uploadFile($event.data_url,$event.file_name)"
+                        #selectPhotoNoTemplateComponent></core-select-photo-no-template>
+                <ion-col size="12" class="d-flex ion-justify-content-center">
+                    <ion-button (click)="selectPhotoNoTemplateComponent.uploadFromPhotoLibrary()">Change Image</ion-button>
+
+                </ion-col>
+            </ion-row>
+
+            <user-profiles-get-user-account-no-template
+                    (userAccountReceived)="authService.loggedAccount = $event;"
+                    [userAccount]="user_account"
+                    #getUserAccountNoTemplateComponent></user-profiles-get-user-account-no-template>
+
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="12" class="">
+                    <users-update-user-account-form
+                            [userAccount]="user_account"
+                            (userAccountUpdated)="notificationsService.success('User account updated');
+                            getUserAccountNoTemplateComponent.getUserAccount(getUserAccountNoTemplateComponent.createRequestData());hardReloadPage()"
+                            #updateUserAccountForm></users-update-user-account-form>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-row class="w-100-percent z-index-10 ion-justify-content-center border-top">
+            <ion-col size="12" class=" bg-white br-b-2">
+                <ion-row class=" ion-justify-content-center">
+                    <ion-col size="12" class=" px-0">
+                        <ion-row class="mv-8 ion-justify-content-evenly">
+                            <ion-button size="small" fill="outline" color="primary"
+                                        class="py-4 px-20 font-weight-700 fs-11">
+                                Cancel
+                            </ion-button>
+                            <ion-row class="px-0 text-align-end">
+
+                                <ion-button size="small"
+                                            (click)="updateUserAccountForm.updateUserAccountDetails(updateUserAccountForm.createRequestData(displayCountry))"
+                                            class="h-56px py-4 px-20 font-weight-700 fs-11"
+                                >
+                                    Save changes
+                                </ion-button>
+                            </ion-row>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-row>
+    <!--</ion-content>-->
+
+
+</ion-content>

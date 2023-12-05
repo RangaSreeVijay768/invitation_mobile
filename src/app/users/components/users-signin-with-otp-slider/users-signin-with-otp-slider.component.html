@@ -1,0 +1,65 @@
+<swiper-container #swiper class="h-100p" >
+    <swiper-slide >
+        <ion-row class="default-horizontal-padding  mt-56px pt-16 font-weight-700 mb-10">
+            <ion-col size="12">
+                <ion-label class="font-heading">Login with Otp</ion-label>
+            </ion-col>
+            <ion-col size="12" class="mt-2 mb-6">
+                <ion-label class="font-color-grey-2 font-weight-400">Enter your registered email address or mobile number to change your Eventreply account password</ion-label>
+            </ion-col>
+            <users-get-or-create-user-account-and-start-login-form
+                    (userSignInStarted)="verifyUserAccountFormComponent.email_id = getOrCreateUserAccountAndStartLoginFormComponent.email_id; slideNext()"
+                    (messageDeliveryReceived)="verifyUserAccountFormComponent.messageDelivery = getOrCreateUserAccountAndStartLoginFormComponent.messageDelivery"
+                    #getOrCreateUserAccountAndStartLoginFormComponent></users-get-or-create-user-account-and-start-login-form>
+
+
+        </ion-row>
+        <ion-row class="position-fixed-bottom-0 mb-14 ph-6 w-100p ">
+            <ion-col size="12" class=" ion-justify-content-center">
+                <ion-button expand="block" size="large"
+                            (click)="getOrCreateUserAccountAndStartLoginFormComponent.getOrCreateUserAccountAndStartLogin(getOrCreateUserAccountAndStartLoginFormComponent.createRequestData())"
+                            class=" d-flex align-items-center h-56px font-weight-700 fs-8"
+                >
+                    Send Verification code
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+
+    </swiper-slide>
+
+
+    <swiper-slide >
+        <ion-row class="default-horizontal-padding  mt-56px pt-16 font-weight-700 mb-10">
+            <ion-col size="12">
+                <ion-label class="font-heading">Verification</ion-label>
+            </ion-col>
+            <ion-col size="12" class="mt-2 mb-6">
+                <ion-label class="font-color-grey-2 font-weight-400">We have sent code to your Email</ion-label>
+            </ion-col>
+            <users-verify-user-account-verification-login-form
+                    (userAuthTokenReceived)="setUserAuthTokenAndNavigate($event)"
+                    #verifyUserAccountFormComponent>
+
+            </users-verify-user-account-verification-login-form>
+
+
+        </ion-row>
+        <ion-row class="position-fixed-bottom-0 mb-14 ph-6 w-100p ">
+            <ion-col size="12" class=" ion-justify-content-center">
+                <ion-button expand="block" size="large"
+                            (click)="verifyUserAccountFormComponent.verifyUserAccountVerficationLogin(verifyUserAccountFormComponent.createRequestData())"
+                            class=" d-flex align-items-center h-56px font-weight-700 fs-8"
+                >
+                    Verify
+                </ion-button>
+            </ion-col>
+            <ion-col size="12" class="mt-6 d-flex vertical-align-middle ion-justify-content-center">
+                <ion-label class="font-color-grey-1">Didn’t receive code? <ion-label class="font-color-primary">Resend</ion-label> </ion-label>
+            </ion-col>
+        </ion-row>
+
+
+    </swiper-slide>
+
+</swiper-container>

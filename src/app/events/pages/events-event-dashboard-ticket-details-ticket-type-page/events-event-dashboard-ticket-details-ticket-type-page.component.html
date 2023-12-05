@@ -1,0 +1,142 @@
+<events-get-event-ticket-infos-by-event-no-template
+        [event]="event_info.event" [columnName]="'createdTime'" [columnOrder]="'DESC'"
+        (eventTicketInfosReceived)="event_ticket_infos = $event"
+        #getEventTicketsByEventNoTemplateComponent></events-get-event-ticket-infos-by-event-no-template>
+
+<events-create-event-create-paid-ticket-modal
+        [event]="event_info.event"
+        (modalClosed)="$event.status==='SUCCESS'?getEventTicketsByEventNoTemplateComponent.getEventTicketInfosByEvent(getEventTicketsByEventNoTemplateComponent.createRequestData()):''"
+        #paidticket></events-create-event-create-paid-ticket-modal>
+
+<events-create-event-free-ticket-modal
+        [event]="event_info.event"
+        (modalClosed)="$event.status==='SUCCESS'?getEventTicketsByEventNoTemplateComponent.getEventTicketInfosByEvent(getEventTicketsByEventNoTemplateComponent.createRequestData()):''"
+        #freeticket></events-create-event-free-ticket-modal>
+
+
+<ion-content scrollEvents="true" class="bg-background-purple">
+
+    <ion-row class="mt-30 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLinkActive]=""
+                        [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/creatordashboard'">
+                Dashboard
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/eventdetails'">
+                Event Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/ticketdetails/tickettype'">
+                Ticket Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/guestdetails/allguests'">
+                Guest Details
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/manageguest/allguests'">
+                Manage guest list
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="bg-white ma-3 br-10px">
+        <ion-col size="12">
+            <ion-row class="ph-4">
+                <ion-col class="mt-6 br-5px">
+
+                    <ion-row>
+                        <ion-col size="12" class="d-flex scrollX">
+                            <ion-button fill="clear" class="btn-event"
+                                    [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/ticketdetails/tickettype'">
+                                Ticket type
+                            </ion-button>
+                            <ion-button fill="clear" class="fs-9 font-color-grey-2 font-weight-500"
+                                    [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/ticketdetails/promocodes'">
+                                Promo codes
+                            </ion-button>
+                            <ion-button fill="clear" class="fs-9 font-color-grey-2 font-weight-500"
+                                    [routerLink]="'/signedin/events/eventdashboard/'+event_info.event.event_id+'/ticketdetails/ticketsales'">
+                                Ticket sales
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+
+            <ion-row class="ion-align-items-center d-flex ion-justify-content-center mt-8">
+                <ion-col size="8" class="bg-primary br-5px font-color-white font-weight-700 font-size-14px ph-12 pv-4"
+                (click)="freeticket.openModal()">
+                    <img src="assets/images/ticket_icon_white.svg" width="17" height="17" class="mr-3">
+                    Add free tickets
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-align-items-center d-flex ion-justify-content-center mt-8">
+                <ion-col size="8" class="bg-primary br-5px font-color-white font-weight-700 font-size-14px ph-12 pv-4"
+                (click)="paidticket.openModal()">
+                    <ion-icon name="logo-usd" size="20" class="mr-3 font-weight-700"></ion-icon>
+                    Add paid tickets
+                </ion-col>
+            </ion-row>
+
+
+            <ion-row class="mt-8 default-horizontal-padding" *ngFor="let event_ticket_info of event_ticket_infos">
+                <ion-col size="11" class="bg-white br-5px default-horizontal-padding pa-4">
+                    <ion-row>
+                        <ion-col size="2" class="">
+                            <ion-label class="font-size-14px font-weight-bold font-color-grey-2">01</ion-label>
+                        </ion-col>
+
+                        <ion-col size="7" class="">
+                            <ion-label
+                                    class="font-weight-700 font-size-18px">{{event_ticket_info.event_ticket.ticket_type}}</ion-label>
+                        </ion-col>
+
+                        <ion-col size="3" class="d-flex ion-justify-content-end"
+                                 *ngIf="event_ticket_info.event_ticket.ticket_type === 'PAID'">
+                            <ion-label class="font-weight-bold font-size-16px">
+                                $ {{event_ticket_info.event_ticket_sale_item.item_current_price|number:'1.2'}}</ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="mt-3">
+                        <ion-col size="2" class="">
+                        </ion-col>
+
+                        <ion-col size="8" class="">
+                            <ion-label
+                                    class="font-size-16px font-weight-bold font-color-grey-2">{{event_ticket_info.event_ticket.ticket_description}}</ion-label>
+                        </ion-col>
+
+                        <ion-col size="2" class="">
+                            <ion-label class="font-size-16px font-weight-bold font-color-grey-2">
+                                X{{event_ticket_info.event_ticket.total_quantity}}</ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="w-100-percent pa-2 bg-white d-flex ion-justify-content-center ion-align-items-center">
+        <ion-col size="10" class="d-flex ion-justify-content-between">
+            <button class="pv-2 ph-4 br-5px bg-primary font-color-white font-weight-700 font-size-18px" (click)="navigateToEditEvent()">
+                <ion-icon name="pencil-outline" class="pr-2"
+                ></ion-icon>
+                Edit event
+            </button>
+            <events-publish-event [event]="event_info.event" [eventInfo]="event_info"
+                                  (eventPublished)="notificationsService.success('Success',2);
+                 navigateToEventDetailsPage(event_info.event.event_id)"></events-publish-event>
+        </ion-col>
+    </ion-row>
+
+</ion-content>
+
+
+

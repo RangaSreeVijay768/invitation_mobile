@@ -1,0 +1,24 @@
+<events-get-event-invites-by-event-no-template [columnName]="'createdTime'"
+[columnOrder]="'DESC'"
+[count]="count"
+#component> </events-get-event-invites-by-event-no-template>
+<div>
+    <ngx-datatable
+            class="bootstrap"
+            [rows]="rows"
+            [columns]="columns"
+            [columnMode]="COLUMN_MODE.force"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            rowHeight="auto"
+            [externalPaging]="true"
+            [count]="10000"
+            [offset]="0"
+            [limit]="default_count"
+            (page)="getNextPage($event);current_page=$event"
+    >
+    </ngx-datatable>
+<!--    <ng-template #userAccountTemplate let-row="row" let-value="value"><a-->
+<!--            routerLink="/userdetails/{{value.account_id}}/details">{{ value.display_name }}</a>-->
+<!--    </ng-template>-->
+</div>

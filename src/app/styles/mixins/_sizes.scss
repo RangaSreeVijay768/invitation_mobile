@@ -1,0 +1,243 @@
+@import "colors";
+
+$font-colors: teritiary;
+
+$default-unit: 5;
+$unit: rem;
+
+
+@mixin generateHeightclasses($unit,$start,$max,$default-increment) {
+
+
+  @for $i from $start through $max {
+    .h-#{$i*$default-increment}#{$unit} {
+      height: #{$i*$default-increment}#{$unit};
+    }
+    .h-max#{$i*$default-increment}#{$unit} {
+      max-height: #{$i*$default-increment}#{$unit};
+    }
+  }
+}
+
+@include generateHeightclasses(vh, 1, 20, $default-unit);
+
+.h-30vw {
+  height: 30vw;
+}
+
+.h-50vw {
+  height: 50vw;
+}
+
+.h-60vw {
+  height: 60vw;
+}
+
+.h-130vw {
+  height: 130vw;
+}
+
+.h-100vw {
+  height: 100vw;
+}
+
+
+.h-15vw {
+  height: 15vw;
+}
+
+.h-26px {
+  height: 26px;
+}
+
+.h-24px {
+  height: 24px;
+}
+.h-45px{
+  height: 45px;
+}
+
+.h-48px {
+  height: 48px;
+}
+
+.h-50-percent{
+  height: 50%;
+}
+
+.h-100-percent {
+  height: 100%;
+}
+
+.h-21px {
+  height: 21px;
+}
+
+.h-56px {
+  height: 56px;
+}
+
+.h-17px {
+  height: 17px;
+}
+
+.h-25px {
+  height: 25px;
+}
+
+.h-184px {
+  height: 184px;
+}
+
+.h-20px {
+  height: 20px;
+}
+
+.h-8px {
+  height: 8px;
+}
+
+.h-5px {
+  height: 5px;
+}
+
+.h-30px {
+  height: 30px;
+}
+
+.h-36px {
+  height: 36px;
+}
+
+.h-832px {
+  height: 832px;
+}
+
+.h-1px {
+  height: 1px;
+}
+
+.h-744px {
+  height: 744px;
+}
+
+.w-150px {
+  width: 150px;
+}
+
+.w-36px {
+  width: 36px;
+}
+
+.w-30px {
+  width: 30px;
+}
+
+.w-5px {
+  width: 5px;
+}
+
+.w-8px {
+  width: 8px;
+}
+
+.w-20px {
+  width: 20px;
+}
+
+.w-17px {
+  width: 17px;
+}
+
+.w-41px {
+  width: 41px;
+}
+
+.w-56px {
+  width: 56px;
+}
+
+.w-120px {
+  width: 120px;
+}
+
+.w-21px {
+  width: 21px;
+}
+
+.w-100-percent {
+  width: 100%;
+}
+
+.w-80-percent {
+  width: 80%;
+}
+
+.w-32px {
+  width: 32px;
+}
+
+.w-24px {
+  width: 24px;
+}
+
+.w-26px {
+  width: 26px;
+}
+
+.w-30vw {
+  width: 30vw;
+}
+
+.w-100vw {
+  width: 100vw;
+}
+
+.w-80vw {
+  width: 70vw;
+}
+
+
+.h-100p {
+  height: 100%;
+}
+
+.h-90p {
+  height: 90%;
+}
+
+.w-100p {
+  width: 100%;
+}
+
+.w-70p {
+  width: 70%;
+}
+
+.h-2vh {
+  height: 2vh;
+}
+
+.h-1vh {
+  height: 1vh;
+}
+
+.h-1-5vh {
+  height: 1.5vh;
+}
+
+.h-0-5vh {
+  height: 0.5vh;
+}
+
+.h-2px {
+  height: 2px;
+}
+
+.h-19vh {
+  height: 19vh;
+}
+
+.h-auto {
+  height: auto;
+}

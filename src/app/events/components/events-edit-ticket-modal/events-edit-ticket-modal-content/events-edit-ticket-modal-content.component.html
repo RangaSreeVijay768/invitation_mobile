@@ -1,0 +1,62 @@
+<div class="row mx-0 justify-content-center overflow-y-scroll">
+    <div class="px-0 border-bottom-grey-1 border-grey-2 pb-32px">
+        <div class="bg-white px-0 rounded-4">
+            <div class="row mx-0 modal-header modal-header--sticky">
+                <div class="d-flex bg-primary justify-content-between align-items-center brtl-20px px-24 py-20px">
+                    <span class=" font-poppins font-size-18 font-weight-500 text-white">Create paid ticket</span>
+<!--                    <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"-->
+<!--                               (click)="closeModal()"-->
+<!--                               style="background: rgba(255, 255, 255, 0.3)"></i-feather>-->
+                </div>
+            </div>
+            <div class="row mx-0">
+
+                <div class="row mx-0 ph-24px">
+
+                    <div class="px-0 mt-32px">
+                        <events-edit-event-ticket-form
+                                [event_ticket]="event_ticket"
+                                (eventTicketUpdated)="closeModal({data:$event,status:'SUCCESS'})"
+                                #editEventTicketFormComponent></events-edit-event-ticket-form>
+                    </div>
+<!--                    <div class="d-flex align-items-center justify-content-between px-0 mt-32px">-->
+<!--                        <div class="d-flex align-items-center">-->
+<!--                            <input type="radio" name="x" class="specifyColor wh-33px font-poppins mr-12px">-->
+<!--                            <label class="font-weight-500 font-poppins font-size-18">Absorb fees</label>-->
+<!--                        </div>-->
+<!--                        <div class="d-flex align-items-center">-->
+<!--                            <input type="radio" name="x" class="specifyColor wh-33px font-poppins mr-12px">-->
+<!--                            <label class="font-weight-500 font-poppins font-size-18">Pass along fees to buyer</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="px-0 d-flex align-items-center mt-12px">-->
+<!--                        <div class="bg-background-purple py-4px ph-10px rounded-4">-->
+<!--                            <i-feather name="help-circle" class="font-poppins text-primary mr-8px"></i-feather>-->
+<!--                            <label class="text-primary font-size-16">what are fees?</label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div-->
+<!--                            class="px-0 d-flex align-items-center justify-content-between border-bottom border-grey-1 py-20px bg-white mt-12px">-->
+<!--                        <label class="font-poppins font-weight-500 font-size-18">Advanced options</label>-->
+<!--                        <i-feather name="chevron-down" class="font-poppins"></i-feather>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row mx-0 mt-32px mb-32px justify-content-between ph-24px">
+
+            <button class="col-4 border border-primary rounded-2 py-16px bg-white font-weight-700 font-poppins font-size-18 text-primary"
+                    (click)="closeModal({data:undefined,status:'CLOSE'})">
+                Cancel
+            </button>
+            <button class="col-6 btn-color-primary rounded-2 py-16px font-weight-700 font-poppins font-size-18"
+                    (click)="editEventTicketFormComponent.updateEventTicket(editEventTicketFormComponent.createRequestData())"
+                    [promiseBtn]="editEventTicketFormComponent.update_event_ticket_subscription$">
+                <!--              (click)="createEventPaidTicketFormComponent.createEventTicket(createEventPaidTicketFormComponent.createRequestData())"-->
+                Update
+            </button>
+
+        </div>
+    </div>
+</div>

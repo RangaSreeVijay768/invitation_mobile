@@ -1,0 +1,9 @@
+<ion-content [scrollEvents]="true">
+
+    <basic-verify-user-when-user-comes-from-link-swiper
+            (closeModalReceived)="closeModal({data:$event,status:''})"
+            [event]="event"
+            (userEventTicketCreated)="closeModal({data:$event,status:'SUCCESS'}); window.location.reload()"
+            (eventAttendeeReceived)="closeModal({data:$event,status:'SUCCESS'});"
+    ></basic-verify-user-when-user-comes-from-link-swiper>
+</ion-content>

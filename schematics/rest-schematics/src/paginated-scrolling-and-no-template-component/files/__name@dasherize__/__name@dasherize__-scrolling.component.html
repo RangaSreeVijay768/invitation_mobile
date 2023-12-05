@@ -1,0 +1,32 @@
+<<%= dasherize(name) %>-no-template [count]="numberOfItems" [first]="this.currentCount"
+                                                          [columnName]="'createdTime'" [columnOrder]="'DESC'"
+                                                          #component></<%= dasherize(name) %>-no-template>
+
+<ion-row>
+    <ion-col size="12" class="mt-5" *ngFor="let user_contest_subscription_info of items">
+<!--        <contests-user-contest-subscription-info-details-card-view-->
+<!--                [userContestSubscriptionInfo]="user_contest_subscription_info"></contests-user-contest-subscription-info-details-card-view>-->
+    </ion-col>
+    <ion-col size="12" class="mt-5" *ngIf="!items.length">
+        <ion-row class="ion-justify-content-center ph-4 pv-6">
+            <ion-col size="8" class="mt-10">
+                <images-get-image-by-entity-and-type-unique-image [entityId]="'CONTESTS_NO_CONTENT_PIC'"
+                                                                  [entityType]="'APP_PROFILE_PIC'"></images-get-image-by-entity-and-type-unique-image>
+            </ion-col>
+            <ion-col size="12" class="ion-text-center mt-5">
+                <ion-label class="font-color-step-650 font-weight-bold">No items at the moment</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-col>
+
+</ion-row>
+
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>

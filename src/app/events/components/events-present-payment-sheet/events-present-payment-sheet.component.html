@@ -1,0 +1,3 @@
+<events-create-payment-intent-no-template [amount]="amount"
+                                          (createPaymentIntentResponseReceived)="presentPaymentSheet($event.client_secret)"
+                                          #createPaymentIntentNoTemplateComponent></events-create-payment-intent-no-template>

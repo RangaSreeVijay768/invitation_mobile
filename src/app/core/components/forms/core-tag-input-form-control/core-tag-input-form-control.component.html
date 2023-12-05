@@ -1,0 +1,36 @@
+<tag-input [(ngModel)]="model.value" [onlyFromAutocomplete]="model.onlyFromAutoComplete"
+           [displayBy]="model.tagDisplayBy"
+           [identifyBy]="model.tagIdentifyBy"
+           [secondaryPlaceholder]="model.placeholder"
+           [onAdding]="model.onAdding" [onRemoving]="model.onRemoving"
+           (onAdd)="onCustomEvent($event,'add')" (onRemove)="onCustomEvent($event,'remove')"
+           [placeholder]="model.placeholder" [maxItems]="model.maxItems"
+           [inputId]="model.id"
+           #input>
+    <ng-template let-item="item" let-index="index">
+        <div class="tag-input"
+             [ngStyle]="{'background-color' : 'hsl(' + (((item[model.tagDisplayBy]).toString().charAt(0).toUpperCase().charCodeAt(0) - 64) * 13) + ', 34%, 96%)'}">
+            <div class="div-pull-left">
+                <p class="m-0 fs-8 tag-input-title ">{{ item[model.tagDisplayBy] }}</p>
+            </div>
+            <div class="div-pull-left tag-input-close">
+                <delete-icon (click)="input.onRemoveRequested(item, index)"></delete-icon>
+            </div>
+        </div>
+    </ng-template>
+    <tag-input-dropdown [autocompleteObservable]='model.autoCompleteObservable'
+                        [displayBy]="model.autoCompleteDisplayBy"
+                        [identifyBy]="model.autoCompleteIdentifyBy"
+                        [matchingFn]="model.autoCompleteMatchingFunction"
+                        [minimumTextLength]="model.autoCompleteMinTextLength">
+        <ng-template let-item="item" let-index="index">
+            <div class="container-fluid">
+                <div class="row p-2">
+                    <div class="col-md-10 p-0 text-align-left vertical-align-middle">
+                        <label class="float-left lh-15 mt-1 mb-1">{{item[model.autoCompleteDisplayBy]}}</label>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </tag-input-dropdown>
+</tag-input>

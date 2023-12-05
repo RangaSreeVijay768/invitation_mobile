@@ -1,0 +1,80 @@
+.border-shadow-login-box {
+  @include borderShadow(#00000040, 0px, 2px, 4px);
+}
+
+.border-shadow-login-button {
+  @include borderShadow(#00000026, 0px, 2px, 4px);
+
+}
+
+.gender-icon {
+  @extend .fs-32;
+  @extend .pa-4;
+  @extend .bg-white;
+  @extend .font-color-step-300;
+  @extend .mt-8;
+  @extend .br-999999;
+  @include border(all, 1px, solid, #00000033)
+}
+
+.gender-segment-button {
+  --indicator-color: transparent !important;
+  --indicator-color-checked: transparent !important;
+  border: 0px;
+}
+
+.gender-segment-button {
+  --indicator-color: transparent
+}
+
+.gender-segment-button.segment-button-checked > .gender-image {
+  @extend .b-1px-primary;
+  @extend .spread-shadow;
+}
+
+.gender-image{
+  @extend .b-1px-medium-grey;
+}
+
+.active-input-primary.ng-dirty{
+  @extend .b-1px-primary;
+}
+
+.gender-segment-button.segment-button-checked > ion-label {
+  @extend .font-color-primary;
+}
+
+.date-of-birth-input {
+  //@include border(all,1px,solid,red);
+  --border-width: 1px;
+  --border-style: solid;
+}
+
+.date-of-birth-input > .datetime-text {
+  @extend .font-color-grey;
+}
+
+.date-of-birth-input::part(native) {
+  @extend .font-color-primary;
+  @extend .font-weight-700;
+}
+
+.date-of-birth-input-modal::part(content) {
+  position: absolute;
+  margin: auto;
+  height: 60%;
+  @extend .bg-transparent;
+}
+
+.resend-button.button-disabled {
+  --opacity: 1.0;
+}
+
+.slider-progress-bar {
+  @extend .br-1;
+  @extend .h-1vh;
+  --background: var(--ion-color-light-grey);
+  --progress-background: var(--ion-color-primary);
+  --buffer-background: var(--ion-color-light-grey);
+
+}

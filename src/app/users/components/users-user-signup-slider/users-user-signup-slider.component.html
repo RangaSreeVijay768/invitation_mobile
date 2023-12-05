@@ -1,0 +1,72 @@
+<swiper-container (afterinit)="swiperReady($event)" #swiper >
+    <swiper-slide>
+
+        <ion-row class="default-horizontal-padding  mt-56px pt-16 font-weight-700 mb-10">
+            <ion-col size="12">
+                <ion-label class="font-heading">Sign up to start</ion-label>
+            </ion-col>
+            <ion-col size="12" class="mt-2">
+                <ion-label class="font-color-grey-1 font-weight-400">Already have an account?
+                    <ion-label class="font-color-primary" routerLink="/basic/signin">Login</ion-label>
+                </ion-label>
+            </ion-col>
+            <users-sign-up-form class="mt-6"
+
+                                (messageDeliveryReceived)="message_delivery=$event; slideNext()"
+                                #usersSignUpFormComponent>
+            </users-sign-up-form>
+            <ion-col size="12" class="mt-6 ion-justify-content-center ion-align-items-end">
+                <ion-button expand="block"
+                            class="btn-outline-primary d-flex align-items-center h-56px px-40px font-weight-700 fs-8"
+                            (click)="usersSignUpFormComponent.signUp(usersSignUpFormComponent.createRequestData())">
+                Sign up
+                </ion-button>
+                <br>
+                <ion-button fill="clear" size="large" expand="block" class="font-color-black fs-8 box-shadow-purple border-radius-5px">
+                    <ion-img src="assets/images/google-logo.png" class="w-24px h-24px mr-6"></ion-img>
+                    Signup with Google
+                </ion-button>
+                <br>
+                <ion-button fill="clear" size="large" expand="block" class="font-color-black fs-8 box-shadow-purple border-radius-5px">
+                    <ion-img src="assets/images/facebook-logo.png" class="w-24px h-24px mr-6"></ion-img>
+                    Signup with facebook
+                </ion-button>
+
+            </ion-col>
+
+
+        </ion-row>
+
+
+    </swiper-slide>
+
+    <swiper-slide>
+
+        <ion-row class="default-horizontal-padding  mt-56px pt-16 font-weight-700 mb-10">
+            <ion-col size="12">
+                <ion-label class="font-heading">Verification</ion-label>
+            </ion-col>
+            <ion-col size="12" class="mt-2">
+                <ion-label class="font-color-grey-1">We have sent code to your Email</ion-label>
+            </ion-col>
+            <users-verify-user-account-form class="mt-6"
+                    (userAuthTokenReceived)="navigateTo()"
+                    #verifyUserAccountFormComponent>
+
+            </users-verify-user-account-form>
+            <ion-col size="12" class="mt-6 ion-justify-content-center ion-align-items-end">
+                <ion-button expand="block"
+                            class="btn-outline-primary d-flex align-items-center h-56px px-40px font-weight-700 font-size-18"
+                            (click)="verifyUserAccountFormComponent.verifyUserAccountVerfication(verifyUserAccountFormComponent.createRequestData(message_delivery.message_type,message_delivery.address,message_delivery.address))"
+                    > Verify
+                </ion-button>
+
+            </ion-col>
+
+
+        </ion-row>
+
+
+    </swiper-slide>
+
+</swiper-container>

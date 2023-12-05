@@ -1,0 +1,84 @@
+<!--<nav class="bg-white box-shadow position-sticky fixed-top">-->
+<!--    <div class="row mx-48px justify-content-between row-align-center mx-48px">-->
+<!--        <div class="col-8 px-0 d-flex">-->
+<!--            <label class="mb-0 font-weight-500 mr-56px font-size-46 text-font-color-1 cursor-pointer font-poppins"-->
+<!--                   [routerLink]="'/signedin/events/homepage'"><img src="./assets/images/event-reply%20logo.png"-->
+<!--                                                                   alt="Event reply logo"></label>-->
+<!--            <div class="d-flex align-items-center">-->
+<!--                <div class="border-1 border border-grey-2 rounded-left-5px pl-24px d-flex align-items-baseline">-->
+<!--                    <i-feather name="map-pin" class="mr-12px text-primary vertical-align-middle"></i-feather>-->
+<!--                    <label class="w-100px text-grey-2 font-poppins font-weight-500">Search city</label>-->
+<!--                    <i-feather name="chevron-down" class="mr-24px  text-font-color-1"></i-feather>-->
+<!--                    <label class="border-start border-grey-1 d-inline-block height-30p transform-translateY-10px"></label>-->
+<!--                    <i-feather name="search" class="ml-12px mr-12px text-grey-2"></i-feather>-->
+<!--                    &lt;!&ndash;                <label class="d-inline-block mb-0 text-grey-2 font-poppins font-weight-500">Search events</label>&ndash;&gt;-->
+<!--                    <div class="d-inline-block mb-0 text-grey-2 font-poppins font-weight-500">-->
+<!--                        <events-search-event-infos-form></events-search-event-infos-form>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash;              <search-search-event-infos-form&ndash;&gt;-->
+<!--                    &lt;!&ndash;                #searchSearchEventInfosFormComponent&ndash;&gt;-->
+<!--                    &lt;!&ndash;              ></search-search-event-infos-form>&ndash;&gt;-->
+<!--                    &lt;!&ndash;              <button (click)="searchSearchEventInfosFormComponent.searchEventInfos(searchSearchEventInfosFormComponent.createRequestData())">Search</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--                <div class="">-->
+<!--                    <button class="bg-primary h-45 rounded-right-5px w-100 font-size-16px font-weight-500 font-poppins text-white border-none py-12px ph-16px"-->
+<!--                            routerLink="/signedin/events/allevents">Search-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--        <div class="width-27p px-0 text-align-end">-->
+<!--            <button class="btn btn-primary cursor-pointer" routerLink="/signedin/events/createevent">-->
+<!--                <i-feather name="plus" class="mr-8px text-primary text-white"></i-feather>-->
+<!--                <label class="text-white font-poppins font-weight-700 font-size-18 vertical-align-middle cursor-pointer">Create-->
+<!--                    event</label>-->
+<!--            </button>-->
+<!--            <i-feather name="bell" class="ml-32px icon-fill-grey-2"></i-feather>-->
+<!--            <div class="d-inline-block ml-32px cursor-pointer">-->
+<!--                <div ngbDropdown class="d-inline-block">-->
+<!--                    <div class="text-grey-2 border-radius-50 overflow-hidden d-flex align-items-center"-->
+<!--                         id="dropdownBasic1"-->
+<!--                         ngbDropdownToggle>-->
+<!--                        <images-get-image-by-entity-and-type-unique-image-ngx-avatar-->
+<!--                                class="cursor-pointer"-->
+<!--                                [alt]="loggedAccount.display_name"-->
+<!--                                [entityId]="loggedAccount.user_account_id"-->
+<!--                                [entityType]="'USER_PROFILE_PIC'"-->
+<!--                                [size]="45"-->
+<!--                                [round]="false"-->
+<!--                        ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>-->
+<!--                    </div>-->
+<!--                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">-->
+<!--                        <label ngbDropdownItem class="font-weight-500 border-bottom border-grey-1"-->
+<!--                               [routerLink]="'/signedin/userprofiles/edit'">My Profile</label>-->
+<!--                        <label ngbDropdownItem class="font-weight-500"-->
+<!--                               [routerLink]="'/signedin/events/myevents/invited'">My Events</label>-->
+<!--                        <label ngbDropdownItem class="font-weight-500">Help</label>-->
+<!--                        &lt;!&ndash;            <users-sign-out-no-template&ndash;&gt;-->
+<!--                        &lt;!&ndash;              (userLoggedOut)="navigateToLoginPage()"&ndash;&gt;-->
+<!--                        &lt;!&ndash;              #signOutNoTemplateComponent></users-sign-out-no-template>&ndash;&gt;-->
+<!--                        <user-profiles-users-logout-modal-->
+<!--                            #logout></user-profiles-users-logout-modal>-->
+<!--                        <label ngbDropdownItem class="font-weight-500" (click)="logout.openModal()">Logout</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<ion-header class="bg-white">
+    <ion-row class="ph-4 pv-6">
+        <ion-col size="6" class="d-flex ion-justify-content-start" routerLink="/signedin/events/homepage">
+            <img src="../../../../assets/images/logo/eventreply-logo.png">
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+            <ion-icon size="large" icon="search"></ion-icon>
+            <core-menu-pop-over-component></core-menu-pop-over-component>
+        </ion-col>
+    </ion-row>
+</ion-header>
+
+

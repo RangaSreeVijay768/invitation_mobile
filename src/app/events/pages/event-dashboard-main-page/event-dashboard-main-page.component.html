@@ -1,0 +1,37 @@
+<ion-content [scrollEvents]="true">
+
+
+    <ion-row class="mt-4 d-flex ion-justify-content-center mt-30">
+        <ion-col size="12">
+            <ion-segment [scrollable]="true">
+                <ion-segment-button
+                        [routerLinkActive]="'btn-event-tab-active '"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/creatordashboard'">
+                    Dashboard
+                </ion-segment-button>
+                <ion-segment-button
+                        [routerLinkActive]="'btn-event-tab-active '"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/eventdetails'">
+                    Event Details
+                </ion-segment-button>
+                <ion-segment-button
+                        [routerLinkActive]="'btn-event-tab-active '"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/ticketdetails/tickettype'">
+                    Ticket Details
+                </ion-segment-button>
+                <ion-segment-button
+                        [routerLinkActive]="'btn-event-tab-active '"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/guestdetails/allguests'">
+                    Guest Details
+                </ion-segment-button>
+                <ion-segment-button
+                        [routerLinkActive]="'btn-event-tab-active '"
+                        [routerLink]="'/signedin/events/eventdashboard/'+eventInfo.event.event_id+'/manageguest/allguests'">
+                    Manage guest list
+                </ion-segment-button>
+            </ion-segment>
+        </ion-col>
+    </ion-row>
+
+</ion-content>
+<ion-router-outlet></ion-router-outlet>

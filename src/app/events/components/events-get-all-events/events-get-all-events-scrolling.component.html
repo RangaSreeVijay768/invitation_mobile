@@ -1,0 +1,127 @@
+<events-get-all-events-no-template
+        [count]="numberOfItems"
+        (eventsReceived)="addItems($event);"
+        #getAllEventsNoTemplateComponent #component>
+</events-get-all-events-no-template>
+
+
+<ion-row class="" *ngIf="!items">
+    <ion-col size="12" class="text-align-center px-0">
+        <img src="assets/images/no-promocodes.png" width="202">
+        <br>
+        <ion-label class="fs-11 text-font-color-1 font-weight-700 mb-10 mt-4">
+            No events present in this category!
+        </ion-label>
+    </ion-col>
+</ion-row>
+
+<!--<div infiniteScroll [infiniteScrollDisabled]="disableScroll" [infiniteScrollDistance]="100"-->
+<!--     [infiniteScrollThrottle]="scrollThrottle" (scrolled)="print($event);onScroll()"-->
+<!--     [alwaysCallback]="true" >-->
+<ion-row class=" pb-10 ion-justify-content-center mx-0">
+    <ion-col size="12" class=" px-0">
+        <ion-row class="mt-8 mx-0">
+
+            <ion-col size="12" class="mt-6 cursor-pointer" [class.pr-10px]="i%2===0"
+                     [class.pl-0]="i%2===0" [class.pl-10px]="i%2!=0" [class.pr-0]="i%2!=0"
+                     *ngFor="let event of items; let i = index">
+                <events-share-event-modal
+                        [event]="event"
+                        #shareEventModalComponent>
+                </events-share-event-modal>
+
+
+                <ion-row class="drop-shadow-gray border-radius-10 bg-white pa-4 mh-1"
+                         routerLink="/signedin/events/{{event.event_id}}/details">
+
+                    <ion-col size="5" class=" pl-0  d-flex ion-justify-content-center w-123px h-99px pr-6">
+                        <images-get-image-by-entity-id-and-image-type
+                                [entityId]="event.event_id"
+                                [entityType]="'EVENT_PROFILE_PIC'"
+                                #imageComponent
+                        >
+                        </images-get-image-by-entity-id-and-image-type>
+                        <ion-row *ngIf="imageComponent.image" class="border-radius-5px overflow-hidden w-123px h-99px ">
+                            <img class="w-100 h-100 border-radius-5px"
+                                 src="{{imageComponent.image.uploaded_file.file_link}}">
+                        </ion-row>
+                        <ion-row *ngIf="!imageComponent.image"
+                                 class=" d-flex ion-justify-content-center ion-align-items-center border-radius-5px overflow-hidden w-212px h-171px">
+                            <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                                    class="cursor-pointer border-radius-5px"
+                                    [alt]="event.event_title"
+                                    [entityId]="event.event_id"
+                                    [entityType]="'EVENT_PROFILE_PIC'"
+                                    [size]="100"
+                                    [round]="false"
+                            ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                        </ion-row>
+
+                    </ion-col>
+
+                    <ion-col size="7" class="pl-0 pr-0 w-50p">
+                        <ion-row>
+                            <ion-label
+                                    class="mb-0 font-weight-700 fs-11 text-font-color-1 font-poppins">{{event.event_title}}</ion-label>
+
+                        </ion-row>
+
+                        <ion-row class="mt-4">
+                            <ion-label
+                                    class="d-inline-block mb-0  pr-3 mr-3 fs-10 text-grey-2 font-poppins">
+                                {{event.start_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy'}}
+                            </ion-label>
+
+                        </ion-row>
+                        <ion-row class="mt-4">
+                            <ion-label class="d-inline-block mb-0 fs-10 text-grey-2 font-poppins">{{event.start_time|appDateTimeToTimeFormat}} to
+                                {{event.end_time|appDateTimeToTimeFormat}}
+                            </ion-label>
+
+                        </ion-row>
+
+                        <ion-row class="mt-4">
+                            <ion-label class="d-inline-block mb-0  fs-10 text-grey-2 font-poppins">
+                                {{event.event_locations}}
+                            </ion-label>
+
+                        </ion-row>
+
+                        <ion-row class="mt-4">
+
+                            <ion-label
+                                    class="d-inline-block mb-0  font-weight-500 fs-10 font-color-green">Free
+                            </ion-label>
+                            <ion-label
+                                    class="p-0 d-inline-block  mb-0 ml-8 font-poppins font-weight-500 fs-10 text-grey-2"
+                                    (click)="shareEventModalComponent.openModal()" coreClickStopPropogation>
+                                <ion-icon name="share-social-outline" class="d-inline-block font-color-grey-2"></ion-icon>
+                                Share
+                            </ion-label>
+                        </ion-row>
+
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+
+        </ion-row>
+        <!--      <ion-row class="mt-8 ion-text-center">-->
+        <!--        <ion-button-->
+        <!--          class="font-weight-400 fs-11 rounded-1 py-3 ph-6 border-none text-white bg-background-purple font-color-9747FF"-->
+        <!--          (click)="onScroll()">-->
+        <!--          Load more events-->
+        <!--          <ion-icon name="chevron-down" class="mr-3 font-color-9747FF vertical-align-middle"></ion-icon>-->
+        <!--        </ion-button>-->
+        <!--      </ion-row>-->
+    </ion-col>
+</ion-row>
+<!--</div>-->
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>

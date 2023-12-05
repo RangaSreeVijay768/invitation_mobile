@@ -1,0 +1,9 @@
+<form [formGroup]="formGroup" class="profile-form-placeholder">
+    <ion-row class="">
+        <ion-label class="ph-0 font-weight-bold font-size-18px text-transform-none mb-0">TICKET
+            NAME
+            <span class="font-size-18px font-weight-bold text-transform-none font-color-red">*</span></ion-label>
+    </ion-row>
+    <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                       [model]="formModelMap['query']"></dynamic-ionic-form-control>
+</form>

@@ -1,0 +1,34 @@
+.default-button-radius {
+  @extend .br-2;
+}
+
+
+.button-disabled {
+  --opacity: 0.25;
+  @include borderShadowNone();
+}
+
+.button-extra-padding {
+  --padding-start: 3rem;
+  --padding-end: 3rem;
+}
+
+.button-extra-vertical-padding {
+  --padding-top: 2rem;
+  --padding-bottom: 2rem;
+}
+
+.button-vertical-padding {
+  --padding-top: 1.5rem;
+  --padding-bottom: 1.5rem;
+}
+
+.button-extra-small-vertical-padding {
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+}
+
+.small-button-extra-padding {
+  --padding-start: 1.5rem;
+  --padding-end: 1.5rem;
+}

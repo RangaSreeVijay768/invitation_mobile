@@ -1,0 +1,65 @@
+<ion-row *ngFor="let event of event_infos" class="mv-4">
+    <ion-col size="12" class="pa-4  br-10px b-1px-grey-3 event-card-shadow bg-white"
+             routerLink="/signedin/events/{{event.event.event_id}}/details">
+        <ion-row>
+            <ion-col size="4" class="">
+                <ion-row class="border-radius-4px overflow-hidden">
+                    <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                            [entityId]="event.event.event_id" [entityType]="'EVENT_PROFILE_PIC'"
+                            [alt]="event.event.event_title" [size]="110" [round]="false"
+
+                    ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                </ion-row>
+            </ion-col>
+            <ion-col size="8" class="pl-4">
+                <ion-row>
+                    <ion-col size="12" class="mb-3">
+                        <p class="font-size-16px ma-0 font-weight-700 font-color-1">{{event.event.event_title}}</p>
+                    </ion-col>
+                    <ion-col size="12" class="mb-2">
+                        <p class="font-small font-weight-400 font-color-1 color-grey-2">{{event.event.start_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy'}}</p>
+                    </ion-col>
+                    <ion-col size="12" class="mb-2">
+                        <p class="font-small font-weight-400 font-color-1 color-grey-2">{{event.event.start_time|appDateTimeToTimeFormat}}
+                            to
+                            {{event.event.end_time|appDateTimeToTimeFormat}}</p>
+                    </ion-col>
+                    <ion-col size="12" class="mb-4">
+                        <p class="font-small font-weight-400 font-color-1 color-grey-2"
+                           >{{event.event_locations}}</p>
+                    </ion-col>
+                    <ion-col size="12">
+                        <ion-row>
+                            <ion-col size="12">
+                                <ion-row  *ngIf="ticketType==='FREE'">
+                                    <ion-col size="2" class="mr-8">
+                                        <span class="font-small font-color-green font-weight-500">Free</span>
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row  *ngIf="ticketType==='PAID'">
+                                    <ion-col size="2" class="mr-8">
+                                        <span class="font-small font-color-red font-weight-500">Paid</span>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-col>
+                            <events-share-event-modal
+                                [event]="event.event"
+                            #shareEventModalComponent></events-share-event-modal>
+                            <ion-col
+                                    class="d-flex ion-align-items-center ion-justify-content-start"
+                                    (click)="shareEventModalComponent.openModal()"
+                                    coreClickStopPropogation>
+                                <ion-icon class="w-21px h-21px mr-2 color-grey-2 font-weight-700"
+                                          icon="share-social-outline"></ion-icon>
+                                <span class="color-grey-2 font-small font-weight-500"
+                                >Share</span>
+                            </ion-col>
+                        </ion-row>
+
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+
+        </ion-row>
+    </ion-col>
+</ion-row>

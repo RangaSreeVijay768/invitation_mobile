@@ -1,0 +1,52 @@
+<ion-content [scrollEvents]="true">
+    <ion-row class="mt-30 ion-justify-content-center mt-4 bg-background-purple">
+        <ion-col size="12">
+            <ion-label class="font-weight-700 fs-15 text-black ml-2">
+                My Events
+            </ion-label>
+
+            <!-- Event-Tab-Selector-->
+            <ion-row class="mv-4 d-flex ion-justify-content-center overflow-x-scroll">
+                <ion-col size="12">
+                    <ion-segment>
+                        <ion-segment-button *ngFor="let option of options"
+                                            [routerLinkActive]="'btn-event-tab-active '"
+                                            [routerLink]="option.link">
+                            {{option.value}}
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-col>
+            </ion-row>
+
+            <!--Event-Tab-Contents-->
+            <ion-row class="background-white ion-justify-content-center pt-2 overflow-x-scroll">
+                <ion-col class="" size="11">
+                    <ion-segment scrollable="true">
+                        <ion-segment-button class="pa-2"
+                                            *ngFor="let sub_option of sub_options"
+                                            [routerLinkActive]="'bg-grey-3 border-radius-5px font-color-black'"
+                                            [routerLink]="sub_option.link">{{sub_option.value}}
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-col>
+
+<!--                <ion-col size="12" class="mt-8">-->
+<!--                    <ion-label>-->
+<!--                        created upcoming-->
+<!--                    </ion-label>-->
+<!--                </ion-col>-->
+                <ion-col size="12" class="mt-3">
+<!--                    <events-get-events-by-created-by-draft-events-scrolling [numberOfItems]="5"-->
+<!--                    ></events-get-events-by-created-by-draft-events-scrolling>-->
+
+                    <events-get-events-by-created-by-scrolling [numberOfItems]="5" [status]="'ACTIVE'"
+                                                               [isPastEvent]="false"
+                    ></events-get-events-by-created-by-scrolling>
+
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+    <!--Title-->
+
+</ion-content>

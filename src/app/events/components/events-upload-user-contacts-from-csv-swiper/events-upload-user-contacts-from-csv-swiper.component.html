@@ -1,0 +1,289 @@
+<!--<swiper-container #swiper init="false" pagination="true" pagination-clickable="true">-->
+<!--  <swiper-slide>-->
+<!--    <div class="row w-100 px-0">-->
+<!--      <div class="col-12 px-0">-->
+<!--        <div class="row mx-0 modal-header modal-header&#45;&#45;sticky">-->
+<!--          <div class="d-flex bg-primary justify-content-between align-items-center brtl-20px px-24 py-20px">-->
+<!--            <span class=" font-poppins font-size-18 font-weight-500 text-white">Preview</span>-->
+<!--            <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"-->
+<!--                       style="background: rgba(255, 255, 255, 0.3)" (click)="closeClicked.emit(true)"></i-feather>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row d-flex justify-content-center py-8px ph-16px mt-32px mb-32px">-->
+<!--          <div class="col-6 bg-grey-3 br-100">-->
+<!--            <label class="font-poppins font-weight-400 font-size-16px">select file</label>-->
+<!--            <i-feather name="chevron-right"></i-feather>-->
+<!--            <label class="font-poppins font-weight-400 font-size-16px">Map fields</label>-->
+<!--            <i-feather name="chevron-right"></i-feather>-->
+<!--            <label class="font-poppins font-weight-400 font-size-16px">Preview</label>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <events-read-user-contacts-csv-->
+<!--          (fileUploaded)="csv_file=$event" (csvRecordsReceived)="setCSVRecordsAndHeaders($event);slideNext()"-->
+<!--        ></events-read-user-contacts-csv>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </swiper-slide>-->
+
+<!--  <swiper-slide>-->
+<!--    <div class="row w-100">-->
+<!--      <div class="col-12 px-0">-->
+<!--        <div class="row mx-0 modal-header modal-header&#45;&#45;sticky">-->
+<!--          <div class="d-flex bg-primary justify-content-between align-items-center brtl-20px px-24 py-20px">-->
+<!--            <span class=" font-poppins font-size-18 font-weight-500 text-white">Upload CSV file</span>-->
+<!--            <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"-->
+<!--                       style="background: rgba(255, 255, 255, 0.3)" (click)="closeClicked.emit(true)"></i-feather>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row d-flex justify-content-center py-8px ph-16px mt-32px mb-32px">-->
+<!--          <div class="col-6 bg-grey-3 br-100">-->
+<!--            <label class="font-poppins font-weight-400 font-size-16px text-green">select file</label>-->
+<!--            <i-feather name="chevron-right"></i-feather>-->
+<!--            <label class="font-poppins font-weight-400 font-size-16px">Map fields</label>-->
+<!--            <i-feather name="chevron-right"></i-feather>-->
+<!--            <label class="font-poppins font-weight-400 font-size-16px">Preview</label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row d-flex justify-content-center mt-32px">-->
+<!--          <div class="col-11 d-flex justify-content-start">-->
+<!--            <label class="font-weight-700 font-poppins font-size-24">Map fields</label><br>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row d-flex justify-content-center ">-->
+<!--          <div class="col-11 d-flex justify-content-start border-bottom-dashed-1p">-->
+<!--            <label class="font-weight-500 font-poppins font-size-16 mt-8px pb-20px">Map your file fields with Eventreply-->
+<!--              fields</label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row ph-16px mt-20px d-flex justify-content-center">-->
+<!--          <div class="col-11 bg-grey-3 py-8px br-5px">-->
+<!--            <div class="row">-->
+<!--              <div class="col-6 d-flex justify-content-start align-items-start">-->
+<!--                <label class="font-poppins font-weight-500 font-size-18px">Event reply fields</label>-->
+<!--              </div>-->
+
+<!--              <div class="col-6 d-flex justify-content-start ">-->
+<!--                <label class="font-poppins font-weight-500 font-size-18px">Imported file headers</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row w-100 d-flex justify-content-center" *ngIf="headers?.length">-->
+<!--          <div class="col-11">-->
+<!--            <div class="row border-bottom pb-24px">-->
+<!--              <div class="col-6">-->
+<!--                <div class="row d-flex justify-content-start">-->
+<!--                  <div class="col-10">-->
+<!--                    <label class="font-poppins font-weight-500 font-size-18px mt-35px">Display Name</label><br>-->
+<!--                    <label class="font-poppins font-weight-500 font-size-18px mt-35px">Email</label><br>-->
+<!--                    <label class="font-poppins font-weight-500 font-size-18px mt-35px">Phone number</label><br>-->
+<!--                    <label class="font-poppins font-weight-500 font-size-18px mt-35px">Whatsapp number</label>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <div class="col-6">-->
+<!--                <events-map-user-contacts-csv-headers-form-->
+<!--                  [headersArray]="headers"-->
+<!--                  (csvUserContactFieldMappingReceived)="setCsvUserContactFieldMapping($event);create_multiple_user_contact_request_items=createCreateMultipleUserContactRequestItems(csv_records,csv_user_contact_field_mapping);slideNext()"-->
+<!--                  #mapUserContactsCsvHeadersFormComponent></events-map-user-contacts-csv-headers-form>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="row mt-24px mb-32px">-->
+<!--            <div class="col-12 d-flex justify-content-end">-->
+<!--              <button-->
+<!--                class="py-16px px-24px bg-white text-primary border-2 border-primary br-5px font-size-16px font-poppins font-weight-500 mr-24px"-->
+<!--              >-->
+<!--                <i-feather name="arrow-left"></i-feather>-->
+<!--                Prev.-->
+<!--              </button>-->
+<!--              <button-->
+<!--                class="py-12px ph-24px font-size-18px bg-primary text-white br-5px border-none font-poppins font-weight-500"-->
+<!--                [disabled]="!mapUserContactsCsvHeadersFormComponent.formGroup.valid"-->
+<!--                (click)="mapUserContactsCsvHeadersFormComponent.getCsvUserContactFieldMapping(mapUserContactsCsvHeadersFormComponent.createRequestData())">-->
+<!--                Next-->
+<!--                <i-feather name="arrow-right"></i-feather>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--  </swiper-slide>-->
+
+<!--  <swiper-slide>-->
+
+
+<!--    <div class="row px-0">-->
+<!--      <div class="col-12 px-0">-->
+<!--        <div class="row px-0 pb-24px border-bottom">-->
+<!--          <div class="">-->
+
+<!--            <div class="row mx-0 modal-header modal-header&#45;&#45;sticky">-->
+<!--              <div class="d-flex bg-primary justify-content-between align-items-center brtl-20px px-24 py-20px">-->
+<!--                <span class=" font-poppins font-size-18 font-weight-500 text-white">Preview</span>-->
+<!--                <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"-->
+<!--                           style="background: rgba(255, 255, 255, 0.3)" (click)="closeClicked.emit(true)"></i-feather>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="row d-flex justify-content-center py-8px ph-16px mt-32px mb-32px">-->
+<!--              <div class="col-6 bg-grey-3 br-100">-->
+<!--                <label class="font-poppins font-weight-400 font-size-16px text-green">select file</label>-->
+<!--                <i-feather name="chevron-right"></i-feather>-->
+<!--                <label class="font-poppins font-weight-400 font-size-16px text-green">Map fields</label>-->
+<!--                <i-feather name="chevron-right"></i-feather>-->
+<!--                <label class="font-poppins font-weight-400 font-size-16px">Preview</label>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="row ml-24px mt-32px mb-32px">-->
+<!--              <div class="col-12 d-flex justify-content-start">-->
+<!--                <label-->
+<!--                  class="font-poppins font-size-16px font-weight-500">{{create_multiple_user_contact_request_items?.length}}-->
+<!--                  contacts</label>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="row align-items-center bg-grey-c py-20px mx-24px px-24px br-5px">-->
+<!--              <div class="col-12 px-24px d-flex justify-content-between">-->
+<!--                &lt;!&ndash;                <input type="checkbox" size="27" (change)="handlSelectAllContacts($event)">&ndash;&gt;-->
+<!--                <label>-->
+<!--                  <i-feather name="user" class="text-primary mr-8px"></i-feather>-->
+<!--                  <span class="font-poppins font-weight-500 font-size-16px">Name</span></label>-->
+<!--                <label>-->
+<!--                  <i-feather name="mail" class="text-primary mr-8px"></i-feather>-->
+<!--                  <span class="font-poppins font-weight-500 font-size-16px">Email</span></label>-->
+<!--                <label>-->
+<!--                  <i-feather name="smartphone" class="text-primary mr-8px"></i-feather>-->
+<!--                  <span class="font-poppins font-weight-500 font-size-16px">Phone number</span></label>-->
+<!--                <label>-->
+<!--                  <i-feather name="mail" class="text-primary mr-8px"></i-feather>-->
+<!--                  <span class="font-poppins font-weight-500 font-size-16px">Whatsapp number</span></label>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="row align-items-center py-20px mt-24px mx-24px px-24px"-->
+<!--                 *ngFor="let user_contact of create_multiple_user_contact_request_items">-->
+<!--              <div class="col-12 px-24px d-flex justify-content-between">-->
+<!--                &lt;!&ndash;                <input type="checkbox" size="27" (change)="handleRequestItemCheckBoxEvent($event,user_contact)"&ndash;&gt;-->
+<!--                &lt;!&ndash;                       [checked]="selected_user_contact_request_items.indexOf(user_contact)!==-1"&ndash;&gt;-->
+<!--                <label class="font-poppins font-weight-500 font-size-16px">{{user_contact.display_name}}</label>-->
+<!--                <label class="font-poppins font-weight-500 font-size-16px">{{user_contact.email}}</label>-->
+<!--                <label class="font-poppins font-weight-500 font-size-16px">{{user_contact.phone_number}}</label>-->
+<!--                <label class="font-poppins font-weight-500 font-size-16px">{{user_contact.whatsapp_number}}</label>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <user-profiles-create-multiple-user-contact-->
+<!--          [items]="create_multiple_user_contact_request_items"-->
+<!--          (multipleContactsCreated)="slideNext();userContactsCreated.emit(true);"-->
+<!--          #createMultipleUserContactComponent></user-profiles-create-multiple-user-contact>-->
+
+<!--        <div class="row d-flex justify-content-end align-items-end py-32px">-->
+<!--          <div class="col-10 d-flex justify-content-end">-->
+<!--            <button-->
+<!--              class="py-16px px-24px bg-white text-primary border-2 border-primary br-5px font-size-16px font-poppins font-weight-500 mr-24px"-->
+<!--            >-->
+<!--              <i-feather name="arrow-left"></i-feather>-->
+<!--              Prev.-->
+<!--            </button>-->
+
+<!--            <button-->
+<!--              class="py-16px px-24px bg-primary text-white br-5px font-size-16px font-poppins font-weight-500 border-none"-->
+<!--              [promiseBtn]="createMultipleUserContactComponent.create_multiple_user_contact_subscription$"-->
+<!--              (click)="createMultipleUserContactComponent.createMultipleUserContact(createMultipleUserContactComponent.createRequestData())">-->
+<!--              Next-->
+<!--              <i-feather name="arrow-right"></i-feather>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--  </swiper-slide>-->
+
+<!--  <swiper-slide>-->
+<!--    <div class="row w-100 px-0">-->
+<!--      <div class="col-12 px-0">-->
+<!--        <div class="row w-100 mx-0">-->
+<!--          <div class="d-flex justify-content-between align-items-center brtl-20px px-24 py-20px">-->
+<!--            <label class="font-size-24 font-weight-400 font-poppins">Total<span class="font-weight-700"> 2,357 </span>contacts</label>-->
+<!--            <i-feather name="x" class="rounded-5 p-1 text-white cursor-pointer vertical-align-unset"-->
+<!--                       style="background: rgba(255, 255, 255, 0.3)" (click)="closeClicked.emit(true)"></i-feather>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>-->
+<!--        <div class="progress">-->
+<!--          <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"-->
+<!--               aria-valuemax="100"></div>-->
+<!--        </div>-->
+
+<!--        <div class="row w-100 mx-0 mt-40px">-->
+<!--          <div class="d-flex align-items-center brtl-20px px-24 py-20px">-->
+<!--            <i-feather name="check-circle" class="text-grey-1 mr-8px"></i-feather>-->
+<!--            <label class="font-poppins font-size-18px font-weight-500 text-grey-1"><span-->
+<!--              class="font-weight-600 text-black">2,057 </span>contacts added successfully</label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row w-100 mx-0 mt-40px">-->
+<!--          <div class="col-8 d-flex align-items-center brtl-20px px-24 py-20px">-->
+<!--            <div class="progress">-->
+<!--              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"-->
+<!--                   aria-valuemax="100"></div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row w-100 mx-0">-->
+<!--          <div class="d-flex align-items-center brtl-20px px-24 py-20px">-->
+<!--            <i-feather name="x" class="text-grey-1 mr-8px"></i-feather>-->
+<!--            <label class="font-poppins font-size-18px font-weight-500 text-grey-1"><span-->
+<!--              class="font-weight-600 text-black">100 </span>contacts failed</label>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="row w-100 mx-0">-->
+<!--          <div class="d-flex align-items-center brtl-20px px-24 py-20px">-->
+<!--            <i-feather name="info" class="text-grey-1 mr-8px"></i-feather>-->
+<!--            <label class="font-poppins font-size-18px font-weight-500 text-grey-1"><span-->
+<!--              class="font-weight-600 text-black">200 </span>contacts already exists</label>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row w-100 mx-0 mt-40px d-flex justify-content-center">-->
+<!--          <div class="d-flex align-items-center brtl-20px px-24 py-20px">-->
+<!--            <button-->
+<!--              class="py-16px px-24px bg-primary text-white br-5px font-size-16px font-poppins font-weight-500 border-none"-->
+<!--              (click)="closeClicked.emit(true)">-->
+<!--              Done-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </swiper-slide>-->
+
+<!--  &lt;!&ndash;  <swiper-slide>&ndash;&gt;-->
+<!--  &lt;!&ndash;    <div class="" *ngIf="create_multiple_user_contact_request_items">&ndash;&gt;-->
+<!--  &lt;!&ndash;      <div class="row" *ngFor="let request_item of create_multiple_user_contact_request_items">&ndash;&gt;-->
+<!--  &lt;!&ndash;        {{request_item.display_name}}&ndash;&gt;-->
+<!--  &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--  &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--  &lt;!&ndash;  </swiper-slide>&ndash;&gt;-->
+<!--</swiper-container>-->

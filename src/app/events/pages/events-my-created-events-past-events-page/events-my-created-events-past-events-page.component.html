@@ -1,0 +1,137 @@
+
+
+
+
+<!--<ion-content [scrollEvents]="true">-->
+<!--    <ion-row class="font-poppins ion-justify-content-center mt-4">-->
+<!--        <ion-col size="12">-->
+<!--            <ion-label class="font-weight-700 fs-15 text-black ml-2">-->
+<!--                My Events-->
+<!--            </ion-label>-->
+
+<!--            &lt;!&ndash; Event-Tab-Selector&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-row class="mt-4 d-flex ion-justify-content-center w-100-percent">&ndash;&gt;-->
+<!--&lt;!&ndash;                <ion-button class="btn-event-tab fs-10 ml-2"&ndash;&gt;-->
+<!--&lt;!&ndash;                            size="small"&ndash;&gt;-->
+<!--&lt;!&ndash;                            *ngFor="let option of options"&ndash;&gt;-->
+<!--&lt;!&ndash;                            [routerLinkActive]="'btn-event-tab-active '"&ndash;&gt;-->
+<!--&lt;!&ndash;                            [routerLink]="option.link">{{option.value}}&ndash;&gt;-->
+<!--&lt;!&ndash;                </ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            </ion-row>&ndash;&gt;-->
+<!--            <ion-row class="mt-4 d-flex ion-justify-content-center">-->
+<!--                <ion-col size="12">-->
+<!--                    <ion-segment>-->
+<!--                        <ion-segment-button *ngFor="let option of options"-->
+<!--                                            [routerLinkActive]="'btn-event-tab-active '"-->
+<!--                                            [routerLink]="option.link">-->
+<!--                            {{option.value}}-->
+<!--                        </ion-segment-button>-->
+<!--                    </ion-segment>-->
+<!--                </ion-col>-->
+<!--            </ion-row>-->
+
+
+<!--            &lt;!&ndash;Event-Tab-Contents&ndash;&gt;-->
+<!--            <ion-row class="bg-white-transparent rounded ph-6 pt-8 mt-4">-->
+<!--                <ion-col class="" size="12">-->
+
+<!--                    <ion-segment scrollable="true">-->
+<!--                        <ion-segment-button class="btn-event pa-2"-->
+<!--                                            *ngFor="let sub_option of sub_options"-->
+<!--                                            routerLinkActive="btn-event-active bg-col-purple "-->
+<!--                                            [routerLink]="sub_option.link">{{sub_option.value}}-->
+<!--                        </ion-segment-button>-->
+<!--                    </ion-segment>-->
+<!--                </ion-col>-->
+
+
+<!--            </ion-row>-->
+
+
+<!--            &lt;!&ndash;Event-Tab-Contents&ndash;&gt;-->
+<!--            <ion-row class="bg-white-transparent rounded ph-6 pt-4 mt-4">-->
+<!--                <ion-col class="bg-white-transparent rounded ph-6 pt-8 mt-4" size="12">-->
+
+<!--&lt;!&ndash;                    <ion-row class="mt-4 d-flex ion-justify-content-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <ion-col size="12">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <ion-segment>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <ion-segment-button *ngFor="let option of options"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    [routerLinkActive]="'btn-event-tab-active '"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    [routerLink]="option.link">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    {{option.value}}&ndash;&gt;-->
+<!--&lt;!&ndash;                                </ion-segment-button>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </ion-segment>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </ion-row>&ndash;&gt;-->
+
+<!--                </ion-col>-->
+<!--                <ion-col size="12" class="mt-8 h-100vh" >-->
+<!--                    <ion-label>-->
+<!--                       creatd past event-->
+<!--                    </ion-label>-->
+<!--                    <events-get-events-by-created-by-scrolling [numberOfItems]="5"-->
+<!--                    ></events-get-events-by-created-by-scrolling>-->
+<!--                </ion-col>-->
+<!--            </ion-row>-->
+<!--        </ion-col>-->
+
+<!--    </ion-row>-->
+
+
+<!--    &lt;!&ndash;Title&ndash;&gt;-->
+
+<!--</ion-content>-->
+
+<ion-content [scrollEvents]="true">
+    <ion-row class="mt-30 font-poppins ion-justify-content-center mt-4 bg-background-purple">
+        <ion-col size="12">
+            <ion-label class="font-weight-700 fs-15 text-black ml-2">
+                My Events
+            </ion-label>
+
+            <!-- Event-Tab-Selector-->
+            <ion-row class="mv-4 d-flex ion-justify-content-center">
+                <ion-col size="12">
+                    <ion-segment>
+                        <ion-segment-button *ngFor="let option of options"
+                                            [routerLinkActive]="'btn-event-tab-active '"
+                                            [routerLink]="option.link">
+                            {{option.value}}
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-col>
+            </ion-row>
+
+
+            <!--Event-Tab-Contents-->
+            <ion-row class="bg-white ion-justify-content-center pt-2 overflow-x-scroll">
+                <ion-col class="" size="11">
+
+                    <ion-segment scrollable="true">
+                        <ion-segment-button class="pa-2"
+                                            *ngFor="let sub_option of sub_options"
+                                            [routerLinkActive]="'bg-grey-3 border-radius-5px font-color-black'"
+                                            [routerLink]="sub_option.link">{{sub_option.value}}
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-col>
+
+                <ion-col size="12" class="mt-8 h-100vh">
+<!--                    <events-get-events-by-created-by-draft-events-scrolling [numberOfItems]="5"-->
+<!--                    ></events-get-events-by-created-by-draft-events-scrolling>-->
+
+                    <events-get-events-by-created-by-scrolling [numberOfItems]="5" [endTime]="current_time"
+                                                               [status]="'ACTIVE'"
+                                                               [isPastEvent]="true"
+                    ></events-get-events-by-created-by-scrolling>
+
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+    </ion-row>
+
+
+    <!--Title-->
+
+</ion-content>

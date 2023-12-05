@@ -1,0 +1,65 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "base-component": {
+      "description": "Generate Base Component",
+      "factory": "./base-component/index#baseComponent",
+      "schema": "./base-component/schema.json"
+    },
+    "base-and-no-template-component": {
+      "description": "Generate Base Component",
+      "factory": "./base-and-no-template-component/index#baseAndNoTemplateComponent",
+      "schema": "./base-and-no-template-component/schema.json"
+    },
+    "paginated-and-no-template-component": {
+      "description": "Generate Paginated And No Template Component",
+      "factory": "./paginated-and-no-template-component/index#paginatedAndNoTemplateComponent",
+      "schema": "./paginated-and-no-template-component/schema.json"
+    },
+    "paginated-scrolling-and-no-template-component": {
+      "description": "Generate Paginated Scrolling And No Template Component",
+      "factory": "./paginated-scrolling-and-no-template-component/index#paginatedScrollingAndNoTemplateComponent",
+      "schema": "./paginated-scrolling-and-no-template-component/schema.json"
+    },
+    "form-component": {
+      "description": "Generate Form Component",
+      "factory": "./form-component/index#formComponent",
+      "schema": "./form-component/schema.json"
+    },
+    "page-component": {
+      "description": "Generate Page Component",
+      "factory": "./page-component/index#pageComponent",
+      "schema": "./page-component/schema.json"
+    },
+    "modal-component": {
+      "description": "Generate Modal component",
+      "factory": "./modal-component/index#modalComponent",
+      "schema": "./modal-component/schema.json"
+    },
+    "modal-content-component": {
+      "description": "Generate Modal Content component",
+      "factory": "./modal-content-component/index#modalContentComponent",
+      "schema": "./modal-content-component/schema.json"
+    },
+    "popover-component": {
+      "description": "Generate Popover component",
+      "factory": "./popover-component/index#popoverComponent",
+      "schema": "./popover-component/schema.json"
+    },
+    "popover-content-component": {
+      "description": "Generate Popover Content component",
+      "factory": "./popover-content-component/index#popoverContentComponent",
+      "schema": "./popover-content-component/schema.json"
+    },
+    "default-module": {
+      "description": "Generate Default module",
+      "factory": "./default-module/index#defaultModule",
+      "schema": "./default-module/schema.json"
+    },
+    "default-rest-service": {
+      "description": "Generate Default Rest service",
+      "factory": "./default-rest-service/index#defaultRestService",
+      "schema": "./default-rest-service/schema.json"
+    }
+  }
+}

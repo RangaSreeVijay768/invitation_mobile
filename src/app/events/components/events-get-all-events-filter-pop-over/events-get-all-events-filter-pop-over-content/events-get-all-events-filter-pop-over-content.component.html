@@ -1,0 +1,170 @@
+<ion-content>
+
+    <ion-list class="mb-0" *ngIf="filter_type==='THIS_WEEK'">
+        <ion-item
+                (click)="closePopover({data: [undefined,CommonsService.getCurrentTimeAsDateTime(),undefined,'Any day'], status:'SUCCESS'})">
+            Any day
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, DateTime.now(), undefined, 'Starting soon'], status:'SUCCESS'})">
+            Starting soon
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, DateTime.now(), CommonsService.getCurrentTimeAsDateTime(), 'Today'], status:'SUCCESS'})">
+            Today
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, DateTime.now(), CommonsService.getCurrentTimeAsDateTime().plus({days: 1}), 'Tomorrow'], status:'SUCCESS'})">
+            Tomorrow
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, DateTime.now(), CommonsService.getCurrentTimeAsDateTime().plus({days: 7}), 'This week'], status:'SUCCESS'})">
+            This week
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, CommonsService.getCurrentTimeAsDateTime().plus({days: 5}), CommonsService.getCurrentTimeAsDateTime().plus({days: 7}), 'This weekend'], status:'SUCCESS'})">
+            This weekend
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, CommonsService.getCurrentTimeAsDateTime().plus({days: 7}), CommonsService.getCurrentTimeAsDateTime().plus({days: 14}), 'Next week'], status:'SUCCESS'})">
+            Next week
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list class="mb-0" *ngIf="filter_type==='EVENT_TYPE'">
+        <ion-item (click)="closePopover({data: ['ALL', undefined, undefined, 'All'], status:'SUCCESS'})">
+            All
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: ['NIGHT_LIFE', undefined, undefined, 'Night life'], status:'SUCCESS'})">
+            Night life
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: ['CONCERT_OR_FESTIVAL', undefined, undefined,'Concert/Festival'], status:'SUCCESS'})">
+            Concert/Festival
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: ['CONFERENCE', undefined, undefined,'Conference'], status:'SUCCESS'})">
+            Conference
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: ['SEMINAR_OR_WORKSHOP', undefined, undefined,'Seminar/Workshop'], status:'SUCCESS'})">
+            Seminar/Workshop
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: ['EXHIBIT_OR_SHOW', undefined, undefined,'Exhibit/Show'], status:'SUCCESS'})">
+            Exhibit/Show
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: ['NETWORKING', undefined, undefined,'Networking'], status:'SUCCESS'})">
+            Networking
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: ['HAPPY_HOUR', undefined, undefined,'Happy hour'], status:'SUCCESS'})">
+            Happy hour
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: ['HOUSE_PARTY', undefined, undefined,'House party'], status:'SUCCESS'})">
+            House party
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: ['BIRTHDAY_PARTY', undefined, undefined,'Birthday party'], status:'SUCCESS'})">
+            Birthday party
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: ['OTHERS', undefined, undefined,'Others'], status:'SUCCESS'})">
+            Other
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list class="mb-0" *ngIf="filter_type==='ANY_DISTANCE'">
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, 'All'], status:'SUCCESS'})">
+            Any distance
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, '2 miles'], status:'SUCCESS'})">
+            2 miles
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, '5 miles'], status:'SUCCESS'})">
+            5 miles
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, undefined, undefined,'10 miles'], status:'SUCCESS'})">
+            10 miles
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined,'15 miles'], status:'SUCCESS'})">
+            15 miles
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, '25 miles'], status:'SUCCESS'})">
+            25 miles
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, undefined, undefined,'50 miles'], status:'SUCCESS'})">
+            50 miles
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list class="mb-0" *ngIf="filter_type==='ANY_CATEGORY'">
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, 'Any category'], status:'SUCCESS'})">
+            Any category
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, 'Art and Culture'], status:'SUCCESS'})">
+            Art and Culture
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, 'Dancing'], status:'SUCCESS'})">
+            Dancing
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, undefined, undefined,'Games'], status:'SUCCESS'})">
+            Games
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined,'Health'], status:'SUCCESS'})">
+            Health
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, undefined, undefined, 'Hobbies/Passion'], status:'SUCCESS'})">
+            Hobbies/Passion
+        </ion-item>
+
+        <ion-item
+                (click)="closePopover({data: [undefined, undefined, undefined,'Community & Environment'], status:'SUCCESS'})">
+            Community & Environment
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list class="mb-0" *ngIf="filter_type==='RELEVANCE'">
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, 'Relevance'], status:'SUCCESS'})">
+            Relevance
+        </ion-item>
+
+        <ion-item (click)="closePopover({data: [undefined, undefined, undefined, 'Date'], status:'SUCCESS'})">
+            Date
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>

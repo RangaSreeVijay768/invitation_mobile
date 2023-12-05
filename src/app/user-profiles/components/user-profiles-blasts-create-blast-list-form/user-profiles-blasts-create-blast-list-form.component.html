@@ -1,0 +1,42 @@
+<ion-row>
+    <ion-col size="4">
+        <images-upload-file-create-blast-list
+                (fileUploaded)="uploaded_file=$event" [autoUploadFile]="false"
+                (imageAttached)="eventCreated.emit(event_id)"
+
+                [entityType]="'EVENT_PROFILE_PIC'"
+        ></images-upload-file-create-blast-list>
+    </ion-col>
+    <ion-col size="8">
+        <ion-label class="d-inline-block mb-5  font-size-16px font-weight-bold font-color-black">name your group <span class="font-color-red font-weight-bold">*</span></ion-label><br>
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                    [model]="formModelMap['blast_list_name']"></dynamic-ionic-form-control>
+    </ion-col>
+    <ion-col size="12">
+        <ion-label class="font-size-16px d-inline-block mv-5 font-weight-bold font-color-black">SELECT CONTACT
+            TYPE</ion-label><br>
+        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                    [model]="formModelMap['blast_list_type']"></dynamic-ionic-form-control>
+    </ion-col>
+</ion-row>
+
+
+<!--<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">-->
+<!--  <div class="row mt-32px mx-0">-->
+<!--    <div class="d-flex align-items-center px-0">-->
+<!--      <label class="font-weight-500 font-size-18 text-transform-none font-color-1 mb-0">Blast list type</label>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <dynamic-ng-bootstrap-form-control [group]="formGroup" [layout]="formLayout"-->
+<!--                                     [model]="formModelMap['blast_list_type']"></dynamic-ng-bootstrap-form-control>-->
+<!--</form>-->
+
+<!--<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">-->
+<!--  <div class="row mt-32px mx-0">-->
+<!--    <div class="d-flex align-items-center px-0">-->
+<!--      <label class="font-weight-500 font-size-18 text-transform-none font-color-1 mb-0">Blast list description</label>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <dynamic-ng-bootstrap-form-control [group]="formGroup" [layout]="formLayout"-->
+<!--                                     [model]="formModelMap['description']"></dynamic-ng-bootstrap-form-control>-->
+<!--</form>-->

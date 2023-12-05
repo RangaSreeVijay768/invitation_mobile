@@ -1,0 +1,27 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      [
+        "app",
+        "core",
+        "userProfiles",
+        "users"
+      ],
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      [
+        "app",
+        "core",
+        "user-profiles",
+        "users"
+      ],
+      "kebab-case"
+    ]
+  }
+}

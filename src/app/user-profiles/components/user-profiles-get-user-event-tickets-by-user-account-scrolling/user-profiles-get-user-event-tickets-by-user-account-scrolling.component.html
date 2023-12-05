@@ -1,0 +1,115 @@
+<events-get-user-event-tickets-by-user-account-scrolling-no-template
+        (userEventTicketsReceived)="addItems($event)"
+        [count]="numberOfItems" [columnName]="'createdTime'" [columnOrder]="'DESC'"
+        #component></events-get-user-event-tickets-by-user-account-scrolling-no-template>
+
+<ion-row class="mt-5">
+    <ion-col size="12" class="" *ngFor="let user_event_ticket of items">
+        <ion-row class="ion-justify-content-center pb-1">
+            <ion-col size="12" class="py-10 px-0 box-shadow br-10px">
+                <ion-row class="d-flex pv-4 ph-6 ion-align-items-center bg-grey-3">
+                            <ion-row class="border-radius-4px overflow-hidden">
+
+                                <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                                        [entityType]="'EVENT_PROFILE_PIC'"
+                                        [entityId]="user_event_ticket.event_ticket.event?.event_id"
+                                        [alt]="user_event_ticket.event_ticket.event?.event_title"
+                                        [size]="70"
+                                        [round]="false"
+                                ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                            </ion-row>
+                            <ion-label
+                                    class="font-weight-700 fs-11 ml-4">{{user_event_ticket.event_ticket.event?.event_title}}</ion-label>
+                        </ion-row>
+                <ion-row class="bg-white border-bottom-1px-dashed-grey-1 ph-4 pb-6">
+                            <ion-col size="12">
+                                <ion-row
+                                        class="ion-align-items-center ion-justify-content-between mt-2">
+                                    <ion-label class="font-weight-400 fs-11">Ticket price: <span
+                                            class="text-primary font-weight-500 font-color-7F56D9">$5</span></ion-label>
+
+                                </ion-row>
+                            </ion-col>
+                            <ion-col size="12">
+                                <ion-row
+                                        class="ion-align-items-center ion-justify-content-between mt-2">
+
+                                    <ion-label class="font-weight-500 fs-10 py-3 "><span
+                                            class="font-color-grey-1 font-weight-400">Purchase date: </span> {{user_event_ticket.created_time|appDateFormat:'DD/MM/YYYY'}}
+                                    </ion-label>
+
+                                </ion-row>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <ion-row
+                                        class="ion-align-items-center ion-justify-content-between mt-2 mb-2">
+
+                                    <ion-label class="font-weight-500 fs-10 py-3"><span
+                                            class="font-color-grey-1 font-weight-400">Ticket quantity: </span>
+                                        {{user_event_ticket.ticket_quantity}}</ion-label>
+                                </ion-row>
+
+                            </ion-col>
+                            <ion-col size="12">
+                                <ion-row class="py-6 text-align-end ion-justify-content-center">
+                                    <ion-button
+                                            fill="outline" color="primary" expand="block" size="large"
+                                            class="font-poppins font-weight-500 fs-8 bg-white text-primary py-2 ph-2 border border-2 rounded-2">
+                                        <ion-label class="ph-8 fs-8 font-weight-medium-bold">
+                                            <ion-icon name="refresh-outline" class="mr-2"></ion-icon>
+                                            Request refund
+                                        </ion-label>
+                                    </ion-button>
+
+                                    <ion-label class="font-poppins font-weight-400 fs-10 mt-4 font-color-grey-1">
+                                        <ion-icon name="information-circle-outline" class="mr-2"></ion-icon>
+                                        Refund request will be available till 30th may 2023
+                                    </ion-label>
+                                </ion-row>
+
+                            </ion-col>
+                        </ion-row>
+                <ion-row class="ph-4 br-b-2 bg-white">
+                            <ion-col size="12">
+                                <ion-row
+                                        class="ion-align-items-center ion-justify-content-between mt-2">
+                                    <ion-label class="font-weight-400 fs-11">Ticket price: <span
+                                            class="text-primary font-color-7F56D9">FREE</span></ion-label>
+
+                                </ion-row>
+                                <ion-row
+                                        class="ion-align-items-center ion-justify-content-between mt-2">
+
+                                    <ion-label class="font-weight-500 fs-10 py-3 "><span
+                                            class="font-color-grey-1 font-weight-400">Purchase date: </span> {{user_event_ticket.created_time|appDateFormat:'DD/MM/YYYY'}}
+                                    </ion-label>
+
+                                </ion-row>
+                                <ion-row
+                                        class="ion-align-items-center ion-justify-content-between mt-2 mb-2">
+
+                                    <ion-label class="font-weight-500 fs-10 py-3"><span
+                                            class="font-color-grey-1 font-weight-400">Ticket quantity: </span>
+                                        {{user_event_ticket.ticket_quantity}}</ion-label>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="border-grey mv-8"></ion-row>
+
+    </ion-col>
+</ion-row>
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>
+
+

@@ -1,0 +1,38 @@
+<ion-row class="ion-justify-content-center br-5px">
+    <ion-col class="bg-white br-5px">
+        <ion-row class="bg-primary pv-4 ph-2">
+            <ion-col size="12" class="d-flex ion-justify-content-between">
+                <ion-label class="font-weight-bold font-size-24px font-color-white">Select contacts</ion-label>
+                <ion-icon name="close-circle-outline" class="font-color-white font-size-24px bg-bmi-primary-light"
+                          (click)="closeModal({data:'', status:''})"></ion-icon>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="ph-6">
+            <ion-col class="">
+                <user-profiles-creat-user-contact-form
+                        (userContactCreated)="closeModal({data:'', status:''})"
+                        #creatUserContactFormComponent></user-profiles-creat-user-contact-form>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="d-flex ion-justify-content-center mt-8">
+
+            <ion-col size="10" class="d-flex ion-justify-content-between">
+                <button
+                        class="border-primary br-5px bg-white font-weight-700 ph-6 font-size-18px font-color-primary pv-4"
+                        (click)="closeModal({data:'', status:''});"
+                >
+                    Cancel
+                </button>
+                <button class="br-5px bg-primary pv-4 ph-8 font-weight-700 font-size-18px"
+                        (click)="creatUserContactFormComponent.createUserContact(creatUserContactFormComponent.createRequestData())"
+                >
+                    Add
+                </button>
+            </ion-col>
+
+        </ion-row>
+
+    </ion-col>
+</ion-row>

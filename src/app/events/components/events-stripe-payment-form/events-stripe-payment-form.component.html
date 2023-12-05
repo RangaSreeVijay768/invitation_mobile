@@ -1,0 +1,22 @@
+<form novalidate [formGroup]="stripeTest" class=" ph-32px pv-32px ">
+  <label class="font-poppins font-size-18 font-weight-500">CARD HOLDER NAME<span class="text-red">*</span></label><br>
+  <input type="text" formControlName="name" placeholder="Jane Doe"
+         class="border border-2 border-primary rounded-2 pv-16px ph-10px mt-20px width-100"><br><br>
+
+  <label class="font-poppins font-size-18 font-weight-500">CARD DETAILS<span class="text-red">*</span></label><br>
+  <div class="border border-2 border-primary rounded-2 pv-16px ph-10px mt-20px">
+<!--    <ngx-stripe-card-->
+<!--      [options]="cardOptions"-->
+<!--      [elementsOptions]="elementsOptions"-->
+<!--    ></ngx-stripe-card>-->
+  </div>
+  <br><br>
+  <div class="text-align-center">
+    <button class="btn btn-primary font-weight-700 py-20px px-40px "
+            (click)="createToken()"
+    >
+      Pay $10&nbsp;
+<!--      <i-feather name="arrow-right"></i-feather>-->
+    </button>
+  </div>
+</form>

@@ -1,0 +1,7 @@
+<ion-content>
+    <events-invite-to-event-in-share-event-swiper
+            [event]="event"
+            (eventBlastStarted)="closeModal({data:$event,status:'SUCCESS'})"
+            (closeModalSelected)="closeModal({data:$event,status:''})"
+    ></events-invite-to-event-in-share-event-swiper>
+</ion-content>

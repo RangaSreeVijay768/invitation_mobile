@@ -1,0 +1,7 @@
+<div *ngIf="control && !control.valid && control.touched && controlComponent.showErrorMessages"
+     class="font-red mr-3 ml-3 fs-7 validation-position">
+  <p *ngFor="let message of controlComponent.errorMessages|keyvalue"
+     class="invalid-feedback fs-7 m-0 br-2">
+    {{message.value}}
+  </p>
+</div>

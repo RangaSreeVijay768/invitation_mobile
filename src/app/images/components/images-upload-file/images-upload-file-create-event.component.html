@@ -1,0 +1,30 @@
+<!--<images-attach-image-no-template [entityId]="entityId" [entityType]="entityType"-->
+<!--                                 (imageAttached)="imageAttached.emit($event);image_upload_in_progress=false"-->
+<!--&gt;</images-attach-image-no-template>-->
+<images-attach-image-no-template [entityId]="entityId"
+                                 [entityType]="entityType"
+
+></images-attach-image-no-template>
+
+
+<core-select-photo-no-template
+        (onFileSelected)="uploadFile($event.data_url,$event.file_name)"
+        #selectPhotoNoTemplateComponent></core-select-photo-no-template>
+
+<ion-button class="mt-4 mb-4" (click)="selectPhotoNoTemplateComponent.uploadFromPhotoLibrary()">Change Image</ion-button>
+<img
+        src="{{uploaded_file.file_link}}" alt="click here" class="" *ngIf="uploaded_file"
+        height="70" width="70">
+<!--<ion-row class="overflow-hidden">-->
+<!--    <ion-col size="12" class="file-image overflow-hidden d-flex flex-dir-col ion-justify-content-center ion-align-items-center">-->
+<!--        <ion-label-->
+<!--                class="img-upload-text m-0 overflow-hidden border-radius-5px d-flex ion-justify-content-center ion-align-items-center">-->
+<!--            <img-->
+<!--                    src="/assets/images/image-upload-icon.svg" alt="click here" class="" *ngIf="!uploaded_file">-->
+<!--            <img-->
+<!--                    src="{{uploaded_file.file_link}}" alt="click here" class="img-fluid" *ngIf="uploaded_file">-->
+<!--        </ion-label>-->
+<!--            <input class="ml-4 custom-file-input image-upload" type="file" ng2FileSelect [uploader]="uploader"-->
+<!--                   id="file-upload-{{current_time_stamp}}">-->
+<!--    </ion-col>-->
+<!--</ion-row>-->

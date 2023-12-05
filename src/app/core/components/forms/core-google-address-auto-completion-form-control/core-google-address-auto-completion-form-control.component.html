@@ -1,0 +1,5 @@
+<input class="input-active-border-bottom"
+       type="text" placeholder="{{model.placeholder}}"
+       [(ngModel)]="autocompleteInput" (change)="change.emit($event)" (focus)="focus.emit($event)"
+       #addresstext style=""
+/>

@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" #createForm="ngForm" class="profile-form-placeholder">
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['display_name']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="mt-4" *ngIf="blastListItemType==='SMS'">
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['phone_number']"></dynamic-ionic-form-control>
+</form>
+
+<form [formGroup]="formGroup" #createForm="ngForm" class="mt-4" *ngIf="blastListItemType==='EMAIL'">
+
+  <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                     [model]="formModelMap['email_id']"></dynamic-ionic-form-control>
+</form>

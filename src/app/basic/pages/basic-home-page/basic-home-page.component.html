@@ -1,0 +1,238 @@
+<basic-events-get-all-event-infos-no-template [count]="10" [columnOrder]="'DESC'" [columnName]="'createdTime'"
+                                         (eventInfosReceived)="event_infos = getAllEventsInfosComponent.eventInfos;"
+                                         #getAllEventsInfosComponent
+></basic-events-get-all-event-infos-no-template>
+
+<ion-header>
+    <ion-row class="ph-4 pv-6 row-align-center" >
+        <ion-col size="6" class="ion-text-start  " routerLink="/signedin/events/homepage">
+            <img class="vertical-align-middle" src="../../../../assets/images/logo/eventreply-logo.png">
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+            <ion-icon size="large" icon="search"></ion-icon>
+            <core-menu-pop-over-component></core-menu-pop-over-component>
+        </ion-col>
+    </ion-row>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+
+
+    <ion-row>
+        <ion-col size="12" class="ph-4">
+            <ion-row>
+                <ion-col size="12" class="br-1 b-2px-primary mt-8 mb-8">
+                    <ion-row class="ph-6">
+                        <ion-col size="12" class="mt-4 mb-4 d-flex ion-justify-content-end">
+                            <ion-icon icon="close-outline" class="w-24px h-24px"></ion-icon>
+                        </ion-col>
+                        <ion-col size="12" class="mt-2">
+                            <ion-row class="font-color-primary">
+                                <ion-col size="1">
+                                    <ion-icon icon="information-circle-outline" class="w-21px h-21px"></ion-icon>
+                                </ion-col>
+                                <ion-col>
+                                    <p class="font-weight-500 font-small">Hey {{loggedAccount?.display_name}}, you have received an exclusive
+                                        birthday offer for event “<span class="font-weight-700">Christmas party celebration</span>”
+                                        from <span class="font-weight-700">Eric Dawson</span></p>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                        <ion-col class="d-flex ion-justify-content-center mt-6 mb-6">
+                            <ion-button>See the event</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="12" class="d-flex ion-align-items-center mb-8">
+                    <!--                    <img class="w-56px h-56px"-->
+                    <!--                         src=""-->
+                    <!--                         alt=""/>-->
+                    <h1 class="font-color-1 ma-0 font-size-32px font-weight-700">
+                        Welcome, {{loggedAccount?.display_name}}</h1>
+                </ion-col>
+                <ion-col size="12" class="mb-8">
+                    <h2 class="font-size-18px ma-0 font-weight-700 font-color-1">Best events in Seattle, US</h2>
+                </ion-col>
+                <ion-col size="12" class="mb-6">
+                    <ion-row>
+
+                        <ion-col size="" class="h-25px d-flex ion-justify-content-center b-bottom-2px-primary" *ngIf="filter_type==='ALL'"
+                                 (click)="setEventFilters(undefined,undefined);updateFilters(location_type,ticket_type)"
+                                 [class.active]="!location_type&& !ticket_type">
+                            <span class="font-color-primary font-size-14px font-weight-500">All</span>
+                        </ion-col>
+                        <ion-col size="" class="h-25px d-flex ion-justify-content-center" *ngIf="filter_type!='ALL'"
+                                 (click)="setEventFilters(undefined,undefined);updateFilters(location_type,ticket_type); filter_type='ALL'"
+                                 [class.active]="!location_type&& !ticket_type">
+                            <span class="font-weight-500 font-size-14px">All</span>
+                        </ion-col>
+
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center b-bottom-2px-primary" *ngIf="filter_type==='FREE'"
+                                 [class.active]="ticket_type==='FREE'"
+                                 (click)="setEventFilters(undefined,'FREE');updateFilters(location_type,ticket_type)">
+                            <span class="font-color-primary font-weight-500 font-size-14px">Free</span>
+                        </ion-col>
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center" *ngIf="filter_type!='FREE'"
+                                 [class.active]="ticket_type==='FREE'"
+                                 (click)="setEventFilters(undefined,'FREE');updateFilters(location_type,ticket_type); filter_type='FREE'">
+                            <span class="font-weight-500 font-size-14px">Free</span>
+                        </ion-col>
+
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center b-bottom-2px-primary" *ngIf="filter_type==='ONLINE'"
+                                 [class.active]="location_type==='ONLINE'"
+                                 (click)="setEventFilters('ONLINE',undefined);updateFilters(location_type,ticket_type)">
+                            <span class="font-color-primary font-weight-500 font-size-14px">Online</span>
+                        </ion-col>
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center" *ngIf="filter_type!='ONLINE'"
+                                 [class.active]="location_type==='ONLINE'"
+                                 (click)="setEventFilters('ONLINE',undefined);updateFilters(location_type,ticket_type); filter_type='ONLINE'">
+                            <span class="font-weight-500 font-size-14px">Online</span>
+                        </ion-col>
+
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center b-bottom-2px-primary" *ngIf="filter_type==='IN_PERSON'"
+                                 [class.active]="location_type==='OFFLINE'"
+                                 (click)="setEventFilters('OFFLINE',undefined);updateFilters(location_type,ticket_type)">
+                            <span class="font-color-primary font-weight-500 font-size-14px">In person</span>
+                        </ion-col>
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center" *ngIf="filter_type!='IN_PERSON'"
+                                 [class.active]="location_type==='OFFLINE'"
+                                 (click)="setEventFilters('OFFLINE',undefined);updateFilters(location_type,ticket_type); filter_type='IN_PERSON'">
+                            <span class="font-weight-500 font-size-14px">In person</span>
+                        </ion-col>
+
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center b-bottom-2px-primary" *ngIf="filter_type==='PAID'"
+                                 [class.active]="ticket_type==='PAID'"
+                                 (click)="setEventFilters(undefined,'PAID');updateFilters(location_type,ticket_type)"
+                        >
+                            <span class="font-color-primary font-weight-500 font-size-14px">Paid</span>
+                        </ion-col>
+                        <ion-col size="" class="ml-3 h-25px d-flex ion-justify-content-center" *ngIf="filter_type!='PAID'"
+                                 [class.active]="ticket_type==='PAID'"
+                                 (click)="setEventFilters(undefined,'PAID');updateFilters(location_type,ticket_type); filter_type='PAID'"
+                        >
+                            <span class="font-size-14px font-weight-500">Paid</span>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-col>
+                <ion-col size="12" class="mb-6">
+                    <ion-row *ngFor="let event_info of event_infos">
+                        <ion-col size="12" class="mb-4 pa-4 h-auto br-10px b-1px-grey-3 event-card-shadow bg-white"
+                                 routerLink="/basic/event/{{event_info.event.event_id}}">
+                            <ion-row>
+                                <ion-col size="4" class="">
+                                    <ion-row class="border-radius-4px overflow-hidden">
+                                        <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                                                [entityId]="event_info.event.event_id"
+                                                [entityType]="'EVENT_PROFILE_PIC'"
+                                                [alt]="event_info.event.event_title" [size]="100" [round]="false"
+
+                                        ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size="8" class="pl-4">
+                                    <ion-row>
+                                        <ion-col size="12" class="mb-3">
+                                            <!--                                            {{event_info.event.event_id}}-->
+                                            <ion-label
+                                                    class="font-size-16px ma-0 font-weight-700 font-color-1">{{event_info.event.event_title}}</ion-label>
+                                        </ion-col>
+                                        <ion-col size="12" class="mb-2">
+                                            <p class="font-small font-weight-400 font-color-1 color-grey-2" *ngIf="event_info.event?.start_time; else elseDate">
+                                                {{event_info.event.start_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy'}}
+                                            </p>
+                                            <ng-template #elseDate>
+                                                <p class="font-small font-weight-400 font-color-1 color-grey-2">
+                                                    Unavailable
+                                                </p>
+                                            </ng-template>
+                                        </ion-col>
+                                        <ion-col size="12" class="mb-2">
+                                            <p class="font-small font-weight-400 font-color-1 color-grey-2">{{event_info.event.start_time|appDateTimeToTimeFormat}}
+                                                -
+                                                {{event_info.event.end_time|appDateTimeToTimeFormat}}</p>
+                                        </ion-col>
+                                        <ion-col size="12" class="mb-4">
+                                            <p class="font-small font-weight-400 font-color-1 color-grey-2" *ngIf="event_info.event.location_visibility==='ACTIVITY'">{{event_info.event_locations}}</p>
+                                        </ion-col>
+                                        <ion-col size="12">
+                                            <ion-row>
+                                                <ion-col size="2" class="mr-8" *ngIf="ticketType==='FREE'">
+                                                    <span class="font-small font-color-green font-weight-500">Free</span>
+                                                </ion-col>
+                                                <ion-col size="2" class="mr-8" *ngIf="ticketType==='PAID'">
+                                                    <span class="font-small font-color-red font-weight-500">Paid</span>
+                                                </ion-col>
+                                                <ion-row
+                                                        class="d-flex ion-align-items-center ion-justify-content-start">
+                                                    <ion-icon class="w-21px h-21px mr-2 color-grey-2"
+                                                              icon="share-social-outline"></ion-icon>
+                                                    <span class="color-grey-2 font-small font-weight-500" >Share</span>
+                                                </ion-row>
+                                            </ion-row>
+
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="12" class="d-flex ion-justify-content-center mb-8">
+                    <ion-button size="large">
+                        <span class="font-small font-weight-700 ph-8">See More Events</span>
+                    </ion-button>
+                </ion-col>
+
+            </ion-row>
+        </ion-col>
+
+
+        <ion-col size="12" class="bg-font-color-1 pv-8 ph-4">
+            <ion-row>
+                <ion-col size="12" class="mb-8">
+                    <p class="font-normal font-weight-600 font-color-white ion-text-center mb-10px">Company</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">About Us</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Why Choose us</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Pricing</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p">Testimonial</p>
+                </ion-col>
+                <ion-col size="12" class="mb-8">
+                    <p class="font-normal font-weight-600 font-color-white ion-text-center mb-10px">Resources</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Privacy Policy</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Terms and
+                        Condition</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Blog</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p">Contact Us</p>
+                </ion-col>
+                <ion-col size="12" class="mb-6">
+                    <p class="font-normal font-weight-600 font-color-white ion-text-center mb-10px">Product</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Project
+                        management</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Time tracker</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Time schedule</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p mb-2">Lead generate</p>
+                    <p class="font-small font-weight-400 ion-text-center font-color-white-60p">Remote Collaboration</p>
+                </ion-col>
+
+                <ion-col size="10" class="b-top-2px-footer b-bottom-2px-footer m-auto">
+                    <ion-row>
+                        <ion-col size="12" class="mt-6 mb-6">
+                            <p class="ion-text-center font-size-18px font-weight-400 font-color-white">Copyright
+                                @2022</p>
+                        </ion-col>
+                        <ion-col size="12"
+                                 class="mb-6 d-flex font-color-white opacity-60p ion-align-items-center ion-justify-content-center">
+                            <ion-icon class="w-20px h-20px mr-6" icon="logo-facebook"></ion-icon>
+                            <ion-icon class="w-20px h-20px mr-6" icon="logo-twitter"></ion-icon>
+                            <ion-icon class="w-20px h-20px mr-6" icon="logo-instagram"></ion-icon>
+                            <ion-icon class="w-20px h-20px" icon="logo-linkedin"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>

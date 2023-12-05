@@ -1,0 +1,104 @@
+@mixin generateBorderRadiuses() {
+
+  $default-unit: 0.25;
+  $radius-values: 0, 1, 2, 3, 4, 8, 12, 999999;
+  $unit: rem ;
+
+  @each $value in $radius-values {
+    .br-#{$value} {
+      #{--border-radius}: ($default-unit * $value) + $unit;
+      border-radius: ($default-unit*$value)+$unit;
+    }
+  }
+}
+
+@include generateBorderRadiuses();
+
+.br-tl-2 {
+  border-top-left-radius: 0.5rem;
+}
+
+.br-tr-2 {
+  border-top-right-radius: 0.5rem;
+}
+
+.br-bl-8 {
+  border-bottom-left-radius: 2rem;
+}
+
+.br-10px {
+  border-radius: 10px;
+}
+
+.br-20px {
+  border-radius: 20px;
+}
+
+.br-5px {
+  border-radius: 5px;
+}
+
+.br-br-8 {
+  border-bottom-right-radius: 2rem;
+}
+
+.br-tl-4 {
+  border-top-left-radius: 1rem;
+}
+
+.br-tr-4 {
+  border-top-right-radius: 1rem;
+}
+
+.br-l-4 {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.br-r-4 {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.br-b-8 {
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.br-b-4 {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.br-b-2 {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.br-10p{
+  border-radius: 10%;
+}
+
+.br-5p{
+  border-radius: 5%;
+  --border-radius: 5%;
+}
+
+.br-50p{
+  border-radius: 50%;
+  --border-radius: 50%;
+}
+
+.br-bottom-50p{
+  border-radius: 50% / 30%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  //--border-radius: 50%;
+}
+
+.create-slider-heading-radius{
+  border-radius: 50% / 30%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  @extend .pb-10;
+}

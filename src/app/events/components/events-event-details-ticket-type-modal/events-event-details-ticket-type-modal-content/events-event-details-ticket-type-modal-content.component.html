@@ -1,0 +1,219 @@
+<!--<events-stripe-payment-form-modal-->
+<!--        [eventTicket]="selectedEventTicket"-->
+<!--        #paymentFormModalComponent-->
+<!--        (closeResult)="$event.status==='SUCCESS'?closeModal({status:'SUCCESS',data:$event.data}):''"-->
+<!--&gt;</events-stripe-payment-form-modal>-->
+
+<ion-content >
+    <ion-row class=" justify-content-center ph-6 pv-5 px-0 border-bottom-grey-1 border-grey-2 bg-white px-0 rounded-4">
+        <ion-col size="12">
+            <ion-row class="ion-justify-content-between ion-align-items-center">
+                <ion-label class="fs-15 font-weight-500">Ticket types</ion-label>
+                <ion-icon name="close-outline" size="large"
+                          class=" rounded-5 br-999999 pa-1 bg-purple cursor-pointer vertical-align-unset"
+                          (click)="closeModal({data:$event,status:'SUCCESS'})"
+                ></ion-icon>
+
+                <!--                        <ion-button class="fs-12 ml-8"-->
+                <!--                                    (click)="closeModal({status:'CLOSE', data:undefined})"-->
+                <!--                                    style="background: rgba(255, 255, 255, 0.3)">-->
+                <!--                            X-->
+                <!--                        </ion-button>-->
+
+            </ion-row>
+
+
+        </ion-col>
+    </ion-row>
+
+
+    <events-get-event-ticket-infos-by-event-no-template
+            [event]="event"
+            (eventTicketInfosReceived)="event_ticket_infos =$event"
+            #getEventTicketsByEventNoTemplateComponent></events-get-event-ticket-infos-by-event-no-template>
+
+
+    <ion-col size="12" class="" *ngFor="let event_ticket_info of event_ticket_infos">
+        <events-create-event-attendee-for-free-event-ticket-and-user-account-no-template
+                [eventTicket]="event_ticket_info.event_ticket"
+                (eventAttendeesReceived)="closeModal({data:$event,status:'SUCCESS'})"
+                #createEventAttendee></events-create-event-attendee-for-free-event-ticket-and-user-account-no-template>
+
+
+        <!--        <ion-button-->
+        <!--                (click)="print(eventTicket)"-->
+        <!--        >-->
+        <!--            view ticket-->
+        <!--        </ion-button>-->
+
+        <ion-col size="12" *ngIf="event_ticket_info.event_ticket.ticket_type==='FREE'">
+            <ion-row class="ph-4 pv-4 mh-4 mt-6 font-poppins border-grey-1-dotted border-radius-5px box-shadow-purple">
+                <ion-col size="12" class="border-bottom-1px-dashed-grey-1">
+                    <ion-row>
+                        <ion-label class="fs-11 font-weight-700">Free tickets</ion-label>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-row class="mv-5">
+                        <ion-label class="fs-8">Are you attending this event?</ion-label>
+                    </ion-row>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-row class="mb-5">
+                        <ion-button fill="outline" color="blue" shape="round"
+                                    class="ml-32px ion-margin-end fs-8"
+                                    (click)="createEventAttendee.createEventAttendeeForFreeEventTicketAndUserAccount(createEventAttendee.createRequestData())">
+                            Yes
+                        </ion-button>
+                        <ion-button fill="outline" color="red" shape="round" class="ml-32px ion-margin-end fs-8"
+                                    (click)="closeModal({data:$event,status:'SUCCESS'})">
+                            No
+                        </ion-button>
+                    </ion-row>
+
+                </ion-col>
+                <ion-col size="12">
+                    <ion-label class="font-color-red mt-24px text-red mb-24px">
+                        <ion-icon size="small" name="thumbs-up-outline"></ion-icon>
+                        <ion-label class="fs-10"> {{event_ticket_info.event_ticket.available_quantity}} RSVPs
+                            remaining
+                        </ion-label>
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+        <ion-col size="12" *ngIf="event_ticket_info.event_ticket.ticket_type==='PAID'">
+            <ion-row class="mh-8 mb-5">
+                <ion-col size="12">
+
+                    <ion-col size="12">
+                        <ion-row class="mt-5">
+                            <ion-label class="font-poppins font-weight-700 fs-11">Paid ticket</ion-label>
+                        </ion-row>
+                    </ion-col>
+
+                    <ion-row class="ion-justify-content-between mb-10">
+                        <ion-col size="12"
+                                 class=" border b-1px-dashed-grey-1 border-radius-10 drop-shadow-gray mv-6 pv-6 ph-6">
+                            <ion-row class="border-bottom-grey-1 pb-5">
+                                <ion-label
+                                        class="font-weight-500 fs-10 font-color-7F56D9">{{event_ticket_info.event_ticket.ticket_name}}</ion-label>
+                            </ion-row>
+                            <ion-row class="d-flex pt-6">
+                                <ion-col size="6">
+                                    <ion-row class="mb-1">
+                                        <ion-label class="font-weight-700 fs-12">
+                                            $ {{event_ticket_info.event_ticket_sale_item.item_current_price}}</ion-label>
+                                    </ion-row>
+                                    <ion-row>
+                                        <ion-col size="12">
+                                            <ion-label class="font-weight-400 fs-10 text-grey-1">Offer
+                                                ends
+                                                on {{event_ticket_info.event_ticket.sale_end_time|appDateFormat}}</ion-label>
+                                            <!--                                            <ion-row>-->
+                                            <!--                                                <ion-col size="12"-->
+                                            <!--                                                         class="font-poppins font-weight-400 fs-10 mt-4 text-red ion-align-items-center">-->
+                                            <!--                                                    <ion-img size="" src="assets/images/ticket%20icon.svg"-->
+                                            <!--                                                             style="width:20%"></ion-img>-->
+                                            <!--                                                    <ion-label> Only {{eventTicket.available_quantity}}-->
+                                            <!--                                                        tickets left-->
+                                            <!--                                                    </ion-label>-->
+                                            <!--                                                </ion-col>-->
+                                            <!--                                            </ion-row>-->
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <ion-row class="ion-justify-content-end">
+                                        <ion-col size="12">
+
+                                            <ion-row
+                                                    class="ph-1 pv-1 border-grey-1 border-radius-10 ion-align-items-center ion-justify-content-between">
+                                                <ion-button
+                                                        color="white"
+                                                        size="small"
+                                                        class="text-white border-shadow-none"
+                                                        (click)="selected_event_ticket_info = event_ticket_info;decreaseTickets();"
+                                                >
+                                                    <ion-icon name="remove-outline"></ion-icon>
+                                                </ion-button>
+                                                <ion-label
+                                                        class="fs-8 font-weight-700">{{no_of_tickets}}</ion-label>
+                                                <ion-button
+                                                        size="small"
+                                                        class=" text-white border-shadow-none"
+                                                        (click)="selected_event_ticket_info = event_ticket_info;increaseTickets();"
+                                                >
+                                                    <ion-icon name="add-outline"></ion-icon>
+                                                </ion-button>
+                                            </ion-row>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size="12">
+                                    <ion-row
+                                            class="font-poppins font-weight-400 fs-10 mt-4 font-color-red ion-align-items-center">
+                                        <ion-icon size="small" name="ticket-outline"></ion-icon>
+                                        <ion-label class="ml-1">
+                                            Only {{event_ticket_info.event_ticket.available_quantity}}
+                                            tickets left
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+    </ion-col>
+
+    <!--<events-create-order-item-payment-for-event-no-template-->
+    <!--        [noOfTickets]="no_of_tickets"-->
+    <!--        [amount]="amount"-->
+    <!--        (orderItemCreated)="paymentFormModalComponent.openModal($event)"-->
+    <!--        #orderItemPaymentForEventNoTemplateComponent-->
+    <!--&gt;</events-create-order-item-payment-for-event-no-template>-->
+
+
+    <ion-row class="position-fixed-bottom-0 w-100-percent background-white ph-8 pv-8 border-top ion-align-items-center"
+             *ngIf="no_of_tickets>0">
+        <ion-col size="6">
+            <ion-row class="font-poppins ion-align-items-center">
+                <ion-label class="fs-10 font-weight-500">Total payable</ion-label>
+            </ion-row>
+            <ion-row class="font-poppins ion-align-items-center mt-1">
+                <ion-label class="font-color-7F56D9 fs-12 font-weight-700 ">{{amount|number:'1.2'}}</ion-label>
+            </ion-row>
+        </ion-col>
+        <events-create-order-order-item-order-payment-for-event-with-intent-no-template
+                [quantity]="no_of_tickets"
+                [amount]="amount"
+                (orderCompleteInfoReceived)="order_complete_info=$event;presentPaymentSheetComponent.presentPaymentSheet(getClientSecretFromOrderCompleteInfo($event))"
+                #orderItemPaymentForEventNoTemplateComponent
+        ></events-create-order-order-item-order-payment-for-event-with-intent-no-template>
+        <events-create-paid-user-event-ticket-from-order-payment-with-intent-no-template
+                (userEventTicketReceived)="closeModal({data:$event,status:'SUCCESS'})"
+                #createPaidUserEventTicket></events-create-paid-user-event-ticket-from-order-payment-with-intent-no-template>
+        <events-present-payment-sheet
+                (paymentSheetEventsEnumReceived)="createPaidUserEventTicket.createPaidUserEventTicketFromOrderPaymentWithIntent(createPaidUserEventTicket.createRequestData(order_complete_info.order_payment.order_payment_id))"
+                #presentPaymentSheetComponent></events-present-payment-sheet>
+        <ion-col size="6">
+            <ion-row class=" d-flex ion-align-items-end ion-justify-content-center"
+                     >
+                <ion-button class="fs-10 font-weight-700 text-white bg-primary border-none border-radius-5px"
+                            size="small" (click)="orderItemPaymentForEventNoTemplateComponent.createOrderOrderItemOrderPaymentForEventWithIntent(
+                                              (orderItemPaymentForEventNoTemplateComponent.createRequestData(selected_event_ticket_info.event_ticket_sale_item.sale_item_id)))"
+                            [promiseBtn]="orderItemPaymentForEventNoTemplateComponent.create_order_order_item_order_payment_for_event_with_intent_subscription$"
+                >
+                    <!--      (click)="paymentFormModalComponent.openModal()"-->
+                    Proceed to pay
+                    <ion-icon name="arrow-forward-outline" class="ml-3"></ion-icon>
+                </ion-button>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>

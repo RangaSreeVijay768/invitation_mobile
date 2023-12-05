@@ -1,0 +1,1024 @@
+.user-profiles-update-name-modal::part(content) {
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.user-profiles-update-name-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 35%;
+  --width: 100%;
+  --background: transparent;
+}
+
+
+.task-activity-record-earning-modal::part(content) {
+
+  @extend .br-2
+}
+
+
+.task-activity-record-earning-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 100%;
+  // Following width has implications in content
+  --width: 100%;
+  --background: transparent;
+}
+
+
+.badge-details-modal::part(content) {
+
+  border-radius: 20px;
+}
+
+.badge-details-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 40%;
+  --width: 90%;
+  --background: transparent;
+}
+//
+//.badge-details-new-modal::part(content) {
+//
+//  @extend .br-tr-4;
+//  @extend .br-tl-4;
+//  position: absolute;
+//  bottom: 0px;
+//}
+//
+//.badge-details-new-modal {
+//  --backdrop-opacity: 0.5 !important;
+//  --height: 80%;
+//  --width: 100%;
+//  --background: transparent;
+//}
+.locked-badge-details-modal::part(content) {
+
+  @extend .br-2
+}
+
+
+.rsvp-free-modal::part(content) {
+
+  --border-radius: 20px;
+}
+
+.rsvp-free-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 75%;
+  --width: 90%;
+  --background: transparent;
+}
+
+
+.events-create-event-free-ticket-modal::part(content) {
+
+  --border-radius: 20px;
+}
+
+.events-create-event-free-ticket-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 75%;
+  --width: 90%;
+  --background: transparent;
+}
+
+.events-create-paid-tickets-modal::part(content) {
+
+  --border-radius: 20px;
+}
+
+.events-create-paid-tickets-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.events-event-dashboard-promocodes-create-code-modal::part(content) {
+
+  --border-radius: 20px;
+}
+
+.events-event-dashboard-promocodes-create-code-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 75%;
+  --width: 90%;
+  --background: transparent;
+}
+
+.user-profiles-create-user-contact-modal::part(content) {
+
+  --border-radius: 10px;
+}
+
+.user-profiles-create-user-contact-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 75%;
+  --width: 90%;
+  --background: transparent;
+}
+
+//.rsvp-free-modal::part(content) {
+//
+//  @extend .br-tr-4;
+//  @extend .br-tl-4;
+//  position: absolute;
+//  bottom: 0px;
+//}
+
+
+.manage-contact-modal::part(content) {
+
+  --border-radius: 20px;
+}
+
+.manage-contact-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 75%;
+  --width: 90%;
+  --background: transparent;
+}
+
+
+
+
+.badge-claim-reward-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 63%;
+  --width: 90%;
+  --background: transparent;
+}
+
+.badge-claim-reward-modal::part(content) {
+
+  @extend .br-4
+}
+
+.badge-reward-claimed-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 75%;
+  --width: 90%;
+  --background: transparent;
+}
+
+.badge-reward-claimed-modal::part(content) {
+
+  @extend .br-4
+}
+
+.locked-badge-details-modal {
+  --backdrop-opacity: 0.7 !important;
+  --height: 8%;
+  --width: 85%;
+  --background: transparent;
+}
+
+.product-details-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.product-details-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 90%;
+  --background: transparent;
+}
+
+.fitness-activity-type-modal::part(content) {
+
+  @extend .br-4;
+}
+
+.fitness-activity-type-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 95%;
+  --background: transparent;
+}
+
+.drink-water-custom-selection-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.drink-water-custom-selection-modal {
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-create-new-circle-info-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.circles-create-new-circle-info-modal {
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-buy-invites-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.circles-buy-invites-modal {
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-buy-invites-successful-modal::part(content) {
+
+  @extend .br-4;
+  position: center;
+
+}
+
+.circles-buy-invites-successful-modal {
+  --height: 65%;
+  --width: 90%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-invite-contacts-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.circles-invite-contacts-modal {
+  --height: 75%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-task-details-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.circles-task-details-modal {
+  --height: 60%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-select-reward-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.circles-select-reward-modal {
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.steps-add-manual-record-modal::part(content) {
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.contest-coin-payment-successful-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 65%;
+  --width: 90%;
+  --background: transparent;
+}
+
+.contest-coin-payment-successful-modal::part(content) {
+  @extend .br-2
+
+}
+
+
+.steps-add-manual-record-modal {
+  --backdrop-opacity: 0.5;
+  --background: transparent;
+
+  --height: 90%;
+}
+
+.steps-schedule-selection-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.steps-schedule-selection-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 50%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.fitness-schedule-selection-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.fitness-schedule-selection-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+
+.bmi-add-record-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.bmi-add-record-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.bmi-schedule-selection-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.bmi-schedule-selection-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 50%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.hobby-schedule-selection-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.hobby-schedule-selection-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+
+.shopify-add-customer-address-modal::part(content) {
+
+
+  position: absolute;
+  bottom: 0px;
+}
+
+.shopify-add-customer-address-modal {
+  --backdrop-opacity: 0.5 !important;
+  --width: 100%;
+  --background: transparent;
+}
+
+.subscribe-to-contest-with-referral-code-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.subscribe-to-contest-with-referral-code-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 30%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.contest-eligibility-methods-modal::part(content) {
+
+  position: absolute;
+  bottom: 0px;
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+}
+
+.contest-eligibility-methods-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 50%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.hobby-activity-type-modal::part(content) {
+
+
+}
+
+.hobby-activity-type-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 100%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.fitness-add-activity-record-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.fitness-add-activity-record-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.hobby-add-activity-record-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.hobby-add-activity-record-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.streak-shield-buy-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.streak-shield-buy-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.create-streak-shield-using-wellness-coin-account-balance ::part(content) {
+
+}
+
+.create-streak-shield-using-wellness-coin-account-balance {
+  --backdrop-opacity: 0.5 !important;
+  --height: 100%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.streaks-buy-streak-shield-success-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+}
+
+.streaks-buy-streak-shield-success-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.update-drinking-water-goal-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+
+  position: absolute;
+  bottom: 0px;
+}
+
+.update-drinking-water-goal-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.update-step-tracking-goal-modal::part(content) {
+
+}
+
+.update-step-tracking-goal-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 60%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.goal-achieved-modal::part(content) {
+  //@extend .br-tl-4;
+  //@extend .br-tr-4;
+  @extend .br-4
+
+}
+
+.goal-achieved-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 85%;
+  --background: transparent;
+}
+
+.change-drink-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+
+.change-drink-modal {
+
+  --height: 70%;
+  --width: 100%;
+}
+
+.update-step-tracking-goal-modal {
+  --backdrop-opacity: 0.5 !important;
+
+  --background: transparent;
+}
+
+.health-connect-device-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.health-connect-device-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 40%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.plan-subscription-routine-step-details-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.plan-subscription-routine-step-details-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.plan-subscription-methods-modal::part(content) {
+
+  position: absolute;
+  bottom: 0px;
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+}
+
+.plan-subscription-methods-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 50%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.plan-activities-rate-plan-modal::part(content) {
+
+  //position: absolute;
+  //bottom: 0px;
+}
+
+.plan-activities-rate-plan-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.plan-routine-step-details-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.plan-routine-step-details-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.plan-activities-add-plan-subscription-routines-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.plan-activities-add-plan-subscription-routines-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.plan-activities-subscribe-to-plan-using-wellness-coin-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.plan-activities-subscribe-to-plan-using-wellness-coin-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.user-profiles-email-verification-slider-modal::part(content) {
+
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.user-profiles-email-verification-slider-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 45%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.task-activities-create-drinking-water-slider-modal::part(content) {
+
+  position: absolute;
+  bottom: 0px;
+}
+
+.task-activities-create-drinking-water-slider-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 100%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.task-activities-drinking-water-log-modal::part(content) {
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.task-activities-drinking-water-log-modal {
+
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.signedin-contact-us-modal::part(content) {
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.signedin-contact-us-modal {
+
+  --backdrop-opacity: 0.5 !important;
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.user-profiles-change-background-image-modal::part(content) {
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.user-profiles-change-background-image-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 60%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.shopify-select-dream-reward-modal::part(content) {
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.shopify-select-dream-reward-modal {
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-remove-member-from-circle-modal::part(content) {
+
+  @extend .br-1;
+  position: center;
+}
+
+.circles-remove-member-from-circle-modal {
+  --height: 20%;
+  --width: 80%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-ask-to-renew-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.circles-ask-to-renew-modal {
+  --height: 40%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.task-activities-share-daily-goal-achievement-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+}
+
+.user-profiles-change-profile-picture-modal::part(content) {
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.user-profiles-change-profile-picture-modal {
+
+  --backdrop-opacity: 0.5 !important;
+  --height: 60%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.task-activities-share-daily-goal-achievement-modal {
+  --height: 70%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-edit-post-modal::part(content) {
+
+}
+
+.circles-edit-post-modal {
+  --height: 90%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-share-goal-achievement-modal::part(content) {
+
+}
+
+.user-profiles-update-gender-form-modal::part(content) {
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.user-profiles-update-gender-form-modal {
+  --backdrop-opacity: 0.5 !important;
+  --height: 50%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.user-profiles-create-weight-user-profile-value-modal-content::part(content) {
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.circles-share-goal-achievement-modal {
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-save-profile-changes-modal::part(content) {
+
+  @extend .br-1;
+  position: center;
+}
+
+.circles-save-profile-changes-modal {
+  --height: 20%;
+  --width: 80%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-delete-post-confirmation-modal::part(content) {
+
+  @extend .br-1;
+  position: center;
+}
+
+.circles-delete-post-confirmation-modal {
+  --height: 20%;
+  --width: 80%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.circles-user-earnings-info-modal::part(content) {
+  @extend .br-1;
+  position: center;
+}
+
+.circles-user-earnings-info-modal {
+  --height: 29%;
+  --width: 80%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.user-profiles-create-weight-user-profile-value-modal-content {
+  --backdrop-opacity: 0.5 !important;
+  --height: 45%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.user-profiles-edit-blood-group-modal::part(content) {
+
+  @extend .br-tr-4;
+  @extend .br-tl-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.user-profiles-edit-blood-group-modal {
+  --height: 80%;
+  --width: 100%;
+  --background: transparent;
+  --backdrop-opacity: 0.5 !important;
+}
+
+.user-profiles-add-background-image-modal::part(content) {
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+}
+
+.user-profiles-add-background-image-modal {
+
+  --backdrop-opacity: 0.5 !important;
+  --height: 60%;
+  --width: 100%;
+  --background: transparent;
+}
+
+.menu-popover{
+  //border-radius: 10px;
+  margin-top: 10px;
+  position: absolute;
+  top: -60px;
+  left: 0px;
+  //bottom: 0px;
+  --height: auto;
+  --width: 94%;
+}
+
+.profile-popover{
+  @extend .br-tl-4;
+  @extend .br-tr-4;
+  position: absolute;
+  bottom: 0px;
+  --height: 30%;
+  --width: 80%;
+}
+
+.see-invitees-modal::part(content){
+  @extend .br-2
+
+}
+
+.see-invitees-modal{
+  --backdrop-opacity: 0.5 !important;
+  --height: 80%;
+  --width: 90%;
+  --background: transparent;
+}
+
+.user-profile-view-for-others::part(content) {
+  @extend .br-2
+}
+
+.user-profile-view-for-others{
+  --backdrop-opacity: 0.5 !important;
+  --height: 65%;
+  --width: 90%;
+  --background: transparent;
+}
+.contacts-filter-modal::part(content) {
+  @extend .br-4
+}
+
+.contacts-filter-modal{
+  --backdrop-opacity: 0.5 !important;
+  --height: 65%;
+  --width: 90%;
+  --background: transparent;
+}
+
+.logout-modal::part(content) {
+  @extend .br-4
+}
+
+.logout-modal{
+  --backdrop-opacity: 0.5 !important;
+  --height: 35%;
+  --width: 90%;
+  --background: transparent;
+}

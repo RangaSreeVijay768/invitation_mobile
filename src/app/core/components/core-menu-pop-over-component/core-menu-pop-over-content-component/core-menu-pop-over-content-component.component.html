@@ -1,0 +1,71 @@
+<ion-content>
+    <ion-row class="mt-4">
+        <ion-col size="12">
+            <ion-row class="mh-4">
+                <ion-col size="8">
+                    <ion-img src="./assets/images/logo/eventreply-logo.png"></ion-img>
+                </ion-col>
+                <ion-col size="2" class="ion-text-end">
+                    <ion-icon size="large" name="search-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="2" class="ion-text-end">
+                    <ion-icon size="large" (click)="closePopover({data:$event,status:''})" name="close-outline"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+
+        <ion-button fill="clear" class="mt-2 h-56px w-100-percent text-align-start">
+            <ion-label class="w-100-percent text-align-start font-color-black fs-10">Notifications</ion-label>
+        </ion-button>
+        <ion-button fill="clear" class="w-100-percent h-56px text-align-start"
+                (click)="closePopover({data:$event,status:''})"
+                    routerLink="signedin/userprofiles/edit">
+            <ion-label class="w-100-percent text-align-start font-color-black fs-10">My profile</ion-label>
+        </ion-button>
+        <ion-button fill="clear" class="h-56px w-100-percent text-align-start"
+                    (click)="closePopover({data:$event,status:''})"
+                    routerLink="signedin/events/myevents">
+            <ion-label class="w-100-percent text-align-start font-color-black fs-10">My events</ion-label>
+        </ion-button>
+        <ion-button fill="clear" class="h-56px w-100-percent text-align-start"
+                    (click)="closePopover({data:$event,status:''})"
+                    routerLink="">
+            <ion-label class="w-100-percent text-align-start font-color-black fs-10">Help</ion-label>
+        </ion-button>
+        <ion-row class="mh-4 w-100-percent border-bottom-1px-dashed-grey-1"></ion-row>
+        <ion-col size="12" class="">
+            <core-logout-modal #logoutModalComponent
+            ></core-logout-modal>
+            <ion-button fill="clear" *ngIf="loggedAccount" (click)="logoutModalComponent.openModal();closePopover({data:$event,status:''})"
+                       class="h-56px w-100-percent fs-10 font-weight-medium-bold"
+            ><ion-label class="font-color-black fs-10 w-100-percent text-align-start">Logout</ion-label>
+            </ion-button>
+            <ion-button fill="clear" *ngIf="!loggedAccount" (click)="closePopover({data:$event,status:''})" routerLink="basic/signin"
+                       class="h-56px w-100-percent fs-10 font-weight-medium-bold"
+            ><ion-label class="font-color-black fs-10 w-100-percent text-align-start">Login</ion-label>
+            </ion-button>
+        </ion-col>
+
+        <ion-col size="12" class="ion-text-center mt-8">
+            <ion-button
+                    *ngIf="loggedAccount" (click)="closePopover({data:$event,status:''})"
+                    routerLink="signedin/events/createevent"
+                    class="mb-6"
+            >
+                <ion-row class="ph-10 pv-2">
+                    <ion-icon name="add-outline"></ion-icon>
+                    <ion-label class="ml-2 fs-1 font-weight-700">Create event</ion-label>
+                </ion-row>
+            </ion-button>
+            <ion-button *ngIf="!loggedAccount" (click)="closePopover({data:$event,status:''})"
+                        routerLink="basic/signup"
+                        class="mb-6"
+            >
+                <ion-row class="ph-10 pv-3">
+                    <ion-icon name="add-outline"></ion-icon>
+                    <ion-label routerLink="basic/signup" class="ml-2 fs-1 font-weight-700">Create Account</ion-label>
+                </ion-row>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

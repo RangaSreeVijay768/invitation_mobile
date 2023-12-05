@@ -1,0 +1,54 @@
+<ion-content  [scrollEvents]="true">
+    <ion-row class="default-horizontal-padding  mt-56px pt-16 font-weight-700 mb-10">
+        <ion-col size="12">
+            <ion-label class="font-heading">Welcome back to Eventreply</ion-label>
+        </ion-col>
+        <ion-col size="12" class="mt-2">
+            <ion-label class="font-color-grey-1">Don’t have an account? <ion-label class="font-color-primary" routerLink="/basic/signup">Create a free account</ion-label> </ion-label>
+        </ion-col>
+
+        <users-sign-in-form class="mt-6"
+                            (userSignInCreated)="setUserAuthTokenAndNavigate($event)"
+                            #usersSignInFormComponent>
+        </users-sign-in-form>
+        <ion-col size="12">
+
+        <ion-label class="font-color-primary mt-4"
+                   (click)="navigateToForgotPasswordPage()">
+            Forgot password?
+        </ion-label>
+        </ion-col>
+        <ion-col size="12" class="mt-6 ion-justify-content-center" >
+            <ion-button size="large" class="d-flex align-items-center h-56px font-weight-700 fs-8"
+                         [promiseBtn]="usersSignInFormComponent.sign_in_subscription$"
+                         (click)="usersSignInFormComponent.signIn(usersSignInFormComponent.createRequestData())"
+            >
+                Login
+            </ion-button>
+            <br>
+            <ion-row class="ion-justify-content-center">
+                OR
+            </ion-row>
+            <br>
+            <ion-button routerLink="/basic/signinwithotp" fill="outline" size="large" class="font-weight-700 h-56px d-flex align-items-center box-shadow-purple fs-8">
+                Login With Otp
+            </ion-button>
+            <br>
+            <ion-button fill="clear" size="large" expand="block" class="font-color-black fs-8 box-shadow-purple border-radius-5px">
+                <ion-img src="assets/images/google-logo.png" class="w-24px h-24px mr-6"></ion-img>
+                Login with Google
+            </ion-button>
+            <br>
+            <ion-button fill="clear" size="large" expand="block" class="font-color-black fs-8 box-shadow-purple border-radius-5px">
+                <ion-img src="assets/images/facebook-logo.png" class="w-24px h-24px mr-6"></ion-img>
+                Login with facebook
+            </ion-button>
+        </ion-col>
+
+
+    </ion-row>
+
+<!--    <users-signin-with-otp-slider>-->
+
+<!--    </users-signin-with-otp-slider>-->
+</ion-content>

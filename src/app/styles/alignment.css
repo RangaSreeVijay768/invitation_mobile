@@ -1,0 +1,40 @@
+.row-align-center {
+  align-items: center;
+}
+
+.row-align-start {
+  align-items: flex-start;
+}
+
+.row-align-end {
+  align-items: flex-end;
+}
+
+.nobr {
+  white-space: nowrap;
+}
+
+.row-display-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.vertical-align-super {
+  vertical-align: super;
+}
+
+.vertical-align-top {
+  vertical-align: top;
+}
+
+.vertical-align-center {
+  vertical-align: center;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+/*# sourceMappingURL=alignment.css.map */

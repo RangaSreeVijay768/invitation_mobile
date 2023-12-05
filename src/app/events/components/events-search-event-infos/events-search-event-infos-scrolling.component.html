@@ -1,0 +1,94 @@
+<events-search-event-infos-no-template [locationType]="locationType" [ticketType]="ticketType"
+                                       [count]="numberOfItems" [eventStatus]="eventStatus"
+                                       (eventInfosReceived)="addItems($event)"
+                                       #getAllEventInfosNoTemplateComponent #component>
+</events-search-event-infos-no-template>
+<events-share-event-modal
+    #shareEventModalComponent>
+</events-share-event-modal>
+
+<ion-content [scrollEvents]="true">
+    <ion-row class="mt-8 mh-0">
+        <ion-col size="12" class="mt-6" [class.pr-10px]="i%2===0"
+             [class.pl-0]="i%2===0" [class.pl-10px]="i%2!=0" [class.pr-0]="i%2!=0"
+             *ngFor="let eventInfo of items; let i = index">
+            <ion-row class="br-5px bg-white pa-4 mh-0"
+                 routerLink="/signedin/events/{{eventInfo.event.event_id}}/details">
+
+                <ion-col size="4" class="pl-0 d-flex ion-justify-content-center pr-6">
+                    <ion-row
+                            class="d-flex ion-justify-content-center ion-align-items-center border-radius-5px">
+                        <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                                class="cursor-pointer border-radius-5px overflow-hidden"
+                                [alt]="eventInfo.event.event_title"
+                                [entityId]="eventInfo.event.event_id"
+                                [entityType]="'EVENT_PROFILE_PIC'"
+                                [size]="150"
+                                [round]="false"
+                        ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                    </ion-row>
+
+                </ion-col>
+                <ion-col size="8" class="ph-0">
+                    <ion-label
+                            class="mb-0 font-weight-700 font-size-18px">{{eventInfo.event.event_title}}</ion-label>
+                    <ion-label
+                            class="d-inline-block mb-0 mt-4 pr-3 mr-3 font-size-16px">25th
+                        Dec</ion-label>
+                    <ion-label class="d-inline-block mb-0 font-size-16px"
+                           *ngIf="eventInfo.event.start_time">
+                        {{eventInfo.event.start_time|appDateTimeToTimeFormat}} <span
+                            *ngIf="eventInfo.event.end_time">{{eventInfo.event.end_time|appDateTimeToTimeFormat}}</span></ion-label>
+                    <br>
+                    <ion-label class="d-inline-block mb-0 mt-16px font-size-16px"
+                           *ngIf="eventInfo.event.location_visibility==='ACTIVITY'">112, bulved
+                        street</ion-label>
+                    <br>
+                    <ion-row class="">
+                        <ion-col size="6" class="">
+                            <ion-label
+                                    class="d-inline-block mb-0 font-weight-500 font-size-16px">{{eventInfo.event_tickets|eventsEventTicketsToHumanReadable}}</ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="">
+
+                            <ion-label
+                                    class="pa-0 d-inline-block mb-0 font-size-16px font-weight-bold"
+                                    (click)="shareEventModalComponent.openModal(eventInfo.event)"
+                                    coreClickStopPropogation>
+                                <ion-icon name="share-outline" ></ion-icon>
+                                Share
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+
+
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+    <!--  <div class="mt-32px text-align-end">-->
+    <!--    <button class="font-poppins font-weight-400 font-size-18 rounded-1 py-12px ph-24px border-none text-white bg-primary"-->
+    <!--            (click)="onScroll()">-->
+    <!--      Load more ...-->
+    <!--    </button>-->
+    <!--  </div>-->
+    <ion-row class="mh-0 mt-14">
+        <ion-col size="12" class="ph-0">
+            <ion-button class="font-weight-700 font-size-24px pv-6"
+                    [routerLink]="'/signedin/events/allevents'"
+                    [promiseBtn]="component.search_event_infos_subscription$">
+                See more events
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>
+
+<ion-infinite-scroll (ionInfinite)="onScroll()" [threshold]="DEFAULT_LOADING_THRESHOLD"
+                     [disabled]="disableScroll">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading...">
+    </ion-infinite-scroll-content>
+
+</ion-infinite-scroll>

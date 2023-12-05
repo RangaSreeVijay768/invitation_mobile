@@ -1,0 +1,14 @@
+:host(.button-solid) {
+  --background: var(--Premium-button, linear-gradient(90deg, #E15E8A 0%, #7F56D9 100%))!important;
+}
+
+.btn-background{
+  --background: var(--Premium-button, linear-gradient(90deg, #E15E8A 0%, #7F56D9 100%))!important;
+}
+
+.b-1px-linear-gradient{
+  border-radius: 5px !important;
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(180deg, rgba(73, 60, 223, 1) 0%, rgba(249, 143, 69, 1) 23%, rgba(225, 94, 138, 1) 80%, rgba(251, 221, 51, 1) 100%) 1;
+}

@@ -1,0 +1,119 @@
+$default-space: 0.25;
+$spacing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 20, 30; // Modify this to generate your spacing classes
+$unit: rem; // Modify this to specify your unit eg: em, pt, %.
+
+$directions: (
+        l: left,
+        t: top,
+        r: right,
+        b: bottom,
+        v: top,
+        h: left
+);
+
+@mixin generateSpacing($prop, $short  ) {
+  @each $space in $spacing {
+    .#{$short}a-#{$space} {
+      #{$prop}: ($space*$default-space) + $unit
+    }
+    @each $key, $val in $directions {
+      .#{$short}#{$key}-#{$space} {
+        #{$prop}-#{$val}: ($space*$default-space) + $unit;
+        @if $key == v {
+          #{$prop}-bottom: ($space*$default-space) + $unit;
+        }
+        @if $key == h {
+          #{$prop}-right: ($space*$default-space) + $unit;
+        }
+      }
+    }
+  }
+}
+
+@include generateSpacing(padding, p);
+@include generateSpacing(margin, m);
+
+.mt-n10 {
+  margin-top: (-10*$default-space)+$unit;
+}
+
+.mt-n13 {
+  margin-top: (-13*$default-space)+$unit;
+}
+
+
+.mt-n20 {
+  margin-top: (-20*$default-space)+$unit;
+}
+
+.mt-n25 {
+  margin-top: (-25*$default-space)+$unit;
+}
+
+.mt-n30 {
+  margin-top: (-30*$default-space)+$unit;
+}
+
+.mt-n15 {
+  margin-top: (-15*$default-space)+$unit;
+}
+
+.ml-n20 {
+  margin-left: (-20*$default-space)+$unit;
+}
+
+.mt-n4 {
+  margin-top: (-4*$default-space)+$unit;
+}
+
+.mt-n1 {
+  margin-top: (-1*$default-space)+$unit;
+}
+
+.mt-n2 {
+  margin-top: (-2*$default-space)+$unit;
+}
+
+.mt-n3 {
+  margin-top: (-3*$default-space)+$unit;
+}
+
+.ml-n4 {
+  margin-left: (-4*$default-space)+$unit;
+}
+
+
+.ml-n2 {
+  margin-left: (-2*$default-space)+$unit;
+}
+
+.mr-n4 {
+  margin-right: (-4*$default-space)+$unit;
+}
+
+.mr-n2 {
+  margin-right: (-2*$default-space)+$unit;
+}
+
+.mb-n6 {
+  margin-bottom: (-6*$default-space)+$unit;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
+.mb-10px {
+  margin-bottom: 10px;
+}
+.m-auto {
+  margin: auto;
+}
+
+.mh-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pb-60 {
+  padding-bottom: (60*$default-space)+$unit;
+}

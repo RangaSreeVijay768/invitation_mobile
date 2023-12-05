@@ -1,0 +1,112 @@
+<form [formGroup]="formGroup" #createForm="ngForm" (ngSubmit)="updateUserAccountDetails(createRequestData())">
+
+    <ion-row class="mt-6">
+        <ion-col size="12" class="">
+            <ion-label class="fs-10 font-color-7F56D9 font-weight-500">Add Bio</ion-label>
+        </ion-col>
+        <ion-col size="12" class="profile-form-placeholder-primary">
+            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                        class="pl-0 pr-65px w-100 mt-20px"
+                                        [model]="formModelMap['bio']"></dynamic-ionic-form-control>
+        </ion-col>
+
+<!--        <ion-col size="12">-->
+
+<!--            <ion-row class="d-flex ion-align-items-center px-0">-->
+<!--                <ion-label class="fs-10 font-weight-700">ENTER YOUR BIRTHDAY</ion-label>-->
+<!--            </ion-row>-->
+<!--        </ion-col>-->
+<!--        <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"-->
+<!--                                    [model]="formModelMap['b_day']"></dynamic-ionic-form-control>-->
+
+<!--        <ion-col size="12">-->
+
+<!--            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"-->
+<!--                                        [model]="formModelMap['country']"></dynamic-ionic-form-control>-->
+<!--        </ion-col>-->
+<!--        <ion-col size="12">-->
+
+<!--            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"-->
+<!--                                        [model]="formModelMap['city']"></dynamic-ionic-form-control>-->
+<!--        </ion-col>-->
+
+    </ion-row>
+
+    <ion-row class="mt-6">
+        <ion-col size="12">
+            <ion-label class="fs-10 font-color-grey-1 font-weight-700">
+                EMAIL
+            </ion-label>
+        </ion-col>
+        <ion-col size="12" class="mt-4">
+
+            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                        [model]="formModelMap['email']"></dynamic-ionic-form-control>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="mt-6">
+        <ion-col size="12">
+            <ion-label class="fs-10 font-weight-700 mb-4">
+                FIRST AND LAST NAME
+            </ion-label>
+        </ion-col>
+        <ion-col size="12" class="mt-4">
+
+            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                        [model]="formModelMap['name']"></dynamic-ionic-form-control>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="mt-6">
+        <ion-col size="12">
+            <ion-label class="fs-10 font-weight-700 mb-4">
+                PHONE/WHATSAPP NUMBER
+            </ion-label>
+        </ion-col>
+        <ion-col size="12" class="mt-4">
+
+            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                        [model]="formModelMap['mob_num']"></dynamic-ionic-form-control>
+        </ion-col>
+    </ion-row>
+
+        <ion-col size="12">
+            <ion-label class="fs-10 font-weight-700 mb-4"
+            (click)="print()">
+                BIRTHDAY
+            </ion-label>
+        </ion-col>
+        <ion-col size="12">
+
+            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                        [model]="formModelMap['b_day']"></dynamic-ionic-form-control>
+        </ion-col>
+
+
+    <ion-row class="mt-6">
+        <ion-col size="12">
+            <ion-label class="fs-10 font-weight-700">
+                LOCATION
+            </ion-label>
+        </ion-col>
+        <ion-col size="12" class="">
+
+            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                        [model]="formModelMap['location']"></dynamic-ionic-form-control>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="mt-6 mb-6">
+        <ion-col size="12">
+            <ion-label class="fs-10 font-weight-700 mb-4">
+                ADD INSTAGRAM
+            </ion-label>
+        </ion-col>
+        <ion-col size="12" class="mt-4">
+
+            <dynamic-ionic-form-control [group]="formGroup" [layout]="formLayout"
+                                        [model]="formModelMap['instagram']"></dynamic-ionic-form-control>
+        </ion-col>
+    </ion-row>
+</form>

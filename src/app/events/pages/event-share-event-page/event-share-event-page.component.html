@@ -1,0 +1,460 @@
+<ion-header>
+    <ion-row class="ph-4 pv-6">
+        <ion-col size="6" class="d-flex ion-justify-content-start">
+            <img src="../../../../assets/images/logo/eventreply-logo.png">
+        </ion-col>
+        <ion-col size="6" class=" d-flex ion-justify-content-end">
+            <ion-icon icon="search" class="w-26px h-26px"></ion-icon>
+            <ion-icon icon="menu-outline" class="w-32px h-26px ml-6">
+
+            </ion-icon>
+        </ion-col>
+    </ion-row>
+</ion-header>
+
+
+<events-get-events-by-created-by-no-template
+        (eventsReceived)="events = getAllEventsNoTemplateComponent.events"
+
+        #getAllEventsNoTemplateComponent></events-get-events-by-created-by-no-template>
+
+<events-rsvp-free-modal
+    #rsvpFreeModalComponent></events-rsvp-free-modal>
+
+<ion-content scrollEvents="true" class="bg-background-purple">
+    <ion-row class="">
+        <ion-col size="12">
+            <ion-row class="ion-justify-content-start mt-10 ph-3">
+                <ion-label class="font-color-black fs-15 ml-2 font-weight-700">Invite guests</ion-label>
+            </ion-row>
+            <ion-row class="event-publish-bg pv-2 mh-4 mv-6 br-5px">
+                <ion-col size="12" class="d-flex ion-align-items-center">
+                    <ion-icon name="checkmark-circle-outline" class="font-color-green w-24px h-24px ml-4 mr-3"></ion-icon>
+                    <ion-label class="font-color-green">
+                        Event published successfully
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="border-grey-1 br-5px pb-3 mh-4">
+        <ion-col size="12">
+            <ion-row class="default-horizontal-padding mt-5 mb-5">
+                <ion-col size="12" class="d-flex ion-align-items-center">
+                    <images-get-image-by-entity-id-and-image-type
+                            [entityId]="eventInfo.event.event_id"
+                            [entityType]="'EVENT_PROFILE_PIC'"
+                            #imageComponent
+                    >
+                    </images-get-image-by-entity-id-and-image-type>
+                    <div *ngIf="imageComponent.image">
+                        <img class="border-radius-10px" height="340px" width="340px"
+                             src="{{imageComponent.image.uploaded_file.file_link}}">
+                    </div>
+                    <div *ngIf="!imageComponent.image">
+                        <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                                class="cursor-pointer"
+                                [alt]="eventInfo.event.event_title"
+                                [entityId]="eventInfo.event.event_id"
+                                [entityType]="'EVENT_PROFILE_PIC'"
+                                [size]="320"
+                                [round]="false"
+                        ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="default-horizontal-padding mt-4">
+                <ion-col size="" class="px-0">
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-label
+                                    class="mb-0 font-weight-700 fs-11 font-size-18px ">{{eventInfo.event.event_title}}
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="mt-4">
+                        <ion-col size="12">
+                            <ion-icon name="calendar-clear-outline" class="mr-2"></ion-icon>
+                            <ion-label class="mr-2 font-size-14px font-weight-bold font-color-grey-2">{{eventInfo.event.start_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy'}}
+                            </ion-label>
+                            <ion-label class="mr-2 font-size-14px font-weight-bold font-color-grey-2">{{eventInfo.event.end_time|appDateTimeToDefaultDateTimeFormat:'MM/dd/yyyy'}}
+                            </ion-label>
+                            <ion-icon name="time-outline" class="mr-2"></ion-icon>
+                            <ion-label
+                                    class="mr-2 font-size-14px font-weight-bold font-color-grey-2">{{eventInfo.event.start_time|appDateTimeToDefaultDateTimeFormat:'HH:mm a'}}
+                                <span class="text-grey-2"> To </span>{{eventInfo.event.end_time|appDateTimeToDefaultDateTimeFormat:'HH:mm a'}}
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="mt-3" *ngIf="eventInfo.event_locations?.length">
+                        <ion-col size="12">
+                            <ion-icon name="location-outline" class="mr-2"></ion-icon>
+                            <ion-label class="font-color-grey-2 font-size-14px font-weight-bold">
+                                {{eventInfo.event_locations[0].location.address}}
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="mt-6">
+                        <ion-col size="12">
+                            <ion-label class="font-size-14px font-weight-bold">Ticket Price And Quantity</ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="mt-2">
+                        <ion-col size="12" class="d-flex font-color-grey-2 font-size-14px">
+                            <ion-label class="mr-2">Type1: Free, Count:20</ion-label>
+                            <span class="mr-2">|</span>
+                            <ion-label>Type1: $5, Count:06</ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="mt-6">
+                        <ion-col size="12">
+                            <ion-label class="font-weight-bold font-size-14px">Promocode used</ion-label>
+                            <br>
+                            <ion-label class="font-size-14px font-weight-bold font-color-grey-2 mt-2">Discount: 20%
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="mt-4 mb-3">
+                        <ion-col size="12" (click)="naviagateToDetailsPage()">
+                            <ion-label class="font-color-primary font-size-16px font-weight-bold">See event</ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+    <ion-row class="border-top mt-6 mh-4"></ion-row>
+    <ion-row class="bg-white mh-4 mt-5 br-10px mb-6">
+        <ion-col size="12">
+            <ion-row class="pb-2">
+                <ion-col size="12">
+                    <ion-row
+                            class=" px-0 ion-justify-content-center ph-6 pv-5 px-0 bg-white px-0 rounded-4">
+                        <ion-col size="12">
+                            <ion-row class="ion-justify-content-start ion-align-items-center">
+                                <ion-label class="fs-15 font-weight-500">Invite on</ion-label>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+
+                <ion-col size="12">
+                    <ion-row class="pa-4 text-grey-2 font-poppins font-weight-500 fs-10  ">
+                        <ion-col size="4">
+                            <ion-row class="gap-16px ion-align-items-center ion-text-center">
+                                <a href="mailto:test@eventreply.com" class="text-align-center">
+                                    <ion-row>
+                                        <img src="/assets/images/mail.png" height="70" width="70">
+                                    </ion-row>
+                                    <ion-row class="ion-text-center ml-2">
+                                        <ion-label class="mt-2 font-weight-500 fs-9 font-color-grey-2 ">Email
+                                        </ion-label>
+                                    </ion-row>
+                                </a>
+
+                            </ion-row>
+                        </ion-col>
+
+                        <ion-col size="4">
+                            <ion-row class="gap-16px ion-align-items-center ion-text-center">
+                                <a href="tel:+23424426734" class="text-align-center">
+                                    <ion-row>
+                                        <img src="/assets/images/messages.png" height="70" width="70">
+                                    </ion-row>
+                                    <ion-row class="ion-text-center">
+                                        <ion-label class="mt-2 font-weight-500 fs-9 font-color-grey-2 ">Message
+                                        </ion-label>
+                                    </ion-row>
+                                </a>
+
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+
+                <ion-col size="12">
+
+                    <ion-row class="mh-6 mv-4">
+
+                        <ion-col size="12">
+
+                            <ion-row
+                                    class="ion-justify-content-between pl-3 pv-3 pr-3 border-radius-10 border-grey-1 grey-1 ">
+                                <ion-col size="9">
+                                    <ion-icon name="link" size="small"
+                                              class="font-weight-500 mr-3"></ion-icon>
+                                    <ion-label class="font-weight-700 fs-11 mb-5">Event link</ion-label>
+                                    <br>
+
+                                    <ion-row class="content mt-4 mh-1">
+                                        <ion-label #inputTarget
+                                                   class="font-weight-500 fs-11 font-poppins font-color-grey-1 overflow-wrap">
+                                            http://dev.eventreply.com/signedin/events/
+                                            <!--                            eventdetails/{{event.event_id}}-->
+                                        </ion-label>
+                                    </ion-row>
+                                </ion-col>
+                                <ion-col size="3"
+                                         class="pa-1 bg-background-purple border-radius-5px d-flex ion-justify-content-center ion-align-items-center">
+                                    <ion-icon name="copy" color="primary"></ion-icon>
+                                    <ion-label class="font-weight-700 fs-11 font-color-7F56D9 ml-2"
+                                               (click)="clipboardService.writeToClipboard('http://dev.eventreply.com/signedin/events/eventdetails/'+eventInfo.event.event_id) ;notificationsService.success('Copied')">Copy
+                                    </ion-label>
+
+                                </ion-col>
+
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+            <events-invite-past-attendees-in-share-event-modal
+                    [event]="eventInfo.event"
+                    #invitePastAttendeesInShareEventModalComponent></events-invite-past-attendees-in-share-event-modal>
+
+            <events-invite-to-event-in-share-event-modal
+                    [event]="eventInfo.event"
+                    #inviteToEventInShareEventModalComponent></events-invite-to-event-in-share-event-modal>
+            <ion-col size="12">
+                <ion-row class="mh-6 pv-6 ion-justify-content-center ion-align-items-center border-top-bottom">
+                    <ion-button
+                            class="h-56px btn-event-rsvp ion-justify-content-center fs-11 font-weight-800 ph-8 font-color-white drop-shadow-black"
+                            (click)="inviteToEventInShareEventModalComponent.openModal()">
+                        <ion-icon name="people-outline" class="mr-6 font-color-white"></ion-icon>
+
+                        Invite contacts
+                    </ion-button>
+                </ion-row>
+            </ion-col>
+            <ion-col size="12">
+                <ion-row class="ion-align-items-center ion-justify-content-center pv-4 mv-4 ">
+                    <img src="assets/images/share-event.png" width="25" height="25">
+                    <ion-label class="font-weight-500 fs-11 text-primary pl-4 font-color-primary"
+                    (click)="invitePastAttendeesInShareEventModalComponent.openModal()">Invite past
+                        attendees
+                    </ion-label>
+                </ion-row>
+            </ion-col>
+
+
+
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="pv-4 box-shadow bg-white position-fixed bottom-0 w-100-percent m-0">
+        <ion-col size="10" class="d-flex ion-justify-content-end">
+            <ion-label class="bg-white font-color-grey-2 border-radius-5px ml-10 py-4 font-weight-700 fs-11"
+            (click)="naviagateToDetailsPage()">
+                Skip for now
+            </ion-label>
+        </ion-col>
+    </ion-row>
+
+    <!--    <ion-row class="ion-justify-content-center mx-0 mb-10">-->
+    <!--        <ion-col size="12" class="px-0">-->
+    <!--            <ion-row-->
+    <!--                    class="mt-14 mx-0 ionjustify-content-between ion-align-items-center border-bottom border-grey-1 pb-8 mb-8">-->
+    <!--                <ion-col size="8">-->
+    <!--                    <ion-row class="ion-align-items-center mb-10">-->
+    <!--                        <ion-icon name="arrow-left"-->
+    <!--                                  class="text-primary font-poppins mr-12px wh-48px stroke-primary-1px"></ion-icon>-->
+    <!--                        <ion-label class="font-weight-700 fs-18">Invite guests</ion-label>-->
+    <!--                    </ion-row>-->
+    <!--                </ion-col>-->
+    <!--                &lt;!&ndash;                <div class="col-4 d-flex justify-content-end mb-40px">&ndash;&gt;-->
+    <!--                &lt;!&ndash;                    <label class="font-size-18 font-weight-500 font-poppins text-grey-2 pointer-cursor"&ndash;&gt;-->
+    <!--                &lt;!&ndash;                           (click)="naviagateToDetailsPage()">Skip for now</label>&ndash;&gt;-->
+    <!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+
+    <!--                <div class="row mb-32px ph-16px">-->
+    <!--                    <div class="col-4 d-flex align-items-center event-publish-lg">-->
+    <!--                        <ion-icon name="check-circle" class="mr-12px text-green"></ion-icon>-->
+    <!--                        <label class="font-poppins font-weight-500 font-size-18 py-8px text-green">Event published-->
+    <!--                            successfully</label>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+
+    <!--                <div class="row bg-grey-3 rounded-2 ph-16px py-16px">-->
+    <!--                    <div class="">-->
+    <!--                        <div class="row mx-0">-->
+    <!--                            <div class="d-flex px-0">-->
+    <!--                                <div class="col-3 pl-0">-->
+
+    <!--                                    <images-get-image-by-entity-id-and-image-type-->
+    <!--                                            [entityId]="eventInfo.event.event_id"-->
+    <!--                                            [entityType]="'EVENT_PROFILE_PIC'"-->
+    <!--                                            #imageComponent-->
+    <!--                                    >-->
+    <!--                                    </images-get-image-by-entity-id-and-image-type>-->
+    <!--                                    <div *ngIf="imageComponent.image">-->
+    <!--                                        <img class="border-radius-10px" height="250px" width="250px"-->
+    <!--                                             src="{{imageComponent.image.uploaded_file.file_link}}">-->
+    <!--                                    </div>-->
+    <!--                                    <div *ngIf="!imageComponent.image">-->
+    <!--                                        <images-get-image-by-entity-and-type-unique-image-ngx-avatar-->
+    <!--                                                class="cursor-pointer"-->
+    <!--                                                [alt]="eventInfo.event.event_title"-->
+    <!--                                                [entityId]="eventInfo.event.event_id"-->
+    <!--                                                [entityType]="'EVENT_PROFILE_PIC'"-->
+    <!--                                                [size]="150"-->
+    <!--                                                [round]="false"-->
+    <!--                                        ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>-->
+    <!--                                    </div>-->
+
+
+    <!--                                </div>-->
+
+    <!--                                <div class="col-9 px-0 ml-40px">-->
+
+    <!--                                    <div class="row">-->
+    <!--                                        <div class="col-6">-->
+    <!--                                            <label-->
+    <!--                                                    class="mb-0 font-weight-700 font-size-18 text-font-color-1 font-poppins">{{eventInfo.event.event_title}}</label>-->
+    <!--                                        </div>-->
+    <!--                                        <div class="col-6 d-flex justify-content-end">-->
+    <!--                                            <button class="font-weight-700 font-size-16 mr-32px bg-white font-poppins py-12px pr-24px text-primary border border-2 border-primary br-5px"-->
+    <!--                                                    (click)="navigateToEditEvent()">-->
+    <!--                                                <div class="justify-content-between">-->
+    <!--                                                    <ion-icon name="edit-2" class="mr-12px text-primary"></ion-icon>-->
+    <!--                                                    Edit event-->
+    <!--                                                </div>-->
+    <!--                                            </button>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+
+    <!--                                    <div>-->
+    <!--                                        <div-->
+    <!--                                                class="d-inline-block mb-0 mt-16px pr-12px mr-12px border-end border-grey-2 font-size-16 text-grey-2 font-poppins">-->
+    <!--                                            <ion-icon name="calendar" class="mr-8px"></ion-icon>-->
+    <!--                                            {{eventInfo.event.start_time|appDateTimeToDefaultDateTimeFormat:'dd MMMM'}}-->
+    <!--                                        </div>-->
+    <!--                                        <div class="d-inline-block mb-0 font-size-16 text-grey-2 font-poppins">-->
+    <!--                                            <ion-icon name="clock" class="mr-8px"></ion-icon>-->
+    <!--                                            <label-->
+    <!--                                                    class="text-font-color-1 font-size-18 font-poppins">{{eventInfo.event.start_time|appDateTimeToDefaultDateTimeFormat:'HH:mm a'}}-->
+    <!--                                                <span-->
+    <!--                                                        class="text-grey-2"> To </span>{{eventInfo.event.end_time|appDateTimeToDefaultDateTimeFormat:'HH:mm a'}}-->
+    <!--                                            </label>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="d-inline-block mb-0 mt-16px font-size-16 text-grey-2 font-poppins">-->
+    <!--                                        <ion-icon name="map-pin" class="mr-8px"></ion-icon>-->
+    <!--                                        <label>-->
+    <!--                                            {{eventInfo.event_locations[0]?.address || '-'}}-->
+    <!--                                        </label>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+
+    <!--            </ion-row>-->
+
+    <!--            <div class="col-8 bg-white box-shadow-purple rounded-4 px-0 mb-32px">-->
+    <!--                <div class="row mx-0 justify-content-center">-->
+    <!--                    <div class="px-0">-->
+    <!--                        <div class="bg-white px-0">-->
+    <!--                            <div class="row mx-0">-->
+    <!--                                <div class="d-flex justify-content-between align-items-center px-24 py-24px bg-white ">-->
+    <!--                                    <span class=" font-poppins font-size-18 font-weight-500">Invite on</span>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+
+
+    <!--                            <div class="bg-white box-shadow-purple">-->
+
+
+    <!--                                <div class="d-flex gap-44px ml-24px mr-24px text-grey-2 font-poppins font-weight-500 font-size-16">-->
+    <!--                                    &lt;!&ndash;                    <div class="d-flex gap-16px flex-column align-items-center">&ndash;&gt;-->
+    <!--                                    &lt;!&ndash;                        <a href="whatsapp://send">&ndash;&gt;-->
+    <!--                                    &lt;!&ndash;                            <img src="/assets/images/whatsapp.png" height="70" width="70"><br>&ndash;&gt;-->
+    <!--                                    &lt;!&ndash;                            <label>Whatsapp</label>&ndash;&gt;-->
+    <!--                                    &lt;!&ndash;                        </a>&ndash;&gt;-->
+    <!--                                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+
+    <!--                                    <div class="d-flex gap-16px flex-column align-items-center text-center">-->
+    <!--                                        <a href="mailto:test@eventreply.com">-->
+    <!--                                            <img src="/assets/images/mail.png" height="70" width="70"><br>-->
+    <!--                                            <label class="mt-2">Email</label>-->
+    <!--                                        </a>-->
+    <!--                                    </div>-->
+
+    <!--                                    <div class="d-flex gap-16px flex-column align-items-center text-center">-->
+    <!--                                        <a href="tel:+23424426734">-->
+    <!--                                            <img src="/assets/images/messages.png" height="70" width="70"><br>-->
+    <!--                                            <label class="mt-2">Text message</label>-->
+    <!--                                        </a>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+
+    <!--                                <div class="row mt-24px ml-24px pb-24px mr-24px">-->
+    <!--                                    <div class="py-10px ph-24px border border-1.5 grey-1 rounded-2">-->
+    <!--                                        <div class="row row-align-center justify-content-between">-->
+    <!--                                            <div class="col-9">-->
+    <!--                                                <ion-icon name="link"-->
+    <!--                                                          class="font-weight-500 w-27 h-27 mr-12px"></ion-icon>-->
+    <!--                                                <label class="font-weight-500 font-size-18 mb-20px">Event-->
+    <!--                                                    link</label><br>-->
+
+    <!--                                                <div class="content">-->
+    <!--                                    <span #inputTarget-->
+    <!--                                          class="truncate font-weight-500 font-size-18 font-poppins text-grey-1">https://dev.eventreply.com/signedin/events/eventdetails/{{eventInfo.event.event_id}}</span>-->
+    <!--                                                </div>-->
+    <!--                                            </div>-->
+    <!--                                            <div class="col-3 p-8px bg-background-purple border-radius-5px d-flex justify-content-center align-items-center">-->
+    <!--                                                <ion-icon name="copy" class="text-primary"></ion-icon>-->
+    <!--                                                &lt;!&ndash;                                                <label class="font-weight-700 font-size-18 text-primary ml-8px font-poppins"&ndash;&gt;-->
+    <!--                                                &lt;!&ndash;                                                       ngxClipboard&ndash;&gt;-->
+    <!--                                                &lt;!&ndash;                                                       [cbContent]="'https://dev.eventreply.com/signedin/events/'+eventInfo.event.event_id"&ndash;&gt;-->
+    <!--                                                &lt;!&ndash;                                                       (click)="notificationsService.success('Copied')">Copy</label>&ndash;&gt;-->
+
+    <!--                                            </div>-->
+
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+
+    <!--                <div class="row ph-24px py-32px d-flex flex-column align-items-lg-start gap-24">-->
+    <!--                    <div class="d-flex align-items-center">-->
+    <!--                        <img src="assets/images/share-event.png" width="50" height="50">-->
+    <!--                        <label class="font-poppins font-weight-500 font-size-18 text-primary pl-16px">Invite past-->
+    <!--                            attendees</label>-->
+    <!--                    </div>-->
+
+    <!--                    <div>-->
+    <!--                        <button class="btn-event-rsvp d-flex justify-content-center font-size-18px font-weight-800 letter-spacing&#45;&#45;0352 ph-32px font-color-white drop-shadow-black"-->
+    <!--                                (click)="navigateToMassMessaging()">-->
+    <!--                            <ion-icon name="users" class="mr-24px font-color-white"></ion-icon>-->
+
+    <!--                            Mass messaging-->
+    <!--                        </button>-->
+
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </ion-col>-->
+    <!--    </ion-row>-->
+    <!--<div class="row py-16px justify-content-center box-shadow bg-white position-fixed bottom-0 w-100 m-0">-->
+    <!--  <div class="col-9 d-flex justify-content-end align-items-center">-->
+    <!--    <button class="border border-primary bg-white text-primary br-5px ml-40px py-20px px-40px font-weight-700 font-size-18"-->
+    <!--            routerLink="/signedin/events/{{eventInfo.event.event_id}}/details">Skip for now</button>-->
+    <!--  </div>-->
+    <!--</div>-->
+
+</ion-content>

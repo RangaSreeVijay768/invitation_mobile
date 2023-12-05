@@ -1,0 +1,42 @@
+<ion-content [scrollEvents]="true" class="overflow-y-scroll">
+
+  <ion-row class="default-horizontal-padding pv-8">
+    <ion-col size="12" class="ion-align-items-center border-bottom-grey-1 pb-8 ion-text-center d-flex ion-justify-content-between">
+      <ion-label class="font-size-24px font-weight-bold">
+        Verify email
+      </ion-label>
+      <ion-label>
+        <ion-icon (click)="closeModal({data:undefined,status:''})" class="rounded-5 br-999999 pa-1 bg-purple" size="large" name="close-outline"></ion-icon>
+      </ion-label>
+    </ion-col>
+    <ion-col size="12" class="border-bottom-grey-1 pb-6 mt-6">
+      <basic-verify-user-with-verification-code-before-login-form
+              [messageDelivery]="messageDelivery"
+              (userAuthTokenReceived)="setUserAuthToken($event);closeModal({status:'SUCCESS', data:''})"
+              #verificationCodeBeforeLoginFormComponent></basic-verify-user-with-verification-code-before-login-form>
+    </ion-col>
+    <ion-col size="12" class="d-flex ion-justify-content-between mt-8">
+      <ion-button
+              size="large"
+              fill="outline"
+              color="primary"
+              class="font-weight-700 font-size-14px"
+              (click)="closeModal({status:'CLOSE',data:undefined})">
+        Cancel
+      </ion-button>
+      <ion-button class="col-6 btn-color-primary rounded-2 py-16px font-weight-700 font-poppins font-size-18"
+                  [promiseBtn]="verificationCodeBeforeLoginFormComponent.sign_in_verification_subscription$"
+                  (click)="verificationCodeBeforeLoginFormComponent.verifyUserAccountVerficationLogin(verificationCodeBeforeLoginFormComponent.createRequestData())">
+        Verify
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+
+
+
+</ion-content>

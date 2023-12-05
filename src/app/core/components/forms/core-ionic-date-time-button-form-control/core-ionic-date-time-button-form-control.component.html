@@ -1,0 +1,27 @@
+<ion-item [formGroup]="group">
+
+<ion-datetime-button datetime="{{model.id}}"></ion-datetime-button>
+
+<ion-modal [keepContentsMounted]="true">
+    <ng-template>
+        <ion-datetime id="{{model.id}}" [cancelText]="model.getAdditional('cancelText', 'Cancel')"
+                      [dayValues]="model.getAdditional('dayValues', undefined)"
+                      [doneText]="model.getAdditional('doneText', 'Done')"
+                      [hourValues]="model.getAdditional('hourValues', undefined)"
+                      [id]="id"
+                      [formControlName]="model.id"
+                      [max]="model.max || undefined"
+                      [min]="model.min || undefined"
+                      [showDefaultButtons]="model.getAdditional('showDefaultButtons',true)"
+                      [presentation]="model.getAdditional('presentation','date-time')"
+                      [minuteValues]="model.getAdditional('minuteValues', undefined)"
+                      [monthValues]="model.getAdditional('monthValues', undefined)"
+                      [ngClass]="getClass('element', 'control')"
+                      [yearValues]="model.getAdditional('yearValues', undefined)"
+                      (ionBlur)="onBlur($event)"
+                      (ionCancel)="onCustomEvent($event, 'ionCancel')"
+                      (ionChange)="onChange($event)"
+                      (ionFocus)="onFocus($event)"></ion-datetime>
+    </ng-template>
+</ion-modal>
+</ion-item>

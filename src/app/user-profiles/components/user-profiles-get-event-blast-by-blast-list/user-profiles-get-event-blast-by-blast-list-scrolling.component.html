@@ -1,0 +1,49 @@
+<user-profiles-get-event-blast-by-blast-list-no-template
+        (eventBlastReceived)="addItems($event)"
+        [blastList]="blastList" [count]="numberOfItems" [columnName]="'createdTime'" [columnOrder]="'DESC'"
+        #getEventBlastByBlastListNoTemplateComponent
+></user-profiles-get-event-blast-by-blast-list-no-template>
+<ion-row class="d-flex mt-6 ion-align-items-start" *ngFor="let event_blast of items">
+    <ion-col size="2">
+        <images-get-image-by-entity-and-type-unique-image-ngx-avatar
+                [size]="56" [entityType]="'EVENT_PROFILE_PIC'" [entityId]="event_blast.event.event_id"
+                [alt]="event_blast.event.event_title"
+        ></images-get-image-by-entity-and-type-unique-image-ngx-avatar>
+    </ion-col>
+    <ion-col size="10">
+        <ion-row class="pl-4" >
+            <ion-col size="9">
+                <ion-label class="d-inline-block font-weight-700 font-color-1">
+                    {{event_blast.event.event_title}}
+                </ion-label><br>
+                <ion-label class="d-inline-block mt-2">
+                    <ion-label class="font-color-1 font-small font-weight-bold">{{event_blast.sent_recipients}}
+                        /{{event_blast.total_recipients}} </ion-label>
+                    <ion-label class="font-small font-color-grey-2">messages sent</ion-label>
+                </ion-label><br>
+                <ion-label class="d-inline-block mt-2 bg-purple pa-1 font-color-primary br-2">
+                    See list
+                </ion-label>
+            </ion-col>
+            <ion-col size="3" class="">
+                <ion-label class="font-small font-color-grey-1">Invited
+                    on {{event_blast.start_time|appDateFormat}}</ion-label>
+            </ion-col>
+            <ion-col size="12" class="pa-2 bg-purple br-2 mt-4">
+                <ion-label class="d-inline-block">Message:</ion-label><br>
+                <ion-label class="d-inline-block mt-1">{{event_blast.message}}</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-col>
+    <ion-col class="border-grey-1 mt-6">
+    </ion-col>
+</ion-row>
+<ion-row class="d-flex mt-6 ion-text-center" *ngIf="!getEventBlastByBlastListNoTemplateComponent.eventBlast">
+    <ion-col class="ion-text-center">
+        <ion-img src="assets/images/no-promocodes.png" ></ion-img>
+        <br>
+        <ion-label class="font-size-18 text-font-color-1 font-weight-700 mb-56px mt-16px">
+            No event blasts
+        </ion-label>
+    </ion-col>
+</ion-row>

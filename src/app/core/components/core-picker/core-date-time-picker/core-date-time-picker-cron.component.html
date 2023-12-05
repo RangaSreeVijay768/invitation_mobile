@@ -1,0 +1,19 @@
+<ion-row>
+    <ion-col size="12">
+
+        <ion-input [ngClass]="labelClasses" class="font-heading"
+                   value="{{ value | date: displayFormat||'hh:mm' }}"
+                   id="datetime{{id}}"
+        ></ion-input>
+
+        <ion-modal trigger="datetime{{id}}" [ngClass]="modalClasses" [isOpen]="is_open">
+            <ng-template>
+                <ion-datetime [presentation]="presentation" [value]="value" [doneText]="doneText"
+                              [cancelText]="cancelText" showDefaultButtons="true"
+                              [ngClass]="styleClasses" [hourCycle]="'h12'"
+                              mode="ios" size="cover" mode="ios"
+                              (ionChange)="datePickerValueReceived($event)"></ion-datetime>
+            </ng-template>
+        </ion-modal>
+    </ion-col>
+</ion-row>

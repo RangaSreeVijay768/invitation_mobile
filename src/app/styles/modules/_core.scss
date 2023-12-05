@@ -1,0 +1,1096 @@
+.ion-color-green {
+  --ion-color-base: var(--ion-color-green);
+  --ion-color-base-rgb: var(--ion-color-green-rgb);
+  --ion-color-contrast: var(--ion-color-green-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-green-contrast-rgb);
+  --ion-color-shade: var(--ion-color-green-shade);
+  --ion-color-tint: var(--ion-color-green-tint);
+}
+
+.ion-color-primary-white {
+  --ion-color-base: var(--ion-color-primary-white);
+  --ion-color-base-rgb: var(--ion-color-primary-white-rgb);
+  --ion-color-contrast: var(--ion-color-primary-white-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-primary-white-contrast-rgb);
+  --ion-color-shade: var(--ion-color-primary-white-shade);
+  --ion-color-tint: var(--ion-color-primary-white-tint);
+}
+
+.ion-color-primary-background {
+  --ion-color-base: var(--ion-color-primary-background);
+  --ion-color-base-rgb: var(--ion-color-primary-background-rgb);
+  --ion-color-contrast: var(--ion-color-primary-background-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-primary-background-contrast-rgb);
+  --ion-color-shade: var(--ion-color-primary-background-shade);
+  --ion-color-tint: var(--ion-color-primary-background-tint);
+}
+
+.ion-color-red {
+  --ion-color-base: var(--ion-color-red);
+  --ion-color-base-rgb: var(--ion-color-red-rgb);
+  --ion-color-contrast: var(--ion-color-red-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-red-contrast-rgb);
+  --ion-color-shade: var(--ion-color-red-shade);
+  --ion-color-tint: var(--ion-color-red-tint);
+}
+
+.ion-color-red-background {
+  --ion-color-base: var(--ion-color-red-background);
+  --ion-color-base-rgb: var(--ion-color-red-background-rgb);
+  --ion-color-contrast: var(--ion-color-red-background-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-red-background-contrast-rgb);
+  --ion-color-shade: var(--ion-color-red-background-shade);
+  --ion-color-tint: var(--ion-color-red-background-tint);
+}
+
+.ion-color-blue {
+  --ion-color-base: var(--ion-color-blue);
+  --ion-color-base-rgb: var(--ion-color-blue-rgb);
+  --ion-color-contrast: var(--ion-color-blue-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-blue-contrast-rgb);
+  --ion-color-shade: var(--ion-color-blue-shade);
+  --ion-color-tint: var(--ion-color-blue-tint);
+}
+
+.ion-color-background-purple {
+  --ion-color-base: var(--ion-color-background-purple);
+  --ion-color-base-rgb: var(--ion-color-background-purple-rgb);
+  --ion-color-contrast: var(--ion-color-background-purple-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-background-purple-contrast-rgb);
+  --ion-color-shade: var(--ion-color-background-purple-shade);
+  --ion-color-tint: var(--ion-color-background-purple-tint);
+}
+
+.font-big-heading {
+  @extend .fs-15 ;
+  @extend .font-color-heading-color;
+}
+
+.font-big-heading-no-color {
+  @extend .fs-15 ;
+}
+
+.font-heading {
+  @extend .font-heading-no-color;
+  @extend .font-color-heading-color;
+}
+
+
+.font-heading-no-color {
+  @extend .fs-15 ;
+}
+
+.font-extra-big-heading-no-color {
+  @extend .fs-18;
+}
+
+.font-color-white-50p {
+  @extend .font-color-white;
+  @extend .opacity-50p;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.font-normal {
+  @extend .fs-11 ;
+}
+
+.font-small {
+  @extend .fs-9 ;
+}
+
+.font-extra-small {
+  @extend .fs-8 ;
+}
+
+.font-weight-bold {
+  font-weight: 500;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.font-weight-medium-bold {
+  font-weight: 500;
+}
+
+.placeholder-primary::placeholder {
+  //color: #4082734D !important;
+}
+
+.placeholder-primary {
+  --placeholder-color: var(--ion-color-primary);
+  --placeholder-opacity: 30%
+}
+
+.placeholder-primary-no-opacity {
+  --placeholder-color: var(--ion-color-primary);
+  --placeholder-opacity: 100%
+}
+
+.placeholder-small-font-color {
+  --placeholder-color: var(--ion-color-small-font-color);
+  --placeholder-opacity: 30%;
+}
+
+.placeholder-small-font-color-no-opacity {
+  --placeholder-color: var(--ion-color-small-font-color);
+  --placeholder-opacity: 100%;
+}
+
+.placeholder-small-font-color::placeholder {
+  //color: var(--ion-color-small-font-color);
+}
+
+.placeholder-medium-grey {
+  --placeholder-color: var(--ion-color-medium-grey);
+}
+
+.form-letter-spacing {
+  letter-spacing: 1vw;
+}
+
+.default-back-button::part(icon) {
+  //@extend .font-color-primary;
+  @extend .bg-white;
+  //--opacity:0.5;
+  //opacity: 0.8;
+  @extend .b-1px-light-grey;
+  @extend .font-color-black;
+  //@extend .br-999999;
+  @extend .pa-1;
+  @extend .fs-16;
+  border-radius: 50%;
+  --border-radius: 50%;
+  //--padding-start: 0rem;
+  //--padding-top: 0.5rem;
+  ////--padding-bottom: 0.5rem;
+  //--padding-end: 0rem;
+  //--icon-font-size: 1.6rem;
+  //--icon-padding-start: 0.25rem;
+  //--icon-padding-end: 0.25rem;
+  //--icon-padding-top: 0.25rem;
+  //--icon-padding-bottom: 0.25rem;
+  //--icon-margin-end: 0;
+  //--icon-margin-start: 0;
+  //--margin-end: 0rem;
+}
+
+.sc-ion-back-button {
+  @extend .bg-transparent;
+}
+
+.default-slider-back-button {
+  @extend .font-color-black;
+  @extend .bg-white;
+  @extend .br-50p;
+  //@extend .pa-2;
+  opacity: 0.8;
+}
+
+.border-shadow-white-background {
+  @include borderShadow(var(--ion-color-border-shadow));
+}
+
+.border-shadow-white-background-small {
+  @include borderShadow(var(--ion-color-border-shadow), 0px, 2px, 4px);
+}
+
+.spread-shadow {
+  @include borderShadow(#00000026, 0px, 0px, 12px);
+}
+
+.drop-shadow-top {
+  @include borderShadow(rgba(0, 0, 0, 0.05), 0px, -7px, 12px);
+}
+
+.default-drop-shadow {
+  @include borderShadow(#0000001A, 0px, 8px, 16px, 0px) ;
+
+}
+
+.default-drop-shadow-small {
+  @include borderShadow(#00000040, 0px, 4px, 8px, 0px) ;
+
+}
+
+.button-spread-shadow {
+  --box-shadow: 0px 0px 8px 0px #00000040;;
+}
+
+.button-drop-shadow {
+  --box-shadow: 0px 8px 16px 0px #0000001A;;
+}
+
+.default-primary-drop-shadow {
+  --box-shadow: 0px 0px 16px 0px #F2E2FF;;
+}
+
+.button-drop-shadow-small {
+  --box-shadow: 0px 4px 8px 0px #00000040;;
+}
+
+.button-align-end {
+  --padding-end: 0;
+  text-align: end;
+}
+
+.button-align-start {
+  --padding-start: 0;
+  text-align: start;
+}
+
+.button-bg-light-purple {
+  --background: var(--ion-color-light-purple);
+}
+
+.border-shadow-white-background-blur {
+  @include borderShadow(var(--ion-color-border-shadow), 0px, 0px, 10px);
+}
+
+.border-shadow-none {
+  box-shadow: none;
+  --box-shadow: none;
+}
+
+.border-shadow-primary-background-small {
+  @include borderShadow(#00000066, 0px, 2px, 4px);
+}
+
+.border-shadow-primary {
+  @include borderShadow(var(--ion-color-primary), 0px, 10px, 20px);
+}
+
+.border-shadow-black-25p {
+  @include borderShadow(#00000040, 0px, 4px, 8px);
+
+}
+
+.border-negative-shadow-white-background-small {
+  @include borderShadow(#00000033, 0px, -2px, 4px);
+}
+
+.participant-avatar {
+  max-width: 32px !important;
+  max-height: 32px !important;
+}
+
+.participant-avatar-large {
+  max-width: 48px !important;
+  max-height: 48px !important;
+}
+
+.participant-avatar-small {
+  max-width: 24px !important;
+  max-height: 24px !important;
+}
+
+.participant-ngx-avatar-small {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+//TODO: Move to signup and congrats
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+.font-playfair-display {
+  font-family: "Playfair Display";
+}
+
+.scrollable-slides {
+  overflow-y: scroll;
+}
+
+
+.core-time-picker {
+  position: absolute;
+  --height: 100% !important;
+  --border-width: 0px 0 0;
+}
+
+.b-1px-primary {
+  @include border(all, 1px, solid, var(--ion-color-primary));
+}
+
+.b-2px-primary {
+  @include border(all, 2px, solid, var(--ion-color-primary));
+}
+
+.b-2px-green {
+  @include border(all, 2px, solid, var(--ion-color-green));
+}
+
+.b-3px-white {
+  @include border(all, 3px, solid, var(--ion-color-white));
+}
+
+.b-1px-white {
+  @include border(all, 1px, solid, var(--ion-color-white));
+}
+
+.b-1px-dashed-black {
+  @include border(all, 1px, dashed, var(--ion-color-black));
+}
+
+.b-1px-dashed-outline-grey {
+  @include border(all, 1px, dashed, var(--ion-color-outline-grey));
+}
+
+.b-1px-dashed-white {
+  @include border(all, 1px, dashed, var(--ion-color-white));
+}
+
+.b-1px-black {
+  @include border(all, 1px, solid, var(--ion-color-black));
+}
+
+.b-1px-orange {
+  @include border(all, 1px, solid, var(--ion-color-orange));
+}
+
+.b-1px-grey {
+  @include border(all, 1px, solid, #00000033);
+}
+
+.b-1px-medium-grey {
+  @include border(all, 1px, solid, var(--ion-color-medium-grey));
+}
+
+.b-1px-circles-primary {
+  @include border(all, 1px, solid, var(--ion-color-circles-primary));
+}
+
+.b-2px-medium-grey {
+  @include border(all, 2px, solid, var(--ion-color-medium-grey));
+}
+
+.bb-1px-grey {
+  @include border(bottom, 1px, solid, #00000033);
+}
+
+.bb-1px-medium-grey {
+  @include border(bottom, 1px, solid, var(--ion-color-medium-grey));
+}
+
+.bb-1px-dashed-medium-grey {
+  @include border(bottom, 1px, dashed, var(--ion-color-medium-grey));
+}
+
+.bt-1px-dashed-outline-grey {
+  @include border(top, 1px, dashed, var(--ion-color-outline-grey));
+}
+
+.bt-1px-dashed-medium-grey {
+  @include border(top, 1px, dashed, var(--ion-color-medium-grey));
+}
+
+.bt-1px-dashed-light-blue {
+  @include border(top, 1px, dashed, var(--ion-color-light-blue));
+}
+
+.br-1px-medium-grey {
+  @include border(right, 1px, solid, var(--ion-color-medium-grey));
+}
+
+.br-1px-outline-grey {
+  @include border(right, 1px, solid, var(--ion-color-outline-grey));
+}
+
+.bt-1px-medium-grey {
+  @include border(top, 1px, solid, var(--ion-color-medium-grey));
+}
+
+.bt-1px-outline-grey {
+  @include border(top, 1px, solid, var(--ion-color-outline-grey));
+}
+
+.bb-1px-outline-grey {
+  @include border(bottom, 1px, solid, var(--ion-color-outline-grey));
+}
+
+.bb-1px-dashed-outline-grey {
+  @include border(bottom, 1px, dashed, var(--ion-color-outline-grey));
+}
+
+.bb-1px-light-grey {
+  @include border(bottom, 1px, solid, var(--ion-color-light-grey));
+}
+
+.b-1px-light-grey {
+  @include border(all, 1px, solid, var(--ion-color-light-grey));
+}
+
+.b-1px-outline-grey {
+  @include border(all, 1px, solid, var(--ion-color-outline-grey));
+}
+
+.bb-8px-outline-grey {
+  @include border(bottom, 8px, solid, var(--ion-color-light-grey));
+}
+
+.bb-8px-light-grey {
+  @include border(bottom, 8px, solid, var(--ion-color-light-grey));
+}
+
+.bt-8px-outline-grey {
+  @include border(top, 8px, solid, var(--ion-color-light-grey));
+}
+
+.bt-1px-white {
+  @include border(top, 1px, solid, var(--ion-color-white));
+}
+
+.bb-1px-white {
+  @include border(bottom, 1px, solid, var(--ion-color-white));
+}
+
+.b-1px-white {
+  @include border(all, 1px, solid, var(--ion-color-white));
+}
+
+.bb-3px-grey {
+  @include border(bottom, 3px, solid, #00000033);
+}
+
+.bb-2px-grey {
+  @include border(bottom, 2px, solid, var(--ion-color-grey));
+}
+
+.bt-1px-grey {
+  @include border(top, 1px, solid, #00000033);
+}
+
+.b-1px-green {
+  @include border(all, 1px, solid, var(--ion-color-green));
+}
+
+.bt-4px-green {
+  @include border(top, 10px, solid, var(--ion-color-green));
+}
+
+.b-1px-red {
+  @include border(all, 1px, solid, var(--ion-color-red));
+}
+
+.bt-4px-red {
+  @include border(top, 10px, solid, var(--ion-color-red));
+}
+
+
+.primary-progress-bar {
+  --background: transparent;
+  --progress-background: var(--ion-color-primary);
+  --buffer-background: transparent;
+}
+
+.white-progress-bar {
+  //--background: var(--ion-color-white);
+  --progress-background: var(--ion-color-white);
+  //--buffer-background: #639B8F;
+}
+
+.primary-light-progress-bar {
+  --background: transparent;
+  --progress-background: var(--ion-color-primary-light-background);
+  //--buffer-background: transparent;
+}
+
+.text-transform-none {
+  text-transform: none;
+}
+
+.position-fixed{
+  position: static;
+}
+
+.position-fixed-bottom-0 {
+  position: fixed;
+  bottom: 0px
+}
+.position-fixed-top-0{
+  position: sticky;
+  top: 0px
+}
+.position-fixed-bottom-right-0 {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.position-fixed-bottom-0-4rem {
+  position: fixed;
+  bottom: 0.4rem;
+}
+
+.position-absolute-bottom-0 {
+  position: absolute;
+  bottom: 0px
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-static-bottom-0 {
+  position: static;
+  bottom: 0px
+}
+
+.position-top-100p {
+  position: absolute;
+  bottom: 0px
+}
+
+.z-index-contest-top {
+  z-index: 10;
+}
+
+.z-index-top-button {
+  z-index: 10;
+}
+
+.z-index-top-row {
+  z-index: 5;
+}
+
+
+.slide-card-margin {
+  margin-inline-start: 0rem;
+  margin-inline-end: 0rem;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+.picker-wrapper {
+  @extend .bg-white;
+}
+
+.picker-wrapper > .picker-columns > .picker-above-highlight {
+  background: linear-gradient(180deg, rgba(186, 186, 186, 0.69) 0%, rgba(186, 186, 186, 0.1) 100%);
+}
+
+.picker-wrapper > .picker-columns > .picker-below-highlight {
+  background: linear-gradient(180deg, rgba(186, 186, 186, 0.69) 0%, rgba(186, 186, 186, 0.1) 100%);
+  transform: rotate(-180deg);
+}
+
+.picker-wrapper > .picker-columns > ion-picker-column > .picker-opts > .picker-opt {
+  color: #0000004D;
+}
+
+.picker-wrapper > .picker-columns > ion-picker-column > .picker-opts > .picker-opt.picker-opt-selected {
+  @extend .font-heading;
+}
+
+.default-horizontal-padding {
+  @extend .default-horizontal-left-padding;
+  @extend .default-horizontal-right-padding
+}
+
+.default-horizontal-left-padding {
+  @extend .pl-4;
+}
+
+.default-horizontal-button-left-padding {
+  @extend .pl-2;
+}
+
+.default-horizontal-right-padding {
+  @extend .pr-4;
+}
+
+.default-horizontal-button-padding {
+  @extend .default-horizontal-button-left-padding;
+  @extend .default-horizontal-right-padding;
+}
+
+.disable-default-form-borders > dynamic-ionic-input > ion-item.item-interactive {
+  --border-width: 0;
+  --show-full-highlight: 0;
+}
+
+.disable-default-form-borders > dynamic-ionic-datetime > ion-item.item-interactive {
+  --border-width: 0;
+  --show-full-highlight: 0;
+}
+
+.circle-name-input-box > dynamic-ionic-input > ion-item {
+  @extend .b-1px-medium-grey;
+  @extend .br-1;
+}
+
+.circle-name-input-box > dynamic-ionic-input > ion-item.item-has-focus {
+  @extend .b-1px-circles-primary;
+  @extend .default-drop-shadow;
+}
+
+.user-profile-info {
+  @extend .font-small;
+  @extend .font-color-primary;
+  @extend .font-weight-700;
+}
+
+.default-bottom-padding {
+  @extend .pb-30;
+  //@extend .banner-ad-margin;
+}
+
+.user-profile-info-slides > .swiper-pagination.swiper-pagination-bullets {
+  bottom: 0.25rem;
+}
+
+.nested-router-outlet > .ion-page {
+  //position: relative !important;
+  position: unset;
+  left: unset;
+  right: unset;
+  top: unset;
+  bottom: unset;
+  contain: unset;
+  overflow: scroll;
+}
+
+
+.nested-router-outlet {
+  overflow: scroll;
+}
+
+.main-loader {
+  --spinner-color: var(--ion-color-primary);
+  --background: var(--ion-color-white);
+}
+
+.main-loader > ion-backdrop {
+  opacity: 0.3 !important;;
+  @extend .bg-white;
+}
+
+.main-loader > .loading-wrapper {
+  @extend .border-shadow-white-background;
+}
+
+.main-loader > .loading-wrapper > .loading-content {
+  @extend .font-color-text-color;
+}
+
+virtual-scroller {
+  width: 100%;
+  height: 1000px;
+}
+
+
+cdk-virtual-scroll-viewport {
+  height: 100%;
+  width: 100%;
+}
+
+.white-space-pre-line {
+  white-space: pre-line;
+
+}
+
+.button-text-right .button-inner {
+  justify-content: flex-end;
+}
+
+.fab-button-list {
+  margin-top: 66px;
+  margin-bottom: 66px;
+}
+
+.fab-button-list > ion-fab-button {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.fab-button-with-text {
+  width: 60px;
+  height: 60px;
+}
+
+ion-fab-button[data-desc] {
+  position: relative;
+}
+
+ion-fab-button[data-desc]::after {
+  position: absolute;
+  content: attr(data-desc);
+  z-index: 1;
+  right: 55px;
+  bottom: 4px;
+  background-color: var(--ion-color-dark);
+  padding: 9px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+
+.ios .button-round {
+  @extend .br-999999;
+}
+
+.star-list {
+  list-style-type: "*";
+}
+
+div.datetime-footer > div > div {
+  width: 100% !important;
+}
+
+.button-shadow-default {
+  --box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25)
+}
+
+.button-shadow-default-small {
+  --box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.collection-image {
+  //margin-bottom: -1rem;
+  //margin-right: -1rem;
+  //@extend .border-shadow-primary-background-small;
+}
+
+.goal-active {
+  @extend .b-1px-primary;
+  @extend .font-color-primary;
+}
+
+.coin-progress-bar {
+  --background: var(--ion-color-light-grey);
+  --progress-background: var(--ion-color-coin-progress);
+  --buffer-background: var(--ion-color-light-grey);
+}
+
+.circles-reward-coin-progress-bar {
+  --background: var(--ion-color-white-30p);
+  --progress-background: var(--ion-color-coin-progress);
+  --buffer-background: var(--ion-color-white-30p);
+}
+
+.default-progress-bar {
+  @extend .h-1vh;
+  @extend .br-2
+}
+
+.backdrop-filter-blur-35px {
+  backdrop-filter: blur(3.5px);
+
+}
+
+.backdrop-filter-blur-5px {
+  backdrop-filter: blur(5px);
+
+}
+
+.water-primary-progress-bar {
+  --background: var(--ion-color-light-grey);
+  --progress-background: var(--ion-color-water-primary);
+  --buffer-background: var(--ion-color-light-grey);
+}
+
+.steps-primary-progress-bar {
+  --background: var(--ion-color-light-grey);
+  --progress-background: var(--ion-color-steps-primary);
+  --buffer-background: var(--ion-color-light-grey);
+}
+
+.fitness-primary-progress-bar {
+  --background: var(--ion-color-light-grey);
+  --progress-background: var(--ion-color-fitness-primary);
+  --buffer-background: var(--ion-color-light-grey);
+}
+
+.skin-care-primary-progress-bar {
+  --background: var(--ion-color-light-grey);
+  --progress-background: var(--ion-color-skin-care-primary);
+  --buffer-background: var(--ion-color-light-grey);
+}
+
+.background-header {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.background-100p {
+  background-size: 100% 100% !important;
+}
+
+.background-contain {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.primary-progress-bar {
+  --background: var(--ion-color-light-grey);
+  --progress-background: var(--ion-color-primary);
+  --buffer-background: var(--ion-color-light-grey);;
+}
+
+.in-app-top-slider-bullet {
+
+  color: red;
+  width: 45px;
+  height: 5px;
+  border-radius: 5px !important;
+}
+
+.in-app-top-slider-bullet-active {
+
+}
+
+#in-app-top-slider-pagination > .swiper-pagination-bullet {
+  //@extend .h-1vh;
+  //@extend .bg-medium-grey;
+  background: var(--ion-color-white) !important;
+  opacity: 0.2;
+  //@extend .w
+  width: 45px;
+  height: 5px;
+  border-radius: 5px !important;
+}
+
+#in-app-top-slider-pagination > .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.modifying-searchbar.searchbar-has-focus {
+  @extend .default-drop-shadow-small;
+  @extend .bg-white;
+}
+
+.opacity-30p {
+  opacity: 30%;
+}
+
+.opacity-50p {
+  opacity: 50%;
+}
+
+.opacity-70p {
+  opacity: 70%;
+}
+
+.opacity-60p {
+  opacity: 60%;
+}
+
+.reward-filters-segment-button {
+  --indicator-color: transparent !important;
+  --indicator-color-checked: transparent !important;
+  --margin-end: 0.25rem;
+  --padding-end: 0rem;
+  --padding-start: 0rem;
+  border: 0px;
+}
+
+.reward-filters-segment-button.segment-button-checked > ion-label {
+  @extend .font-color-primary;
+  @extend .bg-light-blue-background;
+}
+
+.edit-post-segment-button {
+  --indicator-color: transparent !important;
+  --indicator-color-checked: transparent !important;
+  --margin-end: 0.25rem;
+  --padding-end: 0rem;
+  --padding-start: 0rem;
+  border: 0px;
+}
+
+.edit-post-segment-button.segment-button-checked > ion-label {
+  @extend .font-color-font-normal-color;
+}
+
+.edit-post-segment-button.segment-button-checked > div {
+  opacity: 60%;
+}
+
+#shopify-reward-image-slider-pagination > .swiper-pagination-bullet {
+  background: var(--ion-color-outline-grey) !important;
+  width: 3px;
+  height: 3px;
+  border-radius: 5px !important;
+}
+
+#shopify-reward-image-slider-pagination > .swiper-pagination-bullet-active {
+  @extend .bg-primary;
+  background: var(--ion-color-circles-primary) !important;
+}
+
+.circle-user-goal {
+  background: rgba(247, 136, 31, 0.1);
+}
+
+.circle-user-goal.active {
+  @extend .b-1px-green;
+  @extend .bg-white;
+}
+
+.br-1px-dashed-circles-primary {
+  @include border(right, 1px, dashed, var(--ion-color-circles-primary));
+}
+
+.bg-green-20p {
+  background: rgba(15, 184, 0, 0.2);
+}
+
+.b-1px-light-blue-background {
+  @include border(all, 1px, solid, var(--ion-color-light-blue-background));
+}
+
+.images-slider-highlight.active {
+  @extend .b-4px-primary;
+  @extend .default-drop-shadow-small;
+}
+
+.b-4px-primary {
+  @include border(all, 4px, solid, var(--ion-color-primary));
+}
+
+.b-2px-outline-grey {
+  @include border(all, 2px, solid, var(--ion-color-outline-grey));
+}
+
+.w-50p {
+  width: 50%;
+}
+
+.feature-pre-launch-interested {
+  @extend .font-color-small-font-color;
+}
+
+.feature-pre-launch-interested.active {
+  @extend .font-color-font-normal-color;
+}
+
+.success-toast {
+  --background: #FFFFFF;
+  --border-color: #0FB800;
+  --border-radius: 5px;
+  --border-style: solid;
+  --border-width: 1px;
+  @extend .font-color-green;
+}
+
+.error-toast {
+  --border-color: #FF4D4D;
+  --border-radius: 5px;
+  --border-style: solid;
+  --border-width: 1px;
+  @extend .font-color-red;
+}
+
+.warning-toast {
+  --border-color: #FF8718;
+  --border-radius: 5px;
+  --border-style: solid;
+  --border-width: 1px;
+  //@extend .font-color-warning;
+}
+
+.font-color-white-70p {
+  @extend .font-color-white;
+  @extend .opacity-70p;
+}
+
+.font-color-white-60p {
+  @extend .font-color-white;
+  @extend .opacity-60p;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.form-active > dynamic-ionic-input > ion-item.item-has-focus {
+  @extend .b-1px-primary;
+  @extend .default-drop-shadow-small;
+  @extend .br-1;
+  @extend .bg-white;
+}
+
+
+.has-focus.sc-ion-input-md-h input.sc-ion-input-md {
+
+  caret-color: var(--ion-color-primary) !important;
+}
+
+.form-active > dynamic-ionic-input > ion-item {
+  @extend .b-1px-outline-grey;
+  @extend .br-1;
+  //@extend .bg-grey;
+}
+
+.legacy-input.sc-ion-input-md-h .native-input.sc-ion-input-md {
+  @extend .pa-6;
+}
+
+.no-time-selected {
+  @extend .font-color-small-font-color;
+}
+
+.body-clock-time-picker-label .native-input {
+  @extend .pa-0;
+}
+
+ion-app {
+  //padding-top: var(--safe-area-top) !important;
+  //padding-bottom: var(--safe-area-bottom) !important;
+  margin-top: var(--safe-area-top) !important;
+  margin-bottom: var(--safe-area-bottom) !important;
+
+}
+
+.banner-ad-margin {
+  margin-bottom: var(--banner-area-height) !important;
+}
+
+.display-name-classes {
+  background-color: #C0C0C0 !important;
+}
+
+.display-name-classes:active {
+  background-color: white !important;
+
+}
+
+.active-classes:active {
+  @extend .b-1px-primary;
+}
+
+.flex-dir-col {
+  flex-direction: column;
+}
+
+.no-padding-button > .button-native{
+padding: 0 !important;
+}
+
+.blasts-left-progress-bar {
+  --progress-background: var(--ion-color-primary);
+  --buffer-background: var(--ion-color-grey-3);
+  @extend .h-2vh;
+  @extend .br-4;
+}
+
+.button-native{
+  border-radius: 10px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+@import "colors";
+
+$font-colors: teritiary;
+
+@mixin generateFontColors($colors-array,$prefix:'') {
+
+
+  @each $value in $colors-array {
+    .font-color-#{""+$value} {
+      color: var(--#{$prefix}#{$value});
+      --color: var(--#{$prefix}#{$value});
+    }
+  }
+}
+
+@mixin fontColor($color) {
+  color: #{$color};
+  --color: #{$color};
+}
+
+@mixin generateStepColors() {
+
+  $step-colors:50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,900;
+
+  @each $value in $step-colors{
+    .font-color-step-#{""+$value} {
+      color: var(--ion-color-step-#{$value});
+      --color: var(--ion-color-step-#{$value});
+    }
+  }
+}
+
+
+@include generateFontColors($MAIN-COLORS, 'ion-color-');
+@include generateFontColors($WATER-COLORS, 'ion-color-');
+@include generateFontColors($STEP-COLORS, 'ion-color-');
+@include generateFontColors($STEPS-COLORS, 'ion-color-');
+@include generateFontColors($FITNESS-COLORS, 'ion-color-');
+@include generateFontColors($HOBBY-COLORS, 'ion-color-');
+@include generateFontColors($BMI-COLORS, 'ion-color-');
+@include generateFontColors($BADGES-COLORS, 'ion-color-');
+@include generateFontColors($CONTESTS-COLORS, 'ion-color-');
+@include generateFontColors($COMMUNITY-COLORS, 'ion-color-');
+@include generateFontColors($FUN-ZONE-COLORS, 'ion-color-');
+@include generateFontColors($SKIN-CARE-COLORS, 'ion-color-');
+@include generateFontColors($CIRCLES-COLORS, 'ion-color-');
+@include generateFontColors($font-colors);
+
+@include generateStepColors();
+
+.font-color-1 {
+  color: #373737;
+}
+
+.font-color-grey-1 {
+  color: #C0C0C0;
+}

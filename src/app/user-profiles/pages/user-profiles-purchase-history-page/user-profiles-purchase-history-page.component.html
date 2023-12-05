@@ -1,0 +1,58 @@
+<!--<user-profiles-get-user-event-tickets-by-user-account-scrolling-->
+<!--        [numberOfItems]="5"-->
+<!--&gt;</user-profiles-get-user-event-tickets-by-user-account-scrolling>-->
+<ion-content scroll-y="true" class="bg-purple">
+    <ion-row class="mt-30 mh-4 ion-justify-content-center">
+        <ion-col size="12" class="d-flex scrollX">
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/edit'">
+                Edit profile
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/blasts'">
+                Mass Messaging
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/payoutinfo'">
+                Payout Information
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab-active"
+                        [routerLink]="'/signedin/userprofiles/history'">
+                Purchase history
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/pastguests'">
+                Past guests
+            </ion-button>
+            <ion-button fill="clear" class="btn-event-tab"
+                        [routerLink]="'/signedin/userprofiles/allcontacts'">
+                All contacts
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center mt-4">
+        <ion-col size="12">
+            <ion-row class="mx-0 mh-4 justify-content-center">
+
+                <ion-col size="12">
+                    <ion-row class="text-align-end px-0 ion-justify-content-center">
+                        <ion-button
+                                color="primary"
+                                size="large"
+                                class=" font-weight-500 fs-11 text-white pv-3 ph-8 border-2 rounded-2 ">
+                            Download as CSV
+                            <ion-icon name="download-outline" class="ml-4"></ion-icon>
+                        </ion-button>
+                    </ion-row>
+                </ion-col>
+
+
+                <user-profiles-get-user-event-tickets-by-user-account-scrolling
+                        [numberOfItems]="5"
+                ></user-profiles-get-user-event-tickets-by-user-account-scrolling>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+</ion-content>
